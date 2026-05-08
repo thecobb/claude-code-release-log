@@ -1,9 +1,290 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-08T13:56:51.971200+00:00",
+  "generated_at": "2026-05-08T19:22:58.759463+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 290,
+  "release_count": 291,
   "releases": [
+    {
+      "version": "2.1.136",
+      "published_at": "2026-05-08T18:39:08Z",
+      "bullets": [
+        {
+          "text": "Added `CLAUDE_CODE_ENABLE_FEEDBACK_SURVEY_FOR_OTEL` to re-enable the session quality survey for enterprises capturing responses through OpenTelemetry",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added `settings.autoMode.hard_deny` for auto mode classifier rules that block unconditionally regardless of user intent or allow exceptions",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Fixed MCP servers configured in `.mcp.json`, plugins, and claude.ai connectors silently disappearing after `/clear` in the VS Code extension, JetBrains plugin, and Agent SDK",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a rare login loop where a concurrent credential write could overwrite a freshly-rotated OAuth token and force re-login",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed MCP OAuth refresh tokens being lost when multiple servers refresh concurrently — users with several remote MCP servers should no longer need daily re-authentication",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed an API error (400) when extended thinking emitted a redacted thinking block after a tool call",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `--resume` / `--continue` not finding sessions when the project path contains underscores",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed plan mode not blocking file writes when a matching `Edit(...)` allow rule exists",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "WSL2: image paste from Windows clipboard now works via a PowerShell fallback when xclip/wl-paste cannot read image data",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Fixed plugin `Stop`/`UserPromptSubmit` hooks failing when cache cleanup deletes a version still in use by a running session",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Improved visual consistency across slash command dialogs: standardized footer hints, dialog spacing, and arrow-key styling, and the dialog frame now appears immediately during loading instead of popping in after",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Fixed colors appearing at wrong positions in bash command output and markdown code blocks",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed ReasonML diffs rendering corrupted \"undefined\" text artifacts at word-diff boundaries",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed worktree exit dialog warning about uncommitted files in the wrong directory after worktree removal",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `@` file picker not matching files created mid-session in small non-git directories",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `@`-mention file picker not finding files in directories with more than 100 entries",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed failed tool calls not being click-to-expand in fullscreen mode when their output was truncated",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Backspace and Ctrl+Backspace getting swapped after using Ctrl+G to open an external editor on terminals with persistent extended-key modes",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/usage` weekly reset showing time of day instead of the calendar date",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed welcome banner ellipsis causing column overflow on CJK terminals",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/insights` crash when session history contains tool calls with malformed input fields",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a renderer crash when a tool's collapsibility classification changes mid-session",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a `skills` entry in `plugin.json` hiding the plugin's default `skills/` directory, and listing a file path now shows an error instead of failing silently",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed IDE shell-integration lock files not respecting `CLAUDE_CONFIG_DIR`",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed trailing whitespace in copied terminal output during streaming",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed plugin uninstall and enable/disable not matching slugs case-insensitively",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed tool error truncation marker showing a negative count for surrogate-pair strings",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed env vars from `CLAUDE_ENV_FILE` SessionStart hooks going stale after `/resume` or `/clear`",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/branch` saving a multi-line session title when given a pasted multi-line name",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a stray leading space on the second line of wrapped text at the column boundary",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Esc not dismissing dialogs in `/install-github-app`, `/desktop`, `/resume`, and `/web-setup`",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/doctor` MCP schema errors not naming the missing field or showing the source file path",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Bash permission prompts showing an internal parser diagnostic instead of a user-readable explanation",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed plugin slash commands with spaces (e.g. `/myplugin review`) not resolving to their namespaced form",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `AskUserQuestion` discarding multi-select answers when supplied as an array",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/clear <name>` not labeling the cleared session for `/resume`",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `CronList` output missing qualifiers and the scheduled prompt",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed \"Jump to bottom\" overlay leaving color artifacts on CJK characters in fullscreen mode",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed wide markdown tables leaving a stale bordered render in terminal scrollback while streaming",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed pasted text being silently dropped when a long prompt with a pasted-text placeholder was auto-truncated",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/release-notes` getting stuck on an old version after a failed changelog refresh",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/mcp` server list not scrolling when there are more servers than fit in the terminal",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed mid-input slash command autocomplete not working after an initial slash command",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed scrolling to bottom re-engaging auto-follow with `autoScrollEnabled: false`",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed prompt suggestions being auto-submitted by Enter on an empty input instead of requiring Tab or arrow to accept",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed keyboard shortcut hints not reflecting rebound keys from `keybindings.json`",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/settings` language change being reverted on Escape after confirming",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/terminal-setup` only appearing in autocomplete on exact name match instead of partial prefixes",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed \"Chat about this\" on an `AskUserQuestion` dialog erasing the question text",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed MCP tool results being invisible when the server returns content blocks",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Improved error message when `--worktree` collides with an existing or stale worktree",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed plugin marketplace removal key to `d` (matching delete elsewhere) instead of `r` which collided with retry",
+          "category": "improved",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.136",
+      "github_body": "## What's changed\n\n- Added `CLAUDE_CODE_ENABLE_FEEDBACK_SURVEY_FOR_OTEL` to re-enable the session quality survey for enterprises capturing responses through OpenTelemetry\n- Added `settings.autoMode.hard_deny` for auto mode classifier rules that block unconditionally regardless of user intent or allow exceptions\n- Fixed MCP servers configured in `.mcp.json`, plugins, and claude.ai connectors silently disappearing after `/clear` in the VS Code extension, JetBrains plugin, and Agent SDK\n- Fixed a rare login loop where a concurrent credential write could overwrite a freshly-rotated OAuth token and force re-login\n- Fixed MCP OAuth refresh tokens being lost when multiple servers refresh concurrently — users with several remote MCP servers should no longer need daily re-authentication\n- Fixed an API error (400) when extended thinking emitted a redacted thinking block after a tool call\n- Fixed `--resume` / `--continue` not finding sessions when the project path contains underscores\n- Fixed plan mode not blocking file writes when a matching `Edit(...)` allow rule exists\n- WSL2: image paste from Windows clipboard now works via a PowerShell fallback when xclip/wl-paste cannot read image data\n- Fixed plugin `Stop`/`UserPromptSubmit` hooks failing when cache cleanup deletes a version still in use by a running session\n- Improved visual consistency across slash command dialogs: standardized footer hints, dialog spacing, and arrow-key styling, and the dialog frame now appears immediately during loading instead of popping in after\n- Fixed colors appearing at wrong positions in bash command output and markdown code blocks\n- Fixed ReasonML diffs rendering corrupted \"undefined\" text artifacts at word-diff boundaries\n- Fixed worktree exit dialog warning about uncommitted files in the wrong directory after worktree removal\n- Fixed `@` file picker not matching files created mid-session in small non-git directories\n- Fixed `@`-mention file picker not finding files in directories with more than 100 entries\n- Fixed failed tool calls not being click-to-expand in fullscreen mode when their output was truncated\n- Fixed Backspace and Ctrl+Backspace getting swapped after using Ctrl+G to open an external editor on terminals with persistent extended-key modes\n- Fixed `/usage` weekly reset showing time of day instead of the calendar date\n- Fixed welcome banner ellipsis causing column overflow on CJK terminals\n- Fixed `/insights` crash when session history contains tool calls with malformed input fields\n- Fixed a renderer crash when a tool's collapsibility classification changes mid-session\n- Fixed a `skills` entry in `plugin.json` hiding the plugin's default `skills/` directory, and listing a file path now shows an error instead of failing silently\n- Fixed IDE shell-integration lock files not respecting `CLAUDE_CONFIG_DIR`\n- Fixed trailing whitespace in copied terminal output during streaming\n- Fixed plugin uninstall and enable/disable not matching slugs case-insensitively\n- Fixed tool error truncation marker showing a negative count for surrogate-pair strings\n- Fixed env vars from `CLAUDE_ENV_FILE` SessionStart hooks going stale after `/resume` or `/clear`\n- Fixed `/branch` saving a multi-line session title when given a pasted multi-line name\n- Fixed a stray leading space on the second line of wrapped text at the column boundary\n- Fixed Esc not dismissing dialogs in `/install-github-app`, `/desktop`, `/resume`, and `/web-setup`\n- Fixed `/doctor` MCP schema errors not naming the missing field or showing the source file path\n- Fixed Bash permission prompts showing an internal parser diagnostic instead of a user-readable explanation\n- Fixed plugin slash commands with spaces (e.g. `/myplugin review`) not resolving to their namespaced form\n- Fixed `AskUserQuestion` discarding multi-select answers when supplied as an array\n- Fixed `/clear <name>` not labeling the cleared session for `/resume`\n- Fixed `CronList` output missing qualifiers and the scheduled prompt\n- Fixed \"Jump to bottom\" overlay leaving color artifacts on CJK characters in fullscreen mode\n- Fixed wide markdown tables leaving a stale bordered render in terminal scrollback while streaming\n- Fixed pasted text being silently dropped when a long prompt with a pasted-text placeholder was auto-truncated\n- Fixed `/release-notes` getting stuck on an old version after a failed changelog refresh\n- Fixed `/mcp` server list not scrolling when there are more servers than fit in the terminal\n- Fixed mid-input slash command autocomplete not working after an initial slash command\n- Fixed scrolling to bottom re-engaging auto-follow with `autoScrollEnabled: false`\n- Fixed prompt suggestions being auto-submitted by Enter on an empty input instead of requiring Tab or arrow to accept\n- Fixed keyboard shortcut hints not reflecting rebound keys from `keybindings.json`\n- Fixed `/settings` language change being reverted on Escape after confirming\n- Fixed `/terminal-setup` only appearing in autocomplete on exact name match instead of partial prefixes\n- Fixed \"Chat about this\" on an `AskUserQuestion` dialog erasing the question text\n- Fixed MCP tool results being invisible when the server returns content blocks\n- Improved error message when `--worktree` collides with an existing or stale worktree\n- Changed plugin marketplace removal key to `d` (matching delete elsewhere) instead of `r` which collided with retry\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "added": 2,
+        "fixed": 46,
+        "other": 1,
+        "improved": 3
+      }
+    },
     {
       "version": "2.1.133",
       "published_at": "2026-05-07T23:49:04Z",
@@ -11719,7 +12000,7 @@
     },
     {
       "version": "2.1.2",
-      "published_at": "2026-01-09T00:04:33Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Added source path metadata to images dragged onto the terminal, helping Claude understand where images originated",
@@ -11833,11 +12114,10 @@
         }
       ],
       "sources": [
-        "changelog",
-        "github_releases"
+        "changelog"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.2",
-      "github_body": "## What's changed\n\n- Added source path metadata to images dragged onto the terminal, helping Claude understand where images originated\n- Added clickable hyperlinks for file paths in tool output in terminals that support OSC 8 (like iTerm)\n- Added support for Windows Package Manager (winget) installations with automatic detection and update instructions\n- Added Shift+Tab keyboard shortcut in plan mode to quickly select \"auto-accept edits\" option\n- Added `FORCE_AUTOUPDATE_PLUGINS` environment variable to allow plugin autoupdate even when the main auto-updater is disabled\n- Added `agent_type` to SessionStart hook input, populated if `--agent` is specified\n- Fixed a command injection vulnerability in bash command processing where malformed input could execute arbitrary commands\n- Fixed a memory leak where tree-sitter parse trees were not being freed, causing WASM memory to grow unbounded over long sessions\n- Fixed binary files (images, PDFs, etc.) being accidentally included in memory when using `@include` directives in CLAUDE.md files\n- Fixed updates incorrectly claiming another installation is in progress\n- Fixed crash when socket files exist in watched directories (defense-in-depth for EOPNOTSUPP errors)\n- Fixed remote session URL and teleport being broken when using `/tasks` command\n- Fixed MCP tool names being exposed in analytics events by sanitizing user-specific server configurations\n- Improved Option-as-Meta hint on macOS to show terminal-specific instructions for native CSIu terminals like iTerm2, Kitty, and WezTerm\n- Improved error message when pasting images over SSH to suggest using `scp` instead of the unhelpful clipboard shortcut hint\n- Improved permission explainer to not flag routine dev workflows (git fetch/rebase, npm install, tests, PRs) as medium risk\n- Changed large bash command outputs to be saved to disk instead of truncated, allowing Claude to read the full content\n- Changed large tool outputs to be persisted to disk instead of truncated, providing full output access via file references\n- Changed `/plugins` installed tab to unify plugins and MCPs with scope-based grouping\n- Deprecated Windows managed settings path `C:\\ProgramData\\ClaudeCode\\managed-settings.json` - administrators should migrate to `C:\\Program Files\\ClaudeCode\\managed-settings.json`\n- [SDK] Changed minimum zod peer dependency to ^4.0.0\n- [VSCode] Fixed usage display not updating after manual compact\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
