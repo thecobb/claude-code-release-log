@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Claude Code Release Log</title>
+<meta name="description" content="A reading-first tracker for Claude Code releases — aggregates the official changelog, GitHub releases, and the weekly What's New digests into one searchable timeline.">
+<meta name="color-scheme" content="dark light">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="./assets/style.css">
+</head>
+<body data-mode="default" data-loaded="false">
+
+<!-- ────────────────────────── header ────────────────────────── -->
+<header class="masthead">
+  <div class="masthead__brand">
+    <span class="dot" aria-hidden="true"></span>
+    <h1>The Claude Code Release Log</h1>
+    <p class="kicker">an aggregated reading view · <span data-bind="generated-at">…</span></p>
+    <p class="kicker"><span data-bind="refresh-status">Auto-refreshing…</span></p>
+  </div>
+  <nav class="masthead__nav">
+    <button class="btn" data-action="refresh-data" title="Refresh release data now (r)">
+      <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M13.7 2.3v4h-4l1.6-1.6A4.98 4.98 0 003 8a5 5 0 008.7 3.4l1.4 1.4A7 7 0 1111.3 3.3L13.7 2.3z"/></svg>
+      Refresh
+    </button>
+    <button class="btn" data-action="toggle-compare" aria-pressed="false" title="Compare two versions (c)">
+      <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M5 1H1v14h4V1zm10 0h-4v14h4V1zM6 6h4v1H6V6zm0 3h4v1H6V9z"/></svg>
+      Compare
+    </button>
+    <button class="btn" data-action="toggle-unread" title="Show only unread since last visit (u)">
+      <span class="badge" data-bind="unread-count" hidden>0</span>
+      Unread
+    </button>
+    <button class="btn btn--ghost" data-action="open-settings" aria-haspopup="dialog" title="Source &amp; preferences (s)">
+      <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M8 5a3 3 0 100 6 3 3 0 000-6zm6.6 4.5l1.4-1.1-1.5-2.6-1.7.4a6.5 6.5 0 00-1.6-.9L11 3.5h-3l-.2 1.8c-.6.2-1.1.5-1.6.9l-1.7-.4-1.5 2.6 1.4 1.1c0 .3-.1.6-.1 1s.1.7.1 1l-1.4 1.1 1.5 2.6 1.7-.4c.5.4 1 .7 1.6.9l.2 1.8h3l.2-1.8c.6-.2 1.1-.5 1.6-.9l1.7.4 1.5-2.6-1.4-1.1c0-.3.1-.6.1-1s-.1-.7-.1-1z"/></svg>
+      Sources
+    </button>
+  </nav>
+</header>
+
+<!-- ────────────────────────── filters strip ────────────────────────── -->
+<section class="rail-filters" aria-label="Filters">
+  <label class="search">
+    <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M11.7 10.3a6 6 0 10-1.4 1.4l3 3 1.4-1.4-3-3zM6 10a4 4 0 110-8 4 4 0 010 8z"/></svg>
+    <input type="search" data-bind="search" placeholder="Search the log — env vars, /commands, MCP, hooks…" autocomplete="off" spellcheck="false">
+    <kbd>/</kbd>
+  </label>
+  <div class="chips" role="group" aria-label="Filter by category">
+    <button class="chip is-on" data-filter="all">All</button>
+    <button class="chip" data-filter="added"    title="What's new in the release">＋ Added</button>
+    <button class="chip" data-filter="fixed"    title="Bug fixes">⌁ Fixed</button>
+    <button class="chip" data-filter="improved" title="Refinements & polish">↑ Improved</button>
+    <button class="chip" data-filter="breaking" title="Behavior changes you may need to act on">! Breaking</button>
+    <button class="chip" data-filter="security" title="Security-relevant items">⛨ Security</button>
+    <button class="chip" data-filter="pinned"   title="Items you've pinned">★ Pinned</button>
+  </div>
+</section>
+
+<!-- ────────────────────────── main reading area ────────────────────────── -->
+<main class="layout">
+
+  <!-- left rail: version timeline -->
+  <aside class="rail" aria-label="Version timeline">
+    <div class="rail__head">
+      <h2 class="rail__title">Versions</h2>
+      <p class="rail__meta" data-bind="rail-meta">…</p>
+    </div>
+    <ol class="timeline" data-bind="timeline" role="listbox" aria-label="Releases"></ol>
+  </aside>
+
+  <!-- center: selected release -->
+  <article class="reader" data-bind="reader">
+    <div class="reader__placeholder" data-bind="placeholder">
+      <p class="kicker">Reading mode</p>
+      <h2>Pick a version from the rail.</h2>
+      <p>Or <kbd>j</kbd>/<kbd>k</kbd> to step, <kbd>/</kbd> to search, <kbd>p</kbd> to pin, <kbd>c</kbd> to compare, <kbd>s</kbd> for sources.</p>
+    </div>
+  </article>
+
+</main>
+
+<!-- ────────────────────────── settings drawer ────────────────────────── -->
+<dialog class="drawer" data-bind="settings" aria-label="Sources and preferences">
+  <form method="dialog" class="drawer__inner">
+    <header class="drawer__head">
+      <h2>Sources</h2>
+      <button class="btn btn--ghost" value="cancel" formnovalidate aria-label="Close">✕</button>
+    </header>
+
+    <fieldset class="drawer__group">
+      <legend>Mode</legend>
+      <label class="radio">
+        <input type="radio" name="mode" value="default" checked>
+        <span class="radio__title">Claude Code (default)</span>
+        <span class="radio__hint">Aggregates CHANGELOG.md, GitHub Releases, and the weekly What's New digests for <code>anthropics/claude-code</code>. Refreshed by the action in this repo.</span>
+      </label>
+      <label class="radio">
+        <input type="radio" name="mode" value="custom-repo">
+        <span class="radio__title">Track a different GitHub repo</span>
+        <span class="radio__hint">Reads releases live from the GitHub API. No build action needed.</span>
+      </label>
+      <label class="radio">
+        <input type="radio" name="mode" value="custom-url">
+        <span class="radio__title">Ingest any GitHub release-notes URL</span>
+        <span class="radio__hint">Releases page, a single tag, a raw <code>CHANGELOG.md</code>, or any markdown file on github.com / raw.githubusercontent.com.</span>
+      </label>
+    </fieldset>
+
+    <fieldset class="drawer__group" data-when-mode="custom-repo">
+      <legend>Repository</legend>
+      <label class="field">
+        <span>owner / name</span>
+        <input type="text" data-bind="custom-repo" placeholder="vercel/next.js" autocomplete="off" spellcheck="false">
+      </label>
+      <p class="hint">Unauthenticated requests are limited to ~60/hr per IP. For active tracking, fork this repo and edit the action to point at your repo.</p>
+    </fieldset>
+
+    <fieldset class="drawer__group" data-when-mode="custom-url">
+      <legend>URL</legend>
+      <label class="field">
+        <span>paste any GitHub URL</span>
+        <input type="url" data-bind="custom-url" placeholder="https://github.com/owner/repo/releases" autocomplete="off" spellcheck="false">
+      </label>
+      <p class="hint">Auto-detected: <code>/releases</code> page → API · <code>/releases/tag/X</code> → single release · raw <code>.md</code> file → parsed as a Keep-a-Changelog-style document.</p>
+    </fieldset>
+
+    <fieldset class="drawer__group">
+      <legend>Reading preferences</legend>
+      <label class="check">
+        <input type="checkbox" data-bind="pref-merge-digests" checked>
+        <span>Show What's New weekly summaries inline (default mode only)</span>
+      </label>
+      <label class="check">
+        <input type="checkbox" data-bind="pref-include-prereleases">
+        <span>Include pre-releases</span>
+      </label>
+      <label class="check">
+        <input type="checkbox" data-bind="pref-mono">
+        <span>Reduce motion / minimal styling</span>
+      </label>
+    </fieldset>
+
+    <fieldset class="drawer__group">
+      <legend>Local data</legend>
+      <p class="hint">Your pins, read state, and source preferences are stored in this browser only. Nothing is uploaded.</p>
+      <div class="row">
+        <button class="btn" type="button" data-action="export-state">Export</button>
+        <button class="btn" type="button" data-action="import-state">Import</button>
+        <button class="btn btn--danger" type="button" data-action="reset-state">Reset</button>
+      </div>
+    </fieldset>
+
+    <footer class="drawer__foot">
+      <button class="btn btn--primary" value="apply">Apply &amp; reload</button>
+    </footer>
+  </form>
+</dialog>
+
+<!-- ────────────────────────── compare overlay ────────────────────────── -->
+<dialog class="drawer drawer--wide" data-bind="compare" aria-label="Compare versions">
+  <form method="dialog" class="drawer__inner">
+    <header class="drawer__head">
+      <h2>Compare versions</h2>
+      <button class="btn btn--ghost" value="cancel" aria-label="Close">✕</button>
+    </header>
+    <div class="compare__pickers">
+      <label class="field"><span>From (older)</span><select data-bind="compare-from"></select></label>
+      <label class="field"><span>To (newer)</span><select data-bind="compare-to"></select></label>
+    </div>
+    <div class="compare__body" data-bind="compare-body"></div>
+  </form>
+</dialog>
+
+<!-- ────────────────────────── footer ────────────────────────── -->
+<footer class="colophon">
+  <p>
+    A reading view for Claude Code releases with first-load fetch, manual refresh, periodic auto-refresh, and scheduled GitHub Pages rebuilds. Sources:
+    <a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md">CHANGELOG.md</a> ·
+    <a href="https://github.com/anthropics/claude-code/releases">GitHub releases</a> ·
+    <a href="https://code.claude.com/docs/en/whats-new">What's new</a>.
+    Unaffiliated with Anthropic.
+  </p>
+  <p class="kicker">
+    <a href="https://github.com/anthropics/claude-code">upstream</a> ·
+    <a data-bind="self-link" href="#">this repo</a>
+  </p>
+</footer>
+
+<template data-bind="tpl-timeline-item">
+  <li class="timeline__item" role="option" tabindex="-1">
+    <button class="timeline__btn">
+      <span class="timeline__version"></span>
+      <span class="timeline__date"></span>
+      <span class="timeline__counts" aria-hidden="true"></span>
+      <span class="timeline__pin" aria-hidden="true">★</span>
+    </button>
+  </li>
+</template>
+
+<template data-bind="tpl-release">
+  <header class="release__head">
+    <p class="kicker"><span class="release__sources"></span></p>
+    <h2 class="release__version"></h2>
+    <p class="release__date"></p>
+    <div class="release__actions">
+      <button class="btn" data-action="pin-release">★ Pin</button>
+      <button class="btn" data-action="mark-read-through">⊟ Mark all up to here as read</button>
+      <a class="btn btn--ghost" data-action="open-source" target="_blank" rel="noopener">↗ On GitHub</a>
+    </div>
+  </header>
+  <section class="release__digest" hidden>
+    <p class="kicker">From the weekly digest</p>
+    <blockquote class="release__digest-body"></blockquote>
+    <a class="link" data-action="open-digest" target="_blank" rel="noopener">Read the full digest →</a>
+  </section>
+  <section class="release__group" data-cat="breaking" hidden>
+    <h3>Breaking changes</h3>
+    <ul class="release__bullets"></ul>
+  </section>
+  <section class="release__group" data-cat="added" hidden>
+    <h3>Added</h3>
+    <ul class="release__bullets"></ul>
+  </section>
+  <section class="release__group" data-cat="improved" hidden>
+    <h3>Improved</h3>
+    <ul class="release__bullets"></ul>
+  </section>
+  <section class="release__group" data-cat="fixed" hidden>
+    <h3>Fixed</h3>
+    <ul class="release__bullets"></ul>
+  </section>
+  <section class="release__group" data-cat="security" hidden>
+    <h3>Security</h3>
+    <ul class="release__bullets"></ul>
+  </section>
+  <section class="release__group" data-cat="other" hidden>
+    <h3>Other</h3>
+    <ul class="release__bullets"></ul>
+  </section>
+</template>
+
+<script type="module" src="./assets/parsers.js"></script>
+<script type="module" src="./assets/app.js"></script>
+</body>
+</html>

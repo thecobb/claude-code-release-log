@@ -1,0 +1,25 @@
+# OS noise
+.DS_Store
+Thumbs.db
+
+# editor noise
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# local server logs
+/tmp/
+*.log
+
+# build outputs we don't ship
+node_modules/
+.cache/
+.checks/
