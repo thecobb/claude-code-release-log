@@ -1,9 +1,32 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-09T03:23:22.903753+00:00",
+  "generated_at": "2026-05-09T08:00:42.791898+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 297,
+  "release_count": 298,
   "releases": [
+    {
+      "version": "2.1.138",
+      "published_at": "2026-05-09T06:33:25Z",
+      "bullets": [
+        {
+          "text": "Internal fixes",
+          "category": "other",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.138",
+      "github_body": "## What's changed\n\n- Internal fixes\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "other": 1
+      }
+    },
     {
       "version": "2.1.137",
       "published_at": "2026-05-09T00:11:04Z",
@@ -11989,7 +12012,7 @@
     },
     {
       "version": "2.1.4",
-      "published_at": "2026-01-11T00:28:28Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Added `CLAUDE_CODE_DISABLE_BACKGROUND_TASKS` environment variable to disable all background task functionality including auto-backgrounding and the Ctrl+B shortcut",
@@ -12003,11 +12026,10 @@
         }
       ],
       "sources": [
-        "changelog",
-        "github_releases"
+        "changelog"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.4",
-      "github_body": "## What's changed\n\n- Added `CLAUDE_CODE_DISABLE_BACKGROUND_TASKS` environment variable to disable all background task functionality including auto-backgrounding and the Ctrl+B shortcut\n- Fixed \"Help improve Claude\" setting fetch to refresh OAuth and retry when it fails due to a stale OAuth token\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
