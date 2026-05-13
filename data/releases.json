@@ -1,9 +1,95 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-12T19:57:10.014021+00:00",
+  "generated_at": "2026-05-13T03:40:43.828178+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 299,
+  "release_count": 300,
   "releases": [
+    {
+      "version": "2.1.140",
+      "published_at": "2026-05-12T21:09:45Z",
+      "bullets": [
+        {
+          "text": "Improved Agent tool `subagent_type` matching to accept case- and separator-insensitive values (e.g. `\"Code Reviewer\"` resolves to `code-reviewer`)",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Updated agent color palette",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/goal` silently hanging when `disableAllHooks` or `allowManagedHooksOnly` is set — now shows a clear message instead of an indicator that never resolves",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a regression in settings hot-reload where symlinked settings files caused misattributed change events and spurious `ConfigChange` hooks",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `claude --bg` failing with \"connection dropped mid-request\" when the background service was about to idle-exit",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background service startup failing on machines with enterprise endpoint security by allowing more time",
+          "category": "security",
+          "scope": null
+        },
+        {
+          "text": "Fixed remote managed settings not retrying on 401 — now retries once with a force-refreshed token",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed managed `extraKnownMarketplaces` auto-update policy not being persisted to `known_marketplaces.json`",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/loop` scheduling redundant wakeups to poll for background tasks that already notify on completion",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a recurring event-loop stall on Windows when a missing executable (e.g. `gh`) triggered synchronous `where.exe` re-spawns on every check",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `Read` tool calls failing validation when `offset` is passed as a whitespace-padded or `+`-prefixed string",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed native terminal cursor not staying at the input caret when the terminal loses focus",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Plugins now warn when a default component folder (e.g. `commands/`) is silently ignored because `plugin.json` sets the matching key. Shown in `/doctor`, `claude plugin list`, and `/plugin`.",
+          "category": "other",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.140",
+      "github_body": "## What's changed\n\n- Improved Agent tool `subagent_type` matching to accept case- and separator-insensitive values (e.g. `\"Code Reviewer\"` resolves to `code-reviewer`)\n- Updated agent color palette\n- Fixed `/goal` silently hanging when `disableAllHooks` or `allowManagedHooksOnly` is set — now shows a clear message instead of an indicator that never resolves\n- Fixed a regression in settings hot-reload where symlinked settings files caused misattributed change events and spurious `ConfigChange` hooks\n- Fixed `claude --bg` failing with \"connection dropped mid-request\" when the background service was about to idle-exit\n- Fixed background service startup failing on machines with enterprise endpoint security by allowing more time\n- Fixed remote managed settings not retrying on 401 — now retries once with a force-refreshed token\n- Fixed managed `extraKnownMarketplaces` auto-update policy not being persisted to `known_marketplaces.json`\n- Fixed `/loop` scheduling redundant wakeups to poll for background tasks that already notify on completion\n- Fixed a recurring event-loop stall on Windows when a missing executable (e.g. `gh`) triggered synchronous `where.exe` re-spawns on every check\n- Fixed `Read` tool calls failing validation when `offset` is passed as a whitespace-padded or `+`-prefixed string\n- Fixed native terminal cursor not staying at the input caret when the terminal loses focus\n- Plugins now warn when a default component folder (e.g. `commands/`) is silently ignored because `plugin.json` sets the matching key. Shown in `/doctor`, `claude plugin list`, and `/plugin`.\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "improved": 2,
+        "fixed": 9,
+        "security": 1,
+        "other": 1
+      }
+    },
     {
       "version": "2.1.139",
       "published_at": "2026-05-11T18:43:42Z",
@@ -12113,7 +12199,7 @@
     },
     {
       "version": "2.1.6",
-      "published_at": "2026-01-13T02:26:03Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Added search functionality to `/config` command for quickly filtering settings",
@@ -12242,11 +12328,10 @@
         }
       ],
       "sources": [
-        "changelog",
-        "github_releases"
+        "changelog"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.6",
-      "github_body": "## What's changed\n\n- Added search functionality to `/config` command for quickly filtering settings\n- Added Updates section to `/doctor` showing auto-update channel and available npm versions (stable/latest)\n- Added date range filtering to `/stats` command - press `r` to cycle between Last 7 days, Last 30 days, and All time\n- Added automatic discovery of skills from nested `.claude/skills` directories when working with files in subdirectories\n- Added `context_window.used_percentage` and `context_window.remaining_percentage` fields to status line input for easier context window display\n- Added an error display when the editor fails during Ctrl+G\n- Fixed permission bypass via shell line continuation that could allow blocked commands to execute\n- Fixed false \"File has been unexpectedly modified\" errors when file watchers touch files without changing content\n- Fixed text styling (bold, colors) getting progressively misaligned in multi-line responses\n- Fixed the feedback panel closing unexpectedly when typing 'n' in the description field\n- Fixed rate limit warning appearing at low usage after weekly reset (now requires 70% usage)\n- Fixed rate limit options menu incorrectly auto-opening when resuming a previous session\n- Fixed numpad keys outputting escape sequences instead of characters in Kitty keyboard protocol terminals\n- Fixed Option+Return not inserting newlines in Kitty keyboard protocol terminals\n- Fixed corrupted config backup files accumulating in the home directory (now only one backup is created per config file)\n- Fixed `mcp list` and `mcp get` commands leaving orphaned MCP server processes\n- Fixed visual artifacts in ink2 mode when nodes become hidden via `display:none`\n- Improved the external CLAUDE.md imports approval dialog to show which files are being imported and from where\n- Improved the `/tasks` dialog to go directly to task details when there's only one background task running\n- Improved @ autocomplete with icons for different suggestion types and single-line formatting\n- Updated \"Help improve Claude\" setting fetch to refresh OAuth and retry when it fails due to a stale OAuth token\n- Changed task notification display to cap at 3 lines with overflow summary when multiple background tasks complete simultaneously\n- Changed terminal title to \"Claude Code\" on startup for better window identification\n- Removed ability to @-mention MCP servers to enable/disable - use `/mcp enable <name>` instead\n- [VSCode] Fixed usage indicator not updating after manual compact\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
