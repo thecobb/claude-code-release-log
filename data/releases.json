@@ -1,9 +1,151 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-14T19:53:50.305726+00:00",
+  "generated_at": "2026-05-15T03:43:00.859633+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 301,
+  "release_count": 302,
   "releases": [
+    {
+      "version": "2.1.142",
+      "published_at": "2026-05-14T22:55:10Z",
+      "bullets": [
+        {
+          "text": "Added new `claude agents` flags: `--add-dir`, `--settings`, `--mcp-config`, `--plugin-dir`, `--permission-mode`, `--model`, `--effort`, and `--dangerously-skip-permissions` to configure dispatched background sessions",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Fast mode now uses Opus 4.7 by default (previously Opus 4.6). Set `CLAUDE_CODE_OPUS_4_6_FAST_MODE_OVERRIDE=1` to pin fast mode to Opus 4.6",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Plugins with a root-level `SKILL.md` and no `skills/` subdirectory are now surfaced as a skill",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "The `/plugin` details pane and `claude plugin details` now show LSP servers a plugin provides",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "`/web-setup` warns before replacing an existing GitHub App connection",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Fixed `MCP_TOOL_TIMEOUT` not raising the per-request fetch timeout for remote HTTP and SSE MCP servers, which capped tool calls at 60 seconds regardless of the configured value",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background sessions not recognizing pre-existing git worktrees, blocking Edit while EnterWorktree refused to create a duplicate",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background sessions disappearing and daemon reconnect failing after macOS sleep/wake — the daemon now detects clock jumps instead of treating them as elapsed idle time",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed daemon not exiting cleanly after the binary is upgraded (e.g. `brew upgrade`), causing dispatched agents to crash-loop on the deleted path",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background agents crash-looping when the Claude-in-Chrome extension is connected without a shared tab",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed clicking links in an attached `claude agents` session — the background worker's headless browser shim no longer applies while attached",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `claude agents` \"v to open in editor\" using the daemon's default editor instead of your shell's `$EDITOR`/`$VISUAL`",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `claude agents` deadlocking on Windows with network-drive working directories; Ctrl+C now works during startup",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background-color bleed when attaching to a `claude agents` session from Apple Terminal or other 256-color-only terminals",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `claude --bg --dangerously-skip-permissions` not persisting across retire/wake",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed session titles being derived from the URL when the first message is a link",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed redundant `set_model` requests from remote clients injecting duplicate `/model` breadcrumbs into the transcript",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed plugins using `skills: [\"./\"]` showing a false \"path escapes plugin directory\" error",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed plugin cache cleanup deleting the active plugin version directory when no installation metadata is present",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/plugin` browse pane showing \"0 installs\" for newly published plugins",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed plugin advisories not naming every `plugin.json` key that shadows a default folder",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Improved reactive compaction: the first summarize attempt now seeds from the original request's overflow size, avoiding a wasted near-full-context retry",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved hook configuration error: configuring a prompt- or agent-type hook for `SessionStart`/`Setup`/`SubagentStart` now shows a clear \"use a command-type hook instead\" error",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Removed stale `/model claude-sonnet-4-20250514` suggestion from Usage Policy refusal messages",
+          "category": "breaking",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.142",
+      "github_body": "## What's changed\n\n- Added new `claude agents` flags: `--add-dir`, `--settings`, `--mcp-config`, `--plugin-dir`, `--permission-mode`, `--model`, `--effort`, and `--dangerously-skip-permissions` to configure dispatched background sessions\n- Fast mode now uses Opus 4.7 by default (previously Opus 4.6). Set `CLAUDE_CODE_OPUS_4_6_FAST_MODE_OVERRIDE=1` to pin fast mode to Opus 4.6\n- Plugins with a root-level `SKILL.md` and no `skills/` subdirectory are now surfaced as a skill\n- The `/plugin` details pane and `claude plugin details` now show LSP servers a plugin provides\n- `/web-setup` warns before replacing an existing GitHub App connection\n- Fixed `MCP_TOOL_TIMEOUT` not raising the per-request fetch timeout for remote HTTP and SSE MCP servers, which capped tool calls at 60 seconds regardless of the configured value\n- Fixed background sessions not recognizing pre-existing git worktrees, blocking Edit while EnterWorktree refused to create a duplicate\n- Fixed background sessions disappearing and daemon reconnect failing after macOS sleep/wake — the daemon now detects clock jumps instead of treating them as elapsed idle time\n- Fixed daemon not exiting cleanly after the binary is upgraded (e.g. `brew upgrade`), causing dispatched agents to crash-loop on the deleted path\n- Fixed background agents crash-looping when the Claude-in-Chrome extension is connected without a shared tab\n- Fixed clicking links in an attached `claude agents` session — the background worker's headless browser shim no longer applies while attached\n- Fixed `claude agents` \"v to open in editor\" using the daemon's default editor instead of your shell's `$EDITOR`/`$VISUAL`\n- Fixed `claude agents` deadlocking on Windows with network-drive working directories; Ctrl+C now works during startup\n- Fixed background-color bleed when attaching to a `claude agents` session from Apple Terminal or other 256-color-only terminals\n- Fixed `claude --bg --dangerously-skip-permissions` not persisting across retire/wake\n- Fixed session titles being derived from the URL when the first message is a link\n- Fixed redundant `set_model` requests from remote clients injecting duplicate `/model` breadcrumbs into the transcript\n- Fixed plugins using `skills: [\"./\"]` showing a false \"path escapes plugin directory\" error\n- Fixed plugin cache cleanup deleting the active plugin version directory when no installation metadata is present\n- Fixed `/plugin` browse pane showing \"0 installs\" for newly published plugins\n- Fixed plugin advisories not naming every `plugin.json` key that shadows a default folder\n- Improved reactive compaction: the first summarize attempt now seeds from the original request's overflow size, avoiding a wasted near-full-context retry\n- Improved hook configuration error: configuring a prompt- or agent-type hook for `SessionStart`/`Setup`/`SubagentStart` now shows a clear \"use a command-type hook instead\" error\n- Removed stale `/model claude-sonnet-4-20250514` suggestion from Usage Policy refusal messages\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "added": 1,
+        "other": 4,
+        "fixed": 16,
+        "improved": 2,
+        "breaking": 1
+      }
+    },
     {
       "version": "2.1.141",
       "published_at": "2026-05-13T23:19:16Z",
@@ -12364,7 +12506,7 @@
     },
     {
       "version": "2.1.9",
-      "published_at": "2026-01-16T02:19:31Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Added `auto:N` syntax for configuring the MCP tool search auto-enable threshold, where N is the context window percentage (0-100)",
@@ -12413,11 +12555,10 @@
         }
       ],
       "sources": [
-        "changelog",
-        "github_releases"
+        "changelog"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.9",
-      "github_body": "## What's changed\n\n- Added `auto:N` syntax for configuring the MCP tool search auto-enable threshold, where N is the context window percentage (0-100)\n- Added `plansDirectory` setting to customize where plan files are stored\n- Added external editor support (Ctrl+G) in AskUserQuestion \"Other\" input field\n- Added session URL attribution to commits and PRs created from web sessions\n- Added support for `PreToolUse` hooks to return `additionalContext` to the model\n- Added `${CLAUDE_SESSION_ID}` string substitution for skills to access the current session ID\n- Fixed long sessions with parallel tool calls failing with an API error about orphan tool_result blocks\n- Fixed MCP server reconnection hanging when cached connection promise never resolves\n- Fixed Ctrl+Z suspend not working in terminals using Kitty keyboard protocol (Ghostty, iTerm2, kitty, WezTerm)\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
