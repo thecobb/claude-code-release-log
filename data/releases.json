@@ -1,9 +1,194 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-15T19:42:08.256162+00:00",
+  "generated_at": "2026-05-16T03:27:53.374882+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 302,
+  "release_count": 303,
   "releases": [
+    {
+      "version": "2.1.143",
+      "published_at": "2026-05-15T22:28:22Z",
+      "bullets": [
+        {
+          "text": "Added plugin dependency enforcement: `claude plugin disable` now refuses when another enabled plugin depends on the target (with a copy-pasteable disable-chain hint), and `claude plugin enable` force-enables transitive dependencies",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added projected context cost (per-turn and per-invocation token estimates) to the `/plugin` marketplace browse pane",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added `worktree.bgIsolation: \"none\"` setting to let background sessions edit the working copy directly without `EnterWorktree`, for repos where worktrees are impractical",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "PowerShell tool now passes `-ExecutionPolicy Bypass`. Opt out with `CLAUDE_CODE_POWERSHELL_RESPECT_EXECUTION_POLICY=1`",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Background sessions now preserve the model and effort level you set after waking from idle",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Shift+Tab in attached agent sessions now includes auto mode in the cycle",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Fixed a corrupt `.credentials.json` with a non-array `scopes` value hanging the CLI on startup or silently aborting OAuth token refresh",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed right-click paste in `claude agents` on Windows Terminal and WSL",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed stop hooks that block repeatedly looping forever — the turn now ends with a warning after 8 consecutive blocks (override via `CLAUDE_CODE_STOP_HOOK_BLOCK_CAP`)",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Esc/Ctrl+C not cancelling a pending `/loop` wakeup while Claude is idle between iterations",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/goal` evaluator firing while background shells or delegated subagents are still running",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `NO_COLOR`/`FORCE_COLOR` in settings.json `env` stripping Claude Code's own UI colors — they now apply to subprocesses only",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed agent view spawning repeated PowerShell processes on Windows when listing sessions",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/bg` without a prompt sending \"continue\" to the forked session — the fork now waits for input",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `--agent <name>` not finding plugin-contributed agents without the `plugin:` prefix",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed deleting a session from agent view not removing its transcript file",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed stale-fragment rendering when scrolling in attached background sessions on Windows Terminal",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background agents false-positive worker-stall detection storm after host sleep or macOS App Nap",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed 5xx error messages pointing at status.claude.com instead of naming the configured gateway or cloud provider",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "The PowerShell tool is now enabled by default on Windows for Bedrock, Vertex, and Foundry users. Opt out with `CLAUDE_CODE_USE_POWERSHELL_TOOL=0`.",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "`claude agents` now accepts `--add-dir`, `--settings`, `--mcp-config`, and `--plugin-dir` and applies them to the dashboard and to background sessions dispatched from it",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "`claude agents` accepts `--permission-mode`, `--model`, `--effort`, and `--dangerously-skip-permissions` to set defaults for sessions dispatched from the view",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "`claude --bg --dangerously-skip-permissions` now persists across retire→wake",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Fixed background sessions silently capturing IDE file references into the warm spare's input, which caused the reference to be prepended to the next prompt dispatched from `claude agents`",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Worktree cleanup no longer falls back to `rm -rf` when `git worktree remove` fails, preventing loss of gitignored or in-progress files",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Fixed background-job sessions on macOS getting \"Operation not permitted\" errors when reading files under `~/Documents`, `~/Desktop`, or `~/Downloads`, even with Full Disk Access granted.",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "`/bg` now preserves `--mcp-config`, `--settings`, `--add-dir`, `--plugin-dir`, and `--strict-mcp-config`, so backgrounded sessions keep their MCP servers and settings across respawn.",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Background sessions launched from `claude agents` now honor `permissions.defaultMode` from settings.json (was previously overridden to auto mode)",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Fixed: on Windows, pressing ← in `claude agents` while a response was streaming could leave the agents list unresponsive to all input",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "`/bg` and `←`-detach now preserve `--fallback-model`, so backgrounded workers degrade to the fallback model on overload instead of hard-failing.",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "`/bg` and `←`-detach now preserve `--allow-dangerously-skip-permissions`, so the forked worker keeps bypass-permissions available in its Shift+Tab cycle.",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Fixed: background daemon spawn now falls back to the running binary when the `~/.local/bin/claude` launcher is missing or non-executable",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `claude agents --allow-dangerously-skip-permissions` defaulting dispatched sessions to bypass mode instead of making it available in the permission cycle",
+          "category": "fixed",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.143",
+      "github_body": "## What's changed\n\n- Added plugin dependency enforcement: `claude plugin disable` now refuses when another enabled plugin depends on the target (with a copy-pasteable disable-chain hint), and `claude plugin enable` force-enables transitive dependencies\n- Added projected context cost (per-turn and per-invocation token estimates) to the `/plugin` marketplace browse pane\n- Added `worktree.bgIsolation: \"none\"` setting to let background sessions edit the working copy directly without `EnterWorktree`, for repos where worktrees are impractical\n- PowerShell tool now passes `-ExecutionPolicy Bypass`. Opt out with `CLAUDE_CODE_POWERSHELL_RESPECT_EXECUTION_POLICY=1`\n- Background sessions now preserve the model and effort level you set after waking from idle\n- Shift+Tab in attached agent sessions now includes auto mode in the cycle\n- Fixed a corrupt `.credentials.json` with a non-array `scopes` value hanging the CLI on startup or silently aborting OAuth token refresh\n- Fixed right-click paste in `claude agents` on Windows Terminal and WSL\n- Fixed stop hooks that block repeatedly looping forever — the turn now ends with a warning after 8 consecutive blocks (override via `CLAUDE_CODE_STOP_HOOK_BLOCK_CAP`)\n- Fixed Esc/Ctrl+C not cancelling a pending `/loop` wakeup while Claude is idle between iterations\n- Fixed `/goal` evaluator firing while background shells or delegated subagents are still running\n- Fixed `NO_COLOR`/`FORCE_COLOR` in settings.json `env` stripping Claude Code's own UI colors — they now apply to subprocesses only\n- Fixed agent view spawning repeated PowerShell processes on Windows when listing sessions\n- Fixed `/bg` without a prompt sending \"continue\" to the forked session — the fork now waits for input\n- Fixed `--agent <name>` not finding plugin-contributed agents without the `plugin:` prefix\n- Fixed deleting a session from agent view not removing its transcript file\n- Fixed stale-fragment rendering when scrolling in attached background sessions on Windows Terminal\n- Fixed background agents false-positive worker-stall detection storm after host sleep or macOS App Nap\n- Fixed 5xx error messages pointing at status.claude.com instead of naming the configured gateway or cloud provider\n- The PowerShell tool is now enabled by default on Windows for Bedrock, Vertex, and Foundry users. Opt out with `CLAUDE_CODE_USE_POWERSHELL_TOOL=0`.\n- `claude agents` now accepts `--add-dir`, `--settings`, `--mcp-config`, and `--plugin-dir` and applies them to the dashboard and to background sessions dispatched from it\n- `claude agents` accepts `--permission-mode`, `--model`, `--effort`, and `--dangerously-skip-permissions` to set defaults for sessions dispatched from the view\n- `claude --bg --dangerously-skip-permissions` now persists across retire→wake\n- Fixed background sessions silently capturing IDE file references into the warm spare's input, which caused the reference to be prepended to the next prompt dispatched from `claude agents`\n- Worktree cleanup no longer falls back to `rm -rf` when `git worktree remove` fails, preventing loss of gitignored or in-progress files\n- Fixed background-job sessions on macOS getting \"Operation not permitted\" errors when reading files under `~/Documents`, `~/Desktop`, or `~/Downloads`, even with Full Disk Access granted.\n- `/bg` now preserves `--mcp-config`, `--settings`, `--add-dir`, `--plugin-dir`, and `--strict-mcp-config`, so backgrounded sessions keep their MCP servers and settings across respawn.\n- Background sessions launched from `claude agents` now honor `permissions.defaultMode` from settings.json (was previously overridden to auto mode)\n- Fixed: on Windows, pressing ← in `claude agents` while a response was streaming could leave the agents list unresponsive to all input\n- `/bg` and `←`-detach now preserve `--fallback-model`, so backgrounded workers degrade to the fallback model on overload instead of hard-failing.\n- `/bg` and `←`-detach now preserve `--allow-dangerously-skip-permissions`, so the forked worker keeps bypass-permissions available in its Shift+Tab cycle.\n- Fixed: background daemon spawn now falls back to the running binary when the `~/.local/bin/claude` launcher is missing or non-executable\n- Fixed `claude agents --allow-dangerously-skip-permissions` defaulting dispatched sessions to bypass mode instead of making it available in the permission cycle\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "added": 3,
+        "other": 12,
+        "fixed": 18
+      }
+    },
     {
       "version": "2.1.142",
       "published_at": "2026-05-14T22:55:10Z",
@@ -12429,7 +12614,7 @@
     },
     {
       "version": "2.1.11",
-      "published_at": "2026-01-17T01:39:18Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Fixed excessive MCP connection requests for HTTP/SSE transports",
@@ -12438,11 +12623,10 @@
         }
       ],
       "sources": [
-        "changelog",
-        "github_releases"
+        "changelog"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.11",
-      "github_body": "## What's changed\n\n- Fixed excessive MCP connection requests for HTTP/SSE transports\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
