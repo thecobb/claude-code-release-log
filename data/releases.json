@@ -1,30 +1,118 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-21T19:56:47.331980+00:00",
+  "generated_at": "2026-05-22T03:55:52.199210+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 306,
+  "release_count": 308,
   "releases": [
     {
-      "version": "2.1.146",
-      "published_at": "2026-05-21T01:51:52Z",
+      "version": "2.1.148",
+      "published_at": "2026-05-22T01:16:52Z",
       "bullets": [
         {
-          "text": "Renamed `/simplify` to `/code-review` with an optional effort level (e.g. `/code-review high`)",
+          "text": "Fixed the Bash tool returning exit code 127 on every command for some users (a regression introduced in 2.1.147)",
+          "category": "fixed",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.148",
+      "github_body": "## What's changed\n\n- Fixed the Bash tool returning exit code 127 on every command for some users (a regression introduced in 2.1.147)\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "fixed": 1
+      }
+    },
+    {
+      "version": "2.1.147",
+      "published_at": "2026-05-21T20:39:22Z",
+      "bullets": [
+        {
+          "text": "Pinned background sessions (`Ctrl+T` in `claude agents`) now stay alive when idle, are restarted in place to apply Claude Code updates, and are shed under memory pressure only after non-pinned sessions",
           "category": "other",
           "scope": null
         },
         {
-          "text": "Auto mode no longer suppresses `AskUserQuestion` when the user or a skill explicitly relies on it",
+          "text": "Renamed `/simplify` to `/code-review`. It now reports correctness bugs at a chosen effort level (e.g., `/code-review high`); pass `--comment` to post findings as inline GitHub PR comments. The old cleanup-and-fix behavior has been removed",
           "category": "other",
           "scope": null
         },
         {
-          "text": "Fixed Windows PowerShell tool failing with \"command line is invalid\" when `pwsh` is installed via winget or the Microsoft Store (regression in v2.1.124)",
+          "text": "Improved auto-updater: retries transient network failures, reports specific error categories and OS error codes on failure, and shows the current version when an update fails",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved diff rendering performance for large file edits",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Prompt history no longer records consecutive duplicate entries — recalling a prompt with arrow-up and submitting it again won't add another copy",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Fixed enterprise login restrictions (`forceLoginOrgUUID` and `forceLoginMethod` managed-settings) not being enforced against third-party-provider and API-key sessions",
           "category": "fixed",
           "scope": null
         },
         {
-          "text": "Fixed MCP `resources/list`, `resources/templates/list`, and `prompts/list` dropping items past page 1 on paginating servers",
+          "text": "Fixed `&` in `!` command output displaying as `&amp;`, which broke copy-pasting URLs from commands like `gcloud auth login` on headless machines",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed unknown slash commands silently doing nothing in headless/SDK mode — they now show an error message",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/help` rendering a broken tab header and showing only one command per page on small terminals when not in fullscreen mode",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed shell snapshot dropping user functions whose names start with a single underscore, which broke aliases referencing them",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed plugin agents that declare multiple `Agent(...)` types in `tools:` frontmatter dropping all but the last entry",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed hook `if` conditions like `PowerShell(git push*)` never matching — only `PowerShell(*)` worked",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed PowerShell tool dropping output for commands that rely on the default formatter",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed: on Windows, \"Yes, and don't ask again\" for a PowerShell script invocation now writes a rule that actually matches on subsequent runs",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed PowerShell tool failing on Windows with exit code 1 when `pwsh` is installed via winget or the Microsoft Store",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/effort` opening with the slider on the wrong level — it now starts at your current effort",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed paginating MCP servers dropping resources, templates, and prompts past page 1",
           "category": "fixed",
           "scope": null
         },
@@ -34,12 +122,7 @@
           "scope": null
         },
         {
-          "text": "Fixed the auto-updater status line not showing your current version when an update fails",
-          "category": "fixed",
-          "scope": null
-        },
-        {
-          "text": "Fixed on Windows, removing a background-job worktree no longer follows NTFS junctions into the main repo",
+          "text": "Fixed: on Windows, removing a background-job worktree no longer follows NTFS junctions into the main repo",
           "category": "fixed",
           "scope": null
         },
@@ -49,12 +132,12 @@
           "scope": null
         },
         {
-          "text": "Fixed backgrounded sessions re-prompting for tool permissions you already granted with \"don't ask again\"",
+          "text": "Fixed auto mode suppressing `AskUserQuestion` when the user or a skill explicitly relies on it; the auto-mode classifier now sees the user's answers as intent signal",
           "category": "fixed",
           "scope": null
         },
         {
-          "text": "Fixed `/theme` color editor and \"New custom theme\" dialogs not responding to Esc",
+          "text": "Fixed `/theme` \"New custom theme\" and color editor dialogs not responding to Esc",
           "category": "fixed",
           "scope": null
         },
@@ -64,7 +147,27 @@
           "scope": null
         },
         {
-          "text": "Fixed `forceLoginOrgUUID` and `forceLoginMethod` managed-settings policies not being enforced against third-party-provider and API-key sessions",
+          "text": "Fixed a rare hang when waiting for scroll to settle on Windows",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed stale and doubled rows in the agent view list on Windows when background session results contain wide (CJK) characters",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed pasted text being delivered to agents as an unreadable `[Pasted text #N]` placeholder instead of the actual content",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed plugin component counts in `claude plugin details` and `/plugin` being doubled when a plugin's manifest listed paths overlapping its default directories",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed backgrounded sessions re-prompting for tool permissions you already granted with \"don't ask again\"",
           "category": "fixed",
           "scope": null
         },
@@ -74,18 +177,23 @@
           "scope": null
         },
         {
-          "text": "Fixed `CLAUDE_CODE_SUBAGENT_MODEL` not being forwarded to child processes in multi-agent sessions",
+          "text": "Fixed `CLAUDE_CODE_SUBAGENT_MODEL` not applying to teammate processes spawned by agent teams",
           "category": "fixed",
           "scope": null
         },
         {
-          "text": "Improved auto-updater reliability: native version checks and downloads now retry transient network failures instead of failing immediately",
-          "category": "improved",
+          "text": "Fixed slash commands followed by a tab or newline being treated as an unknown command",
+          "category": "fixed",
           "scope": null
         },
         {
-          "text": "Improved diff rendering performance for large file edits",
-          "category": "improved",
+          "text": "Fixed several spacing and layout glitches in the `/plugin`, `/status`, `/mobile`, `/sandbox`, and `/permissions` menus",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed stripped images prompting the model to repeatedly re-read media that was no longer present",
+          "category": "fixed",
           "scope": null
         }
       ],
@@ -93,16 +201,30 @@
         "changelog",
         "github_releases"
       ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.147",
+      "github_body": "## What's changed\n\n- Pinned background sessions (`Ctrl+T` in `claude agents`) now stay alive when idle, are restarted in place to apply Claude Code updates, and are shed under memory pressure only after non-pinned sessions\n- Renamed `/simplify` to `/code-review`. It now reports correctness bugs at a chosen effort level (e.g., `/code-review high`); pass `--comment` to post findings as inline GitHub PR comments. The old cleanup-and-fix behavior has been removed\n- Improved auto-updater: retries transient network failures, reports specific error categories and OS error codes on failure, and shows the current version when an update fails\n- Improved diff rendering performance for large file edits\n- Prompt history no longer records consecutive duplicate entries — recalling a prompt with arrow-up and submitting it again won't add another copy\n- Fixed enterprise login restrictions (`forceLoginOrgUUID` and `forceLoginMethod` managed-settings) not being enforced against third-party-provider and API-key sessions\n- Fixed `&` in `!` command output displaying as `&amp;`, which broke copy-pasting URLs from commands like `gcloud auth login` on headless machines\n- Fixed unknown slash commands silently doing nothing in headless/SDK mode — they now show an error message\n- Fixed `/help` rendering a broken tab header and showing only one command per page on small terminals when not in fullscreen mode\n- Fixed shell snapshot dropping user functions whose names start with a single underscore, which broke aliases referencing them\n- Fixed plugin agents that declare multiple `Agent(...)` types in `tools:` frontmatter dropping all but the last entry\n- Fixed hook `if` conditions like `PowerShell(git push*)` never matching — only `PowerShell(*)` worked\n- Fixed PowerShell tool dropping output for commands that rely on the default formatter\n- Fixed: on Windows, \"Yes, and don't ask again\" for a PowerShell script invocation now writes a rule that actually matches on subsequent runs\n- Fixed PowerShell tool failing on Windows with exit code 1 when `pwsh` is installed via winget or the Microsoft Store\n- Fixed `/effort` opening with the slider on the wrong level — it now starts at your current effort\n- Fixed paginating MCP servers dropping resources, templates, and prompts past page 1\n- Fixed full-screen strobing in attached background sessions on Windows Terminal while Claude is streaming\n- Fixed: on Windows, removing a background-job worktree no longer follows NTFS junctions into the main repo\n- Fixed `/background` refusing sessions whose only typed input was a skill or custom slash command\n- Fixed auto mode suppressing `AskUserQuestion` when the user or a skill explicitly relies on it; the auto-mode classifier now sees the user's answers as intent signal\n- Fixed `/theme` \"New custom theme\" and color editor dialogs not responding to Esc\n- Fixed an uncaught exception at the end of streaming sessions when running via the Agent SDK\n- Fixed a rare hang when waiting for scroll to settle on Windows\n- Fixed stale and doubled rows in the agent view list on Windows when background session results contain wide (CJK) characters\n- Fixed pasted text being delivered to agents as an unreadable `[Pasted text #N]` placeholder instead of the actual content\n- Fixed plugin component counts in `claude plugin details` and `/plugin` being doubled when a plugin's manifest listed paths overlapping its default directories\n- Fixed backgrounded sessions re-prompting for tool permissions you already granted with \"don't ask again\"\n- Fixed GNOME Terminal right-click and middle-click paste not inserting text\n- Fixed `CLAUDE_CODE_SUBAGENT_MODEL` not applying to teammate processes spawned by agent teams\n- Fixed slash commands followed by a tab or newline being treated as an unknown command\n- Fixed several spacing and layout glitches in the `/plugin`, `/status`, `/mobile`, `/sandbox`, and `/permissions` menus\n- Fixed stripped images prompting the model to repeatedly re-read media that was no longer present\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "other": 3,
+        "improved": 2,
+        "fixed": 28
+      }
+    },
+    {
+      "version": "2.1.146",
+      "published_at": "2026-05-21T01:51:52Z",
+      "bullets": [],
+      "sources": [
+        "github_releases"
+      ],
       "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.146",
       "github_body": "## What's changed\n\n- Renamed `/simplify` to `/code-review` with an optional effort level (e.g. `/code-review high`)\n- Auto mode no longer suppresses `AskUserQuestion` when the user or a skill explicitly relies on it\n- Fixed Windows PowerShell tool failing with \"command line is invalid\" when `pwsh` is installed via winget or the Microsoft Store (regression in v2.1.124)\n- Fixed MCP `resources/list`, `resources/templates/list`, and `prompts/list` dropping items past page 1 on paginating servers\n- Fixed full-screen strobing in attached background sessions on Windows Terminal while Claude is streaming\n- Fixed the auto-updater status line not showing your current version when an update fails\n- Fixed on Windows, removing a background-job worktree no longer follows NTFS junctions into the main repo\n- Fixed `/background` refusing sessions whose only typed input was a skill or custom slash command\n- Fixed backgrounded sessions re-prompting for tool permissions you already granted with \"don't ask again\"\n- Fixed `/theme` color editor and \"New custom theme\" dialogs not responding to Esc\n- Fixed an uncaught exception at the end of streaming sessions when running via the Agent SDK\n- Fixed `forceLoginOrgUUID` and `forceLoginMethod` managed-settings policies not being enforced against third-party-provider and API-key sessions\n- Fixed GNOME Terminal right-click and middle-click paste not inserting text\n- Fixed `CLAUDE_CODE_SUBAGENT_MODEL` not being forwarded to child processes in multi-agent sessions\n- Improved auto-updater reliability: native version checks and downloads now retry transient network failures instead of failing immediately\n- Improved diff rendering performance for large file edits\n",
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
-      "category_counts": {
-        "other": 2,
-        "fixed": 12,
-        "improved": 2
-      }
+      "category_counts": {}
     },
     {
       "version": "2.1.145",
@@ -12870,7 +12992,7 @@
     },
     {
       "version": "2.1.17",
-      "published_at": "2026-01-22T21:46:31Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Fixed crashes on processors without AVX instruction support",
@@ -12879,11 +13001,10 @@
         }
       ],
       "sources": [
-        "changelog",
-        "github_releases"
+        "changelog"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.17",
-      "github_body": "## What's changed\n\n- Fixed crashes on processors without AVX instruction support\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
@@ -12893,7 +13014,7 @@
     },
     {
       "version": "2.1.16",
-      "published_at": "2026-01-22T20:09:21Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Added new task management system, including new capabilities like dependency tracking",
@@ -12932,11 +13053,10 @@
         }
       ],
       "sources": [
-        "changelog",
-        "github_releases"
+        "changelog"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.16",
-      "github_body": "## What's changed\n\n- Added new task management system, including new capabilities like dependency tracking\n- [VSCode] Added native plugin management support\n- [VSCode] Added ability for OAuth users to browse and resume remote Claude sessions from the Sessions dialog\n- Fixed out-of-memory crashes when resuming sessions with heavy subagent usage\n- Fixed an issue where the \"context remaining\" warning was not hidden after running `/compact`\n- Fixed session titles on the resume screen not respecting the user's language setting\n- [IDE] Fixed a race condition on Windows where the Claude Code sidebar view container would not appear on start\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
