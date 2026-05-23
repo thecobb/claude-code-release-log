@@ -1,9 +1,32 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-23T03:32:28.070434+00:00",
+  "generated_at": "2026-05-23T08:23:23.868791+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 309,
+  "release_count": 310,
   "releases": [
+    {
+      "version": "2.1.150",
+      "published_at": "2026-05-23T04:03:51Z",
+      "bullets": [
+        {
+          "text": "Internal infrastructure improvements (no user-facing changes)",
+          "category": "other",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.150",
+      "github_body": "## What's changed\n\n- Internal infrastructure improvements (no user-facing changes)\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "other": 1
+      }
+    },
     {
       "version": "2.1.149",
       "published_at": "2026-05-22T22:09:29Z",
@@ -12869,7 +12892,7 @@
     },
     {
       "version": "2.1.20",
-      "published_at": "2026-01-27T01:35:35Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Added arrow key history navigation in vim normal mode when cursor cannot move further",
@@ -13013,11 +13036,10 @@
         }
       ],
       "sources": [
-        "changelog",
-        "github_releases"
+        "changelog"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.20",
-      "github_body": "## What's changed\n\n- Added arrow key history navigation in vim normal mode when cursor cannot move further\n- Added external editor shortcut (Ctrl+G) to the help menu for better discoverability\n- Added PR review status indicator to the prompt footer, showing the current branch's PR state (approved, changes requested, pending, or draft) as a colored dot with a clickable link\n- Added support for loading `CLAUDE.md` files from additional directories specified via `--add-dir` flag (requires setting `CLAUDE_CODE_ADDITIONAL_DIRECTORIES_CLAUDE_MD=1`)\n- Added ability to delete tasks via the `TaskUpdate` tool\n- Fixed session compaction issues that could cause resume to load full history instead of the compact summary\n- Fixed agents sometimes ignoring user messages sent while actively working on a task\n- Fixed wide character (emoji, CJK) rendering artifacts where trailing columns were not cleared when replaced by narrower characters\n- Fixed JSON parsing errors when MCP tool responses contain special Unicode characters\n- Fixed up/down arrow keys in multi-line and wrapped text input to prioritize cursor movement over history navigation\n- Fixed draft prompt being lost when pressing UP arrow to navigate command history\n- Fixed ghost text flickering when typing slash commands mid-input\n- Fixed marketplace source removal not properly deleting settings\n- Fixed duplicate output in some commands like `/context`\n- Fixed task list sometimes showing outside the main conversation view\n- Fixed syntax highlighting for diffs occurring within multiline constructs like Python docstrings\n- Fixed crashes when cancelling tool use\n- Improved `/sandbox` command UI to show dependency status with installation instructions when dependencies are missing\n- Improved thinking status text with a subtle shimmer animation\n- Improved task list to dynamically adjust visible items based on terminal height\n- Improved fork conversation hint to show how to resume the original session\n- Changed collapsed read/search groups to show present tense (\"Reading\", \"Searching for\") while in progress, and past tense (\"Read\", \"Searched for\") when complete\n- Changed teammate messages to render with rich Markdown formatting (bold, code blocks, lists, etc.) instead of plain text\n- Changed `ToolSearch` results to appear as a brief notification instead of inline in the conversation\n- Changed the `/commit-push-pr` skill to automatically post PR URLs to Slack channels when configured via MCP tools\n- Changed the `/copy` command to be available to all users\n- Changed background agents to prompt for tool permissions before launching\n- Changed permission rules like `Bash(*)` to be accepted and treated as equivalent to `Bash`\n- Changed config backups to be timestamped and rotated (keeping 5 most recent) to prevent data loss\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
