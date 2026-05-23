@@ -1,9 +1,159 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-22T19:50:48.895411+00:00",
+  "generated_at": "2026-05-23T03:32:28.070434+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 308,
+  "release_count": 309,
   "releases": [
+    {
+      "version": "2.1.149",
+      "published_at": "2026-05-22T22:09:29Z",
+      "bullets": [
+        {
+          "text": "`/usage` now shows a per-category breakdown of what's driving your limits usage — skills, subagents, plugins, and per-MCP-server cost",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "`/diff` detail view can now be scrolled with the keyboard (arrows, `j`/`k`, `PgUp`/`PgDn`, `Space`, `Home`/`End`)",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Markdown output now renders GFM task list checkboxes (`- [ ] todo` / `- [x] done`) instead of plain bullets",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Enterprise: added the `allowAllClaudeAiMcps` managed setting to load claude.ai cloud MCP connectors alongside `managed-mcp.json`",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Fixed a PowerShell permission bypass: built-in `cd` functions (`cd..`, `cd\\`, `cd~`, `X:`) changed the working directory undetected, letting a later command read outside the workspace",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the sandbox write allowlist in git worktrees covering the entire main repository root instead of only the shared `.git` directory (with `hooks/` and `config` denied)",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed PowerShell prefix/wildcard allow rules (e.g. `PowerShell(dotnet.exe build *)`) not pre-approving native executables and scripts",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a permission-analysis gap where the parser trusted stale variable-tracking values for `PWD`/`OLDPWD`/`DIRSTACK` across `cd`/`pushd`/`popd`",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `find` in the Bash tool exhausting the macOS system file/vnode table and crashing the host on large directory trees",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the managed-settings approval dialog leaving the terminal frozen after accepting at startup",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/ultraplan` and remote session creation failing with \"Could not capture uncommitted changes\" when the working tree has no real changes",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `otelHeadersHelper` failing silently when the script path contains spaces; helper failures are now reported in `/doctor` and the debug log",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the thinking spinner staying amber across tool calls and onto fresh thinking bursts",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed collapsed Bash output reporting the wrong hidden-line count for outputs with many short lines",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed slash-command argument-hint clipping trailing typed characters when the hint overflows the input box",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed argument-hint and progressive arg suggestions not appearing after Tab-completing a skill whose frontmatter `name:` differs from its directory basename",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the status bar showing the user's baseline `/effort` setting instead of the effort level applied by skill/agent `effort:` frontmatter",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Ctrl+O transcript view freezing at the moment it was opened instead of tailing new messages",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed editing a recalled prompt-history entry losing the edit when navigating further up/down with arrow keys",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/config` exit summary reporting phantom changes to auto-compact and theme when toggling unrelated settings",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/insights` crashing when cached session-meta files are missing optional fields",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed malformed PowerShell and History tool calls with missing input being misclassified as reads in transcript collapsing",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed renaming a Remote Control session from claude.ai or the Claude mobile app not updating the local session name for `claude --resume`",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a race where a just-submitted prompt could appear twice in the up-arrow history",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed tapping the \"Jump to bottom\" pill in fullscreen mode not dismissing it immediately",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Improved `/feedback` reports to include the conversation that happened before context compaction, making issues from earlier in long sessions easier to triage",
+          "category": "improved",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.149",
+      "github_body": "## What's changed\n\n- `/usage` now shows a per-category breakdown of what's driving your limits usage — skills, subagents, plugins, and per-MCP-server cost\n- `/diff` detail view can now be scrolled with the keyboard (arrows, `j`/`k`, `PgUp`/`PgDn`, `Space`, `Home`/`End`)\n- Markdown output now renders GFM task list checkboxes (`- [ ] todo` / `- [x] done`) instead of plain bullets\n- Enterprise: added the `allowAllClaudeAiMcps` managed setting to load claude.ai cloud MCP connectors alongside `managed-mcp.json`\n- Fixed a PowerShell permission bypass: built-in `cd` functions (`cd..`, `cd\\`, `cd~`, `X:`) changed the working directory undetected, letting a later command read outside the workspace\n- Fixed the sandbox write allowlist in git worktrees covering the entire main repository root instead of only the shared `.git` directory (with `hooks/` and `config` denied)\n- Fixed PowerShell prefix/wildcard allow rules (e.g. `PowerShell(dotnet.exe build *)`) not pre-approving native executables and scripts\n- Fixed a permission-analysis gap where the parser trusted stale variable-tracking values for `PWD`/`OLDPWD`/`DIRSTACK` across `cd`/`pushd`/`popd`\n- Fixed `find` in the Bash tool exhausting the macOS system file/vnode table and crashing the host on large directory trees\n- Fixed the managed-settings approval dialog leaving the terminal frozen after accepting at startup\n- Fixed `/ultraplan` and remote session creation failing with \"Could not capture uncommitted changes\" when the working tree has no real changes\n- Fixed `otelHeadersHelper` failing silently when the script path contains spaces; helper failures are now reported in `/doctor` and the debug log\n- Fixed the thinking spinner staying amber across tool calls and onto fresh thinking bursts\n- Fixed collapsed Bash output reporting the wrong hidden-line count for outputs with many short lines\n- Fixed slash-command argument-hint clipping trailing typed characters when the hint overflows the input box\n- Fixed argument-hint and progressive arg suggestions not appearing after Tab-completing a skill whose frontmatter `name:` differs from its directory basename\n- Fixed the status bar showing the user's baseline `/effort` setting instead of the effort level applied by skill/agent `effort:` frontmatter\n- Fixed Ctrl+O transcript view freezing at the moment it was opened instead of tailing new messages\n- Fixed editing a recalled prompt-history entry losing the edit when navigating further up/down with arrow keys\n- Fixed `/config` exit summary reporting phantom changes to auto-compact and theme when toggling unrelated settings\n- Fixed `/insights` crashing when cached session-meta files are missing optional fields\n- Fixed malformed PowerShell and History tool calls with missing input being misclassified as reads in transcript collapsing\n- Fixed renaming a Remote Control session from claude.ai or the Claude mobile app not updating the local session name for `claude --resume`\n- Fixed a race where a just-submitted prompt could appear twice in the up-arrow history\n- Fixed tapping the \"Jump to bottom\" pill in fullscreen mode not dismissing it immediately\n- Improved `/feedback` reports to include the conversation that happened before context compaction, making issues from earlier in long sessions easier to triage\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "other": 4,
+        "fixed": 21,
+        "improved": 1
+      }
+    },
     {
       "version": "2.1.148",
       "published_at": "2026-05-22T01:16:52Z",
@@ -12879,7 +13029,7 @@
     },
     {
       "version": "2.1.19",
-      "published_at": "2026-01-23T21:56:32Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Added env var `CLAUDE_CODE_ENABLE_TASKS`, set to `false` to keep the old system temporarily",
@@ -12953,11 +13103,10 @@
         }
       ],
       "sources": [
-        "changelog",
-        "github_releases"
+        "changelog"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.19",
-      "github_body": "## What's changed\n\n- Added env var `CLAUDE_CODE_ENABLE_TASKS`, set to `false` to keep the old system temporarily\n- Added shorthand `$0`, `$1`, etc. for accessing individual arguments in custom commands\n- Fixed crashes on processors without AVX instruction support\n- Fixed dangling Claude Code processes when terminal is closed by catching EIO errors from `process.exit()` and using SIGKILL as fallback\n- Fixed `/rename` and `/tag` not updating the correct session when resuming from a different directory (e.g., git worktrees)\n- Fixed resuming sessions by custom title not working when run from a different directory\n- Fixed pasted text content being lost when using prompt stash (Ctrl+S) and restore\n- Fixed agent list displaying \"Sonnet (default)\" instead of \"Inherit (default)\" for agents without an explicit model setting\n- Fixed backgrounded hook commands not returning early, potentially causing the session to wait on a process that was intentionally backgrounded\n- Fixed file write preview omitting empty lines\n- Changed skills without additional permissions or hooks to be allowed without requiring approval\n- Changed indexed argument syntax from `$ARGUMENTS.0` to `$ARGUMENTS[0]` (bracket syntax)\n- [SDK] Added replay of `queued_command` attachment messages as `SDKUserMessageReplay` events when `replayUserMessages` is enabled\n- [VSCode] Enabled session forking and rewind functionality for all users\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
