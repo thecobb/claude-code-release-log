@@ -1,9 +1,194 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-26T20:12:01.575365+00:00",
+  "generated_at": "2026-05-27T04:04:50.308874+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 310,
+  "release_count": 311,
   "releases": [
+    {
+      "version": "2.1.152",
+      "published_at": "2026-05-27T01:30:59Z",
+      "bullets": [
+        {
+          "text": "`/code-review --fix` now applies review findings to your working tree after the review, surfacing reuse, simplification, and efficiency suggestions; `/simplify` now invokes `/code-review --fix`",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Skills and slash commands can now set `disallowed-tools` in frontmatter to remove tools from the model while the skill is active",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Added `/reload-skills` command to re-scan skill directories without restarting the session",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "`SessionStart` hooks can now return `reloadSkills: true` to re-scan skill directories, making skills installed by the hook available in the same session",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "`SessionStart` hooks can now set the session title via `hookSpecificOutput.sessionTitle` on startup and resume",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Added a `MessageDisplay` hook event that lets hooks transform or hide assistant message text as it is displayed",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added `pluginSuggestionMarketplaces` managed setting: admins can allowlist org marketplaces whose plugins may be suggested via context-aware tips",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "`claude plugin marketplace remove` now accepts `--scope user|project|local` for symmetry with `marketplace add`, `install`, and `uninstall`",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Claude Code now switches to your configured `--fallback-model` for the rest of the session when the primary model is not found, instead of failing every request",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Auto mode no longer requires opt-in consent",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Vim mode: `/` in NORMAL mode now opens reverse history search (like Ctrl+R), matching bash/zsh vi-mode",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "The `/usage` breakdown now includes large session files; files are scanned with a streaming read so memory usage stays flat",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Thinking summaries in the collapsed group now stay readable for at least 3 seconds, render as markdown, and cap at 10 lines (`Ctrl+O` shows the full thinking)",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "In fullscreen mode, the \"Thinking for Ns\" indicator now counts up live while the model is thinking, and keeps its value if you interrupt mid-thought",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Simplified the Workflow tool's inline progress display — live agent counts now show only in the persistent workflow status row below the prompt",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "The post-response timer now shows \"Waiting for N background agents/workflows to finish\" when backgrounded agents or workflows are still running, and reports the cumulative time once their results are processed",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Added the session entrypoint as an OpenTelemetry metric attribute (`app.entrypoint`, opt-in via `OTEL_METRICS_INCLUDE_ENTRYPOINT=true`)",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Fixed terminal styling degrading in very long sessions by recycling the renderer's style pool",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the sandbox-enabled warning not appearing in condensed startup mode — it now shows in every layout",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the loading spinner showing \"still thinking\"/\"almost done thinking\" while a tool is running, and reset the thinking status to \"thinking\" after each tool",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed focus mode showing a spurious \"N messages hidden\" count on turns with no hidden activity",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed clicking a link inside an expanded tool result collapsing the section instead of opening the link",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed markdown table cell borders inheriting the color of inline code, wrapped continuation lines losing their style, and empty header cells showing a label in the narrow-terminal stacked layout",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed plugin MCP servers with the same command but different environment variables being incorrectly deduplicated",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/doctor` reporting \"marketplace not found\" or \"plugin not found\" for stale `enabledPlugins` entries referencing removed marketplaces or dropped plugins",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed plugins that track a git branch silently no longer receiving updates after the plugin registry was rebuilt",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed remote MCP servers failing to connect in Claude Code Remote sessions when the egress proxy is enabled",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the effort-change confirmation dialog appearing when the conversation has no messages or when switching between effort levels that resolve to the same underlying value",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the Agent tool description referencing an agent list that is never delivered when running with `--bare` or with attachments disabled",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a background worker crash in `claude agents` when accepting a stale permission prompt after a subagent was cancelled",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `cache_creation_input_tokens` reporting as 0 in transcript and result usage when the API reports cache writes only via the nested `cache_creation` breakdown",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the PushNotification tool incorrectly reporting \"Mobile push not sent (Remote Control inactive)\" in SDK-hosted sessions when Remote Control is enabled",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed sessions getting stuck after a model or login switch left stale thinking-block signatures in history; now stripped proactively with a retry safety-net",
+          "category": "fixed",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.152",
+      "github_body": "## What's changed\n\n- `/code-review --fix` now applies review findings to your working tree after the review, surfacing reuse, simplification, and efficiency suggestions; `/simplify` now invokes `/code-review --fix`\n- Skills and slash commands can now set `disallowed-tools` in frontmatter to remove tools from the model while the skill is active\n- Added `/reload-skills` command to re-scan skill directories without restarting the session\n- `SessionStart` hooks can now return `reloadSkills: true` to re-scan skill directories, making skills installed by the hook available in the same session\n- `SessionStart` hooks can now set the session title via `hookSpecificOutput.sessionTitle` on startup and resume\n- Added a `MessageDisplay` hook event that lets hooks transform or hide assistant message text as it is displayed\n- Added `pluginSuggestionMarketplaces` managed setting: admins can allowlist org marketplaces whose plugins may be suggested via context-aware tips\n- `claude plugin marketplace remove` now accepts `--scope user|project|local` for symmetry with `marketplace add`, `install`, and `uninstall`\n- Claude Code now switches to your configured `--fallback-model` for the rest of the session when the primary model is not found, instead of failing every request\n- Auto mode no longer requires opt-in consent\n- Vim mode: `/` in NORMAL mode now opens reverse history search (like Ctrl+R), matching bash/zsh vi-mode\n- The `/usage` breakdown now includes large session files; files are scanned with a streaming read so memory usage stays flat\n- Thinking summaries in the collapsed group now stay readable for at least 3 seconds, render as markdown, and cap at 10 lines (`Ctrl+O` shows the full thinking)\n- In fullscreen mode, the \"Thinking for Ns\" indicator now counts up live while the model is thinking, and keeps its value if you interrupt mid-thought\n- Simplified the Workflow tool's inline progress display — live agent counts now show only in the persistent workflow status row below the prompt\n- The post-response timer now shows \"Waiting for N background agents/workflows to finish\" when backgrounded agents or workflows are still running, and reports the cumulative time once their results are processed\n- Added the session entrypoint as an OpenTelemetry metric attribute (`app.entrypoint`, opt-in via `OTEL_METRICS_INCLUDE_ENTRYPOINT=true`)\n- Fixed terminal styling degrading in very long sessions by recycling the renderer's style pool\n- Fixed the sandbox-enabled warning not appearing in condensed startup mode — it now shows in every layout\n- Fixed the loading spinner showing \"still thinking\"/\"almost done thinking\" while a tool is running, and reset the thinking status to \"thinking\" after each tool\n- Fixed focus mode showing a spurious \"N messages hidden\" count on turns with no hidden activity\n- Fixed clicking a link inside an expanded tool result collapsing the section instead of opening the link\n- Fixed markdown table cell borders inheriting the color of inline code, wrapped continuation lines losing their style, and empty header cells showing a label in the narrow-terminal stacked layout\n- Fixed plugin MCP servers with the same command but different environment variables being incorrectly deduplicated\n- Fixed `/doctor` reporting \"marketplace not found\" or \"plugin not found\" for stale `enabledPlugins` entries referencing removed marketplaces or dropped plugins\n- Fixed plugins that track a git branch silently no longer receiving updates after the plugin registry was rebuilt\n- Fixed remote MCP servers failing to connect in Claude Code Remote sessions when the egress proxy is enabled\n- Fixed the effort-change confirmation dialog appearing when the conversation has no messages or when switching between effort levels that resolve to the same underlying value\n- Fixed the Agent tool description referencing an agent list that is never delivered when running with `--bare` or with attachments disabled\n- Fixed a background worker crash in `claude agents` when accepting a stale permission prompt after a subagent was cancelled\n- Fixed `cache_creation_input_tokens` reporting as 0 in transcript and result usage when the API reports cache writes only via the nested `cache_creation` breakdown\n- Fixed the PushNotification tool incorrectly reporting \"Mobile push not sent (Remote Control inactive)\" in SDK-hosted sessions when Remote Control is enabled\n- Fixed sessions getting stuck after a model or login switch left stale thinking-block signatures in history; now stripped proactively with a retry safety-net\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "other": 13,
+        "added": 4,
+        "fixed": 16
+      }
+    },
     {
       "version": "2.1.150",
       "published_at": "2026-05-23T04:03:51Z",
@@ -12822,7 +13007,7 @@
     },
     {
       "version": "2.1.21",
-      "published_at": "2026-01-28T02:25:23Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Added support for full-width (zenkaku) number input from Japanese IME in option selection prompts",
@@ -12876,11 +13061,10 @@
         }
       ],
       "sources": [
-        "changelog",
-        "github_releases"
+        "changelog"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.21",
-      "github_body": "## What's changed\n\n- Added support for full-width (zenkaku) number input from Japanese IME in option selection prompts\n- Fixed shell completion cache files being truncated on exit\n- Fixed API errors when resuming sessions that were interrupted during tool execution\n- Fixed auto-compact triggering too early on models with large output token limits\n- Fixed task IDs potentially being reused after deletion\n- Fixed file search not working in VS Code extension on Windows\n- Improved read/search progress indicators to show \"Reading…\" while in progress and \"Read\" when complete\n- Improved Claude to prefer file operation tools (Read, Edit, Write) over bash equivalents (cat, sed, awk)\n- [VSCode] Added automatic Python virtual environment activation, ensuring `python` and `pip` commands use the correct interpreter (configurable via `claudeCode.usePythonEnvironment` setting)\n- [VSCode] Fixed message action buttons having incorrect background colors\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
