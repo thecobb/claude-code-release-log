@@ -1,9 +1,251 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-28T16:04:26.953335+00:00",
+  "generated_at": "2026-05-28T20:27:45.080333+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 312,
+  "release_count": 313,
   "releases": [
+    {
+      "version": "2.1.154",
+      "published_at": "2026-05-28T18:00:55Z",
+      "bullets": [
+        {
+          "text": "Opus 4.8 is here! Now defaults to high effort · /effort xhigh for your hardest tasks",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Introducing dynamic workflows: ask Claude to create a workflow and it orchestrates work across tens to hundreds of agents in the background, so you can take on larger, more complex tasks. Run `/workflows` to view your runs",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Fast mode on Opus 4.8 is now available at a fraction of its previous cost: 2x the standard rate for 2.5x the speed",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "The lean system prompt is now the default for all models except Haiku, Sonnet, and Opus 4.7 and earlier",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Claude now reserves the multiple-choice question prompt for decisions it genuinely cannot make itself, instead of asking when it already has enough context to proceed",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "`/simplify` now runs a cleanup-only review (reuse, simplification, efficiency, altitude) and applies the fixes, instead of running the full `/code-review --fix` bug-hunting review",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Renamed the `/effort` slider labels from \"Speed\"/\"Intelligence\" to \"Faster\"/\"Smarter\" for clarity",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "`claude agents`: type `! <command>` to run a shell command as a background session you can attach to and detach from. Also available as `claude --bg --exec '<command>'`",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "`claude agents`: `/logout` now signs you out instead of being sent to a background session",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "`←←` to open the agents view now works on Bedrock, Vertex, Foundry, and with telemetry disabled",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Claude in Chrome: pick which connected browser to use via `/chrome` → \"Select browser…\", or in-chat when a browser action runs with multiple connected",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Plugins can now declare `defaultEnabled: false` in `plugin.json` or a marketplace entry; enable them with `/plugin` or `claude plugin enable`. Dependencies of enabled plugins are still enabled automatically",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "The `/plugin` Discover tab now pins plugins whose relevance signals match the current directory with a \"suggested for this directory\" annotation",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Streaming tool execution is now always enabled, including when telemetry is disabled or on Bedrock/Vertex/Foundry (previously behind a feature flag)",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Stdio MCP server subprocesses now receive `CLAUDE_CODE_SESSION_ID` and `CLAUDECODE=1` in their environment",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "`claude mcp list`/`get` now show unapproved `.mcp.json` servers as `⏸ Pending approval` instead of auto-approving and connecting when output is piped",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "`/remote-control` autocomplete now shows \"Disconnect Remote Control\" when Remote Control is already active",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Added Claude Opus 4.8 support and 4.7 → 4.8 migration guidance to the `/claude-api` skill",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Deprecated `CLAUDE_CODE_OPUS_4_6_FAST_MODE_OVERRIDE` (will be removed on 06/01). To use fast mode on Opus 4.6, switch with `/model claude-opus-4-6[1m]` and then `/fast on`",
+          "category": "breaking",
+          "scope": null
+        },
+        {
+          "text": "Improved the auto-mode classifier's detection of data exfiltration, particularly bulk transfers of repository contents",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Fixed `rm -rf $HOME` not being blocked as a dangerous path when `HOME` has a trailing slash",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `$TMPDIR` resolving to different directories in sandboxed vs unsandboxed Bash commands within the same session",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed unreadable highlighted-row text in `claude agents` when the Claude Code theme doesn't match the terminal background",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background-agent completion notifications triggering premature \"out of context\" behavior on some 1M-context models",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background-session classifier losing the user's goal when a scheduled `/command` fires",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed pinned background sessions respawning every minute after a Claude Code update, causing repeated agent-start notifications and process churn at idle",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background sessions stuck at \"blocked\", \"running\", or \"working\" not retiring after the idle grace period",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed subagents in background sessions bypassing the worktree-isolation guard and writing to the shared checkout",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed orphaned `claude --bg-pty-host` processes spinning at 100% CPU after the daemon exits on macOS",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed number key shortcuts not working for options shown below the divider in option dialogs",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `worktree.baseRef: \"head\"` resolving to the main checkout's HEAD instead of the current worktree's HEAD when spawning subagents or calling `EnterWorktree` from inside a linked worktree",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a stray leading space on wrapped lines when the previous line ended exactly at the terminal width",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed intermittent terminal rendering corruption in VS Code by capping the number of distinct colors the thinking spinner produces",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed plan file names including `[Image #N]` / `[Pasted text #N]` placeholders when a plan-mode prompt starts with pasted images or text",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a phantom expand/click affordance on colored tool output: short ANSI-colored lines that fit on screen no longer show a \"ctrl+o to expand\" hint",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a single invalid `allowedMcpServers`/`deniedMcpServers` entry in managed settings discarding all managed-settings policy; the bad entry is now dropped with a `claude doctor` warning",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed API 400 errors on models that don't support the effort parameter when `CLAUDE_CODE_ALWAYS_ENABLE_EFFORT` is set",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Windows: Fixed update failures caused by `claude.exe` being in use showing a generic error instead of telling you to close other sessions and retry",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Removed the stale \"& for background\" hint from the shortcuts help panel",
+          "category": "breaking",
+          "scope": null
+        },
+        {
+          "text": "[VSCode] Auto mode no longer requires the bypass-permissions setting to appear in the mode picker, and a dismissable notice on the new-session screen explains auto mode the first time it's active",
+          "category": "other",
+          "scope": "VSCode"
+        },
+        {
+          "text": "Fixed the task panel below the prompt showing a stray unselectable \"main\" row when only a workflow is running",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed /mcp tools list and tool detail rendering when MCP servers have long or multi-line tool names or long descriptions",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the /model picker not showing fast mode pricing on the Default option for API (pay-as-you-go) users when fast mode is on",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed auto mode incorrectly blocking actions with \"could not evaluate this action\" when the safety classifier ran out of output tokens while reasoning",
+          "category": "fixed",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.154",
+      "github_body": "## What's changed\n\n- Opus 4.8 is here! Now defaults to high effort · /effort xhigh for your hardest tasks\n- Introducing dynamic workflows: ask Claude to create a workflow and it orchestrates work across tens to hundreds of agents in the background, so you can take on larger, more complex tasks. Run `/workflows` to view your runs\n- Fast mode on Opus 4.8 is now available at a fraction of its previous cost: 2x the standard rate for 2.5x the speed\n- The lean system prompt is now the default for all models except Haiku, Sonnet, and Opus 4.7 and earlier\n- Claude now reserves the multiple-choice question prompt for decisions it genuinely cannot make itself, instead of asking when it already has enough context to proceed\n- `/simplify` now runs a cleanup-only review (reuse, simplification, efficiency, altitude) and applies the fixes, instead of running the full `/code-review --fix` bug-hunting review\n- Renamed the `/effort` slider labels from \"Speed\"/\"Intelligence\" to \"Faster\"/\"Smarter\" for clarity\n- `claude agents`: type `! <command>` to run a shell command as a background session you can attach to and detach from. Also available as `claude --bg --exec '<command>'`\n- `claude agents`: `/logout` now signs you out instead of being sent to a background session\n- `←←` to open the agents view now works on Bedrock, Vertex, Foundry, and with telemetry disabled\n- Claude in Chrome: pick which connected browser to use via `/chrome` → \"Select browser…\", or in-chat when a browser action runs with multiple connected\n- Plugins can now declare `defaultEnabled: false` in `plugin.json` or a marketplace entry; enable them with `/plugin` or `claude plugin enable`. Dependencies of enabled plugins are still enabled automatically\n- The `/plugin` Discover tab now pins plugins whose relevance signals match the current directory with a \"suggested for this directory\" annotation\n- Streaming tool execution is now always enabled, including when telemetry is disabled or on Bedrock/Vertex/Foundry (previously behind a feature flag)\n- Stdio MCP server subprocesses now receive `CLAUDE_CODE_SESSION_ID` and `CLAUDECODE=1` in their environment\n- `claude mcp list`/`get` now show unapproved `.mcp.json` servers as `⏸ Pending approval` instead of auto-approving and connecting when output is piped\n- `/remote-control` autocomplete now shows \"Disconnect Remote Control\" when Remote Control is already active\n- Added Claude Opus 4.8 support and 4.7 → 4.8 migration guidance to the `/claude-api` skill\n- Deprecated `CLAUDE_CODE_OPUS_4_6_FAST_MODE_OVERRIDE` (will be removed on 06/01). To use fast mode on Opus 4.6, switch with `/model claude-opus-4-6[1m]` and then `/fast on`\n- Improved the auto-mode classifier's detection of data exfiltration, particularly bulk transfers of repository contents\n- Fixed `rm -rf $HOME` not being blocked as a dangerous path when `HOME` has a trailing slash\n- Fixed `$TMPDIR` resolving to different directories in sandboxed vs unsandboxed Bash commands within the same session\n- Fixed unreadable highlighted-row text in `claude agents` when the Claude Code theme doesn't match the terminal background\n- Fixed background-agent completion notifications triggering premature \"out of context\" behavior on some 1M-context models\n- Fixed background-session classifier losing the user's goal when a scheduled `/command` fires\n- Fixed pinned background sessions respawning every minute after a Claude Code update, causing repeated agent-start notifications and process churn at idle\n- Fixed background sessions stuck at \"blocked\", \"running\", or \"working\" not retiring after the idle grace period\n- Fixed subagents in background sessions bypassing the worktree-isolation guard and writing to the shared checkout\n- Fixed orphaned `claude --bg-pty-host` processes spinning at 100% CPU after the daemon exits on macOS\n- Fixed number key shortcuts not working for options shown below the divider in option dialogs\n- Fixed `worktree.baseRef: \"head\"` resolving to the main checkout's HEAD instead of the current worktree's HEAD when spawning subagents or calling `EnterWorktree` from inside a linked worktree\n- Fixed a stray leading space on wrapped lines when the previous line ended exactly at the terminal width\n- Fixed intermittent terminal rendering corruption in VS Code by capping the number of distinct colors the thinking spinner produces\n- Fixed plan file names including `[Image #N]` / `[Pasted text #N]` placeholders when a plan-mode prompt starts with pasted images or text\n- Fixed a phantom expand/click affordance on colored tool output: short ANSI-colored lines that fit on screen no longer show a \"ctrl+o to expand\" hint\n- Fixed a single invalid `allowedMcpServers`/`deniedMcpServers` entry in managed settings discarding all managed-settings policy; the bad entry is now dropped with a `claude doctor` warning\n- Fixed API 400 errors on models that don't support the effort parameter when `CLAUDE_CODE_ALWAYS_ENABLE_EFFORT` is set\n- Windows: Fixed update failures caused by `claude.exe` being in use showing a generic error instead of telling you to close other sessions and retry\n- Removed the stale \"& for background\" hint from the shortcuts help panel\n- [VSCode] Auto mode no longer requires the bypass-permissions setting to appear in the mode picker, and a dismissable notice on the new-session screen explains auto mode the first time it's active\n- Fixed the task panel below the prompt showing a stray unselectable \"main\" row when only a workflow is running\n- Fixed /mcp tools list and tool detail rendering when MCP servers have long or multi-line tool names or long descriptions\n- Fixed the /model picker not showing fast mode pricing on the Default option for API (pay-as-you-go) users when fast mode is on\n- Fixed auto mode incorrectly blocking actions with \"could not evaluate this action\" when the safety classifier ran out of output tokens while reasoning\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "other": 19,
+        "added": 1,
+        "breaking": 2,
+        "improved": 1,
+        "fixed": 21
+      }
+    },
     {
       "version": "2.1.153",
       "published_at": "2026-05-28T00:52:08Z",
@@ -13110,7 +13352,7 @@
     },
     {
       "version": "2.1.23",
-      "published_at": "2026-01-29T01:09:51Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Added customizable spinner verbs setting (`spinnerVerbs`)",
@@ -13169,11 +13411,10 @@
         }
       ],
       "sources": [
-        "changelog",
-        "github_releases"
+        "changelog"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.23",
-      "github_body": "## What's changed\n\n- Added customizable spinner verbs setting (`spinnerVerbs`)\n- Fixed mTLS and proxy connectivity for users behind corporate proxies or using client certificates\n- Fixed per-user temp directory isolation to prevent permission conflicts on shared systems\n- Fixed a race condition that could cause 400 errors when prompt caching scope was enabled\n- Fixed pending async hooks not being cancelled when headless streaming sessions ended\n- Fixed tab completion not updating the input field when accepting a suggestion\n- Fixed ripgrep search timeouts silently returning empty results instead of reporting errors\n- Improved terminal rendering performance with optimized screen data layout\n- Changed Bash commands to show timeout duration alongside elapsed time\n- Changed merged pull requests to show a purple status indicator in the prompt footer\n- [IDE] Fixed model options displaying incorrect region strings for Bedrock users in headless mode\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
