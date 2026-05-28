@@ -1,9 +1,210 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-27T20:22:01.673351+00:00",
+  "generated_at": "2026-05-28T03:53:37.646394+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 311,
+  "release_count": 312,
   "releases": [
+    {
+      "version": "2.1.153",
+      "published_at": "2026-05-28T00:52:08Z",
+      "bullets": [
+        {
+          "text": "Added `skipLfs` option to `github`/`git` plugin marketplace sources to skip Git LFS downloads during clone and update",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Claude Code now shows a one-time notice when your npm global install can't auto-update; `/doctor` lists the fixes",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Status line commands now receive `COLUMNS` and `LINES` environment variables so scripts can size output to the terminal width",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "`claude agents`: autocomplete in the dispatch input now suggests native slash commands and bundled skills, not just project skills",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "`claude agents`: PR column now shows `PR #N` for a single PR or `N PRs` for multiple",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "`claude doctor` now shows the result of your last update attempt",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Combined the separate \"needs authentication\" startup notifications for MCP servers and connectors into a single message",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "macOS: background agents now appear as \"Claude Code\" in Privacy & Security and keep their permission grants across upgrades",
+          "category": "security",
+          "scope": null
+        },
+        {
+          "text": "Fixed stateful MCP servers without the optional GET SSE stream reconnect-looping on `tools/list` (regression in v2.1.147)",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a regression where a custom API gateway could receive the user's Anthropic OAuth credential instead of the gateway's own token",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed subagent (Agent tool) frontmatter MCP servers ignoring `--strict-mcp-config`, `--bare`, remote mode, enterprise managed MCP config, and managed-settings MCP server allow/deny policies",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "`--strict-mcp-config` no longer strips inline `mcpServers` from explicitly-passed agent definitions (`--agents` / SDK `agents`), and blocked subagent MCP servers now surface a visible warning",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Fixed the Windows PowerShell installer reporting \"Installation complete!\" when installation actually failed",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `claude update` installing the latest version instead of the configured release channel's version for npm installations",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed excessive memory usage (multiple GB) when resuming a session by transcript file path on machines with many stored sessions",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `claude agents` and `claude --bg` running on a stale daemon started before binary-takeover support, even after upgrading",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a hang where the CLI could fail to exit when stdin was closed without EOF in stream-json mode, leaving a stale session marker behind",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed malformed `file://` links in Claude's responses not being clickable in the terminal",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `claude --help` rendering unwrapped output on terminals narrower than 92 columns",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed MCP tool progress notifications not rendering in the collapsed tool view",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `Agent` tool with `subagent_type: 'claude'` running in an undocumented temporary worktree, which could silently discard outputs written to gitignored paths",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "`/bg` while Claude is responding now continues the response in the background session instead of dropping it",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/btw` keyboard shortcuts becoming unresponsive in background sessions while a task is running",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background sessions writing temp files to `$CLAUDE_JOB_DIR` triggering a \"sensitive file\" permission prompt",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed recovering a background agent whose working directory was deleted showing a truncated stack trace instead of a clear error message",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `EnterWorktree` not being available immediately in background sessions (previously required `ToolSearch` first)",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `cmd+k` in iTerm2/Terminal.app not repainting attached background sessions",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the IME candidate window appearing at the bottom of the screen instead of next to the input caret in attached background sessions on Windows",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background-color bleed when attaching to a background agent from 256-color-only terminals after the agent had rendered file diffs",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/copy` and copy-on-select silently failing to update the system clipboard when attached to a background session inside tmux",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed opening `claude agents` with Remote Control enabled leaving zombie session entries on the Code tab after exiting",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/rename` in background sessions not updating the session banner immediately",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Windows update rollback: if a Windows update fails, Claude Code now restores the original executable by copy and tells you how to recover",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "[VSCode] Fixed Claude Code processes not shutting down cleanly when VS Code closed on Windows, causing false \"unclean exit\" reports and orphaned MCP servers",
+          "category": "fixed",
+          "scope": "VSCode"
+        },
+        {
+          "text": "`/model` now saves your selection as the default for new sessions (matching the IDE). Press `s` in the picker to switch models for the current session only.",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "If you customized the `modelPicker:setAsDefault` keybinding, rename it to `modelPicker:thisSessionOnly` in keybindings.json (the `d` action was replaced by `s`)",
+          "category": "other",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.153",
+      "github_body": "## What's changed\n\n- Added `skipLfs` option to `github`/`git` plugin marketplace sources to skip Git LFS downloads during clone and update\n- Claude Code now shows a one-time notice when your npm global install can't auto-update; `/doctor` lists the fixes\n- Status line commands now receive `COLUMNS` and `LINES` environment variables so scripts can size output to the terminal width\n- `claude agents`: autocomplete in the dispatch input now suggests native slash commands and bundled skills, not just project skills\n- `claude agents`: PR column now shows `PR #N` for a single PR or `N PRs` for multiple\n- `claude doctor` now shows the result of your last update attempt\n- Combined the separate \"needs authentication\" startup notifications for MCP servers and connectors into a single message\n- macOS: background agents now appear as \"Claude Code\" in Privacy & Security and keep their permission grants across upgrades\n- Fixed stateful MCP servers without the optional GET SSE stream reconnect-looping on `tools/list` (regression in v2.1.147)\n- Fixed a regression where a custom API gateway could receive the user's Anthropic OAuth credential instead of the gateway's own token\n- Fixed subagent (Agent tool) frontmatter MCP servers ignoring `--strict-mcp-config`, `--bare`, remote mode, enterprise managed MCP config, and managed-settings MCP server allow/deny policies\n- `--strict-mcp-config` no longer strips inline `mcpServers` from explicitly-passed agent definitions (`--agents` / SDK `agents`), and blocked subagent MCP servers now surface a visible warning\n- Fixed the Windows PowerShell installer reporting \"Installation complete!\" when installation actually failed\n- Fixed `claude update` installing the latest version instead of the configured release channel's version for npm installations\n- Fixed excessive memory usage (multiple GB) when resuming a session by transcript file path on machines with many stored sessions\n- Fixed `claude agents` and `claude --bg` running on a stale daemon started before binary-takeover support, even after upgrading\n- Fixed a hang where the CLI could fail to exit when stdin was closed without EOF in stream-json mode, leaving a stale session marker behind\n- Fixed malformed `file://` links in Claude's responses not being clickable in the terminal\n- Fixed `claude --help` rendering unwrapped output on terminals narrower than 92 columns\n- Fixed MCP tool progress notifications not rendering in the collapsed tool view\n- Fixed `Agent` tool with `subagent_type: 'claude'` running in an undocumented temporary worktree, which could silently discard outputs written to gitignored paths\n- `/bg` while Claude is responding now continues the response in the background session instead of dropping it\n- Fixed `/btw` keyboard shortcuts becoming unresponsive in background sessions while a task is running\n- Fixed background sessions writing temp files to `$CLAUDE_JOB_DIR` triggering a \"sensitive file\" permission prompt\n- Fixed recovering a background agent whose working directory was deleted showing a truncated stack trace instead of a clear error message\n- Fixed `EnterWorktree` not being available immediately in background sessions (previously required `ToolSearch` first)\n- Fixed `cmd+k` in iTerm2/Terminal.app not repainting attached background sessions\n- Fixed the IME candidate window appearing at the bottom of the screen instead of next to the input caret in attached background sessions on Windows\n- Fixed background-color bleed when attaching to a background agent from 256-color-only terminals after the agent had rendered file diffs\n- Fixed `/copy` and copy-on-select silently failing to update the system clipboard when attached to a background session inside tmux\n- Fixed opening `claude agents` with Remote Control enabled leaving zombie session entries on the Code tab after exiting\n- Fixed `/rename` in background sessions not updating the session banner immediately\n- Fixed Windows update rollback: if a Windows update fails, Claude Code now restores the original executable by copy and tells you how to recover\n- [VSCode] Fixed Claude Code processes not shutting down cleanly when VS Code closed on Windows, causing false \"unclean exit\" reports and orphaned MCP servers\n- `/model` now saves your selection as the default for new sessions (matching the IDE). Press `s` in the picker to switch models for the current session only.\n- If you customized the `modelPicker:setAsDefault` keybinding, rename it to `modelPicker:thisSessionOnly` in keybindings.json (the `d` action was replaced by `s`)\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "added": 1,
+        "other": 10,
+        "security": 1,
+        "fixed": 24
+      }
+    },
     {
       "version": "2.1.152",
       "published_at": "2026-05-27T01:30:59Z",
@@ -12984,7 +13185,7 @@
     },
     {
       "version": "2.1.22",
-      "published_at": "2026-01-28T06:59:58Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Fixed structured outputs for non-interactive (-p) mode",
@@ -12993,11 +13194,10 @@
         }
       ],
       "sources": [
-        "changelog",
-        "github_releases"
+        "changelog"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.22",
-      "github_body": "## What's changed\n\n- Fixed structured outputs for non-interactive (-p) mode\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
