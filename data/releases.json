@@ -1,9 +1,32 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-28T20:27:45.080333+00:00",
+  "generated_at": "2026-05-29T03:55:07.543904+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 313,
+  "release_count": 314,
   "releases": [
+    {
+      "version": "2.1.156",
+      "published_at": "2026-05-29T01:42:23Z",
+      "bullets": [
+        {
+          "text": "Fixed an issue when using Opus 4.8 where thinking blocks were modified, leading to API errors.",
+          "category": "fixed",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.156",
+      "github_body": "## What's changed\n\n- Fixed an issue when using Opus 4.8 where thinking blocks were modified, leading to API errors.\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "fixed": 1
+      }
+    },
     {
       "version": "2.1.154",
       "published_at": "2026-05-28T18:00:55Z",
@@ -13329,7 +13352,7 @@
     },
     {
       "version": "2.1.25",
-      "published_at": "2026-01-29T21:13:33Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Fixed beta header validation error for gateway users on Bedrock and Vertex, ensuring `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1` avoids the error",
@@ -13338,11 +13361,10 @@
         }
       ],
       "sources": [
-        "changelog",
-        "github_releases"
+        "changelog"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.25",
-      "github_body": "## What's changed\n\n- Fixed beta header validation error for gateway users on Bedrock and Vertex, ensuring `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1` avoids the error\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
