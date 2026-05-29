@@ -1,9 +1,197 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-29T15:42:32.628311+00:00",
+  "generated_at": "2026-05-29T20:29:37.647727+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 314,
+  "release_count": 315,
   "releases": [
+    {
+      "version": "2.1.157",
+      "published_at": "2026-05-29T20:20:38Z",
+      "bullets": [
+        {
+          "text": "Plugins in `.claude/skills` directories are now automatically loaded, no marketplace required",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Added `claude plugin init <name>` to scaffold a new plugin in `.claude/skills`",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added autocomplete for `/plugin` arguments: subcommands, installed plugin names, and plugins from known marketplaces",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "`claude agents`: the `agent` field in `settings.json` is now honored for dispatched sessions, with `--agent <name>` to override it",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "`EnterWorktree` can now switch between Claude-managed worktrees mid-session",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "`tool_decision` telemetry events now include `tool_parameters` (bash commands, MCP/skill names) when `OTEL_LOG_TOOL_DETAILS=1`",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Worktrees managed by Claude are now left unlocked when the agent finishes, so `git worktree remove`/`prune` can clean them up",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Fixed unprocessable images (zero-byte, corrupt) attached via paste, MCP, or dialog crashing the request instead of becoming a text placeholder",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed sandbox network permission prompts appearing in auto and bypass-permissions mode when using the desktop app, IDE extensions, or SDK",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `claude agents` completed sessions not retiring when an idle subagent was still parked or had leaked a backgrounded shell",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `claude agents` pressing Esc not cancelling a slow \"opening…\", leaving the list unresponsive",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background agent worktrees under `.claude/worktrees/` being orphaned after the 30-day job retention sweep",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background sessions re-attached after a sleep/wake not telling the model the correct date",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed copy-on-select in `claude agents` not reaching the system clipboard inside tmux with `set-clipboard on` (regression in 2.1.153)",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `--resume` not reporting background subagents that were running when the previous Claude Code process exited",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the `--resume` session picker leaving its contents on the terminal after exiting in fullscreen mode",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `--worktree` and `--worktree --tmux` returning to the canonical repo root instead of the current linked worktree",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the `/model` picker showing an incorrect \"Newer version available\" hint when the selected model is already the newest in its family; the pinned-model row now shows the model's description instead of its raw ID",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed literal markdown markers (backticks, asterisks) appearing in the in-progress message text in fullscreen mode",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the terminal freezing after approving the managed-settings security dialog at startup",
+          "category": "security",
+          "scope": null
+        },
+        {
+          "text": "Fixed a rare duplicate line appearing in scrollback after the terminal UI redraws",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed right-click paste duplicating the clipboard in the VS Code, Cursor, and Windsurf integrated terminals",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "WSL: fixed image paste (`alt+v` keybinding), screenshot paste on Windows 11, and added support for dragging images from Windows Explorer",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Improved performance of long and resumed conversations by eliminating redundant message-rendering recomputations",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "`/terminal-setup` now disables GPU acceleration in VS Code/Cursor/Windsurf integrated terminals to prevent garbled-text rendering",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "The Feature of the Week credit-claim status now appears as a notification in the status area instead of a line above the prompt",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "`claude agents`: slash-command autocomplete in the dispatch input now matches substrings",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Removed the \"bash commands will be sandboxed\" startup banner — sandbox status still shows in `/status` and when a command is blocked",
+          "category": "breaking",
+          "scope": null
+        },
+        {
+          "text": "Removed the \"/ide for …\" startup hint toast",
+          "category": "breaking",
+          "scope": null
+        },
+        {
+          "text": "[IDE] Fixed clicking Stop while a background subagent is running not actually stopping it",
+          "category": "fixed",
+          "scope": "IDE"
+        },
+        {
+          "text": "[VSCode] Fixed the fast mode indicator not appearing on Opus 4.8",
+          "category": "fixed",
+          "scope": "VSCode"
+        },
+        {
+          "text": "Pressing backspace right after a workflow trigger keyword now dismisses the workflow request (same as alt+w) instead of deleting a character",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Added a \"Workflow keyword trigger\" setting in /config to stop the word \"workflow\" in a prompt from triggering a dynamic workflow",
+          "category": "added",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.157",
+      "github_body": "## What's changed\n\n- Plugins in `.claude/skills` directories are now automatically loaded, no marketplace required\n- Added `claude plugin init <name>` to scaffold a new plugin in `.claude/skills`\n- Added autocomplete for `/plugin` arguments: subcommands, installed plugin names, and plugins from known marketplaces\n- `claude agents`: the `agent` field in `settings.json` is now honored for dispatched sessions, with `--agent <name>` to override it\n- `EnterWorktree` can now switch between Claude-managed worktrees mid-session\n- `tool_decision` telemetry events now include `tool_parameters` (bash commands, MCP/skill names) when `OTEL_LOG_TOOL_DETAILS=1`\n- Worktrees managed by Claude are now left unlocked when the agent finishes, so `git worktree remove`/`prune` can clean them up\n- Fixed unprocessable images (zero-byte, corrupt) attached via paste, MCP, or dialog crashing the request instead of becoming a text placeholder\n- Fixed sandbox network permission prompts appearing in auto and bypass-permissions mode when using the desktop app, IDE extensions, or SDK\n- Fixed `claude agents` completed sessions not retiring when an idle subagent was still parked or had leaked a backgrounded shell\n- Fixed `claude agents` pressing Esc not cancelling a slow \"opening…\", leaving the list unresponsive\n- Fixed background agent worktrees under `.claude/worktrees/` being orphaned after the 30-day job retention sweep\n- Fixed background sessions re-attached after a sleep/wake not telling the model the correct date\n- Fixed copy-on-select in `claude agents` not reaching the system clipboard inside tmux with `set-clipboard on` (regression in 2.1.153)\n- Fixed `--resume` not reporting background subagents that were running when the previous Claude Code process exited\n- Fixed the `--resume` session picker leaving its contents on the terminal after exiting in fullscreen mode\n- Fixed `--worktree` and `--worktree --tmux` returning to the canonical repo root instead of the current linked worktree\n- Fixed the `/model` picker showing an incorrect \"Newer version available\" hint when the selected model is already the newest in its family; the pinned-model row now shows the model's description instead of its raw ID\n- Fixed literal markdown markers (backticks, asterisks) appearing in the in-progress message text in fullscreen mode\n- Fixed the terminal freezing after approving the managed-settings security dialog at startup\n- Fixed a rare duplicate line appearing in scrollback after the terminal UI redraws\n- Fixed right-click paste duplicating the clipboard in the VS Code, Cursor, and Windsurf integrated terminals\n- WSL: fixed image paste (`alt+v` keybinding), screenshot paste on Windows 11, and added support for dragging images from Windows Explorer\n- Improved performance of long and resumed conversations by eliminating redundant message-rendering recomputations\n- `/terminal-setup` now disables GPU acceleration in VS Code/Cursor/Windsurf integrated terminals to prevent garbled-text rendering\n- The Feature of the Week credit-claim status now appears as a notification in the status area instead of a line above the prompt\n- `claude agents`: slash-command autocomplete in the dispatch input now matches substrings\n- Removed the \"bash commands will be sandboxed\" startup banner — sandbox status still shows in `/status` and when a command is blocked\n- Removed the \"/ide for …\" startup hint toast\n- [IDE] Fixed clicking Stop while a background subagent is running not actually stopping it\n- [VSCode] Fixed the fast mode indicator not appearing on Opus 4.8\n- Pressing backspace right after a workflow trigger keyword now dismisses the workflow request (same as alt+w) instead of deleting a character\n- Added a \"Workflow keyword trigger\" setting in /config to stop the word \"workflow\" in a prompt from triggering a dynamic workflow\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "other": 10,
+        "added": 3,
+        "fixed": 16,
+        "security": 1,
+        "improved": 1,
+        "breaking": 2
+      }
+    },
     {
       "version": "2.1.156",
       "published_at": "2026-05-29T01:42:23Z",
@@ -13287,7 +13475,7 @@
     },
     {
       "version": "2.1.27",
-      "published_at": "2026-01-30T20:38:53Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Added tool call failures and denials to debug logs",
@@ -13336,11 +13524,10 @@
         }
       ],
       "sources": [
-        "changelog",
-        "github_releases"
+        "changelog"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.27",
-      "github_body": "## What's changed\n\n- Added tool call failures and denials to debug logs\n- Fixed context management validation error for gateway users, ensuring `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1` avoids the error\n- Added `--from-pr` flag to resume sessions linked to a specific GitHub PR number or URL\n- Sessions are now automatically linked to PRs when created via `gh pr create`\n- Fixed /context command not displaying colored output\n- Fixed status bar duplicating background task indicator when PR status was shown\n- VSCode: Enabled Claude in Chrome integration\n- Permissions now respect content-level `ask` over tool-level `allow`. Previously `allow: [\"Bash\"], ask: [\"Bash(rm *)\"]` allowed all bash commands, but will now permission prompt for `rm`.\n- Windows: Fixed bash command execution failing for users with `.bashrc` files\n- Windows: Fixed console windows flashing when spawning child processes\n- VSCode: Fixed OAuth token expiration causing 401 errors after extended sessions\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
