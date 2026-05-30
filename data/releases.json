@@ -1,9 +1,32 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-29T20:29:37.647727+00:00",
+  "generated_at": "2026-05-30T03:40:13.350769+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 315,
+  "release_count": 316,
   "releases": [
+    {
+      "version": "2.1.158",
+      "published_at": "2026-05-30T02:42:16Z",
+      "bullets": [
+        {
+          "text": "Auto mode is now available on Bedrock, Vertex, and Foundry for Opus 4.7 and Opus 4.8. Opt in by setting `CLAUDE_CODE_ENABLE_AUTO_MODE=1`",
+          "category": "other",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.158",
+      "github_body": "## What's changed\n\n- Auto mode is now available on Bedrock, Vertex, and Foundry for Opus 4.7 and Opus 4.8. Opt in by setting `CLAUDE_CODE_ENABLE_AUTO_MODE=1`\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "other": 1
+      }
+    },
     {
       "version": "2.1.157",
       "published_at": "2026-05-29T20:20:38Z",
@@ -13452,7 +13475,7 @@
     },
     {
       "version": "2.1.29",
-      "published_at": "2026-01-31T23:37:51Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Fixed startup performance issues when resuming sessions that have `saved_hook_context`",
@@ -13461,11 +13484,10 @@
         }
       ],
       "sources": [
-        "changelog",
-        "github_releases"
+        "changelog"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.29",
-      "github_body": "## What's changed\n\n- Fixed startup performance issues when resuming sessions that have `saved_hook_context`\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
