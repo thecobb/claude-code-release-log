@@ -1,9 +1,166 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-01T21:35:59.601975+00:00",
+  "generated_at": "2026-06-02T04:14:10.276777+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 319,
+  "release_count": 320,
   "releases": [
+    {
+      "version": "2.1.160",
+      "published_at": "2026-06-02T02:10:25Z",
+      "bullets": [
+        {
+          "text": "Added a prompt before writing to shell startup files (`.zshenv`, `.zlogin`, `.bash_login`) and `~/.config/git/`, which could otherwise lead to unintended command execution",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "`acceptEdits` mode now prompts before writing build-tool config files that grant code execution (`.npmrc`, `.yarnrc*`, `bunfig.toml`, `.bazelrc`, `.pre-commit-config.yaml`, `.devcontainer/`, etc.)",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Edit no longer requires a separate Read after viewing a file with `grep`: single-file `grep`/`egrep`/`fgrep` commands now satisfy the read-before-edit check",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Fixed copy-on-select not writing to the Windows clipboard on WSL — now uses PowerShell interop instead of OSC 52, which terminals like MobaXterm don't support",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed restoring a completed session from `claude agents` dropping chat history and re-running the original prompt",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background sessions re-attached after overnight retire losing their conversation and re-running the original prompt",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `claude --bg` occasionally failing with \"socket missing\" when the background daemon was cold-starting on a loaded machine",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed an issue on Windows where the directory a background session was started in could not be deleted after `claude rm` until the background daemon exited",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background agents that resumed work being shown under Completed in the agents list",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `claude agents` freezing for several seconds when returning to the session list due to the auto-updater re-checking on every exit",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Esc, arrow keys, and typing becoming unresponsive on Windows when attached to a background session or in the agent view while the host is under heavy CPU load",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background agents emitting terminal sync-output markers to terminals that don't support them (Apple Terminal, tmux), causing render artifacts when entering a running agent",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed mouse wheel scrolling prompt history instead of the transcript right after opening a session from the agents list",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed CJK IME composition appearing at the bottom-left of the screen instead of at the input caret in the `claude agents` view",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed valid `file:///C:/...` links being rewritten to a broken path on Windows terminals with hyperlink support",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed voice mode failing to connect when the project directory or branch name contains non-ASCII or special characters",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the auto mode unavailability message on third-party providers (Bedrock/Vertex/Foundry) to point to the `CLAUDE_CODE_ENABLE_AUTO_MODE` opt-in instead of incorrectly blaming the model",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/effort ultracode` incorrectly blaming the dynamic workflows setting when the model cannot run xhigh; ultracode is no longer offered on models that do not support it",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed model-not-found errors suggesting `--model` when running via the SDK or other hosts where the CLI flag doesn't apply",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Claude's past replies disappearing from scrollback when resuming a brief mode session with brief mode turned off",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed vim mode `p` pasting on the line below instead of at the cursor when the register was yanked with `v$`",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Improved performance of opening recently-inactive background agent sessions in `claude agents`",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved auto mode classifier latency by reducing reasoning on routine actions, lowering the chance of \"could not evaluate this action\" blocks",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved background-session teardown (`claude rm`/`stop`, idle reap) to send SIGTERM to running shell subprocesses before SIGKILL, so cleanup handlers run",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Removed `CLAUDE_CODE_OPUS_4_6_FAST_MODE_OVERRIDE`; the environment variable is now a no-op",
+          "category": "breaking",
+          "scope": null
+        },
+        {
+          "text": "Removed the JetBrains plugin install suggestion from startup",
+          "category": "breaking",
+          "scope": null
+        },
+        {
+          "text": "Renamed the dynamic-workflow trigger keyword from `workflow` to `ultracode`. The word \"workflow\" no longer triggers a run; asking for one in your own words still works. The trigger keyword is highlighted in violet in the prompt input",
+          "category": "other",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.160",
+      "github_body": "## What's changed\n\n- Added a prompt before writing to shell startup files (`.zshenv`, `.zlogin`, `.bash_login`) and `~/.config/git/`, which could otherwise lead to unintended command execution\n- `acceptEdits` mode now prompts before writing build-tool config files that grant code execution (`.npmrc`, `.yarnrc*`, `bunfig.toml`, `.bazelrc`, `.pre-commit-config.yaml`, `.devcontainer/`, etc.)\n- Edit no longer requires a separate Read after viewing a file with `grep`: single-file `grep`/`egrep`/`fgrep` commands now satisfy the read-before-edit check\n- Fixed copy-on-select not writing to the Windows clipboard on WSL — now uses PowerShell interop instead of OSC 52, which terminals like MobaXterm don't support\n- Fixed restoring a completed session from `claude agents` dropping chat history and re-running the original prompt\n- Fixed background sessions re-attached after overnight retire losing their conversation and re-running the original prompt\n- Fixed `claude --bg` occasionally failing with \"socket missing\" when the background daemon was cold-starting on a loaded machine\n- Fixed an issue on Windows where the directory a background session was started in could not be deleted after `claude rm` until the background daemon exited\n- Fixed background agents that resumed work being shown under Completed in the agents list\n- Fixed `claude agents` freezing for several seconds when returning to the session list due to the auto-updater re-checking on every exit\n- Fixed Esc, arrow keys, and typing becoming unresponsive on Windows when attached to a background session or in the agent view while the host is under heavy CPU load\n- Fixed background agents emitting terminal sync-output markers to terminals that don't support them (Apple Terminal, tmux), causing render artifacts when entering a running agent\n- Fixed mouse wheel scrolling prompt history instead of the transcript right after opening a session from the agents list\n- Fixed CJK IME composition appearing at the bottom-left of the screen instead of at the input caret in the `claude agents` view\n- Fixed valid `file:///C:/...` links being rewritten to a broken path on Windows terminals with hyperlink support\n- Fixed voice mode failing to connect when the project directory or branch name contains non-ASCII or special characters\n- Fixed the auto mode unavailability message on third-party providers (Bedrock/Vertex/Foundry) to point to the `CLAUDE_CODE_ENABLE_AUTO_MODE` opt-in instead of incorrectly blaming the model\n- Fixed `/effort ultracode` incorrectly blaming the dynamic workflows setting when the model cannot run xhigh; ultracode is no longer offered on models that do not support it\n- Fixed model-not-found errors suggesting `--model` when running via the SDK or other hosts where the CLI flag doesn't apply\n- Fixed Claude's past replies disappearing from scrollback when resuming a brief mode session with brief mode turned off\n- Fixed vim mode `p` pasting on the line below instead of at the cursor when the register was yanked with `v$`\n- Improved performance of opening recently-inactive background agent sessions in `claude agents`\n- Improved auto mode classifier latency by reducing reasoning on routine actions, lowering the chance of \"could not evaluate this action\" blocks\n- Improved background-session teardown (`claude rm`/`stop`, idle reap) to send SIGTERM to running shell subprocesses before SIGKILL, so cleanup handlers run\n- Removed `CLAUDE_CODE_OPUS_4_6_FAST_MODE_OVERRIDE`; the environment variable is now a no-op\n- Removed the JetBrains plugin install suggestion from startup\n- Renamed the dynamic-workflow trigger keyword from `workflow` to `ultracode`. The word \"workflow\" no longer triggers a run; asking for one in your own words still works. The trigger keyword is highlighted in violet in the prompt input\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "added": 1,
+        "other": 3,
+        "fixed": 18,
+        "improved": 3,
+        "breaking": 2
+      }
+    },
     {
       "version": "2.1.159",
       "published_at": "2026-05-31T19:42:49Z",
@@ -13347,7 +13504,7 @@
     },
     {
       "version": "2.1.31",
-      "published_at": "2026-02-04T00:44:13Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Added session resume hint on exit, showing how to continue your conversation later",
@@ -13406,11 +13563,10 @@
         }
       ],
       "sources": [
-        "changelog",
-        "github_releases"
+        "changelog"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.31",
-      "github_body": "## What's changed\n\n- Added session resume hint on exit, showing how to continue your conversation later\n- Added support for full-width (zenkaku) space input from Japanese IME in checkbox selection\n- Fixed PDF too large errors permanently locking up sessions, requiring users to start a new conversation\n- Fixed bash commands incorrectly reporting failure with \"Read-only file system\" errors when sandbox mode was enabled\n- Fixed a crash that made sessions unusable after entering plan mode when project config in `~/.claude.json` was missing default fields\n- Fixed `temperatureOverride` being silently ignored in the streaming API path, causing all streaming requests to use the default temperature (1) regardless of the configured override\n- Fixed LSP shutdown/exit compatibility with strict language servers that reject null params\n- Improved system prompts to more clearly guide the model toward using dedicated tools (Read, Edit, Glob, Grep) instead of bash equivalents (`cat`, `sed`, `grep`, `find`), reducing unnecessary bash command usage\n- Improved PDF and request size error messages to show actual limits (100 pages, 20MB)\n- Reduced layout jitter in the terminal when the spinner appears and disappears during streaming\n- Removed misleading Anthropic API pricing from model selector for third-party provider (Bedrock, Vertex, Foundry) users\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
