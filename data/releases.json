@@ -1,9 +1,140 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-02T20:52:54.135231+00:00",
+  "generated_at": "2026-06-03T04:23:54.795374+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 320,
+  "release_count": 321,
   "releases": [
+    {
+      "version": "2.1.161",
+      "published_at": "2026-06-02T21:58:22Z",
+      "bullets": [
+        {
+          "text": "`OTEL_RESOURCE_ATTRIBUTES` values are now included as labels on metric datapoints, so you can slice usage metrics by custom dimensions like team or repo",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "`claude agents` rows now show `done/total` before the detail when work is fanned out; peek shows the longest-running item",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "`/mcp` now collapses claude.ai connectors you've never signed in to behind a \"Show unused connectors\" row",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Parallel tool calls: a failed Bash command no longer cancels other calls in the same batch — each tool returns its own result independently",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Fullscreen mode: clipboard now uses `wl-copy`/`xclip`/`xsel` on Linux when available, copies to both the clipboard and PRIMARY selection for middle-click paste, and the \"hold {key} for native selection\" hint now shows the correct key per terminal",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Fixed the `/effort` dialog, workflow animations, and prompt keyword shimmer not honoring the \"Reduce motion\" setting",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `forceLoginOrgUUID`/`forceLoginMethod` managed-settings policies blocking third-party provider sessions (Bedrock, Vertex, Foundry, Mantle) alongside the org pin (regression in 2.1.146)",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background subagent output corrupting `claude -p` stdout when using `--output-format text` or `json`",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/usage-credits` starting a re-login for Team and Enterprise admins instead of pointing to the organization's usage settings page",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/autofix-pr` reporting \"cannot run on the default branch\" when the session is inside a git worktree or another repository",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `--resume` picker not showing sessions from the current directory when it isn't a git worktree (e.g., jj workspaces)",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Windows hooks that invoke bash explicitly (e.g., `/usr/bin/bash script.sh`) failing with \"command not found\" or \"cannot execute binary file\"",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed OpenTelemetry log events (`user_prompt`, `api_request`, `tool_result`, `tool_decision`) being silently dropped when emitted before telemetry initialization completed",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `claude mcp` list/get/add printing secrets to the terminal: `${VAR}` references are no longer expanded, and credential headers and URL secrets are redacted",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Workflow agents spawned with `isolation: \"worktree\"` in background sessions being blocked from editing files inside their own worktree",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background sessions dispatched from `claude agents` booting on a stale model from the daemon's environment instead of the model in `settings.json`",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a potential crash when rendering Write tool results after resuming a session",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed completed subagents getting stuck showing as running when an error occurs while finalizing their result",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `EADDRINUSE` errors from tools that bind Unix sockets under `$TMPDIR` when `CLAUDE_CODE_TMPDIR` is set to a deep path",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Improved terminal rendering performance by stabilizing the layout engine's JIT compilation profile",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved rendering performance for large file writes",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "[VSCode] Added a tip suggesting disabling terminal GPU acceleration (or running `/terminal-setup`) to fix garbled glyphs",
+          "category": "added",
+          "scope": "VSCode"
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.161",
+      "github_body": "## What's changed\n\n- `OTEL_RESOURCE_ATTRIBUTES` values are now included as labels on metric datapoints, so you can slice usage metrics by custom dimensions like team or repo\n- `claude agents` rows now show `done/total` before the detail when work is fanned out; peek shows the longest-running item\n- `/mcp` now collapses claude.ai connectors you've never signed in to behind a \"Show unused connectors\" row\n- Parallel tool calls: a failed Bash command no longer cancels other calls in the same batch — each tool returns its own result independently\n- Fullscreen mode: clipboard now uses `wl-copy`/`xclip`/`xsel` on Linux when available, copies to both the clipboard and PRIMARY selection for middle-click paste, and the \"hold {key} for native selection\" hint now shows the correct key per terminal\n- Fixed the `/effort` dialog, workflow animations, and prompt keyword shimmer not honoring the \"Reduce motion\" setting\n- Fixed `forceLoginOrgUUID`/`forceLoginMethod` managed-settings policies blocking third-party provider sessions (Bedrock, Vertex, Foundry, Mantle) alongside the org pin (regression in 2.1.146)\n- Fixed background subagent output corrupting `claude -p` stdout when using `--output-format text` or `json`\n- Fixed `/usage-credits` starting a re-login for Team and Enterprise admins instead of pointing to the organization's usage settings page\n- Fixed `/autofix-pr` reporting \"cannot run on the default branch\" when the session is inside a git worktree or another repository\n- Fixed `--resume` picker not showing sessions from the current directory when it isn't a git worktree (e.g., jj workspaces)\n- Fixed Windows hooks that invoke bash explicitly (e.g., `/usr/bin/bash script.sh`) failing with \"command not found\" or \"cannot execute binary file\"\n- Fixed OpenTelemetry log events (`user_prompt`, `api_request`, `tool_result`, `tool_decision`) being silently dropped when emitted before telemetry initialization completed\n- Fixed `claude mcp` list/get/add printing secrets to the terminal: `${VAR}` references are no longer expanded, and credential headers and URL secrets are redacted\n- Fixed Workflow agents spawned with `isolation: \"worktree\"` in background sessions being blocked from editing files inside their own worktree\n- Fixed background sessions dispatched from `claude agents` booting on a stale model from the daemon's environment instead of the model in `settings.json`\n- Fixed a potential crash when rendering Write tool results after resuming a session\n- Fixed completed subagents getting stuck showing as running when an error occurs while finalizing their result\n- Fixed `EADDRINUSE` errors from tools that bind Unix sockets under `$TMPDIR` when `CLAUDE_CODE_TMPDIR` is set to a deep path\n- Improved terminal rendering performance by stabilizing the layout engine's JIT compilation profile\n- Improved rendering performance for large file writes\n- [VSCode] Added a tip suggesting disabling terminal GPU acceleration (or running `/terminal-setup`) to fix garbled glyphs\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "other": 5,
+        "fixed": 14,
+        "improved": 2,
+        "added": 1
+      }
+    },
     {
       "version": "2.1.160",
       "published_at": "2026-06-02T02:10:25Z",
@@ -13423,7 +13554,7 @@
     },
     {
       "version": "2.1.32",
-      "published_at": "2026-02-05T17:47:50Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Claude Opus 4.6 is now available!",
@@ -13487,11 +13618,10 @@
         }
       ],
       "sources": [
-        "changelog",
-        "github_releases"
+        "changelog"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.32",
-      "github_body": "## What's changed\n\n- Claude Opus 4.6 is now available!\n- Added research preview agent teams feature for multi-agent collaboration (token-intensive feature, requires setting CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1)\n- Claude now automatically records and recalls memories as it works\n- Added \"Summarize from here\" to the message selector, allowing partial conversation summarization.\n- Skills defined in `.claude/skills/` within additional directories (`--add-dir`) are now loaded automatically.\n- Fixed `@` file completion showing incorrect relative paths when running from a subdirectory\n- Updated --resume to re-use --agent value specified in previous conversation by default.\n- Fixed: Bash tool no longer throws \"Bad substitution\" errors when heredocs contain JavaScript template literals like `${index + 1}`, which previously interrupted tool execution\n- Skill character budget now scales with context window (2% of context), so users with larger context windows can see more skill descriptions without truncation\n- Fixed Thai/Lao spacing vowels (สระ า, ำ) not rendering correctly in the input field\n- VSCode: Fixed slash commands incorrectly being executed when pressing Enter with preceding text in the input field\n- VSCode: Added spinner when loading past conversations list\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
