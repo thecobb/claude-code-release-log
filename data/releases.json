@@ -1,9 +1,170 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-03T20:58:46.050395+00:00",
+  "generated_at": "2026-06-04T04:18:49.558767+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 321,
+  "release_count": 322,
   "releases": [
+    {
+      "version": "2.1.162",
+      "published_at": "2026-06-03T21:31:35Z",
+      "bullets": [
+        {
+          "text": "`claude agents --json` now includes `waitingFor` showing what a waiting session is blocked on (e.g. permission prompt)",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "`--tools`: explicitly listing Grep/Glob now provides the dedicated search tools on native builds with embedded search (previously these names were silently ignored)",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "`/effort` now confirms when your chosen level will persist as the default for new sessions",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Clicking a slash command in the autocomplete menu now fills it into your prompt instead of running it immediately; press Enter to run",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Remote Control now shows as a persistent footer pill (with a link to the session) instead of a startup message",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Renamed Windsurf to Devin Desktop in the `/ide` menu, `/terminal-setup`, and `/scroll-speed`, following the editor's rebrand",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Fixed a silent startup hang when the config directory is read-only or unwritable — Claude Code now starts with in-memory config and surfaces startup errors instead of showing a blank screen",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed WebFetch permission rules not being applied to built-in preapproved domains; explicit `WebFetch(domain:...)` deny/ask/allow rules now take precedence over the preapproved-host auto-allow",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Windows permission rules never matching when spelled with backslashes (`~\\`, `\\\\server\\share`) or case-variant paths, and Read deny rules not hiding files from Glob/Grep results",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed an interrupt (Esc) sent at the very start of a turn being silently dropped in stream-json/SDK sessions, leaving the turn running with no \"Interrupted\" feedback",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed API 400 `no low surrogate in string` errors for classifier side-queries and MCP server descriptions containing emoji near a truncation boundary",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed MCP per-server `timeout` config values below 1000 ms being floored to a 1-second watchdog that aborted every tool call; sub-1000 ms values are now ignored (falling back to `MCP_TOOL_TIMEOUT` or default), and `claude mcp get` annotates them accordingly",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the LSP tool's `workspaceSymbol` operation returning no results; it now accepts a `query` parameter and passes it to the language server",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `claude agents` cutting live status text (tool args, replies, prompts, exec output) at 60–120 columns on wide terminals; the status detail now uses the full terminal width",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `claude agents` truncating long session names at 40 columns; the name column now grows with terminal width",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `claude agents` attach occasionally bouncing straight back to the session list on the first try after a background-service restart",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `claude agents` Ctrl+V image paste doing nothing in the dispatch input and the session reply box; pasting with no image now shows a hint",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed backgrounding a session with ← silently losing the conversation when the background service cannot start; the session stays in the list as a failed row you can wake with Enter",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed replies from the agents view that fail to send being lost; they are now queued for delivery on the next session start",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed cross-session messaging (`SendMessage`) silently breaking when `CLAUDE_CODE_TMPDIR` or `$TMPDIR` points at a deep directory",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed opening a running background session from `claude agents` stalling for 5 seconds before attaching",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Quieter startup: notices group by severity, and session info and announcements share a single line per launch",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Startup warnings rewritten to be shorter and clearer, each with a concrete fix",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Launch-prompt warnings (deep link/pre-filled prompt) now stay pinned below the input until you act instead of scrolling away",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Failed turns now show a compact warning line instead of a multi-line red error block",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Improved background service startup and `claude update` verification to wait out endpoint-security scanning of new binaries instead of failing after 5 seconds",
+          "category": "security",
+          "scope": null
+        },
+        {
+          "text": "Background dispatch spawn failures now report the error class name when no errno is available",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Removed the \"Claude in Chrome enabled\" and \"marketplace installed\" startup messages; model auto-updates and the team-onboarding tip now show as quiet notices under the logo",
+          "category": "breaking",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.162",
+      "github_body": "## What's changed\n\n- `claude agents --json` now includes `waitingFor` showing what a waiting session is blocked on (e.g. permission prompt)\n- `--tools`: explicitly listing Grep/Glob now provides the dedicated search tools on native builds with embedded search (previously these names were silently ignored)\n- `/effort` now confirms when your chosen level will persist as the default for new sessions\n- Clicking a slash command in the autocomplete menu now fills it into your prompt instead of running it immediately; press Enter to run\n- Remote Control now shows as a persistent footer pill (with a link to the session) instead of a startup message\n- Renamed Windsurf to Devin Desktop in the `/ide` menu, `/terminal-setup`, and `/scroll-speed`, following the editor's rebrand\n- Fixed a silent startup hang when the config directory is read-only or unwritable — Claude Code now starts with in-memory config and surfaces startup errors instead of showing a blank screen\n- Fixed WebFetch permission rules not being applied to built-in preapproved domains; explicit `WebFetch(domain:...)` deny/ask/allow rules now take precedence over the preapproved-host auto-allow\n- Fixed Windows permission rules never matching when spelled with backslashes (`~\\`, `\\\\server\\share`) or case-variant paths, and Read deny rules not hiding files from Glob/Grep results\n- Fixed an interrupt (Esc) sent at the very start of a turn being silently dropped in stream-json/SDK sessions, leaving the turn running with no \"Interrupted\" feedback\n- Fixed API 400 `no low surrogate in string` errors for classifier side-queries and MCP server descriptions containing emoji near a truncation boundary\n- Fixed MCP per-server `timeout` config values below 1000 ms being floored to a 1-second watchdog that aborted every tool call; sub-1000 ms values are now ignored (falling back to `MCP_TOOL_TIMEOUT` or default), and `claude mcp get` annotates them accordingly\n- Fixed the LSP tool's `workspaceSymbol` operation returning no results; it now accepts a `query` parameter and passes it to the language server\n- Fixed `claude agents` cutting live status text (tool args, replies, prompts, exec output) at 60–120 columns on wide terminals; the status detail now uses the full terminal width\n- Fixed `claude agents` truncating long session names at 40 columns; the name column now grows with terminal width\n- Fixed `claude agents` attach occasionally bouncing straight back to the session list on the first try after a background-service restart\n- Fixed `claude agents` Ctrl+V image paste doing nothing in the dispatch input and the session reply box; pasting with no image now shows a hint\n- Fixed backgrounding a session with ← silently losing the conversation when the background service cannot start; the session stays in the list as a failed row you can wake with Enter\n- Fixed replies from the agents view that fail to send being lost; they are now queued for delivery on the next session start\n- Fixed cross-session messaging (`SendMessage`) silently breaking when `CLAUDE_CODE_TMPDIR` or `$TMPDIR` points at a deep directory\n- Fixed opening a running background session from `claude agents` stalling for 5 seconds before attaching\n- Quieter startup: notices group by severity, and session info and announcements share a single line per launch\n- Startup warnings rewritten to be shorter and clearer, each with a concrete fix\n- Launch-prompt warnings (deep link/pre-filled prompt) now stay pinned below the input until you act instead of scrolling away\n- Failed turns now show a compact warning line instead of a multi-line red error block\n- Improved background service startup and `claude update` verification to wait out endpoint-security scanning of new binaries instead of failing after 5 seconds\n- Background dispatch spawn failures now report the error class name when no errno is available\n- Removed the \"Claude in Chrome enabled\" and \"marketplace installed\" startup messages; model auto-updates and the team-onboarding tip now show as quiet notices under the logo\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "other": 11,
+        "fixed": 15,
+        "security": 1,
+        "breaking": 1
+      }
+    },
     {
       "version": "2.1.161",
       "published_at": "2026-06-02T21:58:22Z",
@@ -13453,7 +13614,7 @@
     },
     {
       "version": "2.1.33",
-      "published_at": "2026-02-06T01:47:21Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Fixed agent teammate sessions in tmux to send and receive messages",
@@ -13537,11 +13698,10 @@
         }
       ],
       "sources": [
-        "changelog",
-        "github_releases"
+        "changelog"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.33",
-      "github_body": "## What's changed\n\n- Fixed agent teammate sessions in tmux to send and receive messages\n- Fixed warnings about agent teams not being available on your current plan\n- Added `TeammateIdle` and `TaskCompleted` hook events for multi-agent workflows\n- Added support for restricting which sub-agents can be spawned via `Task(agent_type)` syntax in agent \"tools\" frontmatter\n- Added `memory` frontmatter field support for agents, enabling persistent memory with `user`, `project`, or `local` scope\n- Added plugin name to skill descriptions and `/skills` menu for better discoverability\n- Fixed an issue where submitting a new message while the model was in extended thinking would interrupt the thinking phase\n- Fixed an API error that could occur when aborting mid-stream, where whitespace text combined with a thinking block would bypass normalization and produce an invalid request\n- Fixed API proxy compatibility issue where 404 errors on streaming endpoints no longer triggered non-streaming fallback\n- Fixed an issue where proxy settings configured via `settings.json` environment variables were not applied to WebFetch and other HTTP requests on the Node.js build\n- Fixed `/resume` session picker showing raw XML markup instead of clean titles for sessions started with slash commands\n- Improved error messages for API connection failures — now shows specific cause (e.g., ECONNREFUSED, SSL errors) instead of generic \"Connection error\"\n- Errors from invalid managed settings are now surfaced\n- VSCode: Added support for remote sessions, allowing OAuth users to browse and resume sessions from claude.ai\n- VSCode: Added git branch and message count to the session picker, with support for searching by branch name\n- VSCode: Fixed scroll-to-bottom under-scrolling on initial session load and session switch\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
