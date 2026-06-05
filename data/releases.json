@@ -1,9 +1,139 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-04T20:09:06.610192+00:00",
+  "generated_at": "2026-06-05T04:02:25.560174+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 322,
+  "release_count": 323,
   "releases": [
+    {
+      "version": "2.1.163",
+      "published_at": "2026-06-04T21:52:51Z",
+      "bullets": [
+        {
+          "text": "Added `requiredMinimumVersion` and `requiredMaximumVersion` managed settings — Claude Code refuses to start if its version is outside the allowed range and directs the user to an approved version",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added `/plugin list` command to list installed plugins, with `--enabled`/`--disabled` filters",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added a \"c to copy\" shortcut to `/btw` that copies the raw markdown answer to the clipboard, preserving formatting when pasted elsewhere",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Hooks: Stop and SubagentStop hooks can now return `hookSpecificOutput.additionalContext` to give Claude feedback and keep the turn going without being labeled a hook error",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Skills: added `\\$` escape syntax to include a literal `$` before a digit in command bodies",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "stdio MCP servers now receive the same `CLAUDE_CODE_SESSION_ID` as hooks/Bash on `--resume`",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Fixed `claude -p` hanging forever after its final result when a backgrounded command never exits — background shells are now stopped ~5s after the result once stdin closes",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `claude -p` failing with \"ANTHROPIC_API_KEY required\" on Bedrock/Vertex/Foundry when `CI=true` and no Anthropic API key is set",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed bash commands failing under bazel and EDR-protected Go workflows: `$TMPDIR` was overridden to `/tmp/claude-{uid}` for all commands instead of only sandboxed ones (regression in 2.1.154)",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Bash commands failing on Windows with \"EEXIST: file already exists\" on the session-env directory when it has the read-only attribute or is inside OneDrive",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed org-managed permission rules not applying for the entire session when the managed settings fetch completed during startup on a fresh config directory",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background sessions in `claude agents` losing their running background tasks when reattached after a Claude Code update",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed terminal misalignment and a multi-second hang when exiting the agent view by pressing Esc",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed clicking Stop on a background-task chip in the desktop app not clearing the chip when the underlying process was already gone",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed keyboard input becoming permanently unresponsive after a paste operation whose end marker is dropped by the terminal",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed hook `if: \"Bash(...)\"` conditions firing on every Bash command containing `$()` or `$VAR`; the pattern now matches against commands inside subshells and backticks too",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed deny rules on home-directory paths (e.g. `Read(~/Desktop/**)`) not blocking Bash commands that reference the path via `$HOME`",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a stray \"(no content)\" line left in the transcript after closing panel dialogs like /mcp and /plugins",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Background agent sessions now update to a new Claude Code version in the background, so opening a session after an update no longer waits on a cold restart",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Clearer descriptions for built-in commands and skills in the / menu",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "The subscription-switch suggestion now shows in the startup announcement slot instead of a toast",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "`claude agents` dispatching from the state-grouped view now starts the session in the directory the agent view was opened from",
+          "category": "other",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.163",
+      "github_body": "## What's changed\n\n- Added `requiredMinimumVersion` and `requiredMaximumVersion` managed settings — Claude Code refuses to start if its version is outside the allowed range and directs the user to an approved version\n- Added `/plugin list` command to list installed plugins, with `--enabled`/`--disabled` filters\n- Added a \"c to copy\" shortcut to `/btw` that copies the raw markdown answer to the clipboard, preserving formatting when pasted elsewhere\n- Hooks: Stop and SubagentStop hooks can now return `hookSpecificOutput.additionalContext` to give Claude feedback and keep the turn going without being labeled a hook error\n- Skills: added `\\$` escape syntax to include a literal `$` before a digit in command bodies\n- stdio MCP servers now receive the same `CLAUDE_CODE_SESSION_ID` as hooks/Bash on `--resume`\n- Fixed `claude -p` hanging forever after its final result when a backgrounded command never exits — background shells are now stopped ~5s after the result once stdin closes\n- Fixed `claude -p` failing with \"ANTHROPIC_API_KEY required\" on Bedrock/Vertex/Foundry when `CI=true` and no Anthropic API key is set\n- Fixed bash commands failing under bazel and EDR-protected Go workflows: `$TMPDIR` was overridden to `/tmp/claude-{uid}` for all commands instead of only sandboxed ones (regression in 2.1.154)\n- Fixed Bash commands failing on Windows with \"EEXIST: file already exists\" on the session-env directory when it has the read-only attribute or is inside OneDrive\n- Fixed org-managed permission rules not applying for the entire session when the managed settings fetch completed during startup on a fresh config directory\n- Fixed background sessions in `claude agents` losing their running background tasks when reattached after a Claude Code update\n- Fixed terminal misalignment and a multi-second hang when exiting the agent view by pressing Esc\n- Fixed clicking Stop on a background-task chip in the desktop app not clearing the chip when the underlying process was already gone\n- Fixed keyboard input becoming permanently unresponsive after a paste operation whose end marker is dropped by the terminal\n- Fixed hook `if: \"Bash(...)\"` conditions firing on every Bash command containing `$()` or `$VAR`; the pattern now matches against commands inside subshells and backticks too\n- Fixed deny rules on home-directory paths (e.g. `Read(~/Desktop/**)`) not blocking Bash commands that reference the path via `$HOME`\n- Fixed a stray \"(no content)\" line left in the transcript after closing panel dialogs like /mcp and /plugins\n- Background agent sessions now update to a new Claude Code version in the background, so opening a session after an update no longer waits on a cold restart\n- Clearer descriptions for built-in commands and skills in the / menu\n- The subscription-switch suggestion now shows in the startup announcement slot instead of a toast\n- `claude agents` dispatching from the state-grouped view now starts the session in the directory the agent view was opened from\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "added": 3,
+        "other": 7,
+        "fixed": 12
+      }
+    },
     {
       "version": "2.1.162",
       "published_at": "2026-06-03T21:31:35Z",
@@ -13586,7 +13716,7 @@
     },
     {
       "version": "2.1.34",
-      "published_at": "2026-02-06T14:26:47Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Fixed a crash when agent teams setting changed between renders",
@@ -13600,11 +13730,10 @@
         }
       ],
       "sources": [
-        "changelog",
-        "github_releases"
+        "changelog"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.34",
-      "github_body": "## What's changed\n\n- Fixed a crash when agent teams setting changed between renders\n- Fixed a bug where commands excluded from sandboxing (via `sandbox.excludedCommands` or `dangerouslyDisableSandbox`) could bypass the Bash ask permission rule when `autoAllowBashIfSandboxed` was enabled\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
