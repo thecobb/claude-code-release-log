@@ -1,9 +1,32 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-05T04:02:25.560174+00:00",
+  "generated_at": "2026-06-05T09:56:20.771924+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 323,
+  "release_count": 324,
   "releases": [
+    {
+      "version": "2.1.165",
+      "published_at": "2026-06-05T05:45:06Z",
+      "bullets": [
+        {
+          "text": "Bug fixes and reliability improvements",
+          "category": "other",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.165",
+      "github_body": "## What's changed\n\n- Bug fixes and reliability improvements\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "other": 1
+      }
+    },
     {
       "version": "2.1.163",
       "published_at": "2026-06-04T21:52:51Z",
@@ -13693,7 +13716,7 @@
     },
     {
       "version": "2.1.36",
-      "published_at": "2026-02-07T18:02:15Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Fast mode is now available for Opus 4.6. Learn more at https://code.claude.com/docs/en/fast-mode",
@@ -13702,11 +13725,10 @@
         }
       ],
       "sources": [
-        "changelog",
-        "github_releases"
+        "changelog"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.36",
-      "github_body": "## What's changed\n\n- Fast mode is now available for Opus 4.6. Learn more at https://code.claude.com/docs/en/fast-mode\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
