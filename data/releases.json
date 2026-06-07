@@ -1,9 +1,32 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-06T19:27:03.158126+00:00",
+  "generated_at": "2026-06-07T04:12:13.805741+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 326,
+  "release_count": 327,
   "releases": [
+    {
+      "version": "2.1.168",
+      "published_at": "2026-06-06T23:41:53Z",
+      "bullets": [
+        {
+          "text": "Bug fixes and reliability improvements",
+          "category": "other",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.168",
+      "github_body": "## What's changed\n\n- Bug fixes and reliability improvements\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "other": 1
+      }
+    },
     {
       "version": "2.1.167",
       "published_at": "2026-06-06T01:33:35Z",
@@ -13742,7 +13765,7 @@
     },
     {
       "version": "2.1.39",
-      "published_at": "2026-02-10T23:11:36Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Improved terminal rendering performance",
@@ -13771,11 +13794,10 @@
         }
       ],
       "sources": [
-        "changelog",
-        "github_releases"
+        "changelog"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.39",
-      "github_body": "## What's changed\n\n- Improved terminal rendering performance\n- Fixed fatal errors being swallowed instead of displayed\n- Fixed process hanging after session close\n- Fixed character loss at terminal screen boundary\n- Fixed blank lines in verbose transcript view\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
