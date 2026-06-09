@@ -1,9 +1,180 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-08T20:21:59.016332+00:00",
+  "generated_at": "2026-06-09T03:46:39.004767+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 327,
+  "release_count": 328,
   "releases": [
+    {
+      "version": "2.1.169",
+      "published_at": "2026-06-08T21:57:18Z",
+      "bullets": [
+        {
+          "text": "Added `--safe-mode` flag (and `CLAUDE_CODE_SAFE_MODE`) to start Claude Code with all customizations (CLAUDE.md, plugins, skills, hooks, MCP servers) disabled for troubleshooting",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added `/cd` command to move a session to a new working directory without breaking the prompt cache mid-session",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added a `disableBundledSkills` setting and `CLAUDE_CODE_DISABLE_BUNDLED_SKILLS` environment variable to hide bundled skills, workflows, and built-in slash commands from the model",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Fixed Up/Down arrows jumping to command history past the wrapped rows of a long input line — they now move through each visual row first, and history recall enters at the near edge",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed enterprise managed MCP policies (`allowedMcpServers`/`deniedMcpServers`) not being enforced on reconnect, IDE-typed configs, `--mcp-config` servers during the first session after install, or before remote settings loaded; also fixed slow cold starts for orgs without remote settings",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a ~30-50ms UI stall at the start of each turn for macOS users logged in with claude.ai credentials",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `claude -p` being slow or appearing to hang on Windows while waiting for the slash-command/skill scan (regression in 2.1.161)",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Remote Control getting stuck on \"reconnecting\" after resuming a session when an OAuth token refresh happened at the same time",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Git Credential Manager's \"Connect to GitHub\" popup appearing on Windows at startup when background git commands ran without cached credentials",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed footer hints (e.g. \"esc to interrupt\") not showing for users with a custom statusline",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed stale permission and dialog prompts reappearing every time you reattached to a remote session whose worker had died while waiting on them",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `claude agents --json` omitting blocked and just-dispatched background sessions; added `--all` to include completed sessions, plus new `id` and `state` fields",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed agents view leaving a stale/garbled frame after navigating back from an agent on WSL in Windows Terminal",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background agents ignoring project-level settings `env` values (e.g. `ANTHROPIC_MODEL`) when dispatched onto a pre-warmed worker",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed MCPB plugin cache being spuriously invalidated on Windows, causing unnecessary re-extraction",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed plugin `.in_use` PID lock files accumulating without bound; stale markers from crashed sessions are now swept once per day",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed untrusted project settings being able to set OTEL client-certificate paths without trust confirmation",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "`/workflows` now opens immediately even while a turn is in progress",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Improved `TaskCreate` reliability: malformed inputs are repaired automatically and validation errors for unloaded tools include the schema",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved the error message shown when your organization has disabled API key authentication, with guidance based on where the active API key comes from",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Reduced CPU usage while responses stream and during spinner animations",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Restored a default 5-minute idle timeout on Vertex/Foundry so a stalled stream aborts instead of hanging indefinitely; set `API_FORCE_IDLE_TIMEOUT=0` to opt out",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Remote-managed settings with an invalid entry now apply their remaining valid policies and surface the validation error, instead of silently dropping the whole payload",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Background sessions now preserve `--ide`, `--chrome`, `--bare`, `--remote-control`, and other flags across retire→wake, and respawn state validation was hardened",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Background sessions are now told that shared-checkout edits are blocked until they enter a worktree, avoiding a wasted rejected edit before `EnterWorktree`",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "The \"CLAUDE.md is too long\" warning threshold now scales with the model's context window",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Auto-updater on Windows now stops retrying within a session once `claude.exe` is held by another process",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Improved color contrast for skill tags in the slash-command menu",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Promo credit claims for Apple/Google-billed subscribers without a payment method now explain where to add one",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Added a tip suggesting `claude agents` when running multiple concurrent sessions",
+          "category": "added",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.169",
+      "github_body": "## What's changed\n\n- Added `--safe-mode` flag (and `CLAUDE_CODE_SAFE_MODE`) to start Claude Code with all customizations (CLAUDE.md, plugins, skills, hooks, MCP servers) disabled for troubleshooting\n- Added `/cd` command to move a session to a new working directory without breaking the prompt cache mid-session\n- Added a `disableBundledSkills` setting and `CLAUDE_CODE_DISABLE_BUNDLED_SKILLS` environment variable to hide bundled skills, workflows, and built-in slash commands from the model\n- Fixed Up/Down arrows jumping to command history past the wrapped rows of a long input line — they now move through each visual row first, and history recall enters at the near edge\n- Fixed enterprise managed MCP policies (`allowedMcpServers`/`deniedMcpServers`) not being enforced on reconnect, IDE-typed configs, `--mcp-config` servers during the first session after install, or before remote settings loaded; also fixed slow cold starts for orgs without remote settings\n- Fixed a ~30-50ms UI stall at the start of each turn for macOS users logged in with claude.ai credentials\n- Fixed `claude -p` being slow or appearing to hang on Windows while waiting for the slash-command/skill scan (regression in 2.1.161)\n- Fixed Remote Control getting stuck on \"reconnecting\" after resuming a session when an OAuth token refresh happened at the same time\n- Fixed Git Credential Manager's \"Connect to GitHub\" popup appearing on Windows at startup when background git commands ran without cached credentials\n- Fixed footer hints (e.g. \"esc to interrupt\") not showing for users with a custom statusline\n- Fixed stale permission and dialog prompts reappearing every time you reattached to a remote session whose worker had died while waiting on them\n- Fixed `claude agents --json` omitting blocked and just-dispatched background sessions; added `--all` to include completed sessions, plus new `id` and `state` fields\n- Fixed agents view leaving a stale/garbled frame after navigating back from an agent on WSL in Windows Terminal\n- Fixed background agents ignoring project-level settings `env` values (e.g. `ANTHROPIC_MODEL`) when dispatched onto a pre-warmed worker\n- Fixed MCPB plugin cache being spuriously invalidated on Windows, causing unnecessary re-extraction\n- Fixed plugin `.in_use` PID lock files accumulating without bound; stale markers from crashed sessions are now swept once per day\n- Fixed untrusted project settings being able to set OTEL client-certificate paths without trust confirmation\n- `/workflows` now opens immediately even while a turn is in progress\n- Improved `TaskCreate` reliability: malformed inputs are repaired automatically and validation errors for unloaded tools include the schema\n- Improved the error message shown when your organization has disabled API key authentication, with guidance based on where the active API key comes from\n- Reduced CPU usage while responses stream and during spinner animations\n- Restored a default 5-minute idle timeout on Vertex/Foundry so a stalled stream aborts instead of hanging indefinitely; set `API_FORCE_IDLE_TIMEOUT=0` to opt out\n- Remote-managed settings with an invalid entry now apply their remaining valid policies and surface the validation error, instead of silently dropping the whole payload\n- Background sessions now preserve `--ide`, `--chrome`, `--bare`, `--remote-control`, and other flags across retire→wake, and respawn state validation was hardened\n- Background sessions are now told that shared-checkout edits are blocked until they enter a worktree, avoiding a wasted rejected edit before `EnterWorktree`\n- The \"CLAUDE.md is too long\" warning threshold now scales with the model's context window\n- Auto-updater on Windows now stops retrying within a session once `claude.exe` is held by another process\n- Improved color contrast for skill tags in the slash-command menu\n- Promo credit claims for Apple/Google-billed subscribers without a payment method now explain where to add one\n- Added a tip suggesting `claude agents` when running multiple concurrent sessions\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "added": 4,
+        "fixed": 14,
+        "other": 9,
+        "improved": 3
+      }
+    },
     {
       "version": "2.1.168",
       "published_at": "2026-06-06T23:41:53Z",
@@ -13635,7 +13806,7 @@
     },
     {
       "version": "2.1.41",
-      "published_at": "2026-02-13T06:08:49Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Added guard against launching Claude Code inside another Claude Code session",
@@ -13749,11 +13920,10 @@
         }
       ],
       "sources": [
-        "changelog",
-        "github_releases"
+        "changelog"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.41",
-      "github_body": "## What's changed\n\n- Fixed AWS auth refresh hanging indefinitely by adding a 3-minute timeout\n- Added `claude auth login`, `claude auth status`, and `claude auth logout` CLI subcommands\n- Added Windows ARM64 (win32-arm64) native binary support\n- Improved `/rename` to auto-generate session name from conversation context when called without arguments\n- Improved narrow terminal layout for prompt footer\n- Fixed file resolution failing for @-mentions with anchor fragments (e.g., `@README.md#installation`)\n- Fixed FileReadTool blocking the process on FIFOs, `/dev/stdin`, and large files\n- Fixed background task notifications not being delivered in streaming Agent SDK mode\n- Fixed cursor jumping to end on each keystroke in classifier rule input\n- Fixed markdown link display text being dropped for raw URL\n- Fixed auto-compact failure error notifications being shown to users\n- Fixed permission wait time being included in subagent elapsed time display\n- Fixed proactive ticks firing while in plan mode\n- Fixed clear stale permission rules when settings change on disk\n- Fixed hook blocking errors showing stderr content in UI\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
