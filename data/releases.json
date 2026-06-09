@@ -1,9 +1,38 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-09T14:57:14.762843+00:00",
+  "generated_at": "2026-06-09T20:09:51.693322+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 328,
+  "release_count": 329,
   "releases": [
+    {
+      "version": "2.1.170",
+      "published_at": "2026-06-09T17:23:09Z",
+      "bullets": [
+        {
+          "text": "Introducing Claude Fable 5: a Mythos-class model that we’ve made safe for general use. Fable’s capabilities exceed those of any model we’ve ever made generally available. Update to version 2.1.170 for access. https://www.anthropic.com/news/claude-fable-5-mythos-5",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Fixed sessions not saving transcripts (and not appearing in --resume) when launched from the VS Code integrated terminal or any shell that inherited Claude Code environment variables.",
+          "category": "fixed",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.170",
+      "github_body": "## What's changed\n\n- Introducing Claude Fable 5: a Mythos-class model that we’ve made safe for general use. Fable’s capabilities exceed those of any model we’ve ever made generally available. Update to version 2.1.170 for access. https://www.anthropic.com/news/claude-fable-5-mythos-5\n- Fixed sessions not saving transcripts (and not appearing in --resume) when launched from the VS Code integrated terminal or any shell that inherited Claude Code environment variables.\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "other": 1,
+        "fixed": 1
+      }
+    },
     {
       "version": "2.1.169",
       "published_at": "2026-06-08T21:57:18Z",
@@ -13761,7 +13790,7 @@
     },
     {
       "version": "2.1.42",
-      "published_at": "2026-02-13T19:56:33Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Improved startup performance by deferring Zod schema construction",
@@ -13790,11 +13819,10 @@
         }
       ],
       "sources": [
-        "changelog",
-        "github_releases"
+        "changelog"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.42",
-      "github_body": "## What's changed\n\n- Fixed /resume showing interrupt messages as session titles\n- Fixed Opus 4.6 launch announcement showing for Bedrock/Vertex/Foundry users\n- Improved error message for many-image dimension limit errors with /compact suggestion\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
