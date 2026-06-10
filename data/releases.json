@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-09T20:09:51.693322+00:00",
+  "generated_at": "2026-06-10T03:59:07.649556+00:00",
   "default_repo": "anthropics/claude-code",
   "release_count": 329,
   "releases": [
@@ -37,6 +37,11 @@
       "version": "2.1.169",
       "published_at": "2026-06-08T21:57:18Z",
       "bullets": [
+        {
+          "text": "Self-hosted runner: added a `post-session` lifecycle hook that runs after the session ends and before the workspace is deleted, so you can snapshot uncommitted work or export logs; also made the child-process SIGTERM→SIGKILL window configurable (default unchanged at 5s)",
+          "category": "other",
+          "scope": null
+        },
         {
           "text": "Added `--safe-mode` flag (and `CLAUDE_CODE_SAFE_MODE`) to start Claude Code with all customizations (CLAUDE.md, plugins, skills, hooks, MCP servers) disabled for troubleshooting",
           "category": "added",
@@ -198,9 +203,9 @@
       "digest_url": null,
       "is_prerelease": false,
       "category_counts": {
+        "other": 10,
         "added": 4,
         "fixed": 14,
-        "other": 9,
         "improved": 3
       }
     },
