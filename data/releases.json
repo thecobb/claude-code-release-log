@@ -1,9 +1,180 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-10T20:34:01.104052+00:00",
+  "generated_at": "2026-06-11T04:13:12.027796+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 329,
+  "release_count": 330,
   "releases": [
+    {
+      "version": "2.1.172",
+      "published_at": "2026-06-10T20:44:15Z",
+      "bullets": [
+        {
+          "text": "Sub-agents can now spawn their own sub-agents (up to 5 levels deep)",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Amazon Bedrock now reads the AWS region from `~/.aws` config files when `AWS_REGION` isn't set, matching AWS SDK precedence; `/status` shows where the region came from",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Added a search bar when browsing a marketplace's plugins in `/plugin`",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added `model` attribute to the `claude_code.lines_of_code.count` OTEL metric",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Fixed sessions using 1M context without usage credits getting permanently stuck — the session now automatically compacts back under the standard context limit",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a repeating \"an image in the conversation could not be processed and was removed\" error when the conversation contained multiple images",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the agents view keeping a session under Working with a busy spinner for up to 30 seconds after the worker replied",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background agents potentially reading another directory's project settings (`.mcp.json` approvals, trust) when dispatched onto a pre-warmed worker",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background-session attach failing with EAUTH for sessions started on an older version after the daemon auto-updated",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a background sub-agent staying stuck as \"active\" in the agent panel after a nested agent it spawned was stopped",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/model` suggestions in the `claude agents` dispatch input rendering with a misleading slash prefix and showing models disabled for your org",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `availableModels` restrictions not being applied to subagent model overrides, the agent dispatch model picker, and the advisor model",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `availableModels` allowlists hiding the `/model` picker's Opus and Sonnet 1M rows when entries use version-specific IDs like `claude-opus-4-8`",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the `/model` picker on Bedrock offering models the provider doesn't serve — selecting one silently switched the session model and lit the selection marker on multiple rows",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed model IDs getting a doubled 1M-context suffix (e.g. `[1M][1m]`) when `ANTHROPIC_DEFAULT_OPUS_MODEL` already includes one",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `opusplan` model setting not shipping with 1M context in plan mode for entitled users; the `opusplan[1m]` workaround now also correctly switches to Opus in plan mode",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `WebFetch(domain:*.example.com)` wildcard domain rules never matching subdomains in allow, deny, and ask position, and file permission rules with mid-pattern wildcards (e.g. `Read(secrets-*/config.json)`) being rejected at startup",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed up-arrow prompt history showing the main agent's prompts while a subagent's chat tab is open",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed memory recall not finding mounted team memory stores (`CLAUDE_MEMORY_STORES`) in remote sessions",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed workflow validation rejecting scripts whose prompt strings or comments merely mention `Date.now()`/`Math.random()`",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Disable mouse tracking on Windows consoles that don't fully support it",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Fixed the `/plugin` marketplace list losing its cursor after backing out of a long plugin list, and Esc from the plugin browser returning to the wrong tab",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Improved performance in long conversations by removing redundant message normalization and avoiding full message-history transforms when streaming tool-use state is unchanged",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Reduced idle CPU usage: `/goal` status chip no longer re-renders the terminal at 5 Hz while idle, and fewer UI re-renders while subagents run in parallel",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Improved Claude in Chrome tool loading: browser tools now load in a single batched call instead of one per tool",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved the non-interactive Usage Policy refusal message to suggest starting a new session or changing your model",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "`/code-review` now keeps the `ultra` option visible when you're not signed in to claude.ai, with an explanation that the cloud review requires a claude.ai account",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Shortened the Remote Control footer indicator to \"/rc active\" and hid it on narrow terminals",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Stopped promoting `/loop` in remote sessions, where pending loops don't keep the container alive",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "[VSCode] Fixed PowerShell tool calls rendering as raw JSON instead of a proper command display and permission dialog, and stripped ANSI escape codes from displayed shell output",
+          "category": "fixed",
+          "scope": "VSCode"
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.172",
+      "github_body": "## What's changed\n\n- Sub-agents can now spawn their own sub-agents (up to 5 levels deep)\n- Amazon Bedrock now reads the AWS region from `~/.aws` config files when `AWS_REGION` isn't set, matching AWS SDK precedence; `/status` shows where the region came from\n- Added a search bar when browsing a marketplace's plugins in `/plugin`\n- Added `model` attribute to the `claude_code.lines_of_code.count` OTEL metric\n- Fixed sessions using 1M context without usage credits getting permanently stuck — the session now automatically compacts back under the standard context limit\n- Fixed a repeating \"an image in the conversation could not be processed and was removed\" error when the conversation contained multiple images\n- Fixed the agents view keeping a session under Working with a busy spinner for up to 30 seconds after the worker replied\n- Fixed background agents potentially reading another directory's project settings (`.mcp.json` approvals, trust) when dispatched onto a pre-warmed worker\n- Fixed background-session attach failing with EAUTH for sessions started on an older version after the daemon auto-updated\n- Fixed a background sub-agent staying stuck as \"active\" in the agent panel after a nested agent it spawned was stopped\n- Fixed `/model` suggestions in the `claude agents` dispatch input rendering with a misleading slash prefix and showing models disabled for your org\n- Fixed `availableModels` restrictions not being applied to subagent model overrides, the agent dispatch model picker, and the advisor model\n- Fixed `availableModels` allowlists hiding the `/model` picker's Opus and Sonnet 1M rows when entries use version-specific IDs like `claude-opus-4-8`\n- Fixed the `/model` picker on Bedrock offering models the provider doesn't serve — selecting one silently switched the session model and lit the selection marker on multiple rows\n- Fixed model IDs getting a doubled 1M-context suffix (e.g. `[1M][1m]`) when `ANTHROPIC_DEFAULT_OPUS_MODEL` already includes one\n- Fixed `opusplan` model setting not shipping with 1M context in plan mode for entitled users; the `opusplan[1m]` workaround now also correctly switches to Opus in plan mode\n- Fixed `WebFetch(domain:*.example.com)` wildcard domain rules never matching subdomains in allow, deny, and ask position, and file permission rules with mid-pattern wildcards (e.g. `Read(secrets-*/config.json)`) being rejected at startup\n- Fixed up-arrow prompt history showing the main agent's prompts while a subagent's chat tab is open\n- Fixed memory recall not finding mounted team memory stores (`CLAUDE_MEMORY_STORES`) in remote sessions\n- Fixed workflow validation rejecting scripts whose prompt strings or comments merely mention `Date.now()`/`Math.random()`\n- Disable mouse tracking on Windows consoles that don't fully support it\n- Fixed the `/plugin` marketplace list losing its cursor after backing out of a long plugin list, and Esc from the plugin browser returning to the wrong tab\n- Improved performance in long conversations by removing redundant message normalization and avoiding full message-history transforms when streaming tool-use state is unchanged\n- Reduced idle CPU usage: `/goal` status chip no longer re-renders the terminal at 5 Hz while idle, and fewer UI re-renders while subagents run in parallel\n- Improved Claude in Chrome tool loading: browser tools now load in a single batched call instead of one per tool\n- Improved the non-interactive Usage Policy refusal message to suggest starting a new session or changing your model\n- `/code-review` now keeps the `ultra` option visible when you're not signed in to claude.ai, with an explanation that the cloud review requires a claude.ai account\n- Shortened the Remote Control footer indicator to \"/rc active\" and hid it on narrow terminals\n- Stopped promoting `/loop` in remote sessions, where pending loops don't keep the container alive\n- [VSCode] Fixed PowerShell tool calls rendering as raw JSON instead of a proper command display and permission dialog, and stripped ANSI escape codes from displayed shell output\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "other": 7,
+        "added": 2,
+        "fixed": 18,
+        "improved": 3
+      }
+    },
     {
       "version": "2.1.170",
       "published_at": "2026-06-09T17:23:09Z",
@@ -13735,7 +13906,7 @@
     },
     {
       "version": "2.1.44",
-      "published_at": "2026-02-16T21:35:03Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Fixed ENAMETOOLONG errors for deeply-nested directory paths",
@@ -13749,11 +13920,10 @@
         }
       ],
       "sources": [
-        "changelog",
-        "github_releases"
+        "changelog"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.44",
-      "github_body": "## What's changed\n\n- Fixed auth refresh errors\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
