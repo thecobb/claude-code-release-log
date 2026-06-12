@@ -1,9 +1,32 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-12T04:14:44.008336+00:00",
+  "generated_at": "2026-06-12T10:18:06.346873+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 332,
+  "release_count": 333,
   "releases": [
+    {
+      "version": "2.1.175",
+      "published_at": "2026-06-12T04:23:51Z",
+      "bullets": [
+        {
+          "text": "Added `enforceAvailableModels` managed setting — when enabled, the `availableModels` allowlist also constrains the Default model (a Default that would resolve to a disallowed model now falls back to the first allowed model), and user or project settings can no longer widen a managed `availableModels` list",
+          "category": "added",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.175",
+      "github_body": "## What's changed\n\n- Added `enforceAvailableModels` managed setting — when enabled, the `availableModels` allowlist also constrains the Default model (a Default that would resolve to a disallowed model now falls back to the first allowed model), and user or project settings can no longer widen a managed `availableModels` list\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "added": 1
+      }
+    },
     {
       "version": "2.1.174",
       "published_at": "2026-06-12T01:16:36Z",
@@ -13377,7 +13400,7 @@
     },
     {
       "version": "2.1.49",
-      "published_at": "2026-02-19T23:28:27Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Improved MCP OAuth authentication with step-up auth support and discovery caching, reducing redundant network requests during server connections",
@@ -13516,11 +13539,10 @@
         }
       ],
       "sources": [
-        "changelog",
-        "github_releases"
+        "changelog"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.49",
-      "github_body": "## What's changed\n\n- Fixed Ctrl+C and ESC being silently ignored when background agents are running and the main thread is idle. Pressing twice within 3 seconds now kills all background agents.\n- Fixed prompt suggestion cache regression that reduced cache hit rates.\n- Fixed `plugin enable` and `plugin disable` to auto-detect the correct scope when `--scope` is not specified, instead of always defaulting to user scope\n- Simple mode (`CLAUDE_CODE_SIMPLE`) now includes the file edit tool in addition to the Bash tool, allowing direct file editing in simple mode.\n- Permission suggestions are now populated when safety checks trigger an ask response, enabling SDK consumers to display permission options\n- Sonnet 4.5 with 1M context is being removed from the Max plan in favor of our frontier Sonnet 4.6 model, which now has 1M context. Please switch in /model.\n- Fixed verbose mode not updating thinking block display when toggled via `/config` — memo comparators now correctly detect verbose changes\n- Fixed unbounded WASM memory growth during long sessions by periodically resetting the tree-sitter parser\n- Fixed potential rendering issues caused by stale yoga layout references\n- Improved performance in non-interactive mode (`-p`) by skipping unnecessary API calls during startup\n- Improved performance by caching authentication failures for HTTP and SSE MCP servers, avoiding repeated connection attempts to servers requiring auth\n- Fixed unbounded memory growth during long-running sessions caused by Yoga WASM linear memory never shrinking\n- SDK model info now includes `supportsEffort`, `supportedEffortLevels`, and `supportsAdaptiveThinking` fields so consumers can discover model capabilities.\n- Added `ConfigChange` hook event that fires when configuration files change during a session, enabling enterprise security auditing and optional blocking of settings changes.\n- Improved startup performance by caching MCP auth failures to avoid redundant connection attempts\n- Improved startup performance by reducing HTTP calls for analytics token counting\n- Improved startup performance by batching MCP tool token counting into a single API call\n- Fixed `disableAllHooks` setting to respect managed settings hierarchy — non-managed settings can no longer disable managed hooks set by policy (#26637)\n- Fixed `--resume` session picker showing raw XML tags for sessions that start with commands like `/clear`. Now correctly falls through to the session ID fallback.\n- Improved permission prompts for path safety and working directory blocks to show the reason for the restriction instead of a bare prompt with no context\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
