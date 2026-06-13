@@ -1,9 +1,154 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-12T20:14:04.600594+00:00",
+  "generated_at": "2026-06-13T04:02:33.980469+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 333,
+  "release_count": 335,
   "releases": [
+    {
+      "version": "2.1.177",
+      "published_at": "2026-06-13T01:25:15Z",
+      "bullets": [],
+      "sources": [
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.177",
+      "github_body": "\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {}
+    },
+    {
+      "version": "2.1.176",
+      "published_at": "2026-06-12T21:53:27Z",
+      "bullets": [
+        {
+          "text": "Session titles are now generated in the language of your conversation (set the `language` setting to pin a specific language)",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Added `footerLinksRegexes` setting for regex-matched link badges in the footer row, configurable via user or managed settings",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Improved Bedrock credential caching: credentials from `awsCredentialExport` are now cached until their `Expiration` instead of a fixed 1 hour",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Fixed `availableModels` enforcement: alias model picks can no longer be redirected to a blocked model via `ANTHROPIC_DEFAULT_*_MODEL` environment variables, and `/fast` now refuses to toggle when it would switch to a model outside the allowlist",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed auto mode failing on Fable 5 for organizations without Opus 4.8 enabled — the classifier now falls back to the best available Opus model",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed hook `if` conditions for Read/Edit/Write tool paths: documented patterns like `Edit(src/**)`, `Read(~/.ssh/**)`, and `Read(.env)` now match correctly",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Linux sandbox failing to start when `.claude/settings.json` is a symlink with an absolute target",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/copy` and mouse-selection copy not reaching the system clipboard inside tmux over SSH, and tmux paste buffer not loading on versions older than 3.2",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Remote Control connecting from web/mobile silently switching the session's model",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Remote Control disconnect notifications showing a bare numeric code instead of a human-readable reason, and connection failures adding a duplicate line to the conversation transcript",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Remote Control sessions not disconnecting when you sign in to a different account",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/cd` and worktree moves leaving the session reporting the previous directory's git branch",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `claude agents`: pressing back in one window no longer detaches other windows attached to the same session",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed backgrounded sessions showing \"Working\" forever when `/bg` mid-turn had nothing left to continue",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background agent search by PR URL: PRs opened during scheduled wakeups or while a job was blocked now appear in `claude agents` search",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the agents view input showing no text cursor on Windows",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `claude --bg -cn <name>` not seeding the session name",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background sessions to neutralize Windows network paths in persisted state before respawn",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background-session respawn rejecting malformed resume IDs from corrupted state files",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the Windows background-service daemon not starting when `~/.claude/daemon` has the ReadOnly attribute set",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed cloud sessions failing with \"Could not resolve authentication method\" when idle for too long before being claimed",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Background sessions now show clearer guidance when a window left open across an auto-update can't submit a reply, and `claude daemon status` explains version-skew behavior",
+          "category": "other",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.176",
+      "github_body": "## What's changed\n\n- Session titles are now generated in the language of your conversation (set the `language` setting to pin a specific language)\n- Added `footerLinksRegexes` setting for regex-matched link badges in the footer row, configurable via user or managed settings\n- Improved Bedrock credential caching: credentials from `awsCredentialExport` are now cached until their `Expiration` instead of a fixed 1 hour\n- Fixed `availableModels` enforcement: alias model picks can no longer be redirected to a blocked model via `ANTHROPIC_DEFAULT_*_MODEL` environment variables, and `/fast` now refuses to toggle when it would switch to a model outside the allowlist\n- Fixed auto mode failing on Fable 5 for organizations without Opus 4.8 enabled — the classifier now falls back to the best available Opus model\n- Fixed hook `if` conditions for Read/Edit/Write tool paths: documented patterns like `Edit(src/**)`, `Read(~/.ssh/**)`, and `Read(.env)` now match correctly\n- Fixed Linux sandbox failing to start when `.claude/settings.json` is a symlink with an absolute target\n- Fixed `/copy` and mouse-selection copy not reaching the system clipboard inside tmux over SSH, and tmux paste buffer not loading on versions older than 3.2\n- Fixed Remote Control connecting from web/mobile silently switching the session's model\n- Fixed Remote Control disconnect notifications showing a bare numeric code instead of a human-readable reason, and connection failures adding a duplicate line to the conversation transcript\n- Fixed Remote Control sessions not disconnecting when you sign in to a different account\n- Fixed `/cd` and worktree moves leaving the session reporting the previous directory's git branch\n- Fixed `claude agents`: pressing back in one window no longer detaches other windows attached to the same session\n- Fixed backgrounded sessions showing \"Working\" forever when `/bg` mid-turn had nothing left to continue\n- Fixed background agent search by PR URL: PRs opened during scheduled wakeups or while a job was blocked now appear in `claude agents` search\n- Fixed the agents view input showing no text cursor on Windows\n- Fixed `claude --bg -cn <name>` not seeding the session name\n- Fixed background sessions to neutralize Windows network paths in persisted state before respawn\n- Fixed background-session respawn rejecting malformed resume IDs from corrupted state files\n- Fixed the Windows background-service daemon not starting when `~/.claude/daemon` has the ReadOnly attribute set\n- Fixed cloud sessions failing with \"Could not resolve authentication method\" when idle for too long before being claimed\n- Background sessions now show clearer guidance when a window left open across an auto-update can't submit a reply, and `claude daemon status` explains version-skew behavior\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "other": 2,
+        "added": 1,
+        "improved": 1,
+        "fixed": 18
+      }
+    },
     {
       "version": "2.1.175",
       "published_at": "2026-06-12T04:23:51Z",
@@ -13177,7 +13322,7 @@
     },
     {
       "version": "2.1.51",
-      "published_at": "2026-02-24T01:40:58Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Added `claude remote-control` subcommand for external builds, enabling local environment serving for all users.",
@@ -13236,11 +13381,10 @@
         }
       ],
       "sources": [
-        "changelog",
-        "github_releases"
+        "changelog"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.51",
-      "github_body": "## What's changed\n\n- Added `claude remote-control` subcommand for external builds, enabling local environment serving for all users.\n- Updated plugin marketplace default git timeout from 30s to 120s and added `CLAUDE_CODE_PLUGIN_GIT_TIMEOUT_MS` to configure.\n- Added support for custom npm registries and specific version pinning when installing plugins from npm sources\n- BashTool now skips login shell (`-l` flag) by default when a shell snapshot is available, improving command execution performance. Previously this required setting `CLAUDE_BASH_NO_LOGIN=true`.\n- Fixed a security issue where `statusLine` and `fileSuggestion` hook commands could execute without workspace trust acceptance in interactive mode.\n- Tool results larger than 50K characters are now persisted to disk (previously 100K). This reduces context window usage and improves conversation longevity.\n- Fixed a security issue where HTTP hooks could interpolate arbitrary environment variables from header values. Env var interpolation now requires an explicit `allowedEnvVars` list in the hook configuration.\n- Fixed a bug where duplicate `control_response` messages (e.g. from WebSocket reconnects) could cause API 400 errors by pushing duplicate assistant messages into the conversation.\n- Added `CLAUDE_CODE_ACCOUNT_UUID`, `CLAUDE_CODE_USER_EMAIL`, and `CLAUDE_CODE_ORGANIZATION_UUID` environment variables for SDK callers to provide account info synchronously, eliminating a race condition where early telemetry events lacked account metadata.\n- Fixed slash command autocomplete crashing when a plugin's SKILL.md description is a YAML array or other non-string type\n- HTTP hooks are now routed through the sandbox network proxy when sandboxing is enabled, enforcing the domain allowlist. HTTP hooks are not supported for SessionStart/Setup events.\n- The `/model` picker now shows human-readable labels (e.g., \"Sonnet 4.5\") instead of raw model IDs for pinned model versions, with an upgrade hint when a newer version is available.\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
@@ -13254,7 +13398,7 @@
     },
     {
       "version": "2.1.50",
-      "published_at": "2026-02-20T23:48:57Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Added support for `startupTimeout` configuration for LSP servers",
@@ -13383,11 +13527,10 @@
         }
       ],
       "sources": [
-        "changelog",
-        "github_releases"
+        "changelog"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.50",
-      "github_body": "## What's changed\n\n- Added support for `startupTimeout` configuration for LSP servers\n- Added `WorktreeCreate` and `WorktreeRemove` hook events, enabling custom VCS setup and teardown when agent worktree isolation creates or removes worktrees.\n- Fixed a bug where resumed sessions could be invisible when the working directory involved symlinks, because the session storage path was resolved at different times during startup. Also fixed session data loss on SSH disconnect by flushing session data before hooks and analytics in the graceful shutdown sequence.\n- Linux: Fixed native modules not loading on systems with glibc older than 2.30 (e.g., RHEL 8)\n- Fixed memory leak in agent teams where completed teammate tasks were never garbage collected from session state\n- Fixed `CLAUDE_CODE_SIMPLE` to fully strip down skills, session memory, custom agents, and CLAUDE.md token counting\n- Fixed `/mcp reconnect` freezing the CLI when given a server name that doesn't exist\n- Fixed memory leak where completed task state objects were never removed from AppState\n- Added support for `isolation: worktree` in agent definitions, allowing agents to declaratively run in isolated git worktrees.\n- `CLAUDE_CODE_SIMPLE` mode now also disables MCP tools, attachments, hooks, and CLAUDE.md file loading for a fully minimal experience.\n- Fixed bug where MCP tools were not discovered when tool search is enabled and a prompt is passed in as a launch argument\n- Improved memory usage during long sessions by clearing internal caches after compaction\n- Added `claude agents` CLI command to list all configured agents\n- Improved memory usage during long sessions by clearing large tool results after they have been processed\n- Fixed a memory leak where LSP diagnostic data was never cleaned up after delivery, causing unbounded memory growth in long sessions\n- Fixed a memory leak where completed task output was not freed from memory, reducing memory usage in long sessions with many tasks\n- Improved startup performance for headless mode (`-p` flag) by deferring Yoga WASM and UI component imports\n- Fixed prompt suggestion cache regression that reduced cache hit rates\n- Fixed unbounded memory growth in long sessions by capping file history snapshots\n- Added `CLAUDE_CODE_DISABLE_1M_CONTEXT` environment variable to disable 1M context window support\n- Opus 4.6 (fast mode) now includes the full 1M context window\n- VSCode: Added `/extra-usage` command support in VS Code sessions\n- Fixed memory leak where TaskOutput retained recent lines after cleanup\n- Fixed memory leak in CircularBuffer where cleared items were retained in the backing array\n- Fixed memory leak in shell command execution where ChildProcess and AbortController references were retained after cleanup\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
