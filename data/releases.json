@@ -1,9 +1,73 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-16T16:58:59.978714+00:00",
+  "generated_at": "2026-06-16T20:55:21.671629+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 338,
+  "release_count": 339,
   "releases": [
+    {
+      "version": "2.1.179",
+      "published_at": "2026-06-16T20:22:14Z",
+      "bullets": [
+        {
+          "text": "Fixed mid-stream connection drops: partial responses are now preserved instead of showing a raw error, and the spinner no longer gets stuck at \"running tool\"",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed mouse-wheel scrolling in WSL2 under Windows Terminal and VS Code (regression in 2.1.172)",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a sandbox `denyRead`/`allowRead` glob over a large directory tree making the Bash tool description enormous and the session unusable on Linux",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the feedback survey capturing a single-digit reply as a session rating immediately after a turn completes",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the welcome screen stacking multiple promotional banners — at most one promo now shows per session",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Ctrl+O not showing the subagent's transcript when viewing a subagent",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed clicking the prompt input not returning focus from the subagent/footer panel",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed remote session background tasks appearing stuck as \"still running\" between turns",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Improved plugin loading performance in remote sessions",
+          "category": "improved",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.179",
+      "github_body": "## What's changed\n\n- Fixed mid-stream connection drops: partial responses are now preserved instead of showing a raw error, and the spinner no longer gets stuck at \"running tool\"\n- Fixed mouse-wheel scrolling in WSL2 under Windows Terminal and VS Code (regression in 2.1.172)\n- Fixed a sandbox `denyRead`/`allowRead` glob over a large directory tree making the Bash tool description enormous and the session unusable on Linux\n- Fixed the feedback survey capturing a single-digit reply as a session rating immediately after a turn completes\n- Fixed the welcome screen stacking multiple promotional banners — at most one promo now shows per session\n- Fixed Ctrl+O not showing the subagent's transcript when viewing a subagent\n- Fixed clicking the prompt input not returning focus from the subagent/footer panel\n- Fixed remote session background tasks appearing stuck as \"still running\" between turns\n- Improved plugin loading performance in remote sessions\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "fixed": 8,
+        "improved": 1
+      }
+    },
     {
       "version": "2.1.178",
       "published_at": "2026-06-15T21:35:55Z",
@@ -94,6 +158,11 @@
           "scope": null
         },
         {
+          "text": "Fixed Linux sandbox failing to start when `.claude/skills` or `.claude/hooks` is a symlink",
+          "category": "fixed",
+          "scope": null
+        },
+        {
           "text": "Fixed `CLAUDE_CODE_PLUGIN_KEEP_MARKETPLACE_ON_FAILURE=1` preventing fresh marketplace installs from cloning",
           "category": "fixed",
           "scope": null
@@ -132,7 +201,7 @@
         "added": 1,
         "other": 3,
         "improved": 5,
-        "fixed": 13
+        "fixed": 14
       }
     },
     {
@@ -13417,7 +13486,7 @@
     },
     {
       "version": "2.1.53",
-      "published_at": "2026-02-25T00:13:48Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Fixed a UI flicker where user input would briefly disappear after submission before the message rendered",
@@ -13461,11 +13530,10 @@
         }
       ],
       "sources": [
-        "changelog",
-        "github_releases"
+        "changelog"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.53",
-      "github_body": "## What's changed\n\n- Fixed a UI flicker where user input would briefly disappear after submission before the message rendered\n- Fixed bulk agent kill (ctrl+f) to send a single aggregate notification instead of one per agent, and to properly clear the command queue\n- Fixed graceful shutdown sometimes leaving stale sessions when using Remote Control by parallelizing teardown network calls\n- Fixed `--worktree` sometimes being ignored on first launch\n- Fixed a panic (\"switch on corrupted value\") on Windows\n- Fixed a crash that could occur when spawning many processes on Windows\n- Fixed a crash in the WebAssembly interpreter on Linux x64 & Windows x64\n- Fixed a crash that sometimes occurred after 2 minutes on Windows ARM64\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
