@@ -1,9 +1,32 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-20T19:41:02.346417+00:00",
+  "generated_at": "2026-06-21T04:27:19.316193+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 341,
+  "release_count": 342,
   "releases": [
+    {
+      "version": "2.1.185",
+      "published_at": "2026-06-20T20:59:19Z",
+      "bullets": [
+        {
+          "text": "The stream-stall hint now reads \"Waiting for API response · will retry in …\" instead of \"No response from API · Retrying in …\", and triggers after 20s of silence instead of 10s",
+          "category": "other",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.185",
+      "github_body": "## What's changed\n\n- The stream-stall hint now reads \"Waiting for API response · will retry in …\" instead of \"No response from API · Retrying in …\", and triggers after 20s of silence instead of 10s\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "other": 1
+      }
+    },
     {
       "version": "2.1.183",
       "published_at": "2026-06-19T01:20:50Z",
@@ -13744,7 +13767,7 @@
     },
     {
       "version": "2.1.58",
-      "published_at": "2026-02-25T20:00:11Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Expand Remote Control to more users",
@@ -13753,11 +13776,10 @@
         }
       ],
       "sources": [
-        "changelog",
-        "github_releases"
+        "changelog"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.58",
-      "github_body": "## What's changed\n\n- Expand Remote Control to more users\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
