@@ -1,9 +1,195 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-22T12:09:22.669811+00:00",
+  "generated_at": "2026-06-22T20:51:35.618290+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 342,
+  "release_count": 343,
   "releases": [
+    {
+      "version": "2.1.186",
+      "published_at": "2026-06-22T20:37:34Z",
+      "bullets": [
+        {
+          "text": "Added `claude mcp login <name>` and `claude mcp logout <name>` to authenticate MCP servers from the CLI without opening the interactive `/mcp` menu, with `--no-browser` stdin redirect support for completing over SSH",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added status filtering (press `f`) to the `/workflows` agent detail view",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added a \"Skills\" section to the `/plugin` Installed tab",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added `teammateMode: \"iterm2\"` setting with a warning when auto mode cannot find the `it2` CLI",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added \"Claude Platform on AWS - refresh credentials\" option to `/login` when `awsAuthRefresh` is configured",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "`!` bash commands now trigger Claude to respond to the output automatically; set `\"respondToBashCommands\": false` in settings.json to keep the previous context-only behavior",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Fixed streaming requests failing with \"Content block not found\" or JSON parse errors after the machine wakes from sleep",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed subagent transcript scroll position bleeding into the main transcript on exit",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background task previews flashing raw tool names before the agent's plan loaded",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Chrome tab-group isolation not applying when the in-product permissions gate is off for concurrent CLI sessions",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background session recaps being duplicated; the agent's own end-of-turn summary now shows as the recap line",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed opening a background session from `claude agents` leaving the previous screen painted behind it",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `Agent(type)` deny rules and `Agent(x,y)` allowed-types restrictions not being enforced for named subagent spawns",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Esc and Ctrl+C not responding while background agents are still running after the main turn ends",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed misaligned option numbers in permission prompts when the option text overflows",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed pressing `x` on a finished subagent in the agent panel not dismissing it",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a misleading \"MCP server disconnected\" notice for intentionally retired tools when resuming older sessions",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/plugin` Installed showing a \"more above\" indicator when already scrolled to the top",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `~~strikethrough~~` showing literal tildes in assistant messages instead of rendering as strikethrough",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `--tools` allowing feature-gated tools to slip through before flags loaded on a cold first launch",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background job status in `claude agents` showing a stale \"needs input\" message after replying",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a dark-theme flash when opening a background session from `claude agents` on a light terminal",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed mouse-selected text staying highlighted after deleting it in `claude agents`",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed session cost not showing for usage-based Enterprise and Team subscribers",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed agent teams: teammates spawned via tmux/pane backends now inherit the leader's `--effort` level",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Workflow `agent({schema})` subagents looping forever on repeated schema validation failures instead of aborting after 5 attempts",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Improved `claude mcp get` and `claude mcp remove` to suggest the closest configured server name on a typo and truncate long server lists",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved memory: the agent is now reminded to compact its `MEMORY.md` index when nearing the size limit",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved skill frontmatter: `display-name`, `default-enabled`, `fallback`, and `metadata.*` keys now accept kebab-case, snake_case, and camelCase",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved malformed `SKILL.md` YAML frontmatter handling: loads the skill body with empty metadata instead of failing silently",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed `CLAUDE_CODE_MAX_RETRIES` to cap at 15; for unattended sessions, use `CLAUDE_CODE_RETRY_WATCHDOG` instead",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed background subagents to surface permission prompts in the main session instead of auto-denying; the dialog shows which agent is asking, and Esc denies just that tool",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed `/review <pr>` to use the same review engine as `/code-review medium`",
+          "category": "improved",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.186",
+      "github_body": "## What's changed\n\n- Added `claude mcp login <name>` and `claude mcp logout <name>` to authenticate MCP servers from the CLI without opening the interactive `/mcp` menu, with `--no-browser` stdin redirect support for completing over SSH\n- Added status filtering (press `f`) to the `/workflows` agent detail view\n- Added a \"Skills\" section to the `/plugin` Installed tab\n- Added `teammateMode: \"iterm2\"` setting with a warning when auto mode cannot find the `it2` CLI\n- Added \"Claude Platform on AWS - refresh credentials\" option to `/login` when `awsAuthRefresh` is configured\n- `!` bash commands now trigger Claude to respond to the output automatically; set `\"respondToBashCommands\": false` in settings.json to keep the previous context-only behavior\n- Fixed streaming requests failing with \"Content block not found\" or JSON parse errors after the machine wakes from sleep\n- Fixed subagent transcript scroll position bleeding into the main transcript on exit\n- Fixed background task previews flashing raw tool names before the agent's plan loaded\n- Fixed Chrome tab-group isolation not applying when the in-product permissions gate is off for concurrent CLI sessions\n- Fixed background session recaps being duplicated; the agent's own end-of-turn summary now shows as the recap line\n- Fixed opening a background session from `claude agents` leaving the previous screen painted behind it\n- Fixed `Agent(type)` deny rules and `Agent(x,y)` allowed-types restrictions not being enforced for named subagent spawns\n- Fixed Esc and Ctrl+C not responding while background agents are still running after the main turn ends\n- Fixed misaligned option numbers in permission prompts when the option text overflows\n- Fixed pressing `x` on a finished subagent in the agent panel not dismissing it\n- Fixed a misleading \"MCP server disconnected\" notice for intentionally retired tools when resuming older sessions\n- Fixed `/plugin` Installed showing a \"more above\" indicator when already scrolled to the top\n- Fixed `~~strikethrough~~` showing literal tildes in assistant messages instead of rendering as strikethrough\n- Fixed `--tools` allowing feature-gated tools to slip through before flags loaded on a cold first launch\n- Fixed background job status in `claude agents` showing a stale \"needs input\" message after replying\n- Fixed a dark-theme flash when opening a background session from `claude agents` on a light terminal\n- Fixed mouse-selected text staying highlighted after deleting it in `claude agents`\n- Fixed session cost not showing for usage-based Enterprise and Team subscribers\n- Fixed agent teams: teammates spawned via tmux/pane backends now inherit the leader's `--effort` level\n- Fixed Workflow `agent({schema})` subagents looping forever on repeated schema validation failures instead of aborting after 5 attempts\n- Improved `claude mcp get` and `claude mcp remove` to suggest the closest configured server name on a typo and truncate long server lists\n- Improved memory: the agent is now reminded to compact its `MEMORY.md` index when nearing the size limit\n- Improved skill frontmatter: `display-name`, `default-enabled`, `fallback`, and `metadata.*` keys now accept kebab-case, snake_case, and camelCase\n- Improved malformed `SKILL.md` YAML frontmatter handling: loads the skill body with empty metadata instead of failing silently\n- Changed `CLAUDE_CODE_MAX_RETRIES` to cap at 15; for unattended sessions, use `CLAUDE_CODE_RETRY_WATCHDOG` instead\n- Changed background subagents to surface permission prompts in the main session instead of auto-denying; the dialog shows which agent is asking, and Esc denies just that tool\n- Changed `/review <pr>` to use the same review engine as `/code-review medium`\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "added": 5,
+        "other": 1,
+        "fixed": 20,
+        "improved": 7
+      }
+    },
     {
       "version": "2.1.185",
       "published_at": "2026-06-20T20:59:19Z",
@@ -13706,7 +13892,7 @@
     },
     {
       "version": "2.1.59",
-      "published_at": "2026-02-26T00:59:24Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Claude automatically saves useful context to auto-memory. Manage with /memory",
@@ -13750,11 +13936,10 @@
         }
       ],
       "sources": [
-        "changelog",
-        "github_releases"
+        "changelog"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.59",
-      "github_body": "## What's changed\n\n- Claude automatically saves useful context to auto-memory. Manage with /memory\n- Added `/copy` command to show an interactive picker when code blocks are present, allowing selection of individual code blocks or the full response.\n- Improved \"always allow\" prefix suggestions for compound bash commands (e.g. `cd /tmp && git fetch && git push`) to compute smarter per-subcommand prefixes instead of treating the whole command as one\n- Improved ordering of short task lists\n- Improved memory usage in multi-agent sessions by releasing completed subagent task state\n- Fixed MCP OAuth token refresh race condition when running multiple Claude Code instances simultaneously\n- Fixed shell commands not showing a clear error message when the working directory has been deleted\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
