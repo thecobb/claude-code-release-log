@@ -1,9 +1,134 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-23T20:09:08.112067+00:00",
+  "generated_at": "2026-06-24T03:50:53.436102+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 343,
+  "release_count": 344,
   "releases": [
+    {
+      "version": "2.1.187",
+      "published_at": "2026-06-23T21:03:48Z",
+      "bullets": [
+        {
+          "text": "Added `sandbox.credentials` setting to block sandboxed commands from reading credential files and secret environment variables",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added org-configured model restrictions to the model picker, `--model`, `/model`, and `ANTHROPIC_MODEL`, with a \"restricted by your organization's settings\" message when a restricted model is selected",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added mouse click support to select menus (permission prompts, `/model`, `/config`, etc.) in fullscreen mode",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Fixed `--resume` failing with \"No conversation found\" when the original `-p` run produced no model turns",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `--json-schema` and workflow `agent({schema})` structured output: the model can no longer re-call `StructuredOutput` indefinitely after a successful call, and follow-up turns now reliably return structured output",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed remote MCP tool calls that hang with no response for 5 minutes — they now abort with an error instead of blocking indefinitely (override with `CLAUDE_CODE_MCP_TOOL_IDLE_TIMEOUT`)",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Claude Code Remote sessions taking ~2.7s longer to start after the agent proxy CA system-trust install was added",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed pasted Korean/CJK text turning into mojibake in terminals that deliver paste as per-byte extended-key events",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/update` over Remote Control hanging when a startup trust dialog would have shown",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background jobs in the agents view getting stuck in \"working\" indefinitely when the agent ended a turn without producing structured output",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed channel connections dropping after navigating to the agents view and back, and after `/bg`, `/tui`, or `/update`",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed agent stop notifications not correctly attributing who stopped the agent, and improved wording (\"finished\"/\"stopped\" instead of \"came to rest\")",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed subagent depth tracking: resumed subagents now restore their original spawn depth, and forked subagents now count toward the depth cap",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed leaked agent worktree registrations: locked `.git/worktrees/` entries from killed agents are now cleaned up automatically",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Cmd+click not opening URLs in fullscreen mode in Ghostty on macOS",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `claude --help` not listing the `--bg`/`--background` flag",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Esc, Ctrl-C, and Ctrl-D not working while `/share` is uploading",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Improved `/install-github-app`: GitHub Actions workflow setup is now optional — you can install just the GitHub App and skip the workflow/secret steps",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved `/btw` with ←/→ arrow navigation to step through earlier answers",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved `/plugin` to surface plugins you haven't used recently so you can clean them up",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "[VSCode] Fixed extension becoming unresponsive when resuming a large session",
+          "category": "fixed",
+          "scope": "VSCode"
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.187",
+      "github_body": "## What's changed\n\n- Added `sandbox.credentials` setting to block sandboxed commands from reading credential files and secret environment variables\n- Added org-configured model restrictions to the model picker, `--model`, `/model`, and `ANTHROPIC_MODEL`, with a \"restricted by your organization's settings\" message when a restricted model is selected\n- Added mouse click support to select menus (permission prompts, `/model`, `/config`, etc.) in fullscreen mode\n- Fixed `--resume` failing with \"No conversation found\" when the original `-p` run produced no model turns\n- Fixed `--json-schema` and workflow `agent({schema})` structured output: the model can no longer re-call `StructuredOutput` indefinitely after a successful call, and follow-up turns now reliably return structured output\n- Fixed remote MCP tool calls that hang with no response for 5 minutes — they now abort with an error instead of blocking indefinitely (override with `CLAUDE_CODE_MCP_TOOL_IDLE_TIMEOUT`)\n- Fixed Claude Code Remote sessions taking ~2.7s longer to start after the agent proxy CA system-trust install was added\n- Fixed pasted Korean/CJK text turning into mojibake in terminals that deliver paste as per-byte extended-key events\n- Fixed `/update` over Remote Control hanging when a startup trust dialog would have shown\n- Fixed background jobs in the agents view getting stuck in \"working\" indefinitely when the agent ended a turn without producing structured output\n- Fixed channel connections dropping after navigating to the agents view and back, and after `/bg`, `/tui`, or `/update`\n- Fixed agent stop notifications not correctly attributing who stopped the agent, and improved wording (\"finished\"/\"stopped\" instead of \"came to rest\")\n- Fixed subagent depth tracking: resumed subagents now restore their original spawn depth, and forked subagents now count toward the depth cap\n- Fixed leaked agent worktree registrations: locked `.git/worktrees/` entries from killed agents are now cleaned up automatically\n- Fixed Cmd+click not opening URLs in fullscreen mode in Ghostty on macOS\n- Fixed `claude --help` not listing the `--bg`/`--background` flag\n- Fixed Esc, Ctrl-C, and Ctrl-D not working while `/share` is uploading\n- Improved `/install-github-app`: GitHub Actions workflow setup is now optional — you can install just the GitHub App and skip the workflow/secret steps\n- Improved `/btw` with ←/→ arrow navigation to step through earlier answers\n- Improved `/plugin` to surface plugins you haven't used recently so you can clean them up\n- [VSCode] Fixed extension becoming unresponsive when resuming a large session\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "added": 3,
+        "fixed": 15,
+        "improved": 3
+      }
+    },
     {
       "version": "2.1.186",
       "published_at": "2026-06-22T20:37:34Z",
@@ -13869,7 +13994,7 @@
     },
     {
       "version": "2.1.61",
-      "published_at": "2026-02-26T22:34:32Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Fixed concurrent writes corrupting config file on Windows",
@@ -13878,11 +14003,10 @@
         }
       ],
       "sources": [
-        "changelog",
-        "github_releases"
+        "changelog"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.61",
-      "github_body": "## What's changed\n\n- Fixed concurrent writes corrupting config file on Windows\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
