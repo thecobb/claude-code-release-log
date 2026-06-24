@@ -1,9 +1,32 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-24T14:36:38.420696+00:00",
+  "generated_at": "2026-06-24T19:49:45.164311+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 344,
+  "release_count": 345,
   "releases": [
+    {
+      "version": "2.1.190",
+      "published_at": "2026-06-24T15:53:56Z",
+      "bullets": [
+        {
+          "text": "Bug fixes and reliability improvements",
+          "category": "other",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.190",
+      "github_body": "## What's changed\n\n- Bug fixes and reliability improvements\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "other": 1
+      }
+    },
     {
       "version": "2.1.187",
       "published_at": "2026-06-23T21:03:48Z",
@@ -13971,7 +13994,7 @@
     },
     {
       "version": "2.1.62",
-      "published_at": "2026-02-27T01:56:19Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Fixed prompt suggestion cache regression that reduced cache hit rates",
@@ -13980,11 +14003,10 @@
         }
       ],
       "sources": [
-        "changelog",
-        "github_releases"
+        "changelog"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.62",
-      "github_body": "## What's changed\n\n- Fixed prompt suggestion cache regression that reduced cache hit rates\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
