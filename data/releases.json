@@ -1,9 +1,130 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-24T19:49:45.164311+00:00",
+  "generated_at": "2026-06-25T03:51:39.484654+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 345,
+  "release_count": 346,
   "releases": [
+    {
+      "version": "2.1.191",
+      "published_at": "2026-06-24T21:58:12Z",
+      "bullets": [
+        {
+          "text": "Added `/rewind` support for resuming a conversation from before `/clear` was run",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Fixed scroll position jumping to the bottom while reading earlier output during a streaming response",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background agents resurrecting after being stopped — stopping an agent from the tasks panel is now permanent",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/voice` showing a generic \"not available\" message when disabled by an organization's policy — it now explains the restriction",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/login` URL opening truncated in Windows Terminal when it wraps across lines",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Cmd+click on links in fullscreen mode for Ghostty over ssh/tmux",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `claude agents` sending builtin slash commands like `/usage` to background sessions as prompt text instead of showing a hint",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `claude agents` job rows showing full filesystem paths for pasted images instead of the `[Image #N]` placeholder",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed hooks with comma-separated matchers (e.g. `\"Bash,PowerShell\"`) silently never firing",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/permissions` Recently-denied tab: approving a denial now persists on close instead of being silently discarded",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the agent panel jumping by one row when scrolling the roster past the overflow cap",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the welcome splash art overflowing the default 80×24 macOS Terminal window",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed managed settings: `forceRemoteSettingsRefresh` now takes effect when set via MDM or file policy, and the fetch sends `Cache-Control: no-cache` to prevent proxies from serving stale responses",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Improved sandbox network permission dialog: hosts you allow with \"Yes\" are now remembered for the rest of the session instead of re-prompting on every connection",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved MCP server reliability: capability discovery (`tools/list`, `prompts/list`, `resources/list`) now retries transient network errors with short backoff",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved MCP OAuth: discovery and token requests now retry once after transient network errors, and headless environments skip the browser popup and go straight to the paste-the-URL prompt",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved MCP error messages: HTTP 404 errors now show the URL and point to your MCP config",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved vim mode prompt-history search (NORMAL `/`) to hint how to reach slash commands",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Reduced CPU usage during streaming responses by ~37% by coalescing text updates to 100ms",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Reduced long-session memory growth from terminal output cache",
+          "category": "other",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.191",
+      "github_body": "## What's changed\n\n- Added `/rewind` support for resuming a conversation from before `/clear` was run\n- Fixed scroll position jumping to the bottom while reading earlier output during a streaming response\n- Fixed background agents resurrecting after being stopped — stopping an agent from the tasks panel is now permanent\n- Fixed `/voice` showing a generic \"not available\" message when disabled by an organization's policy — it now explains the restriction\n- Fixed `/login` URL opening truncated in Windows Terminal when it wraps across lines\n- Fixed Cmd+click on links in fullscreen mode for Ghostty over ssh/tmux\n- Fixed `claude agents` sending builtin slash commands like `/usage` to background sessions as prompt text instead of showing a hint\n- Fixed `claude agents` job rows showing full filesystem paths for pasted images instead of the `[Image #N]` placeholder\n- Fixed hooks with comma-separated matchers (e.g. `\"Bash,PowerShell\"`) silently never firing\n- Fixed `/permissions` Recently-denied tab: approving a denial now persists on close instead of being silently discarded\n- Fixed the agent panel jumping by one row when scrolling the roster past the overflow cap\n- Fixed the welcome splash art overflowing the default 80×24 macOS Terminal window\n- Fixed managed settings: `forceRemoteSettingsRefresh` now takes effect when set via MDM or file policy, and the fetch sends `Cache-Control: no-cache` to prevent proxies from serving stale responses\n- Improved sandbox network permission dialog: hosts you allow with \"Yes\" are now remembered for the rest of the session instead of re-prompting on every connection\n- Improved MCP server reliability: capability discovery (`tools/list`, `prompts/list`, `resources/list`) now retries transient network errors with short backoff\n- Improved MCP OAuth: discovery and token requests now retry once after transient network errors, and headless environments skip the browser popup and go straight to the paste-the-URL prompt\n- Improved MCP error messages: HTTP 404 errors now show the URL and point to your MCP config\n- Improved vim mode prompt-history search (NORMAL `/`) to hint how to reach slash commands\n- Reduced CPU usage during streaming responses by ~37% by coalescing text updates to 100ms\n- Reduced long-session memory growth from terminal output cache\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "added": 1,
+        "fixed": 12,
+        "improved": 5,
+        "other": 2
+      }
+    },
     {
       "version": "2.1.190",
       "published_at": "2026-06-24T15:53:56Z",
@@ -13843,7 +13964,7 @@
     },
     {
       "version": "2.1.63",
-      "published_at": "2026-02-28T03:45:37Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Added `/simplify` and `/batch` bundled slash commands",
@@ -13977,11 +14098,10 @@
         }
       ],
       "sources": [
-        "changelog",
-        "github_releases"
+        "changelog"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.63",
-      "github_body": "## What's changed\n\n- Added `/simplify` and `/batch` bundled slash commands\n- Fixed local slash command output like /cost appearing as user-sent messages instead of system messages in the UI\n- Project configs & auto memory now shared across git worktrees of the same repository\n- Added `ENABLE_CLAUDEAI_MCP_SERVERS=false` env var to opt out from making claude.ai MCP servers available\n- Improved `/model` command to show the currently active model in the slash command menu\n- Added HTTP hooks, which can POST JSON to a URL and receive JSON instead of running a shell command\n- Fixed listener leak in bridge polling loop\n- Fixed listener leak in MCP OAuth flow cleanup\n- Added manual URL paste fallback during MCP OAuth authentication. If the automatic localhost redirect doesn't work, you can paste the callback URL to complete authentication.\n- Fixed memory leak when navigating hooks configuration menu\n- Fixed listener leak in interactive permission handler during auto-approvals\n- Fixed file count cache ignoring glob ignore patterns\n- Fixed memory leak in bash command prefix cache\n- Fixed MCP tool/resource cache leak on server reconnect\n- Fixed IDE host IP detection cache incorrectly sharing results across ports\n- Fixed WebSocket listener leak on transport reconnect\n- Fixed memory leak in git root detection cache that could cause unbounded growth in long-running sessions\n- Fixed memory leak in JSON parsing cache that grew unbounded over long sessions\n- VSCode: Fixed remote sessions not appearing in conversation history\n- Fixed a race condition in the REPL bridge where new messages could arrive at the server interleaved with historical messages during the initial connection flush, causing message ordering issues.\n- Fixed memory leak where long-running teammates retained all messages in AppState even after conversation compaction\n- Fixed a memory leak where MCP server fetch caches were not cleared on disconnect, causing growing memory usage with servers that reconnect frequently\n- Improved memory usage in long sessions with subagents by stripping heavy progress message payloads during context compaction\n- Added \"Always copy full response\" option to the `/copy` picker. When selected, future `/copy` commands will skip the code block picker and copy the full response directly.\n- VSCode: Added session rename and remove actions to the sessions list\n- Fixed `/clear` not resetting cached skills, which could cause stale skill content to persist in the new conversation\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
