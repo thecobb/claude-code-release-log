@@ -1,9 +1,113 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-03T14:11:16.507592+00:00",
+  "generated_at": "2026-07-03T19:26:26.371834+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 357,
+  "release_count": 358,
   "releases": [
+    {
+      "version": "2.1.200",
+      "published_at": "2026-07-03T16:52:33Z",
+      "bullets": [
+        {
+          "text": "Changed `AskUserQuestion` dialogs to no longer auto-continue by default; opt into an idle timeout via `/config`",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed the \"default\" permission mode to \"Manual\" across the CLI, `--help`, VS Code, and JetBrains; `--permission-mode manual` and `\"defaultMode\": \"manual\"` are accepted alongside `default`",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Fixed a crash at startup when `disabledMcpServers` or `enabledMcpServers` in `.claude.json` is set to a non-array value",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background sessions silently stopping mid-turn after sleep/wake or when reopening a stalled session",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background sessions re-running a turn cancelled with Esc after a stall respawn",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background agents never starting again after a crash left a stale `daemon.lock` whose PID the OS reused",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background-agent daemon handover so a reinstalled older build can no longer take over the daemon; build recency is now judged by the version's embedded build timestamp",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background-agent roster issues: transient corruption permanently disabling orphan cleanup, older binaries not preserving fields written by newer versions, and socket auth tokens being stripped during daemon restarts",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed subagents cut off by a rate limit before producing any text output returning an empty result instead of failing cleanly",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed control bytes from background-agent output reaching the terminal in the agent view",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `claude agents --plugin-dir <dir>` not showing the plugin's agents and skills in the agent view when the flag is placed after `agents`",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed project-scoped plugins not loading correctly from git worktrees of the same repository",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/mcp` server list not tracking focus for screen readers and magnifiers",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed voice dictation showing a misleading \"Voice connection failed\" message when a recording captures no audio",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed rendering flicker under tmux 3.4+ by enabling synchronized terminal output",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Improved screen-reader output: decorative glyphs are now hidden, transcript symbols read as short labels, and nested tables read as `Header: value.` lines",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved the install script to explain when installation is killed by the system running out of memory",
+          "category": "improved",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.200",
+      "github_body": "## What's changed\n\n- Changed `AskUserQuestion` dialogs to no longer auto-continue by default; opt into an idle timeout via `/config`\n- Changed the \"default\" permission mode to \"Manual\" across the CLI, `--help`, VS Code, and JetBrains; `--permission-mode manual` and `\"defaultMode\": \"manual\"` are accepted alongside `default`\n- Fixed a crash at startup when `disabledMcpServers` or `enabledMcpServers` in `.claude.json` is set to a non-array value\n- Fixed background sessions silently stopping mid-turn after sleep/wake or when reopening a stalled session\n- Fixed background sessions re-running a turn cancelled with Esc after a stall respawn\n- Fixed background agents never starting again after a crash left a stale `daemon.lock` whose PID the OS reused\n- Fixed background-agent daemon handover so a reinstalled older build can no longer take over the daemon; build recency is now judged by the version's embedded build timestamp\n- Fixed background-agent roster issues: transient corruption permanently disabling orphan cleanup, older binaries not preserving fields written by newer versions, and socket auth tokens being stripped during daemon restarts\n- Fixed subagents cut off by a rate limit before producing any text output returning an empty result instead of failing cleanly\n- Fixed control bytes from background-agent output reaching the terminal in the agent view\n- Fixed `claude agents --plugin-dir <dir>` not showing the plugin's agents and skills in the agent view when the flag is placed after `agents`\n- Fixed project-scoped plugins not loading correctly from git worktrees of the same repository\n- Fixed `/mcp` server list not tracking focus for screen readers and magnifiers\n- Fixed voice dictation showing a misleading \"Voice connection failed\" message when a recording captures no audio\n- Fixed rendering flicker under tmux 3.4+ by enabling synchronized terminal output\n- Improved screen-reader output: decorative glyphs are now hidden, transcript symbols read as short labels, and nested tables read as `Header: value.` lines\n- Improved the install script to explain when installation is killed by the system running out of memory\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "improved": 4,
+        "fixed": 13
+      }
+    },
     {
       "version": "2.1.199",
       "published_at": "2026-07-02T23:35:18Z",
@@ -13374,7 +13478,7 @@
     },
     {
       "version": "2.1.73",
-      "published_at": "2026-03-11T18:26:43Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Added `modelOverrides` setting to map model picker entries to custom provider model IDs (e.g. Bedrock inference profile ARNs)",
@@ -13508,11 +13612,10 @@
         }
       ],
       "sources": [
-        "changelog",
-        "github_releases"
+        "changelog"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.73",
-      "github_body": "## What's changed\n\n- Added `modelOverrides` setting to map model picker entries to custom provider model IDs (e.g. Bedrock inference profile ARNs)\n- Added actionable guidance when OAuth login or connectivity checks fail due to SSL certificate errors (corporate proxies, `NODE_EXTRA_CA_CERTS`)\n- Fixed freezes and 100% CPU loops triggered by permission prompts for complex bash commands\n- Fixed a deadlock that could freeze Claude Code when many skill files changed at once (e.g. during `git pull` in a repo with a large `.claude/skills/` directory)\n- Fixed Bash tool output being lost when running multiple Claude Code sessions in the same project directory\n- Fixed subagents with `model: opus`/`sonnet`/`haiku` being silently downgraded to older model versions on Bedrock, Vertex, and Microsoft Foundry\n- Fixed background bash processes spawned by subagents not being cleaned up when the agent exits\n- Fixed `/resume` showing the current session in the picker\n- Fixed `/ide` crashing with `onInstall is not defined` when auto-installing the extension\n- Fixed `/loop` not being available on Bedrock/Vertex/Foundry and when telemetry was disabled\n- Fixed SessionStart hooks firing twice when resuming a session via `--resume` or `--continue`\n- Fixed JSON-output hooks injecting no-op system-reminder messages into the model's context on every turn\n- Fixed voice mode session corruption when a slow connection overlaps a new recording\n- Fixed Linux sandbox failing to start with \"ripgrep (rg) not found\" on native builds\n- Fixed Linux native modules not loading on Amazon Linux 2 and other glibc 2.26 systems\n- Fixed \"media_type: Field required\" API error when receiving images via Remote Control\n- Fixed `/heapdump` failing on Windows with `EEXIST` error when the Desktop folder already exists\n- Improved Up arrow after interrupting Claude — now restores the interrupted prompt and rewinds the conversation in one step\n- Improved IDE detection speed at startup\n- Improved clipboard image pasting performance on macOS\n- Improved `/effort` to work while Claude is responding, matching `/model` behavior\n- Improved voice mode to automatically retry transient connection failures during rapid push-to-talk re-press\n- Improved the Remote Control spawn mode selection prompt with better context\n- Changed default Opus model on Bedrock, Vertex, and Microsoft Foundry to Opus 4.6 (was Opus 4.1)\n- Deprecated `/output-style` command — use `/config` instead. Output style is now fixed at session start for better prompt caching\n- VSCode: Fixed HTTP 400 errors for users behind proxies or on Bedrock/Vertex with Claude 4.5 models\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
