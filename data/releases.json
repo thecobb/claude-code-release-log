@@ -1,13 +1,157 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-02T19:27:38.490550+00:00",
+  "generated_at": "2026-07-03T03:31:09.167914+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 356,
+  "release_count": 357,
   "releases": [
+    {
+      "version": "2.1.199",
+      "published_at": "2026-07-02T23:35:18Z",
+      "bullets": [
+        {
+          "text": "Stacked slash-skill invocations like `/skill-a /skill-b do XYZ` now load all leading skills (up to 5), not just the first",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Fixed SSL certificate errors (TLS-inspecting proxies, missing `NODE_EXTRA_CA_CERTS`, expired certs) burning retries before showing actionable guidance — they now fail immediately with the fix hint",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed streaming responses being discarded when the API emits a mid-stream overloaded/server error after partial output — the partial is now kept with an incomplete-response notice",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed subagents cut off by a rate limit or server error silently failing instead of returning their partial work to the parent",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed subagents reporting API errors (e.g. usage limit reached) as successful results — the error is now reported to the parent agent",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the background-agent daemon on Linux killing itself and every running agent every ~50 seconds after an unclean shutdown left a corrupted worker record",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background agents failing to cold-start over SSH on macOS with \"Could not switch to audit session\" (regression in 2.1.196)",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `claude stop` being silently undone when it raced a background-agent respawn — the respawn now honors the stop",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background job progress indicators stalling for minutes while the job ran long commands",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background sessions on memory-starved machines showing a generic error — they now indicate low memory and suggest freeing resources",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed remote sessions briefly flapping between Working and Idle in the agent view when a background agent completes",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed idle subagents vanishing from the agent panel while other subagents were still working; surplus idle agents now collapse into an expandable summary row",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed typing `/model` or `/fast` while viewing a subagent silently opening the lead's model picker — a notice now explains the command applies to the lead",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `SessionStart`, `Setup`, and `SubagentStart` hooks silently hiding stderr when exiting with code 2 — the error is now shown in the transcript",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `claude --dangerously-skip-permissions daemon <subcommand>` being treated as a chat prompt instead of running the subcommand",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `SendMessage` silently misrouting when a re-spawned agent reuses a previous agent's name — the tool now detects the mismatch and asks the caller to retarget",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed opening or resuming a session with no new messages needlessly growing the transcript file",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed backgrounding a session with `←` or `/background` dropping its `/color` from the agent view row",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed resetting a corrupted config file from the startup recovery dialog destroying it unrecoverably — it now backs up the file first",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Claude in Chrome repeatedly opening the reconnect page when sessions run from different builds or config directories",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed plan mode not prompting for state-changing browser tool calls; read-only `browser_batch` calls are now correctly auto-allowed",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Transient server rate-limit errors (429s unrelated to your usage limit) are now retried automatically with backoff for subscribers instead of failing the turn",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "`CLAUDE_CODE_RETRY_WATCHDOG` now raises the default retry count for non-capacity transient errors to 300 and lifts the cap of 15 on `CLAUDE_CODE_MAX_RETRIES`",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "`claude agents` session rows now show pull-request links as bare `#N` without the redundant \"PR\" label",
+          "category": "other",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.199",
+      "github_body": "## What's changed\n\n- Stacked slash-skill invocations like `/skill-a /skill-b do XYZ` now load all leading skills (up to 5), not just the first\n- Fixed SSL certificate errors (TLS-inspecting proxies, missing `NODE_EXTRA_CA_CERTS`, expired certs) burning retries before showing actionable guidance — they now fail immediately with the fix hint\n- Fixed streaming responses being discarded when the API emits a mid-stream overloaded/server error after partial output — the partial is now kept with an incomplete-response notice\n- Fixed subagents cut off by a rate limit or server error silently failing instead of returning their partial work to the parent\n- Fixed subagents reporting API errors (e.g. usage limit reached) as successful results — the error is now reported to the parent agent\n- Fixed the background-agent daemon on Linux killing itself and every running agent every ~50 seconds after an unclean shutdown left a corrupted worker record\n- Fixed background agents failing to cold-start over SSH on macOS with \"Could not switch to audit session\" (regression in 2.1.196)\n- Fixed `claude stop` being silently undone when it raced a background-agent respawn — the respawn now honors the stop\n- Fixed background job progress indicators stalling for minutes while the job ran long commands\n- Fixed background sessions on memory-starved machines showing a generic error — they now indicate low memory and suggest freeing resources\n- Fixed remote sessions briefly flapping between Working and Idle in the agent view when a background agent completes\n- Fixed idle subagents vanishing from the agent panel while other subagents were still working; surplus idle agents now collapse into an expandable summary row\n- Fixed typing `/model` or `/fast` while viewing a subagent silently opening the lead's model picker — a notice now explains the command applies to the lead\n- Fixed `SessionStart`, `Setup`, and `SubagentStart` hooks silently hiding stderr when exiting with code 2 — the error is now shown in the transcript\n- Fixed `claude --dangerously-skip-permissions daemon <subcommand>` being treated as a chat prompt instead of running the subcommand\n- Fixed `SendMessage` silently misrouting when a re-spawned agent reuses a previous agent's name — the tool now detects the mismatch and asks the caller to retarget\n- Fixed opening or resuming a session with no new messages needlessly growing the transcript file\n- Fixed backgrounding a session with `←` or `/background` dropping its `/color` from the agent view row\n- Fixed resetting a corrupted config file from the startup recovery dialog destroying it unrecoverably — it now backs up the file first\n- Fixed Claude in Chrome repeatedly opening the reconnect page when sessions run from different builds or config directories\n- Fixed plan mode not prompting for state-changing browser tool calls; read-only `browser_batch` calls are now correctly auto-allowed\n- Transient server rate-limit errors (429s unrelated to your usage limit) are now retried automatically with backoff for subscribers instead of failing the turn\n- `CLAUDE_CODE_RETRY_WATCHDOG` now raises the default retry count for non-capacity transient errors to 300 and lifts the cap of 15 on `CLAUDE_CODE_MAX_RETRIES`\n- `claude agents` session rows now show pull-request links as bare `#N` without the redundant \"PR\" label\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "other": 4,
+        "fixed": 20
+      }
+    },
     {
       "version": "2.1.198",
       "published_at": "2026-07-01T20:45:36Z",
       "bullets": [
+        {
+          "text": "Subagents now run in the background by default, so Claude keeps working while they run and is notified when they finish (previously a gradual rollout)",
+          "category": "other",
+          "scope": null
+        },
         {
           "text": "Claude in Chrome is now generally available",
           "category": "other",
@@ -174,12 +318,12 @@
         "github_releases"
       ],
       "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.198",
-      "github_body": "## What's changed\n\n- Claude in Chrome is now generally available\n- Added background agent notifications in `claude agents` — sessions that need input or finish now fire the `Notification` hook (`agent_needs_input` / `agent_completed`)\n- Added `/dataviz` skill for chart and dashboard design guidance with a runnable color-palette validator\n- Gateway: added Claude Platform on AWS (anthropicAws) as an upstream provider; model-not-found responses now advance the failover chain\n- Background agents launched from `claude agents` now commit, push, and open a draft PR when they finish code work in a worktree, instead of stopping to ask\n- The built-in Explore agent now inherits the main session's model (capped at opus) instead of running on haiku\n- Subagents and context compaction now inherit the session's extended thinking configuration, improving output quality on delegated tasks\n- Fixed brief network drops mid-response aborting the turn — transient errors like ECONNRESET now retry with backoff instead of failing\n- Fixed excessive background classifier requests when sandboxed processes repeatedly accessed the same network host\n- Fixed background tasks in web, desktop, and VS Code task panels getting stuck on \"Running\" after they finish or after resuming a session\n- Fixed agent teams: a teammate that dies on an API error now reports \"failed\" to the lead, and messaging a stuck teammate wakes it to retry immediately\n- Fixed the `/diff` panel not refreshing when you switch branches or commit outside the session\n- Fixed markdown tables overflowing and wrapping their right border when rendered in fullscreen mode\n- Fixed Claude Platform on AWS and Mantle sessions dead-ending with \"Please run /login\" when the STS token expires — `awsAuthRefresh` now runs automatically\n- Fixed \"no route to host\" for local-network hosts in macOS background agent sessions by declaring Local Network entitlements\n- Fixed `/desktop` failing with \"Cannot determine working directory\" after entering and exiting a worktree\n- Fixed background agents repeatedly showing \"Reconnecting…\" every ~52 seconds on macOS while the agents view was open\n- Fixed pressing `←` inside `claude attach <id>` exiting to the shell instead of opening the agent view\n- Fixed `claude --bg` silently creating an unattachable session when combined with `--print`/`-p`; the conflicting flags are now rejected up front\n- Fixed the workflow progress view dropping the earliest agents from the list while the phase counter stayed correct in SDK and desktop-app sessions\n- Fixed `.claude/rules/` conditional rules not loading when the target file is reached via a symlinked path\n- Fixed Cmd+click not opening URLs in fullscreen mode in Warp on macOS\n- Fixed double-click word selection in fullscreen mode to select the entire URL including the scheme\n- Fixed plan mode not auto-allowing read-only tool calls when a session starts in plan mode\n- Fixed `/branch` deriving its default fork name from the compaction summary instead of the first real prompt\n- Improved focus mode: subagents launched in a turn now appear in its activity summary, and completed background notifications fold into a single count\n- Improved syntax highlighting accuracy in code blocks, diffs, and file previews by upgrading to highlight.js 11\n- Keyboard shortcut hints now show opt/cmd instead of alt/super when connected from a Mac over SSH\n- Improved API retry UX: the error reason is now shown after the second attempt, and a status page link replaces the spinner tip when the API is overloaded\n- `/login` now opens the sign-in dialog from the `claude agents` view instead of saying it isn't available\n- Subagents now treat messages from the agent that launched them as normal task direction; an agent's message is still never treated as the user's approval\n- Removed the `/agents` wizard; ask Claude to create or manage subagents, or edit `.claude/agents/` directly\n",
+      "github_body": "## What's changed\n\n- Subagents now run in the background by default, so Claude keeps working while they run and is notified when they finish (previously a gradual rollout)\n- Claude in Chrome is now generally available\n- Added background agent notifications in `claude agents` — sessions that need input or finish now fire the `Notification` hook (`agent_needs_input` / `agent_completed`)\n- Added `/dataviz` skill for chart and dashboard design guidance with a runnable color-palette validator\n- Gateway: added Claude Platform on AWS (anthropicAws) as an upstream provider; model-not-found responses now advance the failover chain\n- Background agents launched from `claude agents` now commit, push, and open a draft PR when they finish code work in a worktree, instead of stopping to ask\n- The built-in Explore agent now inherits the main session's model (capped at opus) instead of running on haiku\n- Subagents and context compaction now inherit the session's extended thinking configuration, improving output quality on delegated tasks\n- Fixed brief network drops mid-response aborting the turn — transient errors like ECONNRESET now retry with backoff instead of failing\n- Fixed excessive background classifier requests when sandboxed processes repeatedly accessed the same network host\n- Fixed background tasks in web, desktop, and VS Code task panels getting stuck on \"Running\" after they finish or after resuming a session\n- Fixed agent teams: a teammate that dies on an API error now reports \"failed\" to the lead, and messaging a stuck teammate wakes it to retry immediately\n- Fixed the `/diff` panel not refreshing when you switch branches or commit outside the session\n- Fixed markdown tables overflowing and wrapping their right border when rendered in fullscreen mode\n- Fixed Claude Platform on AWS and Mantle sessions dead-ending with \"Please run /login\" when the STS token expires — `awsAuthRefresh` now runs automatically\n- Fixed \"no route to host\" for local-network hosts in macOS background agent sessions by declaring Local Network entitlements\n- Fixed `/desktop` failing with \"Cannot determine working directory\" after entering and exiting a worktree\n- Fixed background agents repeatedly showing \"Reconnecting…\" every ~52 seconds on macOS while the agents view was open\n- Fixed pressing `←` inside `claude attach <id>` exiting to the shell instead of opening the agent view\n- Fixed `claude --bg` silently creating an unattachable session when combined with `--print`/`-p`; the conflicting flags are now rejected up front\n- Fixed the workflow progress view dropping the earliest agents from the list while the phase counter stayed correct in SDK and desktop-app sessions\n- Fixed `.claude/rules/` conditional rules not loading when the target file is reached via a symlinked path\n- Fixed Cmd+click not opening URLs in fullscreen mode in Warp on macOS\n- Fixed double-click word selection in fullscreen mode to select the entire URL including the scheme\n- Fixed plan mode not auto-allowing read-only tool calls when a session starts in plan mode\n- Fixed `/branch` deriving its default fork name from the compaction summary instead of the first real prompt\n- Improved focus mode: subagents launched in a turn now appear in its activity summary, and completed background notifications fold into a single count\n- Improved syntax highlighting accuracy in code blocks, diffs, and file previews by upgrading to highlight.js 11\n- Keyboard shortcut hints now show opt/cmd instead of alt/super when connected from a Mac over SSH\n- Improved API retry UX: the error reason is now shown after the second attempt, and a status page link replaces the spinner tip when the API is overloaded\n- `/login` now opens the sign-in dialog from the `claude agents` view instead of saying it isn't available\n- Subagents now treat messages from the agent that launched them as normal task direction; an agent's message is still never treated as the user's approval\n- Removed the `/agents` wizard; ask Claude to create or manage subagents, or edit `.claude/agents/` directly\n",
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
       "category_counts": {
-        "other": 8,
+        "other": 9,
         "added": 2,
         "fixed": 18,
         "improved": 3,
@@ -13382,7 +13526,7 @@
     },
     {
       "version": "2.1.72",
-      "published_at": "2026-03-10T00:43:03Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Fixed tool search to activate even with `ANTHROPIC_BASE_URL` as long as `ENABLE_TOOL_SEARCH` is set.",
@@ -13641,11 +13785,10 @@
         }
       ],
       "sources": [
-        "changelog",
-        "github_releases"
+        "changelog"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.72",
-      "github_body": "## What's changed\n\n- Changed tool search to bypass the third-party proxy gate when the environment variable is set (replaces `CLAUDE_CODE_PROXY_SUPPORTS_TOOL_REFERENCE`, now removed)\n- Added `w` key in `/copy` to write the focused selection directly to a file, bypassing the clipboard (useful over SSH)\n- Added optional description argument to `/plan` (e.g., `/plan fix the auth bug`) that enters plan mode and immediately starts\n- Added `claude plugins` as an alias for `claude plugin`\n- Added `ExitWorktree` tool to leave an `EnterWorktree` session\n- Added `CLAUDE_CODE_DISABLE_CRON` environment variable to immediately stop scheduled cron jobs mid-session\n- Added `lsof`, `pgrep`, `tput`, `ss`, `fd`, and `fdfind` to the bash auto-approval allowlist, reducing permission prompts for common read-only operations\n- Added support for marketplace git URLs without `.git` suffix (Azure DevOps, AWS CodeCommit)\n- Restored the `model` parameter on the Agent tool for per-invocation model overrides\n- Simplified effort levels to low/medium/high (removed max) with new symbols (○ ◐ ●) and a brief notification instead of a persistent icon. Use `/effort auto` to reset to default\n- Improved `/config` — Escape now cancels changes, Enter saves and closes, Space toggles settings\n- Improved up-arrow history to show current session's messages first when running multiple concurrent sessions\n- Improved voice input transcription accuracy for repo names and common dev terms (regex, OAuth, JSON)\n- Improved marketplace clone failure messages to show diagnostic info even when git produces no stderr\n- Improved `claude plugin validate` to explain that marketplace.json source paths are relative to the repo root when rejecting `../` paths\n- Improved bash command parsing by switching to a native module — faster initialization and no memory leak\n- Reduced false-positive bash permission prompts — tree-sitter parsing now handles `find -exec`, variable assignments, command substitutions, and many other patterns that previously triggered unnecessary prompts. Also fixed tree-sitter not loading in npm-installed versions\n- Reduced bundle size by ~510 KB\n- Changed CLAUDE.md HTML comments (`<!-- ... -->`) to be hidden from Claude when auto-injected. Comments remain visible when read with the Read tool\n- Fixed slow exits when background tasks or hooks were slow to respond\n- Fixed agent task progress stuck on \"Initializing…\"\n- Fixed skill hooks firing twice per event when a hooks-enabled skill is invoked by the model\n- Fixed several voice mode issues: occasional input lag, false \"No speech detected\" errors after releasing push-to-talk, and stale transcripts re-filling the prompt after submission\n- Fixed `--continue` not resuming from the most recent point after `--compact`\n- Fixed bash security parsing edge cases\n- Fixed several plugin issues: installation failing on Windows with `EEXIST` error in OneDrive folders, marketplace blocking user-scope installs when a project-scope install exists, `CLAUDE_CODE_PLUGIN_CACHE_DIR` creating literal `~` directories, and `plugin.json` with marketplace-only fields failing to load\n- Fixed feedback survey appearing too frequently in long sessions\n- Fixed `--effort` CLI flag being reset by unrelated settings writes on startup\n- Fixed backgrounded Ctrl+B queries losing their transcript or corrupting the new conversation after `/clear`\n- Fixed `/clear` killing background agent/bash tasks — only foreground tasks are now cleared\n- Fixed worktree isolation issues: Task tool resume not restoring cwd, and background task notifications missing `worktreePath` and `worktreeBranch`\n- Fixed `/model` not displaying results when run while Claude is working\n- Fixed digit keys selecting menu options instead of typing in plan mode permission prompt's text input\n- Fixed sandbox permission issues: certain file write operations incorrectly allowed without prompting, and output redirections to allowlisted directories (like `/tmp/claude/`) prompting unnecessarily\n- Improved CPU utilization in long sessions\n- Fixed prompt cache invalidation in SDK `query()` calls, reducing input token costs up to 12x\n- Fixed Escape key becoming unresponsive after cancelling a query\n- Fixed double Ctrl+C not exiting when background agents or tasks are running\n- Fixed team agents to inherit the leader's model\n- Fixed \"Always Allow\" saving permission rules that never match again\n- Fixed several hooks issues: `transcript_path` pointing to the wrong directory for resumed/forked sessions, agent `prompt` being silently deleted from settings.json on every settings write, PostToolUse block reason displaying twice, async hooks not receiving stdin with bash `read -r`, and validation error message showing an example that fails validation\n- Fixed session crashes in Desktop/SDK when Read returned files containing U+2028/U+2029 characters\n- Fixed terminal title being cleared on exit even when `CLAUDE_CODE_DISABLE_TERMINAL_TITLE` was set\n- Fixed several permission rule matching issues: wildcard rules not matching commands with heredocs, embedded newlines, or no arguments; `sandbox.excludedCommands` failing with env var prefixes; \"always allow\" suggesting overly broad prefixes for nested CLI tools; and deny rules not applying to all command forms\n- Fixed oversized and truncated images from Bash data-URL output\n- Fixed a crash when resuming sessions that contained Bedrock API errors\n- Fixed intermittent \"expected boolean, received string\" validation errors on Edit, Bash, and Grep tool inputs\n- Fixed multi-line session titles when forking from a conversation whose first message contained newlines\n- Fixed queued messages not showing attached images, and images being lost when pressing ↑ to edit a queued message\n- Fixed parallel tool calls where a failed Read/WebFetch/Glob would cancel its siblings — only Bash errors now cascade\n- VSCode: Fixed scroll speed in integrated terminals not matching native terminals\n- VSCode: Fixed Shift+Enter submitting input instead of inserting a newline for users with older keybindings\n- VSCode: Added effort level indicator on the input border\n- VSCode: Added `vscode://anthropic.claude-code/open` URI handler to open a new Claude Code tab programmatically, with optional `prompt` and `session` query parameters\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
