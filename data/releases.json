@@ -1,9 +1,119 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-06T20:01:08.946237+00:00",
+  "generated_at": "2026-07-07T03:38:52.275562+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 359,
+  "release_count": 360,
   "releases": [
+    {
+      "version": "2.1.202",
+      "published_at": "2026-07-06T22:51:16Z",
+      "bullets": [
+        {
+          "text": "Added a \"Dynamic workflow size\" setting in `/config` for controlling how large Claude generally makes dynamic workflows (small/medium/large agent counts) — an advisory guideline, not an enforced cap",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added `workflow.run_id` and `workflow.name` OpenTelemetry attributes to telemetry emitted by workflow-spawned agents, so a workflow run's activity can be reconstructed from OTel data",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Fixed a crash in the inline Ctrl+R history search when accepting or cancelling while the search was still scanning the history file",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/rename` on background sessions being reverted when the job restarts, which broke addressing the session by its new name",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed transient mTLS handshake failures when settings were re-applied during an in-place client certificate rotation",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed commands sent from Remote Control (mobile/web) into an interactive session failing with \"Unknown command\"",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed images and files sent from the Remote Control mobile or web app without a caption being silently dropped",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the sign-in URL printed by `claude auth login` and `claude mcp login --no-browser` not being reliably clickable when it wraps over SSH — it is now emitted as a single hyperlink",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed opening a chat from `claude agents` sometimes failing with \"currently running as a background agent\" followed by a worker crash/respawn loop",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed workflow scripts with unicode quote escapes in strings being corrupted before parsing; workflow parse errors now show the offending line instead of always blaming TypeScript",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed voice dictation retrying in an unbounded loop when the microphone or audio recorder fails — repeated capture failures now pause voice input",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/remote-control` sessions showing the wrong permission mode in the mobile and web apps",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed resuming a session by name, or opening the resume picker, taking minutes and using a large amount of memory in repositories with many git worktrees",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed installer and updater downloads failing immediately with \"aborted\" when a proxy or network drops the connection mid-download — transient connection drops now retry",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed re-invoking an already-loaded skill appending a duplicate copy of its instructions to context",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Improved `/workflows` agent list layout: wider titles, a dedicated time column, shorter model names, and no per-row tool-call counts",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved MCP error messages: clearer error when a server config has `url` but no `type`, suggesting `\"type\": \"http\"` instead of the misleading \"command: expected string\"",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed `/review <pr>` back to a fast single-pass review; use `/code-review <level> <pr#>` for the multi-agent review at a chosen effort level",
+          "category": "improved",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.202",
+      "github_body": "## What's changed\n\n- Added a \"Dynamic workflow size\" setting in `/config` for controlling how large Claude generally makes dynamic workflows (small/medium/large agent counts) — an advisory guideline, not an enforced cap\n- Added `workflow.run_id` and `workflow.name` OpenTelemetry attributes to telemetry emitted by workflow-spawned agents, so a workflow run's activity can be reconstructed from OTel data\n- Fixed a crash in the inline Ctrl+R history search when accepting or cancelling while the search was still scanning the history file\n- Fixed `/rename` on background sessions being reverted when the job restarts, which broke addressing the session by its new name\n- Fixed transient mTLS handshake failures when settings were re-applied during an in-place client certificate rotation\n- Fixed commands sent from Remote Control (mobile/web) into an interactive session failing with \"Unknown command\"\n- Fixed images and files sent from the Remote Control mobile or web app without a caption being silently dropped\n- Fixed the sign-in URL printed by `claude auth login` and `claude mcp login --no-browser` not being reliably clickable when it wraps over SSH — it is now emitted as a single hyperlink\n- Fixed opening a chat from `claude agents` sometimes failing with \"currently running as a background agent\" followed by a worker crash/respawn loop\n- Fixed workflow scripts with unicode quote escapes in strings being corrupted before parsing; workflow parse errors now show the offending line instead of always blaming TypeScript\n- Fixed voice dictation retrying in an unbounded loop when the microphone or audio recorder fails — repeated capture failures now pause voice input\n- Fixed `/remote-control` sessions showing the wrong permission mode in the mobile and web apps\n- Fixed resuming a session by name, or opening the resume picker, taking minutes and using a large amount of memory in repositories with many git worktrees\n- Fixed installer and updater downloads failing immediately with \"aborted\" when a proxy or network drops the connection mid-download — transient connection drops now retry\n- Fixed re-invoking an already-loaded skill appending a duplicate copy of its instructions to context\n- Improved `/workflows` agent list layout: wider titles, a dedicated time column, shorter model names, and no per-row tool-call counts\n- Improved MCP error messages: clearer error when a server config has `url` but no `type`, suggesting `\"type\": \"http\"` instead of the misleading \"command: expected string\"\n- Changed `/review <pr>` back to a fast single-pass review; use `/code-review <level> <pr#>` for the multi-agent review at a chosen effort level\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "added": 2,
+        "fixed": 13,
+        "improved": 3
+      }
+    },
     {
       "version": "2.1.201",
       "published_at": "2026-07-03T23:50:35Z",
@@ -13279,7 +13389,7 @@
     },
     {
       "version": "2.1.75",
-      "published_at": "2026-03-13T17:09:08Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Added 1M context window for Opus 4.6 by default for Max, Team, and Enterprise plans (previously required extra usage)",
@@ -13378,11 +13488,10 @@
         }
       ],
       "sources": [
-        "changelog",
-        "github_releases"
+        "changelog"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.75",
-      "github_body": "\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
