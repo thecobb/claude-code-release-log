@@ -1,9 +1,145 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-08T19:35:59.671195+00:00",
+  "generated_at": "2026-07-09T03:32:12.816675+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 362,
+  "release_count": 363,
   "releases": [
+    {
+      "version": "2.1.205",
+      "published_at": "2026-07-08T21:22:06Z",
+      "bullets": [
+        {
+          "text": "Added an auto mode rule that blocks tampering with session transcript files",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Fixed `--json-schema` silently producing unstructured output when the schema was invalid, and schemas using the `format` keyword being rejected",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a message sent while Claude was working being silently lost when the turn ended at the `--max-turns` limit",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Windows worktree removal deleting files outside the worktree when an NTFS junction or directory symlink existed inside it",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background agents staying shown as \"failed\" or \"completed\" in the agent list after being resumed with `SendMessage`",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background jobs flipping from \"needs input\" back to \"working\" in the agent list when the agent's turn contained no readable text",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `claude attach` erroring when a background agent was mid-upgrade restart instead of waiting for it to come back",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed session-to-PR linking missing a PR created in a Bash call whose output exceeded the 30K inline limit",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `claude mcp add-from-claude-desktop` getting stuck when a server name contains unsupported characters; invalid names are now reported and remaining servers still import",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a plugin LSP server that fails to initialize preventing a valid LSP server from another plugin handling the same file extension",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a Windows crash when the directory Claude was launched from is deleted, locked, or unmounted while a command is running",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a crash when a file watcher was closed while a directory scan was still in flight",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed project verify skills being rewritten on every session instead of only when a documented command changed",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the agent view rendering one line too high and clipping its header when the job list slightly overflowed the screen",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background tasks in the web and mobile Remote Control panels showing stale \"Running\" status by forwarding full task state on every membership change",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Improved auto mode to ask before running `rm -rf` on a variable it can't resolve from context",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Auto-update binary downloads now stream to disk instead of buffering in memory, cutting the updater's peak memory usage by roughly 400 MB",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Background task notifications now explicitly state that no human input has occurred, preventing fabricated in-transcript approvals from being acted on",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Improved agent view: sessions that edit, merge, comment on, or push to an existing PR now link it in `claude agents`",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved agent view: rows now show a colored state word and a classifier-written headline instead of raw tool call text, and the peek opens with full status including the exact ask for blocked sessions",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "`/doctor` is now a full setup checkup that can diagnose and fix issues; `/checkup` is its alias",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Reserved the \"Claude Browser\" MCP server name (alongside \"Claude Preview\") ahead of the Claude Desktop pane rename; user-configured MCP servers can no longer register under either name",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Fixed Cowork VM-mode local-agent sessions failing to start with \"Not logged in · Please run /login\" on CLI 2.1.203+",
+          "category": "fixed",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.205",
+      "github_body": "## What's changed\n\n- Added an auto mode rule that blocks tampering with session transcript files\n- Fixed `--json-schema` silently producing unstructured output when the schema was invalid, and schemas using the `format` keyword being rejected\n- Fixed a message sent while Claude was working being silently lost when the turn ended at the `--max-turns` limit\n- Fixed Windows worktree removal deleting files outside the worktree when an NTFS junction or directory symlink existed inside it\n- Fixed background agents staying shown as \"failed\" or \"completed\" in the agent list after being resumed with `SendMessage`\n- Fixed background jobs flipping from \"needs input\" back to \"working\" in the agent list when the agent's turn contained no readable text\n- Fixed `claude attach` erroring when a background agent was mid-upgrade restart instead of waiting for it to come back\n- Fixed session-to-PR linking missing a PR created in a Bash call whose output exceeded the 30K inline limit\n- Fixed `claude mcp add-from-claude-desktop` getting stuck when a server name contains unsupported characters; invalid names are now reported and remaining servers still import\n- Fixed a plugin LSP server that fails to initialize preventing a valid LSP server from another plugin handling the same file extension\n- Fixed a Windows crash when the directory Claude was launched from is deleted, locked, or unmounted while a command is running\n- Fixed a crash when a file watcher was closed while a directory scan was still in flight\n- Fixed project verify skills being rewritten on every session instead of only when a documented command changed\n- Fixed the agent view rendering one line too high and clipping its header when the job list slightly overflowed the screen\n- Fixed background tasks in the web and mobile Remote Control panels showing stale \"Running\" status by forwarding full task state on every membership change\n- Improved auto mode to ask before running `rm -rf` on a variable it can't resolve from context\n- Auto-update binary downloads now stream to disk instead of buffering in memory, cutting the updater's peak memory usage by roughly 400 MB\n- Background task notifications now explicitly state that no human input has occurred, preventing fabricated in-transcript approvals from being acted on\n- Improved agent view: sessions that edit, merge, comment on, or push to an existing PR now link it in `claude agents`\n- Improved agent view: rows now show a colored state word and a classifier-written headline instead of raw tool call text, and the peek opens with full status including the exact ask for blocked sessions\n- `/doctor` is now a full setup checkup that can diagnose and fix issues; `/checkup` is its alias\n- Reserved the \"Claude Browser\" MCP server name (alongside \"Claude Preview\") ahead of the Claude Desktop pane rename; user-configured MCP servers can no longer register under either name\n- Fixed Cowork VM-mode local-agent sessions failing to start with \"Not logged in · Please run /login\" on CLI 2.1.203+\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "added": 1,
+        "fixed": 15,
+        "improved": 3,
+        "other": 4
+      }
+    },
     {
       "version": "2.1.204",
       "published_at": "2026-07-08T00:27:50Z",
@@ -13031,7 +13167,7 @@
     },
     {
       "version": "2.1.78",
-      "published_at": "2026-03-17T23:42:55Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Added `StopFailure` hook event that fires when the turn ends due to an API error (rate limit, auth failure, etc.)",
@@ -13165,11 +13301,10 @@
         }
       ],
       "sources": [
-        "changelog",
-        "github_releases"
+        "changelog"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.78",
-      "github_body": "## What's changed\n\n- Added `StopFailure` hook event that fires when the turn ends due to an API error (rate limit, auth failure, etc.)\n- Added `${CLAUDE_PLUGIN_DATA}` variable for plugin persistent state that survives plugin updates; `/plugin uninstall` prompts before deleting it\n- Added `effort`, `maxTurns`, and `disallowedTools` frontmatter support for plugin-shipped agents\n- Terminal notifications (iTerm2/Kitty/Ghostty popups, progress bar) now reach the outer terminal when running inside tmux with `set -g allow-passthrough on`\n- Response text now streams line-by-line as it's generated\n- Fixed `git log HEAD` failing with \"ambiguous argument\" inside sandboxed Bash on Linux, and stub files polluting `git status` in the working directory\n- Fixed `cc log` and `--resume` silently truncating conversation history on large sessions (>5 MB) that used subagents\n- Fixed infinite loop when API errors triggered stop hooks that re-fed blocking errors to the model\n- Fixed `deny: [\"mcp__servername\"]` permission rules not removing MCP server tools before sending to the model, allowing it to see and attempt blocked tools\n- Fixed `sandbox.filesystem.allowWrite` not working with absolute paths (previously required `//` prefix)\n- Fixed `/sandbox` Dependencies tab showing Linux prerequisites on macOS instead of macOS-specific info\n- **Security:** Fixed silent sandbox disable when `sandbox.enabled: true` is set but dependencies are missing — now shows a visible startup warning\n- Fixed `.git`, `.claude`, and other protected directories being writable without a prompt in `bypassPermissions` mode\n- Fixed ctrl+u in normal mode scrolling instead of readline kill-line (ctrl+u/ctrl+d half-page scroll moved to transcript mode only)\n- Fixed voice mode modifier-combo push-to-talk keybindings (e.g. ctrl+k) requiring a hold instead of activating immediately\n- Fixed voice mode not working on WSL2 with WSLg (Windows 11); WSL1/Win10 users now get a clear error\n- Fixed `--worktree` flag not loading skills and hooks from the worktree directory\n- Fixed `CLAUDE_CODE_DISABLE_GIT_INSTRUCTIONS` and `includeGitInstructions` setting not suppressing the git status section in the system prompt\n- Fixed Bash tool not finding Homebrew and other PATH-dependent binaries when VS Code is launched from Dock/Spotlight\n- Fixed washed-out Claude orange color in VS Code/Cursor/code-server terminals that don't advertise truecolor support\n- Added `ANTHROPIC_CUSTOM_MODEL_OPTION` env var to add a custom entry to the `/model` picker, with optional `_NAME` and `_DESCRIPTION` suffixed vars for display\n- Fixed `ANTHROPIC_BETAS` environment variable being silently ignored when using Haiku models\n- Fixed queued prompts being concatenated without a newline separator\n- Improved memory usage and startup time when resuming large sessions\n- [VSCode] Fixed a brief flash of the login screen when opening the sidebar while already authenticated\n- [VSCode] Fixed \"API Error: Rate limit reached\" when selecting Opus — model dropdown no longer offers 1M context variant to subscribers whose plan tier is unknown\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
