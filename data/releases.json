@@ -1,9 +1,150 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-10T19:36:15.335651+00:00",
+  "generated_at": "2026-07-11T02:49:40.395196+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 364,
+  "release_count": 365,
   "releases": [
+    {
+      "version": "2.1.207",
+      "published_at": "2026-07-11T00:52:10Z",
+      "bullets": [
+        {
+          "text": "Auto mode is now available without `CLAUDE_CODE_ENABLE_AUTO_MODE` opt-in on Bedrock, Vertex AI, and Foundry; disable via `disableAutoMode` in settings",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Fixed the terminal freezing and keystrokes lagging while streaming responses containing very long lists, tables, paragraphs, or code blocks",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed remote managed settings from a non-interactive run (`claude -p`, the SDK) being permanently recorded as consented without ever showing the security consent dialog",
+          "category": "security",
+          "scope": null
+        },
+        {
+          "text": "Fixed spurious prompt-injection warnings triggered by benign system-generated conversation updates",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the auto-updater overwriting a custom launcher script or symlink at `~/.local/bin/claude` on every release; `/doctor` now reports an externally managed launcher",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed compound commands with `cd` prompting for permission when the only output redirect was to `/dev/null`",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the transcript jumping above the start of the answer when a response finishes streaming",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `extensions.worktreeConfig` being left in the repo's `.git/config` (breaking go-git tools like `tea`) after the last `worktree.sparsePaths` worktree was removed",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed malformed bracket patterns in rules globs, skill paths, `.ignore`, and `.worktreeinclude` breaking file reads, file suggestions, and worktree creation",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a crash loop in agent teams where a malformed teammate mailbox message caused repeated errors every second until the mailbox file was manually deleted",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background sessions auto-named by accepting a plan not showing that name on their agent-view row",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background sessions that entered a git worktree resuming blank after a cold reopen from the agent list",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Remote Control task status updates being lost when the connection recovered from a network interruption or credential refresh",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Remote Control sessions hosted by the desktop app not showing background agent and workflow progress on mobile and web",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Deep research runs labeling every Fetch-phase agent \"unknown\" — chips now show the source hostname",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Bedrock repeatedly requesting fresh AWS SSO credentials from IAM Identity Center on every API request",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Improved agent view: pasting the same text again now expands the collapsed `[Pasted text #N]` placeholder instead of adding a second one",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved agent view: blocked session peeks now lead with the question and show a worded staleness clock (`waiting 3m`) instead of the same timestamp twice",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed Bedrock, Vertex, and Claude Platform on AWS to default to Claude Opus 4.8",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed auto mode to no longer read `autoMode` from `.claude/settings.local.json` (repo-resident); use `~/.claude/settings.json` instead",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Fixed an indefinite hang on Windows when AWS credential resolution stalls (e.g. a stuck `credential_process`): the 60-second stall guard now fires instead of waiting forever.",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Plugin hooks/monitors/MCP headersHelper: `${user_config.*}` in shell-form commands is now rejected (shell-injection fix). Hooks: use exec form (`args` array) or `$CLAUDE_PLUGIN_OPTION_<KEY>`; monitors and headersHelper: read the value inside the script (config file or the server's `env` block).",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Plugin option values (`pluginConfigs`) are no longer read from project-level `.claude/settings.json`; only user, `--settings`, and managed settings are honored",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/usage-credits` amount inputs silently stripping malformed values (e.g. a pasted timestamp) to digits; malformed amounts are now rejected with an error, and amounts over $1,000 require a typed confirmation",
+          "category": "fixed",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.207",
+      "github_body": "## What's changed\n\n- Auto mode is now available without `CLAUDE_CODE_ENABLE_AUTO_MODE` opt-in on Bedrock, Vertex AI, and Foundry; disable via `disableAutoMode` in settings\n- Fixed the terminal freezing and keystrokes lagging while streaming responses containing very long lists, tables, paragraphs, or code blocks\n- Fixed remote managed settings from a non-interactive run (`claude -p`, the SDK) being permanently recorded as consented without ever showing the security consent dialog\n- Fixed spurious prompt-injection warnings triggered by benign system-generated conversation updates\n- Fixed the auto-updater overwriting a custom launcher script or symlink at `~/.local/bin/claude` on every release; `/doctor` now reports an externally managed launcher\n- Fixed compound commands with `cd` prompting for permission when the only output redirect was to `/dev/null`\n- Fixed the transcript jumping above the start of the answer when a response finishes streaming\n- Fixed `extensions.worktreeConfig` being left in the repo's `.git/config` (breaking go-git tools like `tea`) after the last `worktree.sparsePaths` worktree was removed\n- Fixed malformed bracket patterns in rules globs, skill paths, `.ignore`, and `.worktreeinclude` breaking file reads, file suggestions, and worktree creation\n- Fixed a crash loop in agent teams where a malformed teammate mailbox message caused repeated errors every second until the mailbox file was manually deleted\n- Fixed background sessions auto-named by accepting a plan not showing that name on their agent-view row\n- Fixed background sessions that entered a git worktree resuming blank after a cold reopen from the agent list\n- Fixed Remote Control task status updates being lost when the connection recovered from a network interruption or credential refresh\n- Fixed Remote Control sessions hosted by the desktop app not showing background agent and workflow progress on mobile and web\n- Fixed Deep research runs labeling every Fetch-phase agent \"unknown\" — chips now show the source hostname\n- Fixed Bedrock repeatedly requesting fresh AWS SSO credentials from IAM Identity Center on every API request\n- Improved agent view: pasting the same text again now expands the collapsed `[Pasted text #N]` placeholder instead of adding a second one\n- Improved agent view: blocked session peeks now lead with the question and show a worded staleness clock (`waiting 3m`) instead of the same timestamp twice\n- Changed Bedrock, Vertex, and Claude Platform on AWS to default to Claude Opus 4.8\n- Changed auto mode to no longer read `autoMode` from `.claude/settings.local.json` (repo-resident); use `~/.claude/settings.json` instead\n- Fixed an indefinite hang on Windows when AWS credential resolution stalls (e.g. a stuck `credential_process`): the 60-second stall guard now fires instead of waiting forever.\n- Plugin hooks/monitors/MCP headersHelper: `${user_config.*}` in shell-form commands is now rejected (shell-injection fix). Hooks: use exec form (`args` array) or `$CLAUDE_PLUGIN_OPTION_<KEY>`; monitors and headersHelper: read the value inside the script (config file or the server's `env` block).\n- Plugin option values (`pluginConfigs`) are no longer read from project-level `.claude/settings.json`; only user, `--settings`, and managed settings are honored\n- Fixed `/usage-credits` amount inputs silently stripping malformed values (e.g. a pasted timestamp) to digits; malformed amounts are now rejected with an error, and amounts over $1,000 require a typed confirmation\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "other": 3,
+        "fixed": 16,
+        "security": 1,
+        "improved": 4
+      }
+    },
     {
       "version": "2.1.206",
       "published_at": "2026-07-10T01:45:26Z",
@@ -13106,7 +13247,7 @@
     },
     {
       "version": "2.1.80",
-      "published_at": "2026-03-19T22:08:48Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Added `rate_limits` field to statusline scripts for displaying Claude.ai rate limit usage (5-hour and 7-day windows with `used_percentage` and `resets_at`)",
@@ -13195,11 +13336,10 @@
         }
       ],
       "sources": [
-        "changelog",
-        "github_releases"
+        "changelog"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.80",
-      "github_body": "## What's changed\n\n- Added `rate_limits` field to statusline scripts for displaying Claude.ai rate limit usage (5-hour and 7-day windows with `used_percentage` and `resets_at`)\n- Added `source: 'settings'` plugin marketplace source — declare plugin entries inline in settings.json\n- Added CLI tool usage detection to plugin tips, in addition to file pattern matching\n- Added `effort` frontmatter support for skills and slash commands to override the model effort level when invoked\n- Added `--channels` (research preview) — allow MCP servers to push messages into your session\n- Fixed `--resume` dropping parallel tool results — sessions with parallel tool calls now restore all tool_use/tool_result pairs instead of showing `[Tool result missing]` placeholders\n- Fixed voice mode WebSocket failures caused by Cloudflare bot detection on non-browser TLS fingerprints\n- Fixed 400 errors when using fine-grained tool streaming through API proxies, Bedrock, or Vertex\n- Fixed `/remote-control` appearing for gateway and third-party provider deployments where it cannot function\n- Fixed `/sandbox` tab switching not responding to Tab or arrow keys\n- Improved responsiveness of `@` file autocomplete in large git repositories\n- Improved `/effort` to show what auto currently resolves to, matching the status bar indicator\n- Improved `/permissions` — Tab and arrow keys now switch tabs from within a list\n- Improved background tasks panel — left arrow now closes from the list view\n- Simplified plugin install tips to use a single `/plugin install` command instead of a two-step flow\n- Reduced memory usage on startup in large repositories (~80 MB saved on 250k-file repos)\n- Fixed managed settings (`enabledPlugins`, `permissions.defaultMode`, policy-set env vars) not being applied at startup when `remote-settings.json` was cached from a prior session\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
