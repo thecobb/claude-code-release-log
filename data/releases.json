@@ -1,9 +1,255 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-13T19:25:41.308665+00:00",
+  "generated_at": "2026-07-14T02:41:01.622507+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 365,
+  "release_count": 366,
   "releases": [
+    {
+      "version": "2.1.208",
+      "published_at": "2026-07-14T01:10:42Z",
+      "bullets": [
+        {
+          "text": "Added screen reader mode: opt-in plain-text rendering for screen reader users. Run `claude --ax-screen-reader`, set CLAUDE_AX_SCREEN_READER=1, or add \"axScreenReader\": true to settings.",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added `vimInsertModeRemaps` setting: map two-key insert-mode sequences like `jj` to Escape in vim mode",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added `CLAUDE_CODE_PROCESS_WRAPPER`: agent view and the background service now honor a corporate launcher by running every Claude Code self-spawn through a required wrapper executable",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added mouse-click support for multi-select menus and \"Other\" input rows in fullscreen mode",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Fixed fast mode staying off after switching back to a model that supports it — it now restores automatically when enabled in settings",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed replies typed to a background agent being lost when delivery fails — the text is now saved and delivered when the session restarts",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background-session attach failing permanently (\"Couldn't start the background daemon\") after an update replaced the binary a running `claude agents` process was launched from",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the context window (and auto-compact indicator) briefly resetting to 200k after the CLI auto-updates, causing a false \"100% context used\" when resuming long-context sessions",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed supervised and background sessions crashing when a server closed an HTTP/2 connection with a GOAWAY while requests were in flight",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed truncated stream-json/JSON output and missing result message when piping large responses from `claude -p`",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `CLAUDE_CODE_MAX_OUTPUT_TOKENS` and similar env vars silently using the mantissa of scientific-notation values (`1e6` became `1`)",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed very large markdown tables stalling rendering or using excessive memory; tables over 200 rows show the first 200 with a \"… N more rows\" notice",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the Edit tool failing on files modified after reading when the target text still matches uniquely",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Read reporting empty files as \"shorter than offset\", Grep silently returning \"No files found\" for invalid regex patterns, Grep count mode under-reporting totals when paginated, and Glob crashing with an unclear error when the pattern, path, or working directory contained a null byte",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `apiKeyHelper` script failures being hidden behind a generic 401 after ~10 silent retries; the script's own error is now shown within 3 attempts",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Bedrock streaming requests failing with a misleading \"Truncated event message received\" when a gateway transforms the response — the error now names the content-type and points at the proxy",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/upgrade` showing a login flow instead of the upgrade URL when the browser fails to open",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed stream-json input killing the session on blank CRLF or whitespace-only lines from Windows-style SDK hosts",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed headless stream-json sessions hanging permanently when a `control_request` carried a non-string `set_model` payload; the CLI now answers with an error response",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed repeated \"No completion record was found\" notices on session resume — orphaned background tasks now collapse into a single summary",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Remote Control clients attaching to a terminal-hosted session not seeing background agents and workflow progress until a task started or stopped",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the Agent tool launching with no tools when a subagent's `tools` list resolves to nothing — it now returns a clear error naming the unrecognized entries",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/usage` showing stale cached bars over fresher data, and `/mcp` not reclassifying placeholder servers after config edits",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed \"Change directory\" in SDK hosts (e.g. Claude Desktop) failing with \"A turn is in progress\" on idle sessions that have a running background task",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the workflow save dialog showing `~/.claude/workflows/` instead of the `CLAUDE_CONFIG_DIR` location for user-scope saves",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/release-notes` adding the viewed notes to the model's context — \"Show all\" previously injected the entire changelog into every subsequent request",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a memory leak in the agent view where pasted images were retained for the screen's lifetime after sending peek replies",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed SDK sessions losing agents defined via the initialize request when a plugin refresh ran before the client attached",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed several memory leaks in long sessions: MCP stdio server stderr accumulating up to 64 MB per server, LSP documents staying open indefinitely (now LRU with 50-doc cap), async hook output retained after backgrounding, and unbounded growth in headless/SDK sessions from large tool-result payloads",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a memory blowup when reading files with extremely long single lines using offset/limit — the read now returns a clean error instead of loading the whole line",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed multi-second per-turn slowdowns in sessions with many permission deny/ask rules — rule matchers are now compiled once and cached",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Improved input responsiveness while agent task lists update — task updates no longer re-render the entire UI",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Reduced per-tool-call CPU overhead in print/SDK sessions with many MCP tools by caching tool-pool assembly (up to 7x faster tool rounds at high tool counts)",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Reduced memory usage by bounding the file edit read cache to 16 MB instead of pinning up to 1,000 full files",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Reduced session transcript size (up to 79x in edit-heavy sessions) and bounded checkpoint disk usage by pruning superseded file-history backups",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Reduced memory usage when resuming sessions with background agents or forks spawned from large conversations",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Completed background agents now stay listed in `/tasks` until cleanup instead of vanishing the moment they finish",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Attaching to a stopped background agent now shows its transcript immediately while the session warms up, instead of a blank \"Session is starting\" screen",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Background sessions: an older daemon no longer silently restarts workers spawned by a newer version onto the older binary",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Agent view: Ctrl+X now deletes renamed-branch worktrees, never destroys unpushed commits, keeps the session row when a worktree is kept, and reused worktree names reset to the current base",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Catastrophic removals (e.g. `rm -rf ~`) in commands containing `$(…)`/backticks/`<(…)` now prompt in `--dangerously-skip-permissions` and auto mode, matching the plain form",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "`/install-github-app` and the `/mcp` settings menu no longer open in background sessions",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "MCP servers configured with an empty URL now show as \"not configured\" in `/mcp` instead of a config error",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "`/usage` now shows your last-known usage bars with an \"as of\" note when the usage endpoint is rate-limited, instead of an error screen",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Fixed Bedrock auth failing with \"Session token not found or invalid\" for AWS SSO profiles whose sso_region differs from the Bedrock region (2.1.207 regression)",
+          "category": "fixed",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.208",
+      "github_body": "## What's changed\n\n- Added screen reader mode: opt-in plain-text rendering for screen reader users. Run `claude --ax-screen-reader`, set CLAUDE_AX_SCREEN_READER=1, or add \"axScreenReader\": true to settings.\n- Added `vimInsertModeRemaps` setting: map two-key insert-mode sequences like `jj` to Escape in vim mode\n- Added `CLAUDE_CODE_PROCESS_WRAPPER`: agent view and the background service now honor a corporate launcher by running every Claude Code self-spawn through a required wrapper executable\n- Added mouse-click support for multi-select menus and \"Other\" input rows in fullscreen mode\n- Fixed fast mode staying off after switching back to a model that supports it — it now restores automatically when enabled in settings\n- Fixed replies typed to a background agent being lost when delivery fails — the text is now saved and delivered when the session restarts\n- Fixed background-session attach failing permanently (\"Couldn't start the background daemon\") after an update replaced the binary a running `claude agents` process was launched from\n- Fixed the context window (and auto-compact indicator) briefly resetting to 200k after the CLI auto-updates, causing a false \"100% context used\" when resuming long-context sessions\n- Fixed supervised and background sessions crashing when a server closed an HTTP/2 connection with a GOAWAY while requests were in flight\n- Fixed truncated stream-json/JSON output and missing result message when piping large responses from `claude -p`\n- Fixed `CLAUDE_CODE_MAX_OUTPUT_TOKENS` and similar env vars silently using the mantissa of scientific-notation values (`1e6` became `1`)\n- Fixed very large markdown tables stalling rendering or using excessive memory; tables over 200 rows show the first 200 with a \"… N more rows\" notice\n- Fixed the Edit tool failing on files modified after reading when the target text still matches uniquely\n- Fixed Read reporting empty files as \"shorter than offset\", Grep silently returning \"No files found\" for invalid regex patterns, Grep count mode under-reporting totals when paginated, and Glob crashing with an unclear error when the pattern, path, or working directory contained a null byte\n- Fixed `apiKeyHelper` script failures being hidden behind a generic 401 after ~10 silent retries; the script's own error is now shown within 3 attempts\n- Fixed Bedrock streaming requests failing with a misleading \"Truncated event message received\" when a gateway transforms the response — the error now names the content-type and points at the proxy\n- Fixed `/upgrade` showing a login flow instead of the upgrade URL when the browser fails to open\n- Fixed stream-json input killing the session on blank CRLF or whitespace-only lines from Windows-style SDK hosts\n- Fixed headless stream-json sessions hanging permanently when a `control_request` carried a non-string `set_model` payload; the CLI now answers with an error response\n- Fixed repeated \"No completion record was found\" notices on session resume — orphaned background tasks now collapse into a single summary\n- Fixed Remote Control clients attaching to a terminal-hosted session not seeing background agents and workflow progress until a task started or stopped\n- Fixed the Agent tool launching with no tools when a subagent's `tools` list resolves to nothing — it now returns a clear error naming the unrecognized entries\n- Fixed `/usage` showing stale cached bars over fresher data, and `/mcp` not reclassifying placeholder servers after config edits\n- Fixed \"Change directory\" in SDK hosts (e.g. Claude Desktop) failing with \"A turn is in progress\" on idle sessions that have a running background task\n- Fixed the workflow save dialog showing `~/.claude/workflows/` instead of the `CLAUDE_CONFIG_DIR` location for user-scope saves\n- Fixed `/release-notes` adding the viewed notes to the model's context — \"Show all\" previously injected the entire changelog into every subsequent request\n- Fixed a memory leak in the agent view where pasted images were retained for the screen's lifetime after sending peek replies\n- Fixed SDK sessions losing agents defined via the initialize request when a plugin refresh ran before the client attached\n- Fixed several memory leaks in long sessions: MCP stdio server stderr accumulating up to 64 MB per server, LSP documents staying open indefinitely (now LRU with 50-doc cap), async hook output retained after backgrounding, and unbounded growth in headless/SDK sessions from large tool-result payloads\n- Fixed a memory blowup when reading files with extremely long single lines using offset/limit — the read now returns a clean error instead of loading the whole line\n- Fixed multi-second per-turn slowdowns in sessions with many permission deny/ask rules — rule matchers are now compiled once and cached\n- Improved input responsiveness while agent task lists update — task updates no longer re-render the entire UI\n- Reduced per-tool-call CPU overhead in print/SDK sessions with many MCP tools by caching tool-pool assembly (up to 7x faster tool rounds at high tool counts)\n- Reduced memory usage by bounding the file edit read cache to 16 MB instead of pinning up to 1,000 full files\n- Reduced session transcript size (up to 79x in edit-heavy sessions) and bounded checkpoint disk usage by pruning superseded file-history backups\n- Reduced memory usage when resuming sessions with background agents or forks spawned from large conversations\n- Completed background agents now stay listed in `/tasks` until cleanup instead of vanishing the moment they finish\n- Attaching to a stopped background agent now shows its transcript immediately while the session warms up, instead of a blank \"Session is starting\" screen\n- Background sessions: an older daemon no longer silently restarts workers spawned by a newer version onto the older binary\n- Agent view: Ctrl+X now deletes renamed-branch worktrees, never destroys unpushed commits, keeps the session row when a worktree is kept, and reused worktree names reset to the current base\n- Catastrophic removals (e.g. `rm -rf ~`) in commands containing `$(…)`/backticks/`<(…)` now prompt in `--dangerously-skip-permissions` and auto mode, matching the plain form\n- `/install-github-app` and the `/mcp` settings menu no longer open in background sessions\n- MCP servers configured with an empty URL now show as \"not configured\" in `/mcp` instead of a config error\n- `/usage` now shows your last-known usage bars with an \"as of\" note when the usage endpoint is rate-limited, instead of an error screen\n- Fixed Bedrock auth failing with \"Session token not found or invalid\" for AWS SSO profiles whose sso_region differs from the Bedrock region (2.1.207 regression)\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "added": 4,
+        "fixed": 28,
+        "improved": 1,
+        "other": 12
+      }
+    },
     {
       "version": "2.1.207",
       "published_at": "2026-07-11T00:52:10Z",
@@ -13103,7 +13349,7 @@
     },
     {
       "version": "2.1.81",
-      "published_at": "2026-03-20T22:24:50Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Added `--bare` flag for scripted `-p` calls — skips hooks, LSP, plugin sync, and skill directory walks; requires `ANTHROPIC_API_KEY` or an `apiKeyHelper` via `--settings` (OAuth and keychain auth disabled); auto-memory fully disabled",
@@ -13242,11 +13488,10 @@
         }
       ],
       "sources": [
-        "changelog",
-        "github_releases"
+        "changelog"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.81",
-      "github_body": "## What's changed\n\n- Added `--bare` flag for scripted `-p` calls — skips hooks, LSP, plugin sync, and skill directory walks; requires `ANTHROPIC_API_KEY` or an `apiKeyHelper` via `--settings` (OAuth and keychain auth disabled); auto-memory fully disabled\n- Added `--channels` permission relay — channel servers that declare the permission capability can forward tool approval prompts to your phone\n- Fixed multiple concurrent Claude Code sessions requiring repeated re-authentication when one session refreshes its OAuth token\n- Fixed voice mode silently swallowing retry failures and showing a misleading \"check your network\" message instead of the actual error\n- Fixed voice mode audio not recovering when the server silently drops the WebSocket connection\n- Fixed `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS` not suppressing the structured-outputs beta header, causing 400 errors on proxy gateways forwarding to Vertex/Bedrock\n- Fixed `--channels` bypass for Team/Enterprise orgs with no other managed settings configured\n- Fixed a crash on Node.js 18\n- Fixed unnecessary permission prompts for Bash commands containing dashes in strings\n- Fixed plugin hooks blocking prompt submission when the plugin directory is deleted mid-session\n- Fixed a race condition where background agent task output could hang indefinitely when the task completed between polling intervals\n- Resuming a session that was in a worktree now switches back to that worktree\n- Fixed `/btw` not including pasted text when used during an active response\n- Fixed a race where fast Cmd+Tab followed by paste could beat the clipboard copy under tmux\n- Fixed terminal tab title not updating with an auto-generated session description\n- Fixed invisible hook attachments inflating the message count in transcript mode\n- Fixed Remote Control sessions showing a generic title instead of deriving from the first prompt\n- Fixed `/rename` not syncing the title for Remote Control sessions\n- Fixed Remote Control `/exit` not reliably archiving the session\n- Improved MCP read/search tool calls to collapse into a single \"Queried {server}\" line (expand with Ctrl+O)\n- Improved `!` bash mode discoverability — Claude now suggests it when you need to run an interactive command\n- Improved plugin freshness — ref-tracked plugins now re-clone on every load to pick up upstream changes\n- Improved Remote Control session titles to refresh after your third message\n- Updated MCP OAuth to support Client ID Metadata Document (CIMD / SEP-991) for servers without Dynamic Client Registration\n- Changed plan mode to hide the \"clear context\" option by default (restore with `\"showClearContextOnPlanAccept\": true`)\n- Disabled line-by-line response streaming on Windows (including WSL in Windows Terminal) due to rendering issues\n- [VSCode] Fixed Windows PATH inheritance for Bash tool when using Git Bash (regression in v2.1.78)\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
