@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-14T13:48:53.118773+00:00",
+  "generated_at": "2026-07-14T19:22:52.779518+00:00",
   "default_repo": "anthropics/claude-code",
   "release_count": 367,
   "releases": [
@@ -18540,7 +18540,7 @@
       "published_at": null,
       "bullets": [
         {
-          "text": "Added deprecation notification for npm installations - run `claude install` or see https://docs.anthropic.com/en/docs/claude-code/getting-started for more options",
+          "text": "Added deprecation notification for npm installations - run `claude install` or see https://code.claude.com/docs/en/setup for more options",
           "category": "added",
           "scope": null
         },
