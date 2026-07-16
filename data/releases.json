@@ -1,9 +1,215 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-15T19:15:42.084578+00:00",
+  "generated_at": "2026-07-16T02:46:47.673671+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 368,
+  "release_count": 369,
   "releases": [
+    {
+      "version": "2.1.211",
+      "published_at": "2026-07-15T23:02:35Z",
+      "bullets": [
+        {
+          "text": "Added `--forward-subagent-text` flag and `CLAUDE_CODE_FORWARD_SUBAGENT_TEXT` environment variable to include subagent text and thinking in stream-json output",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Fixed permission previews relayed to chat channels not neutralizing bidirectional-override, zero-width, and look-alike quote characters, so tool inputs cannot visually alter the approval message",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed auto mode overriding a PreToolUse hook's `ask` decision for unsandboxed Bash — a hook `ask` now floors the decision at a prompt",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed parallel Claude Code sessions all logging out simultaneously after wake-from-sleep when many sessions share one credential store",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed plugin MCP servers not reconnecting after an idle web session woke, leaving MCP calls failing until the next message",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Claude Code on Vertex and Bedrock attempting the default Opus model at startup and printing a spurious fallback notice when a model is explicitly configured",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed subagents spawned with an explicit model override reverting to the parent's model when resumed or sent a follow-up message",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed nested `.claude/rules/*.md` files loading even when setting sources exclude project settings",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed file upload validation: filenames ending in a DOS device suffix (`.prn`) or trailing dot are now accepted, and files with multiple hard links are refused",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed file uploads to Claude in Chrome from remote and CLI sessions",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed edits that leave the input as \"?\" being silently swallowed and toggling the shortcuts panel",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a startup hang when the Claude in Chrome extension is enabled but Chrome is not running",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a 300ms delay revealing async content (Settings tabs, Stats, diff views, and other loading states)",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed reopening a just-stopped background session from the agents view starting a blank conversation under the same session id",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/loop` hiding the session from `/resume` after a single use",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed screen reader users losing the audible terminal bell after `/terminal-setup` or onboarding terminal setup",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background jobs on LLM gateway auth (`ANTHROPIC_AUTH_TOKEN` + `ANTHROPIC_BASE_URL`) coming back \"Not logged in\" after the daemon respawns them",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `claude agents` jobs becoming permanently undeletable when git no longer recognizes their worktree — the row now shows why the delete was refused instead of silently reappearing",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/clear` not resetting the session cost counter — the statusline's cost now starts at $0 after `/clear`",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Claude in Chrome setup pages failing to open in the browser on Windows",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed headless print-mode sessions on Windows crashing or silently exiting when stdin is unreadable",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background session titles in the agents view showing the naming model's refusal text when the prompt contains a link",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background agents killed by the user auto-respawning, and revived agents re-running stale prompts from old sessions",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed routines with no schedule reporting a next run time in the year 1",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Hardened synced skill/plugin directory naming on Windows and kept CCR web fetch/search proxies working after `/clear`",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Improved terminal layout and rendering performance",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved background agent result reporting — Claude now reports the status of still-running agents and waits for the real completion instead of fabricating results",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved the memory index over-limit warning to measure only loaded content, excluding frontmatter and HTML comments",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Updated integer environment variables (timeouts, token budgets, retry counts) to accept scientific notation and digit-separator spellings like `1e6` and `64_000`",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Updated documentation links to the current docs sites",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed \"always allow\" permission rules to save at the repository root, so approvals granted in a git worktree persist across sessions and worktrees",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed `/usage-credits` to ask for confirmation before sending a request to organization admins",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed Vim mode `s` and `S` (substitute char/line) to work in NORMAL mode, matching vim behavior",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "[VSCode] Updated the Remote Control banner to describe what it does",
+          "category": "improved",
+          "scope": "VSCode"
+        },
+        {
+          "text": "Claude in Chrome: hardened file-upload path validation",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Claude in Chrome: `save_to_disk` on screenshot actions now writes the image to disk and returns the path; previously it did nothing",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Fixed a prompt-caching regression on Bedrock, Vertex, Mantle, and Foundry that billed the trailing system context block as fresh input tokens on every request.",
+          "category": "fixed",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.211",
+      "github_body": "## What's changed\n\n- Added `--forward-subagent-text` flag and `CLAUDE_CODE_FORWARD_SUBAGENT_TEXT` environment variable to include subagent text and thinking in stream-json output\n- Fixed permission previews relayed to chat channels not neutralizing bidirectional-override, zero-width, and look-alike quote characters, so tool inputs cannot visually alter the approval message\n- Fixed auto mode overriding a PreToolUse hook's `ask` decision for unsandboxed Bash — a hook `ask` now floors the decision at a prompt\n- Fixed parallel Claude Code sessions all logging out simultaneously after wake-from-sleep when many sessions share one credential store\n- Fixed plugin MCP servers not reconnecting after an idle web session woke, leaving MCP calls failing until the next message\n- Fixed Claude Code on Vertex and Bedrock attempting the default Opus model at startup and printing a spurious fallback notice when a model is explicitly configured\n- Fixed subagents spawned with an explicit model override reverting to the parent's model when resumed or sent a follow-up message\n- Fixed nested `.claude/rules/*.md` files loading even when setting sources exclude project settings\n- Fixed file upload validation: filenames ending in a DOS device suffix (`.prn`) or trailing dot are now accepted, and files with multiple hard links are refused\n- Fixed file uploads to Claude in Chrome from remote and CLI sessions\n- Fixed edits that leave the input as \"?\" being silently swallowed and toggling the shortcuts panel\n- Fixed a startup hang when the Claude in Chrome extension is enabled but Chrome is not running\n- Fixed a 300ms delay revealing async content (Settings tabs, Stats, diff views, and other loading states)\n- Fixed reopening a just-stopped background session from the agents view starting a blank conversation under the same session id\n- Fixed `/loop` hiding the session from `/resume` after a single use\n- Fixed screen reader users losing the audible terminal bell after `/terminal-setup` or onboarding terminal setup\n- Fixed background jobs on LLM gateway auth (`ANTHROPIC_AUTH_TOKEN` + `ANTHROPIC_BASE_URL`) coming back \"Not logged in\" after the daemon respawns them\n- Fixed `claude agents` jobs becoming permanently undeletable when git no longer recognizes their worktree — the row now shows why the delete was refused instead of silently reappearing\n- Fixed `/clear` not resetting the session cost counter — the statusline's cost now starts at $0 after `/clear`\n- Fixed Claude in Chrome setup pages failing to open in the browser on Windows\n- Fixed headless print-mode sessions on Windows crashing or silently exiting when stdin is unreadable\n- Fixed background session titles in the agents view showing the naming model's refusal text when the prompt contains a link\n- Fixed background agents killed by the user auto-respawning, and revived agents re-running stale prompts from old sessions\n- Fixed routines with no schedule reporting a next run time in the year 1\n- Hardened synced skill/plugin directory naming on Windows and kept CCR web fetch/search proxies working after `/clear`\n- Improved terminal layout and rendering performance\n- Improved background agent result reporting — Claude now reports the status of still-running agents and waits for the real completion instead of fabricating results\n- Improved the memory index over-limit warning to measure only loaded content, excluding frontmatter and HTML comments\n- Updated integer environment variables (timeouts, token budgets, retry counts) to accept scientific notation and digit-separator spellings like `1e6` and `64_000`\n- Updated documentation links to the current docs sites\n- Changed \"always allow\" permission rules to save at the repository root, so approvals granted in a git worktree persist across sessions and worktrees\n- Changed `/usage-credits` to ask for confirmation before sending a request to organization admins\n- Changed Vim mode `s` and `S` (substitute char/line) to work in NORMAL mode, matching vim behavior\n- [VSCode] Updated the Remote Control banner to describe what it does\n- Claude in Chrome: hardened file-upload path validation\n- Claude in Chrome: `save_to_disk` on screenshot actions now writes the image to disk and returns the path; previously it did nothing\n- Fixed a prompt-caching regression on Bedrock, Vertex, Mantle, and Foundry that billed the trailing system context block as fresh input tokens on every request.\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "added": 1,
+        "fixed": 24,
+        "other": 3,
+        "improved": 9
+      }
+    },
     {
       "version": "2.1.210",
       "published_at": "2026-07-14T23:45:25Z",
@@ -12761,7 +12967,7 @@
     },
     {
       "version": "2.1.85",
-      "published_at": "2026-03-26T22:52:12Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Added `CLAUDE_CODE_MCP_SERVER_NAME` and `CLAUDE_CODE_MCP_SERVER_URL` environment variables to MCP `headersHelper` scripts, allowing one helper to serve multiple servers",
@@ -12916,11 +13122,10 @@
       ],
       "sources": [
         "changelog",
-        "github_releases",
         "whats_new"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.85",
-      "github_body": "## What's changed\n\n- Added `CLAUDE_CODE_MCP_SERVER_NAME` and `CLAUDE_CODE_MCP_SERVER_URL` environment variables to MCP `headersHelper` scripts, allowing one helper to serve multiple servers\n- Added conditional `if` field for hooks using permission rule syntax (e.g., `Bash(git *)`) to filter when they run, reducing process spawning overhead\n- Added timestamp markers in transcripts when scheduled tasks (`/loop`, `CronCreate`) fire\n- Added trailing space after `[Image #N]` placeholder when pasting images\n- Deep link queries (`claude-cli://open?q=…`) now support up to 5,000 characters, with a \"scroll to review\" warning for long pre-filled prompts\n- MCP OAuth now follows RFC 9728 Protected Resource Metadata discovery to find the authorization server\n- Plugins blocked by organization policy (`managed-settings.json`) can no longer be installed or enabled, and are hidden from marketplace views\n- PreToolUse hooks can now satisfy `AskUserQuestion` by returning `updatedInput` alongside `permissionDecision: \"allow\"`, enabling headless integrations that collect answers via their own UI\n- `tool_parameters` in OpenTelemetry tool_result events are now gated behind `OTEL_LOG_TOOL_DETAILS=1`\n- Fixed `/compact` failing with \"context exceeded\" when the conversation has grown too large for the compact request itself to fit\n- Fixed `/plugin enable` and `/plugin disable` failing when a plugin's install location differs from where it's declared in settings\n- Fixed `--worktree` exiting with an error in non-git repositories before the `WorktreeCreate` hook could run\n- Fixed `deniedMcpServers` setting not blocking claude.ai MCP servers\n- Fixed `switch_display` in the computer-use tool returning \"not available in this session\" on multi-monitor setups\n- Fixed crash when `OTEL_LOGS_EXPORTER`, `OTEL_METRICS_EXPORTER`, or `OTEL_TRACES_EXPORTER` is set to `none`\n- Fixed diff syntax highlighting not working in non-native builds\n- Fixed MCP step-up authorization failing when a refresh token exists — servers requesting elevated scopes via `403 insufficient_scope` now correctly trigger the re-authorization flow\n- Fixed memory leak in remote sessions when a streaming response is interrupted\n- Fixed persistent ECONNRESET errors during edge connection churn by using a fresh TCP connection on retry\n- Fixed prompts getting stuck in the queue after running certain slash commands, with up-arrow unable to retrieve them\n- Fixed Python Agent SDK: `type:'sdk'` MCP servers passed via `--mcp-config` are no longer dropped during startup\n- Fixed raw key sequences appearing in the prompt when running over SSH or in the VS Code integrated terminal\n- Fixed Remote Control session status staying stuck on \"Requires Action\" after a permission is resolved\n- Fixed shift+enter and meta+enter being intercepted by typeahead suggestions instead of inserting newlines\n- Fixed stale content bleeding through when scrolling up during streaming\n- Fixed terminal left in enhanced keyboard mode after exit in Ghostty, Kitty, WezTerm, and other terminals supporting the Kitty keyboard protocol — Ctrl+C and Ctrl+D now work correctly after quitting\n- Improved @-mention file autocomplete performance on large repositories\n- Improved PowerShell dangerous command detection\n- Improved scroll performance with large transcripts by replacing WASM yoga-layout with a pure TypeScript implementation\n- Reduced UI stutter when compaction triggers on large sessions\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": "Week 13 · March 23–27, 2026 - Claude Code Docs Documentation Index Fetch the complete documentation index at: /docs/llms.txt Use this file to discover all available pages before exploring further. Skip to main content Claude Code Docs home page English Search... ⌘ K Ask Assistant Claude Developer Platform Claude Code on the Web Claude Code on the Web Search... Navigation What&#x27;s New Week 13 · March 23–27, 2026 Getting started Build with Claude Code Administration Configuration Reference Agent SDK What&#x27;s New Resources What&#x27;s New What&#x27;s new Week 28 · July 6–10 Week 27 · June 29 – July 3 Week 26 · June 22–26 Week 25 · June 15–19 Week 24 · June 8–12 Week 23 · June 1–5 Week 22 · May 25–29 Week 21 · May 18–22 Week 20 · May 11–15 Week 19 · May 4–8 Week 18 · Apr 27 – May 1 Week 17 · Apr 20–24 Week 16 · Apr 13–17 Week 15 · Apr 6–10 Week 14 · Mar 30 – Apr 3 Week 13 · Mar 23–27 What&#x27;s New Week 13 · March 23–27, 2026 Copy page Auto mode for hands-off permissions, computer use built in, PR auto-fix in the cloud, transcript search, and a PowerShell tool for Windows. Copy page Releases v2.1.83 → v2.1.85 6 features · March 23–27 Auto mode research preview Auto mode hands yo",
       "digest_url": "https://code.claude.com/docs/en/whats-new/2026-w13",
       "is_prerelease": false,
