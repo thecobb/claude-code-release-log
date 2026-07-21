@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-21T13:56:57.722922+00:00",
+  "generated_at": "2026-07-21T19:26:50.739552+00:00",
   "default_repo": "anthropics/claude-code",
   "release_count": 373,
   "releases": [
@@ -1209,6 +1209,11 @@
           "scope": null
         },
         {
+          "text": "Changed the Fable 5 usage-credits consent prompt to start with the decline option focused",
+          "category": "improved",
+          "scope": null
+        },
+        {
           "text": "Fixed fast mode staying off after switching back to a model that supports it — it now restores automatically when enabled in settings",
           "category": "fixed",
           "scope": null
@@ -1426,8 +1431,8 @@
       "is_prerelease": false,
       "category_counts": {
         "added": 4,
+        "improved": 2,
         "fixed": 28,
-        "improved": 1,
         "other": 12
       }
     },
