@@ -1,9 +1,130 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-21T19:26:50.739552+00:00",
+  "generated_at": "2026-07-22T02:49:41.334742+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 373,
+  "release_count": 374,
   "releases": [
+    {
+      "version": "2.1.217",
+      "published_at": "2026-07-21T21:35:10Z",
+      "bullets": [
+        {
+          "text": "Added emoji shortcode autocomplete in the prompt input: type `:heart:` to insert ❤️, or `:hea` for suggestions — disable with the `emojiCompletionEnabled` setting",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added warnings when transcript writes are failing (e.g. disk full) or when session saving is off due to an inherited environment variable, instead of losing transcripts silently",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Fixed a memory leak where truncated MCP tool outputs kept the full untruncated result in memory for the rest of the session",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Windows auto-update failures that could leave `claude.exe` missing; failed updates now restore the preserved executable automatically",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background session isolation not canonicalizing symlinked working directories, which could let sessions escape their workspace folder",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed auto-compact never triggering for Claude Opus 4.8 on Bedrock and `/compact` failing once over the limit",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed corporate mTLS, TLS-verify, OAuth scope, and proxy settings being ignored in Claude Desktop sessions",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed screen reader mode's startup announcement being cut off by the first prompt render, and the thinking status row re-rendering every few seconds to update elapsed time and token counts",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed managed settings that set `OTEL_EXPORTER_OTLP_ENDPOINT` not governing all signals — lower-scope signal-specific overrides no longer redirect telemetry away from the managed endpoint",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `--resume`/`--continue` and `/resume` failing with a TypeError when a transcript has a malformed attachment entry",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Remote Control sessions not showing a pending permission prompt or dialog to viewers that connected after it appeared",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background shells sometimes becoming impossible to stop after a session is sent to the background (`/background` or `←`) or when the session exits on a heavily loaded machine, most visible on Windows",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a `CLAUDE.md` or `SKILL.md` paths frontmatter value with many brace groups OOM-killing or stalling the CLI at startup — brace expansion is now budget-bounded",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the transcript preview sitting flush against the input area when attaching to a starting background session; it now leaves the same one-line gap as the live layout, so the transcript no longer shifts when the session takes over",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Improved footer PR badge links to be clickable hyperlinks even when terminal support can't be detected (e.g. over ssh/tmux); set `FORCE_HYPERLINK=0` to opt out",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed the login-expiry warning to appear 3 days before expiry instead of 5",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Capped the frontend-design plugin suggestion tip at 3 lifetime impressions instead of repeating indefinitely",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Added a cap on concurrently-running subagents (default 20, override with `CLAUDE_CODE_MAX_CONCURRENT_SUBAGENTS`) so one message can't fan out unbounded background agents",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Changed subagents to no longer spawn nested subagents by default; set `CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH` to allow deeper nesting",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Fixed `--max-budget-usd` not stopping background subagents: once the cap is reached, new spawns are denied and running background agents are halted",
+          "category": "fixed",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.217",
+      "github_body": "## What's changed\n\n- Added emoji shortcode autocomplete in the prompt input: type `:heart:` to insert ❤️, or `:hea` for suggestions — disable with the `emojiCompletionEnabled` setting\n- Added warnings when transcript writes are failing (e.g. disk full) or when session saving is off due to an inherited environment variable, instead of losing transcripts silently\n- Fixed a memory leak where truncated MCP tool outputs kept the full untruncated result in memory for the rest of the session\n- Fixed Windows auto-update failures that could leave `claude.exe` missing; failed updates now restore the preserved executable automatically\n- Fixed background session isolation not canonicalizing symlinked working directories, which could let sessions escape their workspace folder\n- Fixed auto-compact never triggering for Claude Opus 4.8 on Bedrock and `/compact` failing once over the limit\n- Fixed corporate mTLS, TLS-verify, OAuth scope, and proxy settings being ignored in Claude Desktop sessions\n- Fixed screen reader mode's startup announcement being cut off by the first prompt render, and the thinking status row re-rendering every few seconds to update elapsed time and token counts\n- Fixed managed settings that set `OTEL_EXPORTER_OTLP_ENDPOINT` not governing all signals — lower-scope signal-specific overrides no longer redirect telemetry away from the managed endpoint\n- Fixed `--resume`/`--continue` and `/resume` failing with a TypeError when a transcript has a malformed attachment entry\n- Fixed Remote Control sessions not showing a pending permission prompt or dialog to viewers that connected after it appeared\n- Fixed background shells sometimes becoming impossible to stop after a session is sent to the background (`/background` or `←`) or when the session exits on a heavily loaded machine, most visible on Windows\n- Fixed a `CLAUDE.md` or `SKILL.md` paths frontmatter value with many brace groups OOM-killing or stalling the CLI at startup — brace expansion is now budget-bounded\n- Fixed the transcript preview sitting flush against the input area when attaching to a starting background session; it now leaves the same one-line gap as the live layout, so the transcript no longer shifts when the session takes over\n- Improved footer PR badge links to be clickable hyperlinks even when terminal support can't be detected (e.g. over ssh/tmux); set `FORCE_HYPERLINK=0` to opt out\n- Changed the login-expiry warning to appear 3 days before expiry instead of 5\n- Capped the frontend-design plugin suggestion tip at 3 lifetime impressions instead of repeating indefinitely\n- Added a cap on concurrently-running subagents (default 20, override with `CLAUDE_CODE_MAX_CONCURRENT_SUBAGENTS`) so one message can't fan out unbounded background agents\n- Changed subagents to no longer spawn nested subagents by default; set `CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH` to allow deeper nesting\n- Fixed `--max-budget-usd` not stopping background subagents: once the cap is reached, new spawns are denied and running background agents are halted\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "added": 3,
+        "fixed": 13,
+        "improved": 3,
+        "other": 1
+      }
+    },
     {
       "version": "2.1.216",
       "published_at": "2026-07-20T22:14:00Z",
@@ -13062,7 +13183,7 @@
     },
     {
       "version": "2.1.91",
-      "published_at": "2026-04-02T23:45:35Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Added MCP tool result persistence override via `_meta[\"anthropic/maxResultSizeChars\"]` annotation (up to 500K), allowing larger results like DB schemas to pass through without truncation",
@@ -13132,11 +13253,10 @@
       ],
       "sources": [
         "changelog",
-        "github_releases",
         "whats_new"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.91",
-      "github_body": "## What's changed\n\n- Added MCP tool result persistence override via `_meta[\"anthropic/maxResultSizeChars\"]` annotation (up to 500K), allowing larger results like DB schemas to pass through without truncation\n- Added `disableSkillShellExecution` setting to disable inline shell execution in skills, custom slash commands, and plugin commands\n- Added support for multi-line prompts in `claude-cli://open?q=` deep links (encoded newlines `%0A` no longer rejected)\n- Plugins can now ship executables under `bin/` and invoke them as bare commands from the Bash tool\n- Fixed transcript chain breaks on `--resume` that could lose conversation history when async transcript writes fail silently\n- Fixed `cmd+delete` not deleting to start of line on iTerm2, kitty, WezTerm, Ghostty, and Windows Terminal\n- Fixed plan mode in remote sessions losing track of the plan file after a container restart, which caused permission prompts on plan edits and an empty plan-approval modal\n- Fixed JSON schema validation for `permissions.defaultMode: \"auto\"` in settings.json\n- Fixed Windows version cleanup not protecting the active version's rollback copy\n- `/feedback` now explains why it's unavailable instead of disappearing from the slash menu\n- Improved `/claude-api` skill guidance for agent design patterns including tool surface decisions, context management, and caching strategy\n- Improved performance: faster `stripAnsi` on Bun by routing through `Bun.stripANSI`\n- Edit tool now uses shorter `old_string` anchors, reducing output tokens\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": "Week 14 · March 30 – April 3, 2026 - Claude Code Docs Documentation Index Fetch the complete documentation index at: /docs/llms.txt Use this file to discover all available pages before exploring further. Skip to main content Claude Code Docs home page English Search... ⌘ K Ask Assistant Claude Developer Platform Claude Code on the Web Claude Code on the Web Search... Navigation What&#x27;s New Week 14 · March 30 – April 3, 2026 Getting started Build with Claude Code Administration Configuration Reference Agent SDK What&#x27;s New Resources What&#x27;s New What&#x27;s new Week 29 · July 13–17 Week 28 · July 6–10 Week 27 · June 29 – July 3 Week 26 · June 22–26 Week 25 · June 15–19 Week 24 · June 8–12 Week 23 · June 1–5 Week 22 · May 25–29 Week 21 · May 18–22 Week 20 · May 11–15 Week 19 · May 4–8 Week 18 · Apr 27 – May 1 Week 17 · Apr 20–24 Week 16 · Apr 13–17 Week 15 · Apr 6–10 Week 14 · Mar 30 – Apr 3 Week 13 · Mar 23–27 What&#x27;s New Week 14 · March 30 – April 3, 2026 Copy page Copy page Computer use in the CLI, interactive in-product lessons, flicker-free rendering, per-tool MCP result-size overrides, and plugin executables on PATH. Copy page Copy page Releases v2.1.86 → v2.1.91",
       "digest_url": "https://code.claude.com/docs/en/whats-new/2026-w14",
       "is_prerelease": false,
