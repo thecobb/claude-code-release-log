@@ -1,9 +1,166 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-24T13:49:02.293270+00:00",
+  "generated_at": "2026-07-24T19:27:29.547877+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 375,
+  "release_count": 376,
   "releases": [
+    {
+      "version": "2.1.219",
+      "published_at": "2026-07-24T17:14:23Z",
+      "bullets": [
+        {
+          "text": "Added Claude Opus 5 (`claude-opus-5`), now the default Opus model — 1M context, fast mode at $10/$50 per Mtok",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added `sandbox.network.strictAllowlist` setting to deny non-allowlisted hosts for sandboxed commands without prompting",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added `DirectoryAdded` hook that fires after `/add-dir` or the SDK `register_repo_root` control request registers a new working directory mid-session",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added `mcp_server_errors` to the headless stream-json init event, listing `--mcp-config` entries skipped by config validation; terminal runs print a startup warning",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added the `workflowSizeGuideline` settings key so the advisory Dynamic workflow size guideline can be set from any settings file; the `/config` row is hidden while one does",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added nested subagent forwarding in stream-json: subagents spawned at depth-2+ now appear when `--forward-subagent-text` is set, keyed by their spawning Agent `tool_use` id",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Fixed `claude -p` text output dropping the answer already produced when a turn dies on a mid-stream API error",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Added HTTP status and error text to `claude mcp list` and `/mcp` when a server fails to connect, and a warning for MCP config values with hidden leading or trailing whitespace",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Fixed a permission you approved while a self-hosted runner was restarting being dropped when the session resumed, so the approved action now runs",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the Fable model row showing \"Requires usage credits\" for plans that include it, when a stale cache had baked the label in",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a SIGTERM arriving while a self-hosted runner was starting up leaving a stale active row until the lease expired; it now deregisters cleanly",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Added structured failure categories to self-hosted runner spawn and session failures, so hook errors, runner crashes and config errors can be told apart",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Fixed the `/model` picker showing the merged Opus row as plain \"Opus\" instead of \"Opus (1M context)\"",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed copy-on-select inside GNU screen printing base64 into the terminal instead of copying the selection",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Remote Control clients keeping a stale fast-mode status after a model switch, reconnect, or failed org check",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `CLAUDE_CODE_GIT_BASH_PATH` on Windows exiting or being used as bash when the path isn't a bash/sh binary; it's now ignored with a warning",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Vim mode: pressing ← on an empty prompt now returns to the agent view from NORMAL mode, not just INSERT",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed screen-reader mode rewriting the entire input line on every keystroke instead of echoing only the typed character",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Improved the \"Remote Control is only available via api.anthropic.com\" error to name the specific setting that caused it",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved `claude --teleport` to show which repo your current checkout points at when it doesn't match the session's repo",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed dynamic workflows to default to a medium size guideline (aim for fewer than 15 agents); pick another size or unrestricted with Dynamic workflow size in `/config`",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed managed MCP allowlist/denylist `${VAR}` entries to resolve from the startup environment and managed-settings env instead of settings-file env",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed the `/model` picker to highlight only the newest model's name, so the highlight marks the new release rather than an arbitrary subset of the list",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Added the current default workflow size to the running-workflow status line, with a pointer to `/config` for changing it",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Removed Opus 4.7 from fast mode; `/fast` now applies to Opus 5 and Opus 4.8",
+          "category": "breaking",
+          "scope": null
+        },
+        {
+          "text": "Updated the claude-api skill to default to Claude Opus 5, with a migration path from Opus 4.8",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Subagents can now spawn nested subagents up to depth 3 by default (was 1); set CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH=1 to disable nesting",
+          "category": "other",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.219",
+      "github_body": "## What's changed\n\n- Added Claude Opus 5 (`claude-opus-5`), now the default Opus model — 1M context, fast mode at $10/$50 per Mtok\n- Added `sandbox.network.strictAllowlist` setting to deny non-allowlisted hosts for sandboxed commands without prompting\n- Added `DirectoryAdded` hook that fires after `/add-dir` or the SDK `register_repo_root` control request registers a new working directory mid-session\n- Added `mcp_server_errors` to the headless stream-json init event, listing `--mcp-config` entries skipped by config validation; terminal runs print a startup warning\n- Added the `workflowSizeGuideline` settings key so the advisory Dynamic workflow size guideline can be set from any settings file; the `/config` row is hidden while one does\n- Added nested subagent forwarding in stream-json: subagents spawned at depth-2+ now appear when `--forward-subagent-text` is set, keyed by their spawning Agent `tool_use` id\n- Fixed `claude -p` text output dropping the answer already produced when a turn dies on a mid-stream API error\n- Added HTTP status and error text to `claude mcp list` and `/mcp` when a server fails to connect, and a warning for MCP config values with hidden leading or trailing whitespace\n- Fixed a permission you approved while a self-hosted runner was restarting being dropped when the session resumed, so the approved action now runs\n- Fixed the Fable model row showing \"Requires usage credits\" for plans that include it, when a stale cache had baked the label in\n- Fixed a SIGTERM arriving while a self-hosted runner was starting up leaving a stale active row until the lease expired; it now deregisters cleanly\n- Added structured failure categories to self-hosted runner spawn and session failures, so hook errors, runner crashes and config errors can be told apart\n- Fixed the `/model` picker showing the merged Opus row as plain \"Opus\" instead of \"Opus (1M context)\"\n- Fixed copy-on-select inside GNU screen printing base64 into the terminal instead of copying the selection\n- Fixed Remote Control clients keeping a stale fast-mode status after a model switch, reconnect, or failed org check\n- Fixed `CLAUDE_CODE_GIT_BASH_PATH` on Windows exiting or being used as bash when the path isn't a bash/sh binary; it's now ignored with a warning\n- Fixed Vim mode: pressing ← on an empty prompt now returns to the agent view from NORMAL mode, not just INSERT\n- Fixed screen-reader mode rewriting the entire input line on every keystroke instead of echoing only the typed character\n- Improved the \"Remote Control is only available via api.anthropic.com\" error to name the specific setting that caused it\n- Improved `claude --teleport` to show which repo your current checkout points at when it doesn't match the session's repo\n- Changed dynamic workflows to default to a medium size guideline (aim for fewer than 15 agents); pick another size or unrestricted with Dynamic workflow size in `/config`\n- Changed managed MCP allowlist/denylist `${VAR}` entries to resolve from the startup environment and managed-settings env instead of settings-file env\n- Changed the `/model` picker to highlight only the newest model's name, so the highlight marks the new release rather than an arbitrary subset of the list\n- Added the current default workflow size to the running-workflow status line, with a pointer to `/config` for changing it\n- Removed Opus 4.7 from fast mode; `/fast` now applies to Opus 5 and Opus 4.8\n- Updated the claude-api skill to default to Claude Opus 5, with a migration path from Opus 4.8\n- Subagents can now spawn nested subagents up to depth 3 by default (was 1); set CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH=1 to disable nesting\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "added": 9,
+        "fixed": 10,
+        "improved": 6,
+        "breaking": 1,
+        "other": 1
+      }
+    },
     {
       "version": "2.1.218",
       "published_at": "2026-07-22T21:24:56Z",
@@ -26,11 +183,6 @@
         {
           "text": "Fixed the left arrow key discarding the conversation with no undo: presses right after editing now ask to confirm, and Esc in the agent view returns to the conversation it backgrounded",
           "category": "fixed",
-          "scope": null
-        },
-        {
-          "text": "Added HTTP status and error text to `claude mcp list` and `/mcp` when a server fails to connect, and a warning for MCP config values with hidden leading or trailing whitespace",
-          "category": "added",
           "scope": null
         },
         {
@@ -205,7 +357,7 @@
       "is_prerelease": false,
       "category_counts": {
         "improved": 10,
-        "added": 4,
+        "added": 3,
         "fixed": 23
       }
     },
@@ -13099,7 +13251,7 @@
     },
     {
       "version": "2.1.94",
-      "published_at": "2026-04-07T21:18:51Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Added support for Amazon Bedrock powered by Mantle, set `CLAUDE_CODE_USE_MANTLE=1`",
@@ -13229,11 +13381,10 @@
       ],
       "sources": [
         "changelog",
-        "github_releases",
         "whats_new"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.94",
-      "github_body": "## What's changed\n\n- Added support for Amazon Bedrock powered by Mantle, set `CLAUDE_CODE_USE_MANTLE=1`\n- Changed default effort level from medium to high for API-key, Bedrock/Vertex/Foundry, Team, and Enterprise users (control this with `/effort`)\n- Added compact `Slacked #channel` header with a clickable channel link for Slack MCP send-message tool calls\n- Added `keep-coding-instructions` frontmatter field support for plugin output styles\n- Added `hookSpecificOutput.sessionTitle` to `UserPromptSubmit` hooks for setting the session title\n- Plugin skills declared via `\"skills\": [\"./\"]` now use the skill's frontmatter `name` for the invocation name instead of the directory basename, giving a stable name across install methods\n- Fixed agents appearing stuck after a 429 rate-limit response with a long Retry-After header — the error now surfaces immediately instead of silently waiting\n- Fixed Console login on macOS silently failing with \"Not logged in\" when the login keychain is locked or its password is out of sync — the error is now surfaced and `claude doctor` diagnoses the fix\n- Fixed plugin skill hooks defined in YAML frontmatter being silently ignored\n- Fixed plugin hooks failing with \"No such file or directory\" when `CLAUDE_PLUGIN_ROOT` was not set\n- Fixed `${CLAUDE_PLUGIN_ROOT}` resolving to the marketplace source directory instead of the installed cache for local-marketplace plugins on startup\n- Fixed scrollback showing the same diff repeated and blank pages in long-running sessions\n- Fixed multiline user prompts in the transcript indenting wrapped lines under the `❯` caret instead of under the text\n- Fixed Shift+Space inserting the literal word \"space\" instead of a space character in search inputs\n- Fixed hyperlinks opening two browser tabs when clicked inside tmux running in an xterm.js-based terminal (VS Code, Hyper, Tabby)\n- Fixed an alt-screen rendering bug where content height changes mid-scroll could leave compounding ghost lines\n- Fixed `FORCE_HYPERLINK` environment variable being ignored when set via `settings.json` `env`\n- Fixed native terminal cursor not tracking the selected tab in dialogs, so screen readers and magnifiers can follow tab navigation\n- Fixed Bedrock invocation of Sonnet 3.5 v2 by using the `us.` inference profile ID\n- Fixed SDK/print mode not preserving the partial assistant response in conversation history when interrupted mid-stream\n- Improved `--resume` to resume sessions from other worktrees of the same repo directly instead of printing a `cd` command\n- Fixed CJK and other multibyte text being corrupted with U+FFFD in stream-json input/output when chunk boundaries split a UTF-8 sequence\n- [VSCode] Reduced cold-open subprocess work on starting a session\n- [VSCode] Fixed dropdown menus selecting the wrong item when the mouse was over the list while typing or using arrow keys\n- [VSCode] Added a warning banner when `settings.json` files fail to parse, so users know their permission rules are not being applied\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": "Week 15 · April 6–10, 2026 - Claude Code Docs Documentation Index Fetch the complete documentation index at: /docs/llms.txt Use this file to discover all available pages before exploring further. Skip to main content Claude Code Docs home page English Search... ⌘ K Ask Assistant Claude Developer Platform Claude Code on the Web Claude Code on the Web Search... Navigation What&#x27;s New Week 15 · April 6–10, 2026 Getting started Build with Claude Code Administration Configuration Reference Agent SDK What&#x27;s New Resources What&#x27;s New What&#x27;s new Week 29 · July 13–17 Week 28 · July 6–10 Week 27 · June 29 – July 3 Week 26 · June 22–26 Week 25 · June 15–19 Week 24 · June 8–12 Week 23 · June 1–5 Week 22 · May 25–29 Week 21 · May 18–22 Week 20 · May 11–15 Week 19 · May 4–8 Week 18 · Apr 27 – May 1 Week 17 · Apr 20–24 Week 16 · Apr 13–17 Week 15 · Apr 6–10 Week 14 · Mar 30 – Apr 3 Week 13 · Mar 23–27 What&#x27;s New Week 15 · April 6–10, 2026 Copy page Copy page Ultraplan cloud planning, the Monitor tool with self-pacing /loop, /team-onboarding for packaging your setup, and /autofix-pr from your terminal. Copy page Copy page Releases v2.1.92 → v2.1.101 4 features · April 6–10 U",
       "digest_url": "https://code.claude.com/docs/en/whats-new/2026-w15",
       "is_prerelease": false,
