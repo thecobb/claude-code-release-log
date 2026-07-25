@@ -1,9 +1,32 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-24T19:27:29.547877+00:00",
+  "generated_at": "2026-07-25T02:49:52.581733+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 376,
+  "release_count": 377,
   "releases": [
+    {
+      "version": "2.1.220",
+      "published_at": "2026-07-25T01:35:55Z",
+      "bullets": [
+        {
+          "text": "Bug fixes and reliability improvements",
+          "category": "other",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.220",
+      "github_body": "## What's changed\n\n- Bug fixes and reliability improvements\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "other": 1
+      }
+    },
     {
       "version": "2.1.219",
       "published_at": "2026-07-24T17:14:23Z",
@@ -49,23 +72,8 @@
           "scope": null
         },
         {
-          "text": "Fixed a permission you approved while a self-hosted runner was restarting being dropped when the session resumed, so the approved action now runs",
-          "category": "fixed",
-          "scope": null
-        },
-        {
           "text": "Fixed the Fable model row showing \"Requires usage credits\" for plans that include it, when a stale cache had baked the label in",
           "category": "fixed",
-          "scope": null
-        },
-        {
-          "text": "Fixed a SIGTERM arriving while a self-hosted runner was starting up leaving a stale active row until the lease expired; it now deregisters cleanly",
-          "category": "fixed",
-          "scope": null
-        },
-        {
-          "text": "Added structured failure categories to self-hosted runner spawn and session failures, so hook errors, runner crashes and config errors can be told apart",
-          "category": "added",
           "scope": null
         },
         {
@@ -154,8 +162,8 @@
       "digest_url": null,
       "is_prerelease": false,
       "category_counts": {
-        "added": 9,
-        "fixed": 10,
+        "added": 8,
+        "fixed": 8,
         "improved": 6,
         "breaking": 1,
         "other": 1
@@ -5098,11 +5106,6 @@
       "published_at": "2026-06-08T21:57:18Z",
       "bullets": [
         {
-          "text": "Self-hosted runner: added a `post-session` lifecycle hook that runs after the session ends and before the workspace is deleted, so you can snapshot uncommitted work or export logs; also made the child-process SIGTERM→SIGKILL window configurable (default unchanged at 5s)",
-          "category": "other",
-          "scope": null
-        },
-        {
           "text": "Added `--safe-mode` flag (and `CLAUDE_CODE_SAFE_MODE`) to start Claude Code with all customizations (CLAUDE.md, plugins, skills, hooks, MCP servers) disabled for troubleshooting",
           "category": "added",
           "scope": null
@@ -5264,9 +5267,9 @@
       "digest_url": "https://code.claude.com/docs/en/whats-new/2026-w24",
       "is_prerelease": false,
       "category_counts": {
-        "other": 10,
         "added": 4,
         "fixed": 14,
+        "other": 9,
         "improved": 3
       }
     },
@@ -13213,7 +13216,7 @@
     },
     {
       "version": "2.1.96",
-      "published_at": "2026-04-08T04:37:36Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Fixed Bedrock requests failing with `403 \"Authorization header is missing\"` when using `AWS_BEARER_TOKEN_BEDROCK` or `CLAUDE_CODE_SKIP_BEDROCK_AUTH` (regression in 2.1.94)",
@@ -13223,11 +13226,10 @@
       ],
       "sources": [
         "changelog",
-        "github_releases",
         "whats_new"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.96",
-      "github_body": "## What's changed\n\n- Fixed Bedrock requests failing with `403 \"Authorization header is missing\"` when using `AWS_BEARER_TOKEN_BEDROCK` or `CLAUDE_CODE_SKIP_BEDROCK_AUTH` (regression in 2.1.94)\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": "Week 15 · April 6–10, 2026 - Claude Code Docs Documentation Index Fetch the complete documentation index at: /docs/llms.txt Use this file to discover all available pages before exploring further. Skip to main content Claude Code Docs home page English Search... ⌘ K Ask Assistant Claude Developer Platform Claude Code on the Web Claude Code on the Web Search... Navigation What&#x27;s New Week 15 · April 6–10, 2026 Getting started Build with Claude Code Administration Configuration Reference Agent SDK What&#x27;s New Resources What&#x27;s New What&#x27;s new Week 29 · July 13–17 Week 28 · July 6–10 Week 27 · June 29 – July 3 Week 26 · June 22–26 Week 25 · June 15–19 Week 24 · June 8–12 Week 23 · June 1–5 Week 22 · May 25–29 Week 21 · May 18–22 Week 20 · May 11–15 Week 19 · May 4–8 Week 18 · Apr 27 – May 1 Week 17 · Apr 20–24 Week 16 · Apr 13–17 Week 15 · Apr 6–10 Week 14 · Mar 30 – Apr 3 Week 13 · Mar 23–27 What&#x27;s New Week 15 · April 6–10, 2026 Copy page Copy page Ultraplan cloud planning, the Monitor tool with self-pacing /loop, /team-onboarding for packaging your setup, and /autofix-pr from your terminal. Copy page Copy page Releases v2.1.92 → v2.1.101 4 features · April 6–10 U",
       "digest_url": "https://code.claude.com/docs/en/whats-new/2026-w15",
       "is_prerelease": false,
