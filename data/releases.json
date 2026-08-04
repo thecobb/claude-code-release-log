@@ -1,9 +1,227 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-03T19:40:04.210512+00:00",
+  "generated_at": "2026-08-04T02:44:06.857491+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 377,
+  "release_count": 378,
   "releases": [
+    {
+      "version": "2.1.221",
+      "published_at": "2026-08-04T00:14:23Z",
+      "bullets": [
+        {
+          "text": "[VSCode] Added Focus view: a chat-menu toggle that hides tool activity behind an expandable per-turn summary with a live running-tool indicator, toggled with `Ctrl+Alt+F` or the \"Claude Code: Toggle Focus view\" command",
+          "category": "added",
+          "scope": "VSCode"
+        },
+        {
+          "text": "Added `mode: \"mask\"` for sandbox credential files on Linux and WSL — sandboxed commands read a sentinel copy (the whole file, or just the spans captured by an `extract` regex) while the sandbox proxy substitutes the real value on egress; on macOS file masking falls back to `deny`",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added warnings to `claude plugin validate` when a marketplace or plugin name would be rejected by Claude Desktop's managed marketplace sync",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added a `prompt-audit` subcommand to the `claude-api` skill for auditing prompts and tool descriptions for patterns written for older models",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Fixed a Bash tool permission-check bypass where zsh could execute hidden commands in `[[ ]]` regex conditionals; affected commands now prompt for permission",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed PowerShell permission checks mishandling paths containing quote characters on Windows; such paths now prompt for approval",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the thinking toggle having no effect for the rest of a session that started with thinking off; disabling an MCP server mid-connect no longer silently reverts",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed MCP servers from `--mcp-config` not being connected before the first turn in print mode (`-p`), which made the model emit tool calls as literal text",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed @-mentioned files being silently dropped when pressing Esc to retract a prompt and resubmitting it",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a crash when preparing API requests for SDK MCP tools named after built-in object properties such as `constructor`",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed WebSearch failing with a 400 error at effort `xhigh`/`max` when thinking is disabled",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed sandboxed large uploads failing with TLS errors through the sandbox proxy",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Team and Enterprise spend-limit message incorrectly blaming the org's monthly limit instead of your individual spend limit",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Bedrock authentication with AWS SSO named profiles failing in desktop-managed sessions on Windows machines that set a stray `HOME` environment variable",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `CLAUDE_CODE_RESUME_INTERRUPTED_TURN=0` not disabling interrupted-turn auto-resume; falsy values are now honored",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a rare wake-from-sleep race where two Claude Code processes could both refresh the same MCP connector or WIF OAuth token at once, forcing re-authentication",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed renaming a session from Claude Code Desktop or claude.ai not updating the CLI's session name; session names from every rename surface are now sanitized",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed plugin- and org-delivered skills named after terminal-only built-ins (e.g. `/help`, `/feedback`) being un-invocable in non-interactive sessions",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the \"Plugins changed\" notification lingering after plugins were reloaded instead of clearing",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Vim mode: the yank register now survives dialogs, history search, and the transcript view instead of being silently emptied",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Vim mode: undoing back to an empty prompt now arms the \"press ← again\" confirm before returning to the agent view",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Improved tool search on Google Vertex AI: re-enabled for Claude 4.5-generation and newer models",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved auto mode: permission checks for parallel tool calls are now cache-efficient, and switching modes while a check is pending reliably prompts instead of applying the stale result",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Reduced prompt-cache costs for auto-mode permission checks by reusing the cached conversation prefix across decisions",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Improved Stats panel to count cache tokens in its token totals, with a breakdown by input, output, cache read, and cache write",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved `/ultrareview` error messages when a repo shares no history with its base: a checkout with no branches is now refused up front with advice to create one, and refusal hints no longer suggest `git fetch --unshallow` on clones that are already complete",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved Windows startup: process creation times are now read via a native kernel32 call instead of spawning PowerShell, so endpoint security tools that gate `powershell.exe` no longer prompt",
+          "category": "security",
+          "scope": null
+        },
+        {
+          "text": "Changed background sessions to commit and push to preserve work, open a draft PR only when the task calls for one, follow your CLAUDE.md git instructions, and always end by reporting where the work lives",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed `/plugin install` to refresh a stale marketplace catalog and retry before reporting a plugin not found",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed plugins installed from `/plugin` to activate immediately when safe, instead of always requiring `/reload-plugins`",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed plugins to accept `\".\"` as a `skills` path, and the root-level `SKILL.md` validation error now suggests using the plugin root",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed `/status` to show the session kind: `interactive`, or a background job that is `attached` or `unattended`",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed emoji autocomplete to accept common alternate shortcodes like `:thumbsup:`, `:thumbsdown:`, and `:love:`",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed sessions forked with `/fork` to create a new worktree of their own instead of working in the original session's checkout",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed Claude in Chrome to close the browser tabs it opens once it no longer needs them",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed fast mode to report on the stream when usage credits run out mid-session, instead of failing silently",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed Monitor: a watch that exits without producing any output now says so instead of reporting \"stream ended\"",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed the Gateway `model` field validation: non-string values are rejected with a 400 instead of being forwarded",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Removed the repeated \"Permission mode changed while the auto-mode classifier call was queued\" notice from approval prompts",
+          "category": "breaking",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.221",
+      "github_body": "## What's changed\n\n- [VSCode] Added Focus view: a chat-menu toggle that hides tool activity behind an expandable per-turn summary with a live running-tool indicator, toggled with `Ctrl+Alt+F` or the \"Claude Code: Toggle Focus view\" command\n- Added `mode: \"mask\"` for sandbox credential files on Linux and WSL — sandboxed commands read a sentinel copy (the whole file, or just the spans captured by an `extract` regex) while the sandbox proxy substitutes the real value on egress; on macOS file masking falls back to `deny`\n- Added warnings to `claude plugin validate` when a marketplace or plugin name would be rejected by Claude Desktop's managed marketplace sync\n- Added a `prompt-audit` subcommand to the `claude-api` skill for auditing prompts and tool descriptions for patterns written for older models\n- Fixed a Bash tool permission-check bypass where zsh could execute hidden commands in `[[ ]]` regex conditionals; affected commands now prompt for permission\n- Fixed PowerShell permission checks mishandling paths containing quote characters on Windows; such paths now prompt for approval\n- Fixed the thinking toggle having no effect for the rest of a session that started with thinking off; disabling an MCP server mid-connect no longer silently reverts\n- Fixed MCP servers from `--mcp-config` not being connected before the first turn in print mode (`-p`), which made the model emit tool calls as literal text\n- Fixed @-mentioned files being silently dropped when pressing Esc to retract a prompt and resubmitting it\n- Fixed a crash when preparing API requests for SDK MCP tools named after built-in object properties such as `constructor`\n- Fixed WebSearch failing with a 400 error at effort `xhigh`/`max` when thinking is disabled\n- Fixed sandboxed large uploads failing with TLS errors through the sandbox proxy\n- Fixed Team and Enterprise spend-limit message incorrectly blaming the org's monthly limit instead of your individual spend limit\n- Fixed Bedrock authentication with AWS SSO named profiles failing in desktop-managed sessions on Windows machines that set a stray `HOME` environment variable\n- Fixed `CLAUDE_CODE_RESUME_INTERRUPTED_TURN=0` not disabling interrupted-turn auto-resume; falsy values are now honored\n- Fixed a rare wake-from-sleep race where two Claude Code processes could both refresh the same MCP connector or WIF OAuth token at once, forcing re-authentication\n- Fixed renaming a session from Claude Code Desktop or claude.ai not updating the CLI's session name; session names from every rename surface are now sanitized\n- Fixed plugin- and org-delivered skills named after terminal-only built-ins (e.g. `/help`, `/feedback`) being un-invocable in non-interactive sessions\n- Fixed the \"Plugins changed\" notification lingering after plugins were reloaded instead of clearing\n- Fixed Vim mode: the yank register now survives dialogs, history search, and the transcript view instead of being silently emptied\n- Fixed Vim mode: undoing back to an empty prompt now arms the \"press ← again\" confirm before returning to the agent view\n- Improved tool search on Google Vertex AI: re-enabled for Claude 4.5-generation and newer models\n- Improved auto mode: permission checks for parallel tool calls are now cache-efficient, and switching modes while a check is pending reliably prompts instead of applying the stale result\n- Reduced prompt-cache costs for auto-mode permission checks by reusing the cached conversation prefix across decisions\n- Improved Stats panel to count cache tokens in its token totals, with a breakdown by input, output, cache read, and cache write\n- Improved `/ultrareview` error messages when a repo shares no history with its base: a checkout with no branches is now refused up front with advice to create one, and refusal hints no longer suggest `git fetch --unshallow` on clones that are already complete\n- Improved Windows startup: process creation times are now read via a native kernel32 call instead of spawning PowerShell, so endpoint security tools that gate `powershell.exe` no longer prompt\n- Changed background sessions to commit and push to preserve work, open a draft PR only when the task calls for one, follow your CLAUDE.md git instructions, and always end by reporting where the work lives\n- Changed `/plugin install` to refresh a stale marketplace catalog and retry before reporting a plugin not found\n- Changed plugins installed from `/plugin` to activate immediately when safe, instead of always requiring `/reload-plugins`\n- Changed plugins to accept `\".\"` as a `skills` path, and the root-level `SKILL.md` validation error now suggests using the plugin root\n- Changed `/status` to show the session kind: `interactive`, or a background job that is `attached` or `unattended`\n- Changed emoji autocomplete to accept common alternate shortcodes like `:thumbsup:`, `:thumbsdown:`, and `:love:`\n- Changed sessions forked with `/fork` to create a new worktree of their own instead of working in the original session's checkout\n- Changed Claude in Chrome to close the browser tabs it opens once it no longer needs them\n- Changed fast mode to report on the stream when usage credits run out mid-session, instead of failing silently\n- Changed Monitor: a watch that exits without producing any output now says so instead of reporting \"stream ended\"\n- Changed the Gateway `model` field validation: non-string values are rejected with a 400 instead of being forwarded\n- Removed the repeated \"Permission mode changed while the auto-mode classifier call was queued\" notice from approval prompts\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "added": 4,
+        "fixed": 17,
+        "improved": 15,
+        "other": 1,
+        "security": 1,
+        "breaking": 1
+      }
+    },
     {
       "version": "2.1.220",
       "published_at": "2026-07-25T01:35:55Z",
@@ -12965,7 +13183,7 @@
     },
     {
       "version": "2.1.97",
-      "published_at": "2026-04-08T21:52:34Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Added focus view toggle (`Ctrl+O`) in `NO_FLICKER` mode showing prompt, one-line tool summary with edit diffstats, and final response",
@@ -13200,11 +13418,10 @@
       ],
       "sources": [
         "changelog",
-        "github_releases",
         "whats_new"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.97",
-      "github_body": "## What's changed\n\n- Added focus view toggle (`Ctrl+O`) in `NO_FLICKER` mode showing prompt, one-line tool summary with edit diffstats, and final response\n- Added `refreshInterval` status line setting to re-run the status line command every N seconds\n- Added `workspace.git_worktree` to the status line JSON input, set when the current directory is inside a linked git worktree\n- Added `● N running` indicator in `/agents` next to agent types with live subagent instances\n- Added syntax highlighting for Cedar policy files (`.cedar`, `.cedarpolicy`)\n- Fixed `--dangerously-skip-permissions` being silently downgraded to accept-edits mode after approving a write to a protected path\n- Fixed and hardened Bash tool permissions, tightening checks around env-var prefixes and network redirects, and reducing false prompts on common commands\n- Fixed permission rules with names matching JavaScript prototype properties (e.g. `toString`) causing `settings.json` to be silently ignored\n- Fixed managed-settings allow rules remaining active after an admin removed them until process restart\n- Fixed `permissions.additionalDirectories` changes in settings not applying mid-session\n- Fixed removing a directory from `settings.permissions.additionalDirectories` revoking access to the same directory passed via `--add-dir`\n- Fixed MCP HTTP/SSE connections accumulating ~50 MB/hr of unreleased buffers when servers reconnect\n- Fixed MCP OAuth `oauth.authServerMetadataUrl` not being honored on token refresh after restart, fixing ADFS and similar IdPs\n- Fixed 429 retries burning all attempts in ~13 seconds when the server returns a small `Retry-After` — exponential backoff now applies as a minimum\n- Fixed rate-limit upgrade options disappearing after context compaction\n- Fixed several `/resume` picker issues: `--resume <name>` opening uneditable, Ctrl+A reload wiping search, empty list swallowing navigation, task-status text replacing conversation summary, and cross-project staleness\n- Fixed file-edit diffs disappearing on `--resume` when the edited file was larger than 10KB\n- Fixed `--resume` cache misses and lost mid-turn input from attachment messages not being saved to the transcript\n- Fixed messages typed while Claude is working not being persisted to the transcript\n- Fixed prompt-type `Stop`/`SubagentStop` hooks failing on long sessions, and hook evaluator API errors displaying \"JSON validation failed\" instead of the actual message\n- Fixed subagents with worktree isolation or `cwd:` override leaking their working directory back to the parent session's Bash tool\n- Fixed compaction writing duplicate multi-MB subagent transcript files on prompt-too-long retries\n- Fixed `claude plugin update` reporting \"already at the latest version\" for git-based marketplace plugins when the remote had newer commits\n- Fixed slash command picker breaking when a plugin's frontmatter `name` is a YAML boolean keyword\n- Fixed copying wrapped URLs in `NO_FLICKER` mode inserting spaces at line breaks\n- Fixed scroll rendering artifacts in `NO_FLICKER` mode when running inside zellij\n- Fixed a crash in `NO_FLICKER` mode when hovering over MCP tool results\n- Fixed a `NO_FLICKER` mode memory leak where API retries left stale streaming state\n- Fixed slow mouse-wheel scrolling in `NO_FLICKER` mode on Windows Terminal\n- Fixed custom status line not displaying in `NO_FLICKER` mode on terminals shorter than 24 rows\n- Fixed Shift+Enter and Alt/Cmd+arrow shortcuts not working in Warp with `NO_FLICKER` mode\n- Fixed Korean/Japanese/Unicode text becoming garbled when copied in no-flicker mode on Windows\n- Fixed Bedrock SigV4 authentication failing when `AWS_BEARER_TOKEN_BEDROCK` or `ANTHROPIC_BEDROCK_BASE_URL` are set to empty strings (as GitHub Actions does for unset inputs)\n- Improved Accept Edits mode to auto-approve filesystem commands prefixed with safe env vars or process wrappers (e.g. `LANG=C rm foo`, `timeout 5 mkdir out`)\n- Improved auto mode and bypass-permissions mode to auto-approve sandbox network access prompts\n- Improved sandbox: `sandbox.network.allowMachLookup` now takes effect on macOS\n- Improved image handling: pasted and attached images are now compressed to the same token budget as images read via the Read tool\n- Improved slash command and `@`-mention completion to trigger after CJK sentence punctuation, so Japanese/Chinese input no longer requires a space before `/` or `@`\n- Improved Bridge sessions to show the local git repo, branch, and working directory on the claude.ai session card\n- Improved footer layout: indicators (Focus, notifications) now stay on the mode-indicator row instead of wrapping below\n- Improved context-low warning to show as a transient footer notification instead of a persistent row\n- Improved markdown blockquotes to show a continuous left bar across wrapped lines\n- Improved session transcript size by skipping empty hook entries and capping stored pre-edit file copies\n- Improved transcript accuracy: per-block entries now carry the final token usage instead of the streaming placeholder\n- Improved Bash tool OTEL tracing: subprocesses now inherit a W3C `TRACEPARENT` env var when tracing is enabled\n- Updated `/claude-api` skill to cover Managed Agents alongside the Claude API\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": "Week 15 · April 6–10, 2026 - Claude Code Docs Documentation Index Fetch the complete documentation index at: /docs/llms.txt Use this file to discover all available pages before exploring further. Skip to main content Claude Code Docs home page English Search... ⌘ K Ask Assistant Claude Developer Platform Claude Code on the Web Claude Code on the Web Search... Navigation What&#x27;s New Week 15 · April 6–10, 2026 Getting started Build with Claude Code Administration Configuration Reference Agent SDK What&#x27;s New Resources What&#x27;s New What&#x27;s new Week 29 · July 13–17 Week 28 · July 6–10 Week 27 · June 29 – July 3 Week 26 · June 22–26 Week 25 · June 15–19 Week 24 · June 8–12 Week 23 · June 1–5 Week 22 · May 25–29 Week 21 · May 18–22 Week 20 · May 11–15 Week 19 · May 4–8 Week 18 · Apr 27 – May 1 Week 17 · Apr 20–24 Week 16 · Apr 13–17 Week 15 · Apr 6–10 Week 14 · Mar 30 – Apr 3 Week 13 · Mar 23–27 What&#x27;s New Week 15 · April 6–10, 2026 Copy page Copy page Ultraplan cloud planning, the Monitor tool with self-pacing /loop, /team-onboarding for packaging your setup, and /autofix-pr from your terminal. Copy page Copy page Releases v2.1.92 → v2.1.101 4 features · April 6–10 U",
       "digest_url": "https://code.claude.com/docs/en/whats-new/2026-w15",
       "is_prerelease": false,
