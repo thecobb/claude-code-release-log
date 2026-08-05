@@ -1,9 +1,134 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-04T19:39:47.711631+00:00",
+  "generated_at": "2026-08-05T02:42:03.944441+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 378,
+  "release_count": 379,
   "releases": [
+    {
+      "version": "2.1.222",
+      "published_at": "2026-08-04T22:39:55Z",
+      "bullets": [
+        {
+          "text": "Fixed worktree-isolated sessions and their subagents being able to run destructive git commands against the main checkout; isolation now applies to file edits and Bash in every session type",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed PreToolUse auto-allow hooks bypassing tool restrictions in background agent tasks (summaries, compaction, renames)",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/usage-credits` on Team and Enterprise showing \"you've already sent a usage credit request\" for members whose earlier request was dismissed, blocking them from sending a new one",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the startup connectivity check hanging and then failing behind an HTTPS proxy; it now uses the same proxy-aware transport as API requests and times out with a clear message",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed \"Connection closed mid-response\" errors being reported on responses that had actually completed",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/usage` overattributing usage to MCP servers: a server's share now reflects only the requests that actually consumed its tool results, instead of every turn after any call to it",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed sessions not linking to pull requests created after the branch was pushed, including through the GitHub REST API",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed org-restricted `model: opus`-style subagent and teammate family aliases dropping to the parent model instead of stepping down to the newest org-allowed model in the family",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed stream idle timeout firing on custom `ANTHROPIC_BASE_URL` gateways despite server keep-alive pings arriving on the wire",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed claude.ai connectors being falsely marked as needing authorization when the session token is invalid — they now show a `/login` hint instead",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed tool errors not being displayed for tools no longer available locally, for example after an MCP server is removed",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `SendMessage` rejecting a long summary — it now truncates instead, so sends no longer fail on a character limit",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the spinner's effort label in a subagent's transcript view showing the session's effort level instead of the subagent's own `effort:` setting",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed rare crashes when a file watcher hit a filesystem error or during file-watcher teardown",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed screen readers re-reading the whole input line on every backspace in `--ax-screen-reader` mode — end-of-line deletions now echo just the deleted characters",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed host model-selection keys not taking precedence over a stale on-disk `managed-settings.json` when `CLAUDE_CODE_PROVIDER_MANAGED_BY_HOST` is set",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Improved auto mode safety: messages sent to other agent sessions via `SendMessage` are now evaluated by the permission classifier before dispatch",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved the refusal when Claude tries to invoke a skill with `disable-model-invocation`: Claude is now told to ask you to run the skill instead of replicating its workflow",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved the `/diff` view, the Remote Control workspace diff, and file-edit diffs in Claude Code on the web sessions to use raw git blob content, ignoring workspace-configured diff drivers and textconv",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed Remote Control auto-start so repo-local settings (`.claude/settings.json` or `.claude/settings.local.json`) can no longer turn it on (they can still turn it off); enable it at user scope via `/config`",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Removed ultraplan feature",
+          "category": "breaking",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.222",
+      "github_body": "## What's changed\n\n- Fixed worktree-isolated sessions and their subagents being able to run destructive git commands against the main checkout; isolation now applies to file edits and Bash in every session type\n- Fixed PreToolUse auto-allow hooks bypassing tool restrictions in background agent tasks (summaries, compaction, renames)\n- Fixed `/usage-credits` on Team and Enterprise showing \"you've already sent a usage credit request\" for members whose earlier request was dismissed, blocking them from sending a new one\n- Fixed the startup connectivity check hanging and then failing behind an HTTPS proxy; it now uses the same proxy-aware transport as API requests and times out with a clear message\n- Fixed \"Connection closed mid-response\" errors being reported on responses that had actually completed\n- Fixed `/usage` overattributing usage to MCP servers: a server's share now reflects only the requests that actually consumed its tool results, instead of every turn after any call to it\n- Fixed sessions not linking to pull requests created after the branch was pushed, including through the GitHub REST API\n- Fixed org-restricted `model: opus`-style subagent and teammate family aliases dropping to the parent model instead of stepping down to the newest org-allowed model in the family\n- Fixed stream idle timeout firing on custom `ANTHROPIC_BASE_URL` gateways despite server keep-alive pings arriving on the wire\n- Fixed claude.ai connectors being falsely marked as needing authorization when the session token is invalid — they now show a `/login` hint instead\n- Fixed tool errors not being displayed for tools no longer available locally, for example after an MCP server is removed\n- Fixed `SendMessage` rejecting a long summary — it now truncates instead, so sends no longer fail on a character limit\n- Fixed the spinner's effort label in a subagent's transcript view showing the session's effort level instead of the subagent's own `effort:` setting\n- Fixed rare crashes when a file watcher hit a filesystem error or during file-watcher teardown\n- Fixed screen readers re-reading the whole input line on every backspace in `--ax-screen-reader` mode — end-of-line deletions now echo just the deleted characters\n- Fixed host model-selection keys not taking precedence over a stale on-disk `managed-settings.json` when `CLAUDE_CODE_PROVIDER_MANAGED_BY_HOST` is set\n- Improved auto mode safety: messages sent to other agent sessions via `SendMessage` are now evaluated by the permission classifier before dispatch\n- Improved the refusal when Claude tries to invoke a skill with `disable-model-invocation`: Claude is now told to ask you to run the skill instead of replicating its workflow\n- Improved the `/diff` view, the Remote Control workspace diff, and file-edit diffs in Claude Code on the web sessions to use raw git blob content, ignoring workspace-configured diff drivers and textconv\n- Changed Remote Control auto-start so repo-local settings (`.claude/settings.json` or `.claude/settings.local.json`) can no longer turn it on (they can still turn it off); enable it at user scope via `/config`\n- Removed ultraplan feature\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "fixed": 16,
+        "improved": 4,
+        "breaking": 1
+      }
+    },
     {
       "version": "2.1.221",
       "published_at": "2026-08-04T00:14:23Z",
@@ -12876,7 +13001,7 @@
     },
     {
       "version": "2.1.98",
-      "published_at": "2026-04-09T19:18:28Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Added interactive Google Vertex AI setup wizard accessible from the login screen when selecting \"3rd-party platform\", guiding you through GCP authentication, project and region configuration, credential verification, and model pinning",
@@ -13166,11 +13291,10 @@
       ],
       "sources": [
         "changelog",
-        "github_releases",
         "whats_new"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.98",
-      "github_body": "## What's changed\n\n- Added interactive Google Vertex AI setup wizard accessible from the login screen when selecting \"3rd-party platform\", guiding you through GCP authentication, project and region configuration, credential verification, and model pinning\n- Added `CLAUDE_CODE_PERFORCE_MODE` env var: when set, Edit/Write/NotebookEdit fail on read-only files with a `p4 edit` hint instead of silently overwriting them\n- Added Monitor tool for streaming events from background scripts\n- Added subprocess sandboxing with PID namespace isolation on Linux when `CLAUDE_CODE_SUBPROCESS_ENV_SCRUB` is set, and `CLAUDE_CODE_SCRIPT_CAPS` env var to limit per-session script invocations\n- Added `--exclude-dynamic-system-prompt-sections` flag to print mode for improved cross-user prompt caching\n- Added `workspace.git_worktree` to the status line JSON input, set whenever the current directory is inside a linked git worktree\n- Added W3C `TRACEPARENT` env var to Bash tool subprocesses when OTEL tracing is enabled, so child-process spans correctly parent to Claude Code's trace tree\n- LSP: Claude Code now identifies itself to language servers via `clientInfo` in the initialize request\n- Fixed a Bash tool permission bypass where a backslash-escaped flag could be auto-allowed as read-only and lead to arbitrary code execution\n- Fixed compound Bash commands bypassing forced permission prompts for safety checks and explicit ask rules in auto and bypass-permissions modes\n- Fixed read-only commands with env-var prefixes not prompting unless the var is known-safe (`LANG`, `TZ`, `NO_COLOR`, etc.)\n- Fixed redirects to `/dev/tcp/...` or `/dev/udp/...` not prompting instead of auto-allowing\n- Fixed stalled streaming responses timing out instead of falling back to non-streaming mode\n- Fixed 429 retries burning all attempts in ~13s when the server returns a small `Retry-After` — exponential backoff now applies as a minimum\n- Fixed MCP OAuth `oauth.authServerMetadataUrl` config override not being honored on token refresh after restart, affecting ADFS and similar IdPs\n- Fixed capital letters being dropped to lowercase on xterm and VS Code integrated terminal when the kitty keyboard protocol is active\n- Fixed macOS text replacements deleting the trigger word instead of inserting the substitution\n- Fixed `--dangerously-skip-permissions` being silently downgraded to accept-edits mode after approving a write to a protected path via Bash\n- Fixed managed-settings allow rules remaining active after an admin removed them, until process restart\n- Fixed `permissions.additionalDirectories` changes not applying mid-session — removed directories lose access immediately and added ones work without restart\n- Fixed removing a directory from `additionalDirectories` revoking access to the same directory passed via `--add-dir`\n- Fixed `Bash(cmd:*)` and `Bash(git commit *)` wildcard permission rules failing to match commands with extra spaces or tabs\n- Fixed `Bash(...)` deny rules being downgraded to a prompt for piped commands that mix `cd` with other segments\n- Fixed false Bash permission prompts for `cut -d /`, `paste -d /`, `column -s /`, `awk '{print $1}' file`, and filenames containing `%`\n- Fixed permission rules with names matching JavaScript prototype properties (e.g. `toString`) causing `settings.json` to be silently ignored\n- Fixed agent team members not inheriting the leader's permission mode when using `--dangerously-skip-permissions`\n- Fixed a crash in fullscreen mode when hovering over MCP tool results\n- Fixed copying wrapped URLs in fullscreen mode inserting spaces at line breaks\n- Fixed file-edit diffs disappearing from the UI on `--resume` when the edited file was larger than 10KB\n- Fixed several `/resume` picker issues: `--resume <name>` opening uneditable, filter reload wiping search state, empty list swallowing arrow keys, cross-project staleness, and transient task-status text replacing conversation summaries\n- Fixed `/export` not honoring absolute paths and `~`, and silently rewriting user-supplied extensions to `.txt`\n- Fixed `/effort max` being denied for unknown or future model IDs\n- Fixed slash command picker breaking when a plugin's frontmatter `name` is a YAML boolean keyword\n- Fixed rate-limit upsell text being hidden after message remounts\n- Fixed MCP tools with `_meta[\"anthropic/maxResultSizeChars\"]` not bypassing the token-based persist layer\n- Fixed voice mode leaking dozens of space characters into the input when re-holding the push-to-talk key while the previous transcript is still processing\n- Fixed `DISABLE_AUTOUPDATER` not fully suppressing the npm registry version check and symlink modification on npm-based installs\n- Fixed a memory leak where Remote Control permission handler entries were retained for the lifetime of the session\n- Fixed background subagents that fail with an error not reporting partial progress to the parent agent\n- Fixed prompt-type Stop/SubagentStop hooks failing on long sessions, and hook evaluator API errors showing \"JSON validation failed\" instead of the real message\n- Fixed feedback survey rendering when dismissed\n- Fixed Bash `grep -f FILE` / `rg -f FILE` not prompting when reading a pattern file outside the working directory\n- Fixed stale subagent worktree cleanup removing worktrees that contain untracked files\n- Fixed `sandbox.network.allowMachLookup` not taking effect on macOS\n- Improved `/resume` filter hint labels and added project/worktree/branch names in the filter indicator\n- Improved footer indicators (Focus, notifications) to stay on the mode-indicator row instead of wrapping at narrow terminal widths\n- Improved `/agents` with a tabbed layout: a Running tab shows live subagents, and the Library tab adds Run agent and View running instance actions\n- Improved `/reload-plugins` to pick up plugin-provided skills without requiring a restart\n- Improved Accept Edits mode to auto-approve filesystem commands prefixed with safe env vars or process wrappers\n- Improved Vim mode: `j`/`k` in NORMAL mode now navigate history and select the footer pill at the input boundary\n- Improved hook errors in the transcript to include the first line of stderr for self-diagnosis without `--debug`\n- Improved OTEL tracing: interaction spans now correctly wrap full turns under concurrent SDK calls, and headless turns end spans per-turn\n- Improved transcript entries to carry final token usage instead of streaming placeholders\n- Updated the `/claude-api` skill to cover Managed Agents alongside Claude API\n- [VSCode] Fixed false-positive \"requires git-bash\" error on Windows when `CLAUDE_CODE_GIT_BASH_PATH` is set or Git is installed at a default location\n- Fixed `CLAUDE_CODE_MAX_CONTEXT_TOKENS` to honor `DISABLE_COMPACT` when it is set.\n- Dropped `/compact` hints when `DISABLE_COMPACT` is set.\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": "Week 15 · April 6–10, 2026 - Claude Code Docs Documentation Index Fetch the complete documentation index at: /docs/llms.txt Use this file to discover all available pages before exploring further. Skip to main content Claude Code Docs home page English Search... ⌘ K Ask Assistant Claude Developer Platform Claude Code on the Web Claude Code on the Web Search... Navigation What&#x27;s New Week 15 · April 6–10, 2026 Getting started Build with Claude Code Administration Configuration Reference Agent SDK What&#x27;s New Resources What&#x27;s New What&#x27;s new Week 29 · July 13–17 Week 28 · July 6–10 Week 27 · June 29 – July 3 Week 26 · June 22–26 Week 25 · June 15–19 Week 24 · June 8–12 Week 23 · June 1–5 Week 22 · May 25–29 Week 21 · May 18–22 Week 20 · May 11–15 Week 19 · May 4–8 Week 18 · Apr 27 – May 1 Week 17 · Apr 20–24 Week 16 · Apr 13–17 Week 15 · Apr 6–10 Week 14 · Mar 30 – Apr 3 Week 13 · Mar 23–27 What&#x27;s New Week 15 · April 6–10, 2026 Copy page Copy page Ultraplan cloud planning, the Monitor tool with self-pacing /loop, /team-onboarding for packaging your setup, and /autofix-pr from your terminal. Copy page Copy page Releases v2.1.92 → v2.1.101 4 features · April 6–10 U",
       "digest_url": "https://code.claude.com/docs/en/whats-new/2026-w15",
       "is_prerelease": false,
