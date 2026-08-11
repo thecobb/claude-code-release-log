@@ -1,9 +1,53 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-10T18:59:39.253972+00:00",
+  "generated_at": "2026-08-11T01:53:41.993917+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 382,
+  "release_count": 383,
   "releases": [
+    {
+      "version": "2.1.227",
+      "published_at": "2026-08-10T22:56:53Z",
+      "bullets": [
+        {
+          "text": "Fixed feature flags being evaluated without the user's subscription tier when a session started with an expired login token, which could wrongly prompt Max plan users to enable usage credits for Fable",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed every Bash command failing under `claude-code-action` with `allowed_non_write_users` on GitHub-hosted runners",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/tui` bringing back a conversation that had been rewound to before its first message",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Improved slash-command menu: blue now marks only the selected row, matched characters are bolded instead of recolored, and emoji or accented names keep their glyphs",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved performance: fewer event-loop stalls on file-not-found suggestions and at-mention size checks",
+          "category": "improved",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.227",
+      "github_body": "## What's changed\n\n- Fixed feature flags being evaluated without the user's subscription tier when a session started with an expired login token, which could wrongly prompt Max plan users to enable usage credits for Fable\n- Fixed every Bash command failing under `claude-code-action` with `allowed_non_write_users` on GitHub-hosted runners\n- Fixed `/tui` bringing back a conversation that had been rewound to before its first message\n- Improved slash-command menu: blue now marks only the selected row, matched characters are bolded instead of recolored, and emoji or accented names keep their glyphs\n- Improved performance: fewer event-loop stalls on file-not-found suggestions and at-mention size checks\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "fixed": 3,
+        "improved": 2
+      }
+    },
     {
       "version": "2.1.226",
       "published_at": "2026-08-08T02:48:05Z",
@@ -12877,7 +12921,7 @@
     },
     {
       "version": "2.1.107",
-      "published_at": "2026-04-14T06:11:20Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Show thinking hints sooner during long operations",
@@ -12887,11 +12931,10 @@
       ],
       "sources": [
         "changelog",
-        "github_releases",
         "whats_new"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.107",
-      "github_body": "## What's changed\n\n- Show thinking hints sooner during long operations\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": "Week 16 · April 13–17, 2026 - Claude Code Docs Documentation Index Fetch the complete documentation index at: /docs/llms.txt Use this file to discover all available pages before exploring further. Skip to main content Claude Code Docs home page English Search... ⌘ K Ask Assistant Claude Developer Platform Claude Code on the Web Claude Code on the Web Search... Navigation What&#x27;s New Week 16 · April 13–17, 2026 Getting started Build with Claude Code Administration Configuration Reference Agent SDK What&#x27;s New Resources What&#x27;s New What&#x27;s new Week 32 · August 3–7 Week 30 · July 20–24 Week 29 · July 13–17 Week 28 · July 6–10 Week 27 · June 29 – July 3 Week 26 · June 22–26 Week 25 · June 15–19 Week 24 · June 8–12 Week 23 · June 1–5 Week 22 · May 25–29 Week 21 · May 18–22 Week 20 · May 11–15 Week 19 · May 4–8 Week 18 · Apr 27 – May 1 Week 17 · Apr 20–24 Week 16 · Apr 13–17 Week 15 · Apr 6–10 Week 14 · Mar 30 – Apr 3 Week 13 · Mar 23–27 What&#x27;s New Week 16 · April 13–17, 2026 Copy page Copy page Claude Opus 4.7 with the new xhigh effort level, Routines on Claude Code on the web, mobile push notifications that ping your phone when Claude needs you, a /usage breakdown ",
       "digest_url": "https://code.claude.com/docs/en/whats-new/2026-w16",
       "is_prerelease": false,
