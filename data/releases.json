@@ -1,9 +1,120 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-11T19:04:05.248818+00:00",
+  "generated_at": "2026-08-12T02:06:18.651811+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 383,
+  "release_count": 384,
   "releases": [
+    {
+      "version": "2.1.228",
+      "published_at": "2026-08-11T19:50:59Z",
+      "bullets": [
+        {
+          "text": "Fixed interactive sessions that could stop redrawing entirely, while the process kept running, after a rare internal layout error",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `git` / Git Bash not being found on Windows when Claude Code is launched from a parent folder of the git installation",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/tui` reverting the session to an earlier model when `/model` had been changed since the last response",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed cross-session messaging sometimes starting without an inbox in the first session after install or upgrade",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Remote Control `/resume` while connected leaking the resumed conversation's title or history into the connected session",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `claude self-hosted-runner` sessions failing on every fresh runner when the `checkout` hook fails for a repository the session doesn't push to; that repository is now skipped with a warning",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed self-hosted runners ending sessions in the gap between a background task finishing and the follow-up turn starting",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed session cleanup deleting contents inside a project's memory folder",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background plugin-cache cleanup deleting a plugin's cache when its only version is a symlinked development checkout",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a settings-merge issue where a marketplace entry redefined in a higher-precedence settings tier could inherit another tier's custom headers; marketplace entries now merge as whole entries",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the deferred-tools reminder occasionally being sent to the model twice after a skill invocation",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Hardened skills synced from claude.ai: they no longer shadow local commands or MCP prompts, their descriptions are sanitized and labeled, and on your machine their bodies don't run `!` commands or expand `@` files",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Improved cross-session messages: the sender and body now display inline instead of a collapsed line, and messages to Remote Control sessions on other machines show your Remote Control session name as the sender",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved Vertex AI credential handling: expired or missing Google Cloud credentials now fail within seconds instead of retrying for minutes",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved compaction progress: the retry countdown and stall hint now appear during compaction instead of only a progress bar",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Updated terminal title busy-spinner glyphs to reduce tab-bar jitter on some terminals",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed the Write tool so newer models can overwrite an existing file they haven't read this session, matching the Edit tool's rules; older models still require the read first",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Removed the outdated note about auto mode sessions costing slightly more from the first-use notice for Pro, Max, and Team plans",
+          "category": "breaking",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.228",
+      "github_body": "## What's changed\n\n- Fixed interactive sessions that could stop redrawing entirely, while the process kept running, after a rare internal layout error\n- Fixed `git` / Git Bash not being found on Windows when Claude Code is launched from a parent folder of the git installation\n- Fixed `/tui` reverting the session to an earlier model when `/model` had been changed since the last response\n- Fixed cross-session messaging sometimes starting without an inbox in the first session after install or upgrade\n- Fixed Remote Control `/resume` while connected leaking the resumed conversation's title or history into the connected session\n- Fixed `claude self-hosted-runner` sessions failing on every fresh runner when the `checkout` hook fails for a repository the session doesn't push to; that repository is now skipped with a warning\n- Fixed self-hosted runners ending sessions in the gap between a background task finishing and the follow-up turn starting\n- Fixed session cleanup deleting contents inside a project's memory folder\n- Fixed background plugin-cache cleanup deleting a plugin's cache when its only version is a symlinked development checkout\n- Fixed a settings-merge issue where a marketplace entry redefined in a higher-precedence settings tier could inherit another tier's custom headers; marketplace entries now merge as whole entries\n- Fixed the deferred-tools reminder occasionally being sent to the model twice after a skill invocation\n- Hardened skills synced from claude.ai: they no longer shadow local commands or MCP prompts, their descriptions are sanitized and labeled, and on your machine their bodies don't run `!` commands or expand `@` files\n- Improved cross-session messages: the sender and body now display inline instead of a collapsed line, and messages to Remote Control sessions on other machines show your Remote Control session name as the sender\n- Improved Vertex AI credential handling: expired or missing Google Cloud credentials now fail within seconds instead of retrying for minutes\n- Improved compaction progress: the retry countdown and stall hint now appear during compaction instead of only a progress bar\n- Updated terminal title busy-spinner glyphs to reduce tab-bar jitter on some terminals\n- Changed the Write tool so newer models can overwrite an existing file they haven't read this session, matching the Edit tool's rules; older models still require the read first\n- Removed the outdated note about auto mode sessions costing slightly more from the first-use notice for Pro, Max, and Team plans\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "fixed": 11,
+        "other": 1,
+        "improved": 5,
+        "breaking": 1
+      }
+    },
     {
       "version": "2.1.227",
       "published_at": "2026-08-10T22:56:53Z",
@@ -12778,7 +12889,7 @@
     },
     {
       "version": "2.1.108",
-      "published_at": "2026-04-14T19:12:01Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Added `ENABLE_PROMPT_CACHING_1H` env var to opt into 1-hour prompt cache TTL on API key, Bedrock, Vertex, and Foundry (`ENABLE_PROMPT_CACHING_1H_BEDROCK` is deprecated but still honored), and `FORCE_PROMPT_CACHING_5M` to force 5-minute TTL",
@@ -12903,11 +13014,10 @@
       ],
       "sources": [
         "changelog",
-        "github_releases",
         "whats_new"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.108",
-      "github_body": "## What's changed\n\n- Added `ENABLE_PROMPT_CACHING_1H` env var to opt into 1-hour prompt cache TTL on API key, Bedrock, Vertex, and Foundry (`ENABLE_PROMPT_CACHING_1H_BEDROCK` is deprecated but still honored), and `FORCE_PROMPT_CACHING_5M` to force 5-minute TTL\n- Added recap feature to provide context when returning to a session, configurable in /config and manually invocable with /recap; force with `CLAUDE_CODE_ENABLE_AWAY_SUMMARY` if telemetry disabled.\n- The model can now discover and invoke built-in slash commands like `/init`, `/review`, and `/security-review` via the Skill tool\n- `/undo` is now an alias for `/rewind`\n- Improved `/model` to warn before switching models mid-conversation, since the next response re-reads the full history uncached\n- Improved `/resume` picker to default to sessions from the current directory; press `Ctrl+A` to show all projects\n- Improved error messages: server rate limits are now distinguished from plan usage limits; 5xx/529 errors show a link to status.claude.com; unknown slash commands suggest the closest match\n- Reduced memory footprint for file reads, edits, and syntax highlighting by loading language grammars on demand\n- Added \"verbose\" indicator when viewing the detailed transcript (`Ctrl+O`)\n- Added a warning at startup when prompt caching is disabled via `DISABLE_PROMPT_CACHING*` environment variables\n- Fixed paste not working in the `/login` code prompt (regression in 2.1.105)\n- Fixed subscribers who set `DISABLE_TELEMETRY` falling back to 5-minute prompt cache TTL instead of 1 hour\n- Fixed Agent tool prompting for permission in auto mode when the safety classifier's transcript exceeded its context window\n- Fixed Bash tool producing no output when `CLAUDE_ENV_FILE` (e.g. `~/.zprofile`) ends with a `#` comment line\n- Fixed `claude --resume <session-id>` losing the session's custom name and color set via `/rename`\n- Fixed session titles showing placeholder example text when the first message is a short greeting\n- Fixed terminal escape codes appearing as garbage text in the prompt input after `--teleport`\n- Fixed `/feedback` retry: pressing Enter to resubmit after a failure now works without first editing the description\n- Fixed `--teleport` and `--resume <id>` precondition errors (e.g. dirty git tree, session not found) exiting silently instead of showing the error message\n- Fixed Remote Control session titles set in the web UI being overwritten by auto-generated titles after the third message\n- Fixed `--resume` truncating sessions when the transcript contained a self-referencing message\n- Fixed transcript write failures (e.g., disk full) being silently dropped instead of being logged\n- Fixed diacritical marks (accents, umlauts, cedillas) being dropped from responses when the `language` setting is configured\n- Fixed policy-managed plugins never auto-updating when running from a different project than where they were first installed\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": "Week 16 · April 13–17, 2026 - Claude Code Docs Documentation Index Fetch the complete documentation index at: /docs/llms.txt Use this file to discover all available pages before exploring further. Skip to main content Claude Code Docs home page English Search... ⌘ K Ask Assistant Claude Developer Platform Claude Code on the Web Claude Code on the Web Search... Navigation What&#x27;s New Week 16 · April 13–17, 2026 Getting started Build with Claude Code Administration Configuration Reference Agent SDK What&#x27;s New Resources What&#x27;s New What&#x27;s new Week 32 · August 3–7 Week 30 · July 20–24 Week 29 · July 13–17 Week 28 · July 6–10 Week 27 · June 29 – July 3 Week 26 · June 22–26 Week 25 · June 15–19 Week 24 · June 8–12 Week 23 · June 1–5 Week 22 · May 25–29 Week 21 · May 18–22 Week 20 · May 11–15 Week 19 · May 4–8 Week 18 · Apr 27 – May 1 Week 17 · Apr 20–24 Week 16 · Apr 13–17 Week 15 · Apr 6–10 Week 14 · Mar 30 – Apr 3 Week 13 · Mar 23–27 What&#x27;s New Week 16 · April 13–17, 2026 Copy page Copy page Claude Opus 4.7 with the new xhigh effort level, Routines on Claude Code on the web, mobile push notifications that ping your phone when Claude needs you, a /usage breakdown ",
       "digest_url": "https://code.claude.com/docs/en/whats-new/2026-w16",
       "is_prerelease": false,
