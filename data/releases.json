@@ -1,9 +1,32 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-13T07:37:16.233698+00:00",
+  "generated_at": "2026-08-13T13:15:58.494314+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 385,
+  "release_count": 386,
   "releases": [
+    {
+      "version": "2.1.231",
+      "published_at": "2026-08-13T08:38:50Z",
+      "bullets": [
+        {
+          "text": "Fixed MCP OAuth sign-in failing with a redirect URI mismatch for servers that use a pre-registered OAuth client, such as Slack",
+          "category": "fixed",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.231",
+      "github_body": "## What's changed\n\n- Fixed MCP OAuth sign-in failing with a redirect URI mismatch for servers that use a pre-registered OAuth client, such as Slack\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "fixed": 1
+      }
+    },
     {
       "version": "2.1.229",
       "published_at": "2026-08-12T20:56:22Z",
@@ -12859,7 +12882,7 @@
     },
     {
       "version": "2.1.110",
-      "published_at": "2026-04-15T22:07:18Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Added `/tui` command and `tui` setting — run `/tui fullscreen` to switch to flicker-free rendering in the same conversation",
@@ -13029,11 +13052,10 @@
       ],
       "sources": [
         "changelog",
-        "github_releases",
         "whats_new"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.110",
-      "github_body": "## What's changed\r\n\r\n- Added `/tui` command and `tui` setting — run `/tui fullscreen` to switch to flicker-free rendering in the same conversation\r\n- Changed `Ctrl+O` to toggle between normal and verbose transcript only; focus view is now toggled separately with the new `/focus` command\r\n- Added push notification tool — Claude can send mobile push notifications when Remote Control and \"Push when Claude decides\" config are enabled\r\n- Added `autoScrollEnabled` config to disable conversation auto-scroll in fullscreen mode\r\n- Added option to show Claude's last response as commented context in the `Ctrl+G` external editor (enable via `/config`)\r\n- Improved `/plugin` Installed tab — items needing attention and favorites appear at the top, disabled items are hidden behind a fold, and `f` favorites the selected item\r\n- Improved `/doctor` to warn when an MCP server is defined in multiple config scopes with different endpoints\r\n- `--resume`/`--continue` now resurrects unexpired scheduled tasks\r\n- `/autocompact`, `/context`, `/exit`, and `/reload-plugins` now work from Remote Control (mobile/web) clients\r\n- Write tool now informs the model when you edit the proposed content in the IDE diff before accepting\r\n- Bash tool now enforces the documented maximum timeout instead of accepting arbitrarily large values\r\n- SDK/headless sessions now read `TRACEPARENT`/`TRACESTATE` from the environment for distributed trace linking\r\n- Session recap is now enabled for users with telemetry disabled (Bedrock, Vertex, Foundry, `DISABLE_TELEMETRY`). Opt out via `/config` or `CLAUDE_CODE_ENABLE_AWAY_SUMMARY=0`.\r\n- Fixed MCP tool calls hanging indefinitely when the server connection drops mid-response on SSE/HTTP transports\r\n- Fixed non-streaming fallback retries causing multi-minute hangs when the API is unreachable\r\n- Fixed session recap, local slash-command output, and other system status lines not appearing in focus mode\r\n- Fixed high CPU usage in fullscreen when text is selected while a tool is running\r\n- Fixed plugin install not honoring dependencies declared in `plugin.json` when the marketplace entry omits them; `/plugin` install now lists auto-installed dependencies\r\n- Fixed skills with `disable-model-invocation: true` failing when invoked via `/<skill>` mid-message\r\n- Fixed `--resume` sometimes showing the first prompt instead of the `/rename` name for sessions still running or exited uncleanly\r\n- Fixed queued messages briefly appearing twice during multi-tool-call turns\r\n- Fixed session cleanup not removing the full session directory including subagent transcripts\r\n- Fixed dropped keystrokes after the CLI relaunches (e.g. `/tui`, provider setup wizards)\r\n- Fixed garbled startup rendering in macOS Terminal.app and other terminals that don't support synchronized output\r\n- Hardened \"Open in editor\" actions against command injection from untrusted filenames\r\n- Fixed `PermissionRequest` hooks returning `updatedInput` not being re-checked against `permissions.deny` rules; `setMode:'bypassPermissions'` updates now respect `disableBypassPermissionsMode`\r\n- Fixed `PreToolUse` hook `additionalContext` being dropped when the tool call fails\r\n- Fixed stdio MCP servers that print stray non-JSON lines to stdout being disconnected on the first stray line (regression in 2.1.105)\r\n- Fixed headless/SDK session auto-title firing an extra Haiku request when `CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC` or `CLAUDE_CODE_DISABLE_TERMINAL_TITLE` is set\r\n- Fixed potential excessive memory allocation when piped (non-TTY) Ink output contains a single very wide line\r\n- Fixed `/skills` menu not scrolling when the list overflows the modal in fullscreen mode\r\n- Fixed Remote Control sessions showing a generic error instead of prompting for re-login when the session is too old\r\n- Fixed Remote Control session renames from claude.ai not persisting the title to the local CLI session\r\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": "Week 16 · April 13–17, 2026 - Claude Code Docs Documentation Index Fetch the complete documentation index at: /docs/llms.txt Use this file to discover all available pages before exploring further. Skip to main content Claude Code Docs home page English Search... ⌘ K Ask Assistant Claude Developer Platform Claude Code on the Web Claude Code on the Web Search... Navigation What&#x27;s New Week 16 · April 13–17, 2026 Getting started Build with Claude Code Administration Configuration Reference Agent SDK What&#x27;s New Resources What&#x27;s New What&#x27;s new Week 32 · August 3–7 Week 30 · July 20–24 Week 29 · July 13–17 Week 28 · July 6–10 Week 27 · June 29 – July 3 Week 26 · June 22–26 Week 25 · June 15–19 Week 24 · June 8–12 Week 23 · June 1–5 Week 22 · May 25–29 Week 21 · May 18–22 Week 20 · May 11–15 Week 19 · May 4–8 Week 18 · Apr 27 – May 1 Week 17 · Apr 20–24 Week 16 · Apr 13–17 Week 15 · Apr 6–10 Week 14 · Mar 30 – Apr 3 Week 13 · Mar 23–27 What&#x27;s New Week 16 · April 13–17, 2026 Copy page Copy page Claude Opus 4.7 with the new xhigh effort level, Routines on Claude Code on the web, mobile push notifications that ping your phone when Claude needs you, a /usage breakdown ",
       "digest_url": "https://code.claude.com/docs/en/whats-new/2026-w16",
       "is_prerelease": false,
