@@ -1,9 +1,276 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-13T19:04:56.432863+00:00",
+  "generated_at": "2026-08-14T02:06:26.905012+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 386,
+  "release_count": 387,
   "releases": [
+    {
+      "version": "2.1.232",
+      "published_at": "2026-08-13T23:29:59Z",
+      "bullets": [
+        {
+          "text": "Subagent forking is now on by default: a `subagent_type: \"fork\"` subagent inherits the full conversation and prompt cache, and non-teammate agent spawns in interactive sessions now run in the background by default",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Type `@` in the prompt to mention another Claude session by name; Claude then uses `SendMessage` to reach that session directly",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "`SendMessage` now delivers to a bare name that exactly matches one live session, instead of asking to confirm with a ref first",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Interactive sessions on one machine now keep unique names: starting or renaming a session to a name another live session already uses gives it a `name-word-word` variant and tells you",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Added `/config` rows for \"Dialog expiry\" and \"Messages from your other sessions\" (cross-session inbound accept/hold/refuse)",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added secret redaction for GitLab token families (`glrt-`, `gloas-`, `glptt-`, `glagent-`, `glimt-`, `glsoat-`, `glcbt-`, `glft-`, `glffct-`) and full redaction of routable `glpat-`/`gldt-` tokens; the `glab` CLI config store gets the same sandbox and credential-path protection as `gh`",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added GitLab support to plugin marketplaces: bare `gitlab.com` repo URLs (including nested subgroups) now clone like `github.com` URLs, and clone auth-failure hints name your actual git host",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Settings: `additionalMarketplaces` and `allowedMarketplaces` are now accepted as friendlier aliases for `extraKnownMarketplaces` and `strictKnownMarketplaces`",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Enterprise policy: a url-typed `blockedMarketplaces` entry for a bare repo URL keeps blocking that URL when the CLI classifies it as a git clone",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Gateway: the `desktop:` overlay now accepts every released Desktop setting (was 11 hand-listed keys), validated at boot against Desktop's own schema; unknown or invalid keys fail boot",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Gateway: empty `managed.policies[].match.groups`/`admin.admin_groups` entries and malformed `email_domain` values (empty, or containing `@`, whitespace, or commas) now fail at boot instead of silently matching no one or granting admin access",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Fable 5 is offered as an advisor in `/advisor` again for organizations with Fable access, with usage-credits consent set up through `/model fable`",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Fixed a PowerShell permission bypass where variable-writing parameters could silently overwrite `$PSDefaultParameterValues` and redirect later commands' file access",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a Windows permission bypass where Git Bash followed Cygwin-style symlinks that path validation saw as regular files; writes through them now require permission approval",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed nested git repositories inheriting trust from a parent directory; each repository now requires its own trust confirmation",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed MCP connections hanging for the full 30-second connect timeout when a server fails to answer or sends a malformed reply to the protocol-version probe",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Remote Control sessions hosted by a bridge inside a cloud session inheriting that session's transcript or credentials",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Remote Control sessions started from Claude Desktop or an IDE appearing as a new claude.ai session each time the local session was resumed; they now reattach to the existing one",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Remote Control sessions appearing unreachable to newly attached clients while idle",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Remote Control bridge sessions not restoring conversation history when the session worker restarts",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Remote Control: resuming a conversation whose session was deleted from claude.ai or the app now starts a replacement instead of failing with a message about your login (regressed in v2.1.227)",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Fixed Cloud gateway `/login` exiting silently or leaving an unresponsive terminal after \"Press Enter to continue\" when managed settings failed to load; the reason is now shown",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed voice mode on native builds getting stuck on \"listening…\" when the voice service rejected the connection; the rejection is now shown immediately",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed mTLS client certificate rotation requiring a restart; Claude Code now reloads the rotated cert and key automatically on connection errors",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed malformed AWS or Vertex region values being used to build request URLs; they now fall back to the default region",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed stream idle timeout errors failing the request instead of recovering on Bedrock, Vertex, and gateway deployments",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed content-sized overlays containing truncated text rendering one column too wide, and start-truncated text collapsing to an ellipsis",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a stray garbled character where a long shell-command or agent-description preview was cut off mid-emoji",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a startup race that could silently unregister a plugin marketplace due to concurrent writes to `known_marketplaces.json`",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/update` and `/tui` refusing to restart while work that survives the relaunch was running",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed usage-limit guidance suggesting unavailable slash commands in SDK and remote sessions",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the consent message for interactive `--advisor fable` launches, which told you to run `/model fable` in an interactive session that had just exited",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Improved fullscreen streaming: long sessions stay responsive because the whole conversation is no longer re-normalized on every update",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved the managed settings approval dialog: shows endpoint URLs, uses clearer wording for telemetry-only changes, skips routine OpenTelemetry options, and requires approval for server-managed sandbox binary overrides (`sandbox.bwrapPath`, `sandbox.socatPath`, `sandbox.ripgrep`)",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "`/feedback` and `/bug` now open immediately when invoked while Claude is responding, instead of waiting for the turn to finish",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "`/plugin install plugin@marketplace` now refreshes the marketplace first, so newly published plugins install without a manual marketplace update",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "`/code-review` at high, xhigh, and max effort now runs in a background agent like the other levels",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Pasted and clipboard images are read without blocking the event loop",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Remote Control now keeps reconnecting for about 30 minutes after a network blip and no longer drops after a few blips spread across an hour",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Remote Control: resuming a conversation no longer silently takes Remote Control away from another Claude Code on the same machine that still has it; run `/remote-control` there to move it",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Updated agent panel: completed subagents hide immediately with a `/tasks` footer hint, and the \"↓ N more\" overflow indicator moved left for visibility",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Remote Control: the terminal now says whether a session was taken over by another device, ended from another app, or deleted, and stops suggesting a reconnect that would undo it",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Bash input redirections (`< file`) are now permission-checked like their argument spellings on all platforms",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Shortened the message shown when resuming a completed background agent",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Cowork sessions no longer inline external @-imports from user-scope memory files",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Hardened the auto-generated cross-session messaging socket directory on shared `/tmp`: a pre-planted symlink or another user's directory is now refused instead of used",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Hardened the Linux filesystem sandbox against a protected-path bypass",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Changed `sandbox.ripgrep` to be honored only from user, managed, and `--settings` settings; project settings can no longer override the sandbox's ripgrep binary",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Removed the startup tip suggesting you create custom subagents, and the matching nudge in the `/powerup` tour",
+          "category": "breaking",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.232",
+      "github_body": "## What's changed\n\n- Subagent forking is now on by default: a `subagent_type: \"fork\"` subagent inherits the full conversation and prompt cache, and non-teammate agent spawns in interactive sessions now run in the background by default\n- Type `@` in the prompt to mention another Claude session by name; Claude then uses `SendMessage` to reach that session directly\n- `SendMessage` now delivers to a bare name that exactly matches one live session, instead of asking to confirm with a ref first\n- Interactive sessions on one machine now keep unique names: starting or renaming a session to a name another live session already uses gives it a `name-word-word` variant and tells you\n- Added `/config` rows for \"Dialog expiry\" and \"Messages from your other sessions\" (cross-session inbound accept/hold/refuse)\n- Added secret redaction for GitLab token families (`glrt-`, `gloas-`, `glptt-`, `glagent-`, `glimt-`, `glsoat-`, `glcbt-`, `glft-`, `glffct-`) and full redaction of routable `glpat-`/`gldt-` tokens; the `glab` CLI config store gets the same sandbox and credential-path protection as `gh`\n- Added GitLab support to plugin marketplaces: bare `gitlab.com` repo URLs (including nested subgroups) now clone like `github.com` URLs, and clone auth-failure hints name your actual git host\n- Settings: `additionalMarketplaces` and `allowedMarketplaces` are now accepted as friendlier aliases for `extraKnownMarketplaces` and `strictKnownMarketplaces`\n- Enterprise policy: a url-typed `blockedMarketplaces` entry for a bare repo URL keeps blocking that URL when the CLI classifies it as a git clone\n- Gateway: the `desktop:` overlay now accepts every released Desktop setting (was 11 hand-listed keys), validated at boot against Desktop's own schema; unknown or invalid keys fail boot\n- Gateway: empty `managed.policies[].match.groups`/`admin.admin_groups` entries and malformed `email_domain` values (empty, or containing `@`, whitespace, or commas) now fail at boot instead of silently matching no one or granting admin access\n- Fable 5 is offered as an advisor in `/advisor` again for organizations with Fable access, with usage-credits consent set up through `/model fable`\n- Fixed a PowerShell permission bypass where variable-writing parameters could silently overwrite `$PSDefaultParameterValues` and redirect later commands' file access\n- Fixed a Windows permission bypass where Git Bash followed Cygwin-style symlinks that path validation saw as regular files; writes through them now require permission approval\n- Fixed nested git repositories inheriting trust from a parent directory; each repository now requires its own trust confirmation\n- Fixed MCP connections hanging for the full 30-second connect timeout when a server fails to answer or sends a malformed reply to the protocol-version probe\n- Fixed Remote Control sessions hosted by a bridge inside a cloud session inheriting that session's transcript or credentials\n- Fixed Remote Control sessions started from Claude Desktop or an IDE appearing as a new claude.ai session each time the local session was resumed; they now reattach to the existing one\n- Fixed Remote Control sessions appearing unreachable to newly attached clients while idle\n- Fixed Remote Control bridge sessions not restoring conversation history when the session worker restarts\n- Remote Control: resuming a conversation whose session was deleted from claude.ai or the app now starts a replacement instead of failing with a message about your login (regressed in v2.1.227)\n- Fixed Cloud gateway `/login` exiting silently or leaving an unresponsive terminal after \"Press Enter to continue\" when managed settings failed to load; the reason is now shown\n- Fixed voice mode on native builds getting stuck on \"listening…\" when the voice service rejected the connection; the rejection is now shown immediately\n- Fixed mTLS client certificate rotation requiring a restart; Claude Code now reloads the rotated cert and key automatically on connection errors\n- Fixed malformed AWS or Vertex region values being used to build request URLs; they now fall back to the default region\n- Fixed stream idle timeout errors failing the request instead of recovering on Bedrock, Vertex, and gateway deployments\n- Fixed content-sized overlays containing truncated text rendering one column too wide, and start-truncated text collapsing to an ellipsis\n- Fixed a stray garbled character where a long shell-command or agent-description preview was cut off mid-emoji\n- Fixed a startup race that could silently unregister a plugin marketplace due to concurrent writes to `known_marketplaces.json`\n- Fixed `/update` and `/tui` refusing to restart while work that survives the relaunch was running\n- Fixed usage-limit guidance suggesting unavailable slash commands in SDK and remote sessions\n- Fixed the consent message for interactive `--advisor fable` launches, which told you to run `/model fable` in an interactive session that had just exited\n- Improved fullscreen streaming: long sessions stay responsive because the whole conversation is no longer re-normalized on every update\n- Improved the managed settings approval dialog: shows endpoint URLs, uses clearer wording for telemetry-only changes, skips routine OpenTelemetry options, and requires approval for server-managed sandbox binary overrides (`sandbox.bwrapPath`, `sandbox.socatPath`, `sandbox.ripgrep`)\n- `/feedback` and `/bug` now open immediately when invoked while Claude is responding, instead of waiting for the turn to finish\n- `/plugin install plugin@marketplace` now refreshes the marketplace first, so newly published plugins install without a manual marketplace update\n- `/code-review` at high, xhigh, and max effort now runs in a background agent like the other levels\n- Pasted and clipboard images are read without blocking the event loop\n- Remote Control now keeps reconnecting for about 30 minutes after a network blip and no longer drops after a few blips spread across an hour\n- Remote Control: resuming a conversation no longer silently takes Remote Control away from another Claude Code on the same machine that still has it; run `/remote-control` there to move it\n- Updated agent panel: completed subagents hide immediately with a `/tasks` footer hint, and the \"↓ N more\" overflow indicator moved left for visibility\n- Remote Control: the terminal now says whether a session was taken over by another device, ended from another app, or deleted, and stops suggesting a reconnect that would undo it\n- Bash input redirections (`< file`) are now permission-checked like their argument spellings on all platforms\n- Shortened the message shown when resuming a completed background agent\n- Cowork sessions no longer inline external @-imports from user-scope memory files\n- Hardened the auto-generated cross-session messaging socket directory on shared `/tmp`: a pre-planted symlink or another user's directory is now refused instead of used\n- Hardened the Linux filesystem sandbox against a protected-path bypass\n- Changed `sandbox.ripgrep` to be honored only from user, managed, and `--settings` settings; project settings can no longer override the sandbox's ripgrep binary\n- Removed the startup tip suggesting you create custom subagents, and the matching nudge in the `/powerup` tour\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "other": 22,
+        "added": 3,
+        "fixed": 19,
+        "improved": 4,
+        "breaking": 1
+      }
+    },
     {
       "version": "2.1.231",
       "published_at": "2026-08-13T08:38:50Z",
@@ -12685,7 +12952,7 @@
     },
     {
       "version": "2.1.111",
-      "published_at": "2026-04-16T15:18:45Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Claude Opus 4.7 xhigh is now available! Use /effort to tune speed vs. intelligence",
@@ -12865,11 +13132,10 @@
       ],
       "sources": [
         "changelog",
-        "github_releases",
         "whats_new"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.111",
-      "github_body": "## What's changed\n\n- Claude Opus 4.7 xhigh is now available! Use /effort to tune speed vs. intelligence\n- Auto mode is now available for Max subscribers when using Opus 4.7\n- Added `xhigh` effort level for Opus 4.7, sitting between `high` and `max`. Available via `/effort`, `--effort`, and the model picker; other models fall back to `high`\n- `/effort` now opens an interactive slider when called without arguments, with arrow-key navigation between levels and Enter to confirm\n- Added \"Auto (match terminal)\" theme option that matches your terminal's dark/light mode — select it from `/theme`\n- Added `/less-permission-prompts` skill — scans transcripts for common read-only Bash and MCP tool calls and proposes a prioritized allowlist for `.claude/settings.json`\n- Added `/ultrareview` for running comprehensive code review in the cloud using parallel multi-agent analysis and critique — invoke with no arguments to review your current branch, or `/ultrareview <PR#>` to fetch and review a specific GitHub PR\n- Auto mode no longer requires `--enable-auto-mode`\n- Windows: PowerShell tool is progressively rolling out. Opt in or out with `CLAUDE_CODE_USE_POWERSHELL_TOOL`. On Linux and macOS, enable with `CLAUDE_CODE_USE_POWERSHELL_TOOL=1` (requires `pwsh` on PATH)\n- Read-only bash commands with glob patterns (e.g. `ls *.ts`) and commands starting with `cd <project-dir> &&` no longer trigger a permission prompt\n- Suggest the closest matching subcommand when `claude <word>` is invoked with a near-miss typo (e.g. `claude udpate` → \"Did you mean `claude update`?\")\n- Plan files are now named after your prompt (e.g. `fix-auth-race-snug-otter.md`) instead of purely random words\n- Improved `/setup-vertex` and `/setup-bedrock` to show the actual `settings.json` path when `CLAUDE_CONFIG_DIR` is set, seed model candidates from existing pins on re-run, and offer a \"with 1M context\" option for supported models\n- `/skills` menu now supports sorting by estimated token count — press `t` to toggle\n- `Ctrl+U` now clears the entire input buffer (previously: delete to start of line); press `Ctrl+Y` to restore\n- `Ctrl+L` now forces a full screen redraw in addition to clearing the prompt input\n- Transcript view footer now shows `[` (dump to scrollback) and `v` (open in editor) shortcuts\n- The \"+N lines\" marker for truncated long pastes is now a full-width rule for easier scanning\n- Headless `--output-format stream-json` now includes `plugin_errors` on the init event when plugins are demoted for unsatisfied dependencies\n- Added `OTEL_LOG_RAW_API_BODIES` environment variable to emit full API request and response bodies as OpenTelemetry log events for debugging\n- Suppressed spurious decompression, network, and transient error messages that could appear in the TUI during normal operation\n- Reverted the v2.1.110 cap on non-streaming fallback retries — it traded long waits for more outright failures during API overload\n- Fixed terminal display tearing (random characters, drifting input) in iTerm2 + tmux setups when terminal notifications are sent\n- Fixed `@` file suggestions re-scanning the entire project on every turn in non-git working directories, and showing only config files in freshly-initialized git repos with no tracked files\n- Fixed LSP diagnostics from before an edit appearing after it, causing the model to re-read files it just edited\n- Fixed tab-completing `/resume` immediately resuming an arbitrary titled session instead of showing the session picker\n- Fixed `/context` grid rendering with extra blank lines between rows\n- Fixed `/clear` dropping the session name set by `/rename`, causing statusline output to lose `session_name`\n- Improved plugin error handling: dependency errors now distinguish conflicting, invalid, and overly complex version requirements; fixed stale resolved versions after `plugin update`; `plugin install` now recovers from interrupted prior installs\n- Fixed Claude calling a non-existent `commit` skill and showing \"Unknown skill: commit\" for users without a custom `/commit` command\n- Fixed 429 rate-limit errors on Bedrock/Vertex/Foundry referencing status.claude.com (it only covers Anthropic-operated providers)\n- Fixed feedback surveys appearing back-to-back after dismissing one\n- Fixed bare URLs in bash/PowerShell/MCP tool output being unclickable when the terminal wraps them across lines\n- Windows: `CLAUDE_ENV_FILE` and SessionStart hook environment files now apply (previously a no-op)\n- Windows: permission rules with drive-letter paths are now correctly root-anchored, and paths differing only by drive-letter case are recognized as the same path\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": "Week 16 · April 13–17, 2026 - Claude Code Docs Documentation Index Fetch the complete documentation index at: /docs/llms.txt Use this file to discover all available pages before exploring further. Skip to main content Claude Code Docs home page English Search... ⌘ K Ask Assistant Claude Developer Platform Claude Code on the Web Claude Code on the Web Search... Navigation What&#x27;s New Week 16 · April 13–17, 2026 Getting started Build with Claude Code Administration Configuration Reference Agent SDK What&#x27;s New Resources What&#x27;s New What&#x27;s new Week 32 · August 3–7 Week 30 · July 20–24 Week 29 · July 13–17 Week 28 · July 6–10 Week 27 · June 29 – July 3 Week 26 · June 22–26 Week 25 · June 15–19 Week 24 · June 8–12 Week 23 · June 1–5 Week 22 · May 25–29 Week 21 · May 18–22 Week 20 · May 11–15 Week 19 · May 4–8 Week 18 · Apr 27 – May 1 Week 17 · Apr 20–24 Week 16 · Apr 13–17 Week 15 · Apr 6–10 Week 14 · Mar 30 – Apr 3 Week 13 · Mar 23–27 What&#x27;s New Week 16 · April 13–17, 2026 Copy page Copy page Claude Opus 4.7 with the new xhigh effort level, Routines on Claude Code on the web, mobile push notifications that ping your phone when Claude needs you, a /usage breakdown ",
       "digest_url": "https://code.claude.com/docs/en/whats-new/2026-w16",
       "is_prerelease": false,
