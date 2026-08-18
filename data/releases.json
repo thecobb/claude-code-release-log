@@ -1,9 +1,287 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T18:41:46.227875+00:00",
+  "generated_at": "2026-08-18T01:19:53.635764+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 388,
+  "release_count": 389,
   "releases": [
+    {
+      "version": "2.1.234",
+      "published_at": "2026-08-17T20:20:58Z",
+      "bullets": [
+        {
+          "text": "Added the optional `CLAUDE_CODE_PROJECT_DIR_NAME` environment variable: hosts that give each session its own config directory can choose a short name for the per-project transcript directory",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added the `selection:clear` keybinding action, so a key can be bound to clear an in-app text selection; also works in the agents view",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added a GitLab merge request badge to the footer and statusline: repos with a GitLab remote and an authenticated glab CLI show MR !N with draft/pending/green states",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Claude Code now continues your session automatically when a claude.ai usage limit resets; turn it off in `/config` (\"Continue automatically at usage limit\")",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Claude is now told to use your account email only to identify you, and not to send it to unrelated services unless you ask",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Security: remote file reads, session restore, CLAUDE.md includes, workflow scripts and file uploads now reject Windows NT-namespace (`\\??\\`) paths, hardening the remaining pre-approval file accesses against the NTLM credential-leak vector",
+          "category": "security",
+          "scope": null
+        },
+        {
+          "text": "Fixed auto mode in very long sessions repeatedly re-checking and denying sandboxed commands' network access after the conversation had been compacted",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed session-scoped permission answers (including denies) being dropped when answering background subagent tool permission prompts",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a crash when an API response on the non-streaming fallback path (typically via third-party gateways) contained a thinking block missing its thinking field or a text block missing its text field",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed markdown rendering becoming extremely slow for some messages containing unusual Unicode sequences",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `SendMessage` rejecting a recipient copied from `ListAgents` when the session name is at the 200-character cap or emoji-heavy",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed repository detection mis-reading the host of git remotes with unusual userinfo, producing links and repo-specific behavior for the wrong host",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed MCP diagnostics printing resolved secrets: scope-conflict warnings now show the configured `${VAR}` form, and connection-failure details show only the server origin",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `strictKnownMarketplaces` allowlists accepting SCP-style git marketplace sources whose host differs from the one git would actually connect to",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed modal text such as the `/login` OAuth URL losing characters when copied in fullscreen",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a `---` horizontal rule in rendered markdown running into the line after it",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed consecutive shell commands splitting into multiple \"Ran 1 shell command\" rows when todo/task updates were interleaved between them",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed dialogs like `/permissions` opened while a `!` shell command was running being dismissed when the command finished",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a queued `!` shell command being sent to the model as plain text after pressing up-arrow to edit the queued input",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed queued messages reappearing in the prompt history while still queued, Esc while selecting a queued message no longer interrupts the turn, and `!` mode no longer sticks after a mid-turn submit",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed accepting the \"Try the new fullscreen renderer?\" prompt restarting the session without its permission mode (e.g. `--dangerously-skip-permissions`), tool allow/deny rules, model or effort flags",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/tui` dropping launch `--allowed-tools`/`--disallowed-tools` rules when it restarts; it now declines to switch, with the reason, when the session has restrictions a restart can't carry over",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed trust prompts omitting the repository-wide scope warning when the directory was first seen before the repository existed there",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a case where an IDE diff tab closing during a permission re-prompt could answer the new prompt with the previous input",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed: files sent to the user during Remote Control sessions hosted by Claude Code Desktop or VS Code now upload, so they open on phone and web instead of showing an empty card",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed: after `/login` while `CLAUDE_CODE_OAUTH_TOKEN` is set, the stale-token reminder no longer leaks into Claude's automatically resumed turn — it now appears only to you",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed: permission previews now relay only to channel servers admitted by the inbound trust gate, and a server's explicit permission-capability opt-out is honored",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed: credential masking on relayed permission previews can no longer hide commands, paths, or destinations from the approver; oversized private-key blocks now redact under full-strength redaction",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed: provider API tokens that mask on permission previews now mask even when directly followed by shell delimiters",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Claude Desktop inter-session messages being silently dropped by the recipient session when cross-session messaging read as disabled, which left the sender's query \"thinking\" for many minutes",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Remote Control: signing this computer in to a different claude.ai account or organization now stops the running session within seconds and says why, instead of a misleading HTTP 404 hours later",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Remote Control sessions started from Claude Code Desktop or VS Code now keep phones and claude.ai/code updated on the session's permission mode (and claude.ai/code on the model) as they change",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Remote Control: effort picks made on a phone or on claude.ai/code now apply to terminal- and Desktop/VS Code-hosted sessions, and the session publishes its effort level to connected clients",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "`SendMessage` and `ListAgents` now say when your account's session list was too long to check completely, instead of treating unseen sessions as absent",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Expired Anthropic profile credential now points you at `/login` when a claude.ai login would take precedence",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Improved the transcript: your own prompts now render markdown (highlighted code blocks, inline code, lists) the same way replies do",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved the \"API returned an empty or malformed response\" error to say what came back (content type, body kind, size, request ID) and why the original streaming request failed",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved auto-generated session titles to read as short, specific names (e.g. \"Login button bug\") rather than sentences restating your request (e.g. \"Fix the login button on mobile\")",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Reduced the context cost of loading the built-in `claude-api` skill from ~200k+ tokens to ~25k by loading reference docs on demand",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "`/permissions` can now be opened while Claude is working — rule changes apply to the rest of the current turn",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "`/add-dir <path>` can now be used while Claude is working; `/add-dir`, `/autocompact`, `/theme`, `/help`, `/config` and `/advisor` dialogs open mid-turn in the fullscreen TUI",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "`/goal` now clears itself with a notice when a turn dies on an unrecoverable error (e.g. revoked auth, an exhausted credit balance, or a context overflow) instead of staying armed",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "`/goal`: when background tasks keep a goal waiting for 30+ minutes, Claude now checks in on them instead of waiting indefinitely (set `CLAUDE_CODE_GOAL_CHECKIN_MINUTES=0` to opt out)",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "`claude setup-token` now rejects unexpected extra arguments instead of silently ignoring them",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Changed Esc in fullscreen mode to no longer clear a mouse text selection: it interrupts or dismisses as usual and the selection stays highlighted",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Removed the redundant \"Allowed by auto mode classifier\" line that auto mode showed under every Agent tool call",
+          "category": "breaking",
+          "scope": null
+        },
+        {
+          "text": "Removed the \"Default teammate model\" setting from `/config`; agent-team teammates now use the leader's model unless the spawn names one",
+          "category": "breaking",
+          "scope": null
+        },
+        {
+          "text": "Dimmed the elapsed-time counter on the running tool header so it no longer competes with the bold counts",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Background task notifications delivered between turns are now sent to the model inside `<system-reminder>` tags, matching mid-turn delivery",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Mantle: skip the admin-pin availability probe at startup when a main-loop model is already picked",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Windows: startup no longer stalls on repeated rename retries when `~/.claude.json` is read-only",
+          "category": "other",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.234",
+      "github_body": "## What's changed\n\n- Added the optional `CLAUDE_CODE_PROJECT_DIR_NAME` environment variable: hosts that give each session its own config directory can choose a short name for the per-project transcript directory\n- Added the `selection:clear` keybinding action, so a key can be bound to clear an in-app text selection; also works in the agents view\n- Added a GitLab merge request badge to the footer and statusline: repos with a GitLab remote and an authenticated glab CLI show MR !N with draft/pending/green states\n- Claude Code now continues your session automatically when a claude.ai usage limit resets; turn it off in `/config` (\"Continue automatically at usage limit\")\n- Claude is now told to use your account email only to identify you, and not to send it to unrelated services unless you ask\n- Security: remote file reads, session restore, CLAUDE.md includes, workflow scripts and file uploads now reject Windows NT-namespace (`\\??\\`) paths, hardening the remaining pre-approval file accesses against the NTLM credential-leak vector\n- Fixed auto mode in very long sessions repeatedly re-checking and denying sandboxed commands' network access after the conversation had been compacted\n- Fixed session-scoped permission answers (including denies) being dropped when answering background subagent tool permission prompts\n- Fixed a crash when an API response on the non-streaming fallback path (typically via third-party gateways) contained a thinking block missing its thinking field or a text block missing its text field\n- Fixed markdown rendering becoming extremely slow for some messages containing unusual Unicode sequences\n- Fixed `SendMessage` rejecting a recipient copied from `ListAgents` when the session name is at the 200-character cap or emoji-heavy\n- Fixed repository detection mis-reading the host of git remotes with unusual userinfo, producing links and repo-specific behavior for the wrong host\n- Fixed MCP diagnostics printing resolved secrets: scope-conflict warnings now show the configured `${VAR}` form, and connection-failure details show only the server origin\n- Fixed `strictKnownMarketplaces` allowlists accepting SCP-style git marketplace sources whose host differs from the one git would actually connect to\n- Fixed modal text such as the `/login` OAuth URL losing characters when copied in fullscreen\n- Fixed a `---` horizontal rule in rendered markdown running into the line after it\n- Fixed consecutive shell commands splitting into multiple \"Ran 1 shell command\" rows when todo/task updates were interleaved between them\n- Fixed dialogs like `/permissions` opened while a `!` shell command was running being dismissed when the command finished\n- Fixed a queued `!` shell command being sent to the model as plain text after pressing up-arrow to edit the queued input\n- Fixed queued messages reappearing in the prompt history while still queued, Esc while selecting a queued message no longer interrupts the turn, and `!` mode no longer sticks after a mid-turn submit\n- Fixed accepting the \"Try the new fullscreen renderer?\" prompt restarting the session without its permission mode (e.g. `--dangerously-skip-permissions`), tool allow/deny rules, model or effort flags\n- Fixed `/tui` dropping launch `--allowed-tools`/`--disallowed-tools` rules when it restarts; it now declines to switch, with the reason, when the session has restrictions a restart can't carry over\n- Fixed trust prompts omitting the repository-wide scope warning when the directory was first seen before the repository existed there\n- Fixed a case where an IDE diff tab closing during a permission re-prompt could answer the new prompt with the previous input\n- Fixed: files sent to the user during Remote Control sessions hosted by Claude Code Desktop or VS Code now upload, so they open on phone and web instead of showing an empty card\n- Fixed: after `/login` while `CLAUDE_CODE_OAUTH_TOKEN` is set, the stale-token reminder no longer leaks into Claude's automatically resumed turn — it now appears only to you\n- Fixed: permission previews now relay only to channel servers admitted by the inbound trust gate, and a server's explicit permission-capability opt-out is honored\n- Fixed: credential masking on relayed permission previews can no longer hide commands, paths, or destinations from the approver; oversized private-key blocks now redact under full-strength redaction\n- Fixed: provider API tokens that mask on permission previews now mask even when directly followed by shell delimiters\n- Fixed Claude Desktop inter-session messages being silently dropped by the recipient session when cross-session messaging read as disabled, which left the sender's query \"thinking\" for many minutes\n- Remote Control: signing this computer in to a different claude.ai account or organization now stops the running session within seconds and says why, instead of a misleading HTTP 404 hours later\n- Remote Control sessions started from Claude Code Desktop or VS Code now keep phones and claude.ai/code updated on the session's permission mode (and claude.ai/code on the model) as they change\n- Remote Control: effort picks made on a phone or on claude.ai/code now apply to terminal- and Desktop/VS Code-hosted sessions, and the session publishes its effort level to connected clients\n- `SendMessage` and `ListAgents` now say when your account's session list was too long to check completely, instead of treating unseen sessions as absent\n- Expired Anthropic profile credential now points you at `/login` when a claude.ai login would take precedence\n- Improved the transcript: your own prompts now render markdown (highlighted code blocks, inline code, lists) the same way replies do\n- Improved the \"API returned an empty or malformed response\" error to say what came back (content type, body kind, size, request ID) and why the original streaming request failed\n- Improved auto-generated session titles to read as short, specific names (e.g. \"Login button bug\") rather than sentences restating your request (e.g. \"Fix the login button on mobile\")\n- Reduced the context cost of loading the built-in `claude-api` skill from ~200k+ tokens to ~25k by loading reference docs on demand\n- `/permissions` can now be opened while Claude is working — rule changes apply to the rest of the current turn\n- `/add-dir <path>` can now be used while Claude is working; `/add-dir`, `/autocompact`, `/theme`, `/help`, `/config` and `/advisor` dialogs open mid-turn in the fullscreen TUI\n- `/goal` now clears itself with a notice when a turn dies on an unrecoverable error (e.g. revoked auth, an exhausted credit balance, or a context overflow) instead of staying armed\n- `/goal`: when background tasks keep a goal waiting for 30+ minutes, Claude now checks in on them instead of waiting indefinitely (set `CLAUDE_CODE_GOAL_CHECKIN_MINUTES=0` to opt out)\n- `claude setup-token` now rejects unexpected extra arguments instead of silently ignoring them\n- Changed Esc in fullscreen mode to no longer clear a mouse text selection: it interrupts or dismisses as usual and the selection stays highlighted\n- Removed the redundant \"Allowed by auto mode classifier\" line that auto mode showed under every Agent tool call\n- Removed the \"Default teammate model\" setting from `/config`; agent-team teammates now use the leader's model unless the spawn names one\n- Dimmed the elapsed-time counter on the running tool header so it no longer competes with the bold counts\n- Background task notifications delivered between turns are now sent to the model inside `<system-reminder>` tags, matching mid-turn delivery\n- Mantle: skip the admin-pin availability probe at startup when a main-loop model is already picked\n- Windows: startup no longer stalls on repeated rename retries when `~/.claude.json` is read-only\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "added": 3,
+        "other": 17,
+        "security": 1,
+        "fixed": 24,
+        "improved": 4,
+        "breaking": 2
+      }
+    },
     {
       "version": "2.1.233",
       "published_at": "2026-08-14T22:20:57Z",
@@ -12836,7 +13114,7 @@
     },
     {
       "version": "2.1.113",
-      "published_at": "2026-04-17T19:34:41Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Changed the CLI to spawn a native Claude Code binary (via a per-platform optional dependency) instead of bundled JavaScript",
@@ -13031,11 +13309,10 @@
       ],
       "sources": [
         "changelog",
-        "github_releases",
         "whats_new"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.113",
-      "github_body": "## What's changed\n\n- Changed the CLI to spawn a native Claude Code binary (via a per-platform optional dependency) instead of bundled JavaScript\n- Added `sandbox.network.deniedDomains` setting to block specific domains even when a broader `allowedDomains` wildcard would otherwise permit them\n- Fullscreen mode: Shift+↑/↓ now scrolls the viewport when extending a selection past the visible edge\n- `Ctrl+A` and `Ctrl+E` now move to the start/end of the current logical line in multiline input, matching readline behavior\n- Windows: `Ctrl+Backspace` now deletes the previous word\n- Long URLs in responses and bash output stay clickable when they wrap across lines (in terminals with OSC 8 hyperlinks)\n- Improved `/loop`: pressing Esc now cancels pending wakeups, and wakeups display as \"Claude resuming /loop wakeup\" for clarity\n- `/extra-usage` now works from Remote Control (mobile/web) clients\n- Remote Control clients can now query `@`-file autocomplete suggestions\n- Improved `/ultrareview`: faster launch with parallelized checks, diffstat in the launch dialog, and animated launching state\n- Subagents that stall mid-stream now fail with a clear error after 10 minutes instead of hanging silently\n- Bash tool: multi-line commands whose first line is a comment now show the full command in the transcript, closing a UI-spoofing vector\n- Running `cd <current-directory> && git …` no longer triggers a permission prompt when the `cd` is a no-op\n- Security: on macOS, `/private/{etc,var,tmp,home}` paths are now treated as dangerous removal targets under `Bash(rm:*)` allow rules\n- Security: Bash deny rules now match commands wrapped in `env`/`sudo`/`watch`/`ionice`/`setsid` and similar exec wrappers\n- Security: `Bash(find:*)` allow rules no longer auto-approve `find -exec`/`-delete`\n- Fixed MCP concurrent-call timeout handling where a message for one tool call could silently disarm another call's watchdog\n- Fixed Cmd-backspace / `Ctrl+U` to once again delete from the cursor to the start of the line\n- Fixed markdown tables breaking when a cell contains an inline code span with a pipe character\n- Fixed session recap auto-firing while composing unsent text in the prompt\n- Fixed `/copy` \"Full response\" not aligning markdown table columns for pasting into GitHub, Notion, or Slack\n- Fixed messages typed while viewing a running subagent being hidden from its transcript and misattributed to the parent AI\n- Fixed Bash `dangerouslyDisableSandbox` running commands outside the sandbox without a permission prompt\n- Fixed `/effort auto` confirmation — now says \"Effort level set to max\" to match the status bar label\n- Fixed the \"copied N chars\" toast overcounting emoji and other multi-code-unit characters\n- Fixed `/insights` crashing with `EBUSY` on Windows\n- Fixed exit confirmation dialog mislabeling one-shot scheduled tasks as recurring — now shows a countdown\n- Fixed slash/@ completion menu not sitting flush against the prompt border in fullscreen mode\n- Fixed `CLAUDE_CODE_EXTRA_BODY` `output_config.effort` causing 400 errors on subagent calls to models that don't support effort and on Vertex AI\n- Fixed prompt cursor disappearing when `NO_COLOR` is set\n- Fixed `ToolSearch` ranking so pasted MCP tool names surface the actual tool instead of description-matching siblings\n- Fixed compacting a resumed long-context session failing with \"Extra usage is required for long context requests\"\n- Fixed `plugin install` succeeding when a dependency version conflicts with an already-installed plugin — now reports `range-conflict`\n- Fixed \"Refine with Ultraplan\" not showing the remote session URL in the transcript\n- Fixed SDK image content blocks that fail to process crashing the session — now degrade to a text placeholder\n- Fixed Remote Control sessions not streaming subagent transcripts\n- Fixed Remote Control sessions not being archived when Claude Code exits\n- Fixed `thinking.type.enabled is not supported` 400 error when using Opus 4.7 via a Bedrock Application Inference Profile ARN\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": "Week 16 · April 13–17, 2026 - Claude Code Docs Documentation Index Fetch the complete documentation index at: /docs/llms.txt Use this file to discover all available pages before exploring further. Skip to main content Claude Code Docs home page English Search... ⌘ K Ask Assistant Claude Developer Platform Claude Code on the Web Claude Code on the Web Search... Navigation What&#x27;s New Week 16 · April 13–17, 2026 Getting started Build with Claude Code Administration Configuration Reference Agent SDK What&#x27;s New Resources What&#x27;s New What&#x27;s new Week 32 · August 3–7 Week 30 · July 20–24 Week 29 · July 13–17 Week 28 · July 6–10 Week 27 · June 29 – July 3 Week 26 · June 22–26 Week 25 · June 15–19 Week 24 · June 8–12 Week 23 · June 1–5 Week 22 · May 25–29 Week 21 · May 18–22 Week 20 · May 11–15 Week 19 · May 4–8 Week 18 · Apr 27 – May 1 Week 17 · Apr 20–24 Week 16 · Apr 13–17 Week 15 · Apr 6–10 Week 14 · Mar 30 – Apr 3 Week 13 · Mar 23–27 What&#x27;s New Week 16 · April 13–17, 2026 Copy page Copy page Claude Opus 4.7 with the new xhigh effort level, Routines on Claude Code on the web, mobile push notifications that ping your phone when Claude needs you, a /usage breakdown ",
       "digest_url": "https://code.claude.com/docs/en/whats-new/2026-w16",
       "is_prerelease": false,
