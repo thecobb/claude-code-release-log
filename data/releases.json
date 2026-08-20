@@ -1,9 +1,224 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-19T18:37:43.992994+00:00",
+  "generated_at": "2026-08-20T01:20:47.387991+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 390,
+  "release_count": 392,
   "releases": [
+    {
+      "version": "2.1.237",
+      "published_at": "2026-08-20T00:54:41Z",
+      "bullets": [
+        {
+          "text": "Fixed prompt caching for sessions using an LLM gateway or custom base URL",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Added a built-in \"Concise\" output style: Claude leads with results and skips preamble and narration, while doing the work just as thoroughly. Select it under Output style in /config.",
+          "category": "added",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.237",
+      "github_body": "## What's changed\n\n- Fixed prompt caching for sessions using an LLM gateway or custom base URL\n- Added a built-in \"Concise\" output style: Claude leads with results and skips preamble and narration, while doing the work just as thoroughly. Select it under Output style in /config.\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "fixed": 1,
+        "added": 1
+      }
+    },
+    {
+      "version": "2.1.236",
+      "published_at": "2026-08-19T20:02:05Z",
+      "bullets": [
+        {
+          "text": "Added `ANTHROPIC_DEFAULT_MODEL` environment variable: sets the model new sessions start on, while a `/model` pick still overrides it and persists across restarts (unlike `ANTHROPIC_MODEL`)",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added `notify_when_idle` to cross-session `SendMessage`: ask another Claude Code session on this machine to send one notice when it next goes idle — opt-in, one-shot, no polling (macOS and Linux)",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Sandbox: on macOS, wildcard read-deny rules (e.g. `**/.env`) now take precedence inside allowed read regions, cover matched directories' contents, and can't be bypassed by renaming the denied file",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Fixed clipboard copy, background housekeeping, background sessions, and local MCP logs breaking after the directory a session had switched into was removed (since 2.1.229)",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the fullscreen renderer failing permanently after a single failed start: it now falls back to the classic renderer instead of exiting on every subsequent launch",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the `/model` picker rendering taller than the terminal: it now shows only as many models as fit the window, with the rest reachable by scrolling",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `SendMessage` calls being rejected when a malformed closing tag left the message text inside the summary field",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed unhandled promise rejections when a subprocess fails to start, for example `powershell.exe` on WSL with Windows interop disabled (regression in 2.1.234)",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed fullscreen mode sometimes not showing a newly sent message until the next update after the terminal was resized",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a blank band that could remain above the prompt after clearing a multi-line prompt, and panes not repainting after resizing the terminal away and back, in fullscreen mode",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the managed-settings approval prompt sometimes not appearing at startup while still capturing the first keypress as approval",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed terminal tab titles jumping in tmux (iTerm tmux integration): the title is now written only when its text changes instead of animating every 960ms",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed an unclear error when the cloud environments list came back empty or malformed",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the Fable 5 first-time usage-credits prompt auto-selecting the fallback model after 60 seconds with no answer when using Remote Control",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed spinner tips never appearing, with a repeated background error, when the cached guest-pass reward in `~/.claude.json` was malformed",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed skills hot-reload in SDK/VS Code sessions raising an error on every skills change after the session's working directory was deleted (2.1.229+)",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed self-hosted runner sessions released on idle, retire, or startup timeout occasionally resuming on another runner before the post-session hook had finished",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the Clawd mascot's eyes and feet rendering unevenly in iTerm2 at some font sizes",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed occasional runaway session recaps: recap text (automatic and `/recap`) is now capped at 400 characters, cut at a word boundary",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Improved startup performance: the session counter is now written in the background",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved auto mode: `Monitor` allow rules are now set aside while auto mode is active, so Monitor commands are reviewed the same way Bash commands are",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved auto mode on Bedrock, Vertex AI, and Foundry, and when telemetry is disabled: the classifier now uses the same defaults as on the Claude API, including severity-scored classification",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved auto mode: the git status check can no longer be fooled by a repo's `status.showUntrackedFiles=no` setting into reporting a clean tree",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed the `/model` picker to highlight only the newest model's name, so the highlight marks the new release rather than an arbitrary subset of the list",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "`/goal`: an idle session whose goal is parked behind long-running background work now checks in automatically after 30 minutes (then 1h, 2h) instead of waiting for you to return",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "`/usage` now shows the usage-credits spend row for Team and Enterprise members, and shows a capped row at 0% before anything is spent",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "SIGTERM in print/SDK mode no longer records an interrupted turn or synthetic tool denials before exiting; running commands are still terminated and the process still exits with code 143",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Pressing Enter on a slash-command typo or a command unavailable in this session now reports it instead of running the closest fuzzy match; prefixes and aliases still run",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Remote Control now marks a session offline within seconds when the CLI exits or its terminal closes",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "`SendMessage` now refuses further messages to a session up front once a rapid burst would exceed what that session's inbox accepts, instead of reporting them sent while they were dropped",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Aligned the session title chip on the prompt border with the footer's right edge",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Right-aligned footer items (goal indicator, session state, background agent status) and truncated notices now share a consistent right margin with the rest of the prompt area",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "[VSCode] Added screen reader support for the transcript: live announcements for replies, permission requests, errors, and status changes, plus per-turn heading navigation",
+          "category": "added",
+          "scope": "VSCode"
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.236",
+      "github_body": "## What's changed\n\n- Added `ANTHROPIC_DEFAULT_MODEL` environment variable: sets the model new sessions start on, while a `/model` pick still overrides it and persists across restarts (unlike `ANTHROPIC_MODEL`)\n- Added `notify_when_idle` to cross-session `SendMessage`: ask another Claude Code session on this machine to send one notice when it next goes idle — opt-in, one-shot, no polling (macOS and Linux)\n- Sandbox: on macOS, wildcard read-deny rules (e.g. `**/.env`) now take precedence inside allowed read regions, cover matched directories' contents, and can't be bypassed by renaming the denied file\n- Fixed clipboard copy, background housekeeping, background sessions, and local MCP logs breaking after the directory a session had switched into was removed (since 2.1.229)\n- Fixed the fullscreen renderer failing permanently after a single failed start: it now falls back to the classic renderer instead of exiting on every subsequent launch\n- Fixed the `/model` picker rendering taller than the terminal: it now shows only as many models as fit the window, with the rest reachable by scrolling\n- Fixed `SendMessage` calls being rejected when a malformed closing tag left the message text inside the summary field\n- Fixed unhandled promise rejections when a subprocess fails to start, for example `powershell.exe` on WSL with Windows interop disabled (regression in 2.1.234)\n- Fixed fullscreen mode sometimes not showing a newly sent message until the next update after the terminal was resized\n- Fixed a blank band that could remain above the prompt after clearing a multi-line prompt, and panes not repainting after resizing the terminal away and back, in fullscreen mode\n- Fixed the managed-settings approval prompt sometimes not appearing at startup while still capturing the first keypress as approval\n- Fixed terminal tab titles jumping in tmux (iTerm tmux integration): the title is now written only when its text changes instead of animating every 960ms\n- Fixed an unclear error when the cloud environments list came back empty or malformed\n- Fixed the Fable 5 first-time usage-credits prompt auto-selecting the fallback model after 60 seconds with no answer when using Remote Control\n- Fixed spinner tips never appearing, with a repeated background error, when the cached guest-pass reward in `~/.claude.json` was malformed\n- Fixed skills hot-reload in SDK/VS Code sessions raising an error on every skills change after the session's working directory was deleted (2.1.229+)\n- Fixed self-hosted runner sessions released on idle, retire, or startup timeout occasionally resuming on another runner before the post-session hook had finished\n- Fixed the Clawd mascot's eyes and feet rendering unevenly in iTerm2 at some font sizes\n- Fixed occasional runaway session recaps: recap text (automatic and `/recap`) is now capped at 400 characters, cut at a word boundary\n- Improved startup performance: the session counter is now written in the background\n- Improved auto mode: `Monitor` allow rules are now set aside while auto mode is active, so Monitor commands are reviewed the same way Bash commands are\n- Improved auto mode on Bedrock, Vertex AI, and Foundry, and when telemetry is disabled: the classifier now uses the same defaults as on the Claude API, including severity-scored classification\n- Improved auto mode: the git status check can no longer be fooled by a repo's `status.showUntrackedFiles=no` setting into reporting a clean tree\n- Changed the `/model` picker to highlight only the newest model's name, so the highlight marks the new release rather than an arbitrary subset of the list\n- `/goal`: an idle session whose goal is parked behind long-running background work now checks in automatically after 30 minutes (then 1h, 2h) instead of waiting for you to return\n- `/usage` now shows the usage-credits spend row for Team and Enterprise members, and shows a capped row at 0% before anything is spent\n- SIGTERM in print/SDK mode no longer records an interrupted turn or synthetic tool denials before exiting; running commands are still terminated and the process still exits with code 143\n- Pressing Enter on a slash-command typo or a command unavailable in this session now reports it instead of running the closest fuzzy match; prefixes and aliases still run\n- Remote Control now marks a session offline within seconds when the CLI exits or its terminal closes\n- `SendMessage` now refuses further messages to a session up front once a rapid burst would exceed what that session's inbox accepts, instead of reporting them sent while they were dropped\n- Aligned the session title chip on the prompt border with the footer's right edge\n- Right-aligned footer items (goal indicator, session state, background agent status) and truncated notices now share a consistent right margin with the rest of the prompt area\n- [VSCode] Added screen reader support for the transcript: live announcements for replies, permission requests, errors, and status changes, plus per-turn heading navigation\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "added": 3,
+        "other": 9,
+        "fixed": 16,
+        "improved": 5
+      }
+    },
     {
       "version": "2.1.235",
       "published_at": "2026-08-18T20:38:54Z",
@@ -12885,7 +13100,7 @@
     },
     {
       "version": "2.1.117",
-      "published_at": "2026-04-22T00:04:40Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Forked subagents can now be enabled on external builds by setting `CLAUDE_CODE_FORK_SUBAGENT=1`",
@@ -13030,11 +13245,10 @@
       ],
       "sources": [
         "changelog",
-        "github_releases",
         "whats_new"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.117",
-      "github_body": "## What's changed\n\n- Forked subagents can now be enabled on external builds by setting `CLAUDE_CODE_FORK_SUBAGENT=1`\n- Agent frontmatter `mcpServers` are now loaded for main-thread agent sessions via `--agent`\n- Improved `/model`: selections now persist across restarts even when the project pins a different model, and the startup header shows when the active model comes from a project or managed-settings pin\n- The `/resume` command now offers to summarize stale, large sessions before re-reading them, matching the existing `--resume` behavior\n- Faster startup when both local and claude.ai MCP servers are configured (concurrent connect now default)\n- `plugin install` on an already-installed plugin now installs any missing dependencies instead of stopping at \"already installed\"\n- Plugin dependency errors now say \"not installed\" with an install hint, and `claude plugin marketplace add` now auto-resolves missing dependencies from configured marketplaces\n- Managed-settings `blockedMarketplaces` and `strictKnownMarketplaces` are now enforced on plugin install, update, refresh, and autoupdate\n- Advisor Tool (experimental): dialog now carries an \"experimental\" label, learn-more link, and startup notification when enabled; sessions no longer get stuck with \"Advisor tool result content could not be processed\" errors on every prompt and `/compact`\n- The `cleanupPeriodDays` retention sweep now also covers `~/.claude/tasks/`, `~/.claude/shell-snapshots/`, and `~/.claude/backups/`\n- OpenTelemetry: `user_prompt` events now include `command_name` and `command_source` for slash commands; `cost.usage`, `token.usage`, `api_request`, and `api_error` now include an `effort` attribute when the model supports effort levels. Custom/MCP command names are redacted unless `OTEL_LOG_TOOL_DETAILS=1` is set\n- Native builds on macOS and Linux: the `Glob` and `Grep` tools are replaced by embedded `bfs` and `ugrep` available through the Bash tool — faster searches without a separate tool round-trip (Windows and npm-installed builds unchanged)\n- Windows: cached `where.exe` executable lookups per process for faster subprocess launches\n- Default effort for Pro/Max subscribers on Opus 4.6 and Sonnet 4.6 is now `high` (was `medium`)\n- Fixed Plain-CLI OAuth sessions dying with \"Please run /login\" when the access token expires mid-session — the token is now refreshed reactively on 401\n- Fixed `WebFetch` hanging on very large HTML pages by truncating input before HTML-to-markdown conversion\n- Fixed a crash when a proxy returns HTTP 204 No Content — now surfaces a clear error instead of a `TypeError`\n- Fixed `/login` having no effect when launched with `CLAUDE_CODE_OAUTH_TOKEN` env var and that token expires\n- Fixed prompt-input undo (`Ctrl+_`) doing nothing immediately after typing, and skipping a state on each undo step\n- Fixed `NO_PROXY` not being respected for remote API requests when running under Bun\n- Fixed rare spurious escape/return triggers when key names arrive as coalesced text over slow connections\n- Fixed SDK `reload_plugins` reconnecting all user MCP servers serially\n- Fixed Bedrock application-inference-profile requests failing with 400 when backed by Opus 4.7 with thinking disabled\n- Fixed MCP `elicitation/create` requests auto-cancelling in print/SDK mode when the server finishes connecting mid-turn\n- Fixed subagents running a different model than the main agent incorrectly flagging file reads with a malware warning\n- Fixed idle re-render loop when background tasks are present, reducing memory growth on Linux\n- [VSCode] Fixed \"Manage Plugins\" panel breaking when multiple large marketplaces are configured\n- Fixed Opus 4.7 sessions showing inflated `/context` percentages and autocompacting too early — Claude Code was computing against a 200K context window instead of Opus 4.7's native 1M\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": "Week 17 · April 20–24, 2026 - Claude Code Docs Documentation Index Fetch the complete documentation index at: /docs/llms.txt Use this file to discover all available pages before exploring further. Skip to main content Claude Code Docs home page English Search... ⌘ K Ask Assistant Claude Developer Platform Claude Code on the Web Claude Code on the Web Search... Navigation What&#x27;s New Week 17 · April 20–24, 2026 Getting started Build with Claude Code Administration Configuration Reference Agent SDK What&#x27;s New Resources What&#x27;s New What&#x27;s new Week 32 · August 3–7 Week 30 · July 20–24 Week 29 · July 13–17 Week 28 · July 6–10 Week 27 · June 29 – July 3 Week 26 · June 22–26 Week 25 · June 15–19 Week 24 · June 8–12 Week 23 · June 1–5 Week 22 · May 25–29 Week 21 · May 18–22 Week 20 · May 11–15 Week 19 · May 4–8 Week 18 · Apr 27 – May 1 Week 17 · Apr 20–24 Week 16 · Apr 13–17 Week 15 · Apr 6–10 Week 14 · Mar 30 – Apr 3 Week 13 · Mar 23–27 What&#x27;s New Week 17 · April 20–24, 2026 Copy page Copy page /ultrareview opens as a research preview, automatic session recaps when you return to a terminal, custom color themes you can build and ship in plugins, and a redesigned Clau",
       "digest_url": "https://code.claude.com/docs/en/whats-new/2026-w17",
       "is_prerelease": false,
@@ -13046,7 +13260,7 @@
     },
     {
       "version": "2.1.116",
-      "published_at": "2026-04-20T22:18:28Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "`/resume` on large sessions is significantly faster (up to 67% on 40MB+ sessions) and handles sessions with many dead-fork entries more efficiently",
@@ -13176,11 +13390,10 @@
       ],
       "sources": [
         "changelog",
-        "github_releases",
         "whats_new"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.116",
-      "github_body": "## What's changed\n\n- `/resume` on large sessions is significantly faster (up to 67% on 40MB+ sessions) and handles sessions with many dead-fork entries more efficiently\n- Faster MCP startup when multiple stdio servers are configured; `resources/templates/list` is now deferred to first `@`-mention\n- Smoother fullscreen scrolling in VS Code, Cursor, and Windsurf terminals — `/terminal-setup` now configures the editor's scroll sensitivity\n- Thinking spinner now shows progress inline (\"still thinking\", \"thinking more\", \"almost done thinking\"), replacing the separate hint row\n- `/config` search now matches option values (e.g. searching \"vim\" finds the Editor mode setting)\n- `/doctor` can now be opened while Claude is responding, without waiting for the current turn to finish\n- `/reload-plugins` and background plugin auto-update now auto-install missing plugin dependencies from marketplaces you've already added\n- Bash tool now surfaces a hint when `gh` commands hit GitHub's API rate limit, so agents can back off instead of retrying\n- The Usage tab in Settings now shows your 5-hour and weekly usage immediately and no longer fails when the usage endpoint is rate-limited\n- Agent frontmatter `hooks:` now fire when running as a main-thread agent via `--agent`\n- Slash command menu now shows \"No commands match\" when your filter has zero results, instead of disappearing\n- Security: sandbox auto-allow no longer bypasses the dangerous-path safety check for `rm`/`rmdir` targeting `/`, `$HOME`, or other critical system directories\n- Fixed Devanagari and other Indic scripts rendering with broken column alignment in the terminal UI\n- Fixed Ctrl+- not triggering undo in terminals using the Kitty keyboard protocol (iTerm2, Ghostty, kitty, WezTerm, Windows Terminal)\n- Fixed Cmd+Left/Right not jumping to line start/end in terminals that use the Kitty keyboard protocol (Warp fullscreen, kitty, Ghostty, WezTerm)\n- Fixed Ctrl+Z hanging the terminal when Claude Code is launched via a wrapper process (e.g. `npx`, `bun run`)\n- Fixed scrollback duplication in inline mode where resizing the terminal or large output bursts would repeat earlier conversation history\n- Fixed modal search dialogs overflowing the screen at short terminal heights, hiding the search box and keyboard hints\n- Fixed scattered blank cells and disappearing composer chrome in the VS Code integrated terminal during scrolling\n- Fixed an intermittent API 400 error related to cache control TTL ordering that could occur when a parallel request completed during request setup\n- Fixed `/branch` rejecting conversations with transcripts larger than 50MB\n- Fixed `/resume` silently showing an empty conversation on large session files instead of reporting the load error\n- Fixed `/plugin` Installed tab showing the same item twice when it appears under Needs attention or Favorites\n- Fixed `/update` and `/tui` not working after entering a worktree mid-session\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": "Week 17 · April 20–24, 2026 - Claude Code Docs Documentation Index Fetch the complete documentation index at: /docs/llms.txt Use this file to discover all available pages before exploring further. Skip to main content Claude Code Docs home page English Search... ⌘ K Ask Assistant Claude Developer Platform Claude Code on the Web Claude Code on the Web Search... Navigation What&#x27;s New Week 17 · April 20–24, 2026 Getting started Build with Claude Code Administration Configuration Reference Agent SDK What&#x27;s New Resources What&#x27;s New What&#x27;s new Week 32 · August 3–7 Week 30 · July 20–24 Week 29 · July 13–17 Week 28 · July 6–10 Week 27 · June 29 – July 3 Week 26 · June 22–26 Week 25 · June 15–19 Week 24 · June 8–12 Week 23 · June 1–5 Week 22 · May 25–29 Week 21 · May 18–22 Week 20 · May 11–15 Week 19 · May 4–8 Week 18 · Apr 27 – May 1 Week 17 · Apr 20–24 Week 16 · Apr 13–17 Week 15 · Apr 6–10 Week 14 · Mar 30 – Apr 3 Week 13 · Mar 23–27 What&#x27;s New Week 17 · April 20–24, 2026 Copy page Copy page /ultrareview opens as a research preview, automatic session recaps when you return to a terminal, custom color themes you can build and ship in plugins, and a redesigned Clau",
       "digest_url": "https://code.claude.com/docs/en/whats-new/2026-w17",
       "is_prerelease": false,
