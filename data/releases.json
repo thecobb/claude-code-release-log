@@ -1,9 +1,194 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-26T19:48:56.293710+00:00",
+  "generated_at": "2026-08-27T08:10:23.312143+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 400,
+  "release_count": 401,
   "releases": [
+    {
+      "version": "2.1.247",
+      "published_at": "2026-08-26T23:06:39Z",
+      "bullets": [
+        {
+          "text": "Added the `SendFeedback` tool: when something goes wrong in a session, Claude can draft a feedback report for you to review and send from `/feedback` (turn off with the `feedbackDrafts` setting)",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added `{id, text, cooldownSessions, priority}` entries, `tipsFile`, and `label` to `spinnerTipsOverride`, so organizations can rotate their own tips alongside the built-in ones",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added a tip on Bash permission prompts pointing to auto mode, with a one-keystroke \"Yes, and switch to auto mode\" option",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added `/claude-api cost-optimize` to profile an existing project's Claude API spend and work through cost levers (caching, token hygiene, batch, effort, model choice) one measured change at a time",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Updated the `/claude-api` skill with Admin API coverage (organization members, invites, workspaces, API keys, rate limit reports, workload identity federation, CMEK)",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Fixed fast arrow-key + Enter sequences acting on the row above the one you navigated to in history search, `/config`, `/mcp`, `/skills`, background tasks, and `/model`",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed sub-agents dying on a first-call model 404: they now use the session's fallback model chain, and the error returned to the parent includes the error type, status, request id, and model",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a hook or background agent that printed megabytes of error output being able to overflow the conversation and wedge the session on \"Prompt is too long\"",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Ctrl keyboard shortcuts not firing under non-Latin (e.g. Cyrillic) keyboard layouts in kitty-protocol terminals",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed text like `<35;150;7M` being inserted into the prompt when a mouse report arrived split across reads right after the escape prefix",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the Bash sandbox's after-command cleanup deleting a dotfile-managed `~/.claude/settings.json` symlink (nix/home-manager, stow) when it is repointed outside the sandbox's writable area",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/terminal-setup` overwriting your entire Zed `keymap.json` instead of merging in its keybinding",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/rename` silently confirming when the session registry could not be updated; it now says other sessions may still show the old name",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/compact` and \"Summarize from here\" in sessions started with `--agent` summarizing under the default system prompt instead of the conversation's own",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a background session showing \"opening…\" forever in `claude agents` after its terminal host process died; the row now fails within seconds with the reason, and Enter restarts it",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed unbounded memory growth when a hook's or background task's output file could not be written; the file now notes where output was lost",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/install-github-app` over SSH: the copy shortcut now says how the sign-in URL was copied instead of always claiming success, and the URL appears immediately when no browser can open",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed shell commands carried over from the foreground logging an internal error or showing a misleading `[exited with code -1]` line when they finish in background sessions",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a version-less marketplace plugin's live cache directory being deleted and recreated on a second-scope install, which could disrupt a running session using it",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Remote Control sessions started with `/remote-control` not reporting the working-tree diff to connected clients",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed self-hosted runner sessions reporting `running` before Claude Code had started, which could trigger a premature \"Claude is waiting for your input\" notification from the Claude desktop app",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed first-run setup exiting with \"Unable to connect to Anthropic services\" when managed settings configure Claude apps gateway sign-in and Anthropic endpoints are unreachable",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed cloud sessions (Claude Code on the web, desktop and mobile apps) sometimes showing the previous permission mode when you switch modes right after sending a message",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed cloud sessions going silent when the session's container restarts between turns while a background agent, shell, or monitor is still running — the resumed session now reports the lost work",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Improved plugin marketplace hardening: names containing control or invisible characters are rejected, and marketplace-supplied text in `/plugin` and `claude plugin` output is escape-safe",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved Bedrock, Vertex, and Foundry sessions (and any with telemetry disabled): Claude is now told when a configured MCP server failed to connect, instead of concluding its tools don't exist",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed Sonnet 5's default auto-compact window to its full 1M context, so sessions on the 1M window now auto-compact at about 967K tokens instead of about 934K",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed cross-session peer messages to collapse by default to a one-line `Message from @<sender>: <first line>` preview; Ctrl+O expands the full body",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed terminal hyperlinks in rendered markdown: link targets that point at a network or automounter path, contain a control character, or lead with an invisible character now render as plain text",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed the prompt-footer PR badge to skip its GitHub re-check on terminal refocus when the last check is under a minute old",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed analytics to stay off from startup, not only after login, when managed settings force gateway login or a custom OAuth deployment is configured",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed Claude apps gateway sign-in requests to identify Claude Code (a `surface=claude_code` device-authorization parameter and a `claude-code/<version>` User-Agent)",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed organization sign-in enforcement to exit at start when the administrator's managed settings cannot be read, even if host-supplied or per-user Windows registry settings exist",
+          "category": "improved",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.247",
+      "github_body": "## What's changed\n\n- Added the `SendFeedback` tool: when something goes wrong in a session, Claude can draft a feedback report for you to review and send from `/feedback` (turn off with the `feedbackDrafts` setting)\n- Added `{id, text, cooldownSessions, priority}` entries, `tipsFile`, and `label` to `spinnerTipsOverride`, so organizations can rotate their own tips alongside the built-in ones\n- Added a tip on Bash permission prompts pointing to auto mode, with a one-keystroke \"Yes, and switch to auto mode\" option\n- Added `/claude-api cost-optimize` to profile an existing project's Claude API spend and work through cost levers (caching, token hygiene, batch, effort, model choice) one measured change at a time\n- Updated the `/claude-api` skill with Admin API coverage (organization members, invites, workspaces, API keys, rate limit reports, workload identity federation, CMEK)\n- Fixed fast arrow-key + Enter sequences acting on the row above the one you navigated to in history search, `/config`, `/mcp`, `/skills`, background tasks, and `/model`\n- Fixed sub-agents dying on a first-call model 404: they now use the session's fallback model chain, and the error returned to the parent includes the error type, status, request id, and model\n- Fixed a hook or background agent that printed megabytes of error output being able to overflow the conversation and wedge the session on \"Prompt is too long\"\n- Fixed Ctrl keyboard shortcuts not firing under non-Latin (e.g. Cyrillic) keyboard layouts in kitty-protocol terminals\n- Fixed text like `<35;150;7M` being inserted into the prompt when a mouse report arrived split across reads right after the escape prefix\n- Fixed the Bash sandbox's after-command cleanup deleting a dotfile-managed `~/.claude/settings.json` symlink (nix/home-manager, stow) when it is repointed outside the sandbox's writable area\n- Fixed `/terminal-setup` overwriting your entire Zed `keymap.json` instead of merging in its keybinding\n- Fixed `/rename` silently confirming when the session registry could not be updated; it now says other sessions may still show the old name\n- Fixed `/compact` and \"Summarize from here\" in sessions started with `--agent` summarizing under the default system prompt instead of the conversation's own\n- Fixed a background session showing \"opening…\" forever in `claude agents` after its terminal host process died; the row now fails within seconds with the reason, and Enter restarts it\n- Fixed unbounded memory growth when a hook's or background task's output file could not be written; the file now notes where output was lost\n- Fixed `/install-github-app` over SSH: the copy shortcut now says how the sign-in URL was copied instead of always claiming success, and the URL appears immediately when no browser can open\n- Fixed shell commands carried over from the foreground logging an internal error or showing a misleading `[exited with code -1]` line when they finish in background sessions\n- Fixed a version-less marketplace plugin's live cache directory being deleted and recreated on a second-scope install, which could disrupt a running session using it\n- Fixed Remote Control sessions started with `/remote-control` not reporting the working-tree diff to connected clients\n- Fixed self-hosted runner sessions reporting `running` before Claude Code had started, which could trigger a premature \"Claude is waiting for your input\" notification from the Claude desktop app\n- Fixed first-run setup exiting with \"Unable to connect to Anthropic services\" when managed settings configure Claude apps gateway sign-in and Anthropic endpoints are unreachable\n- Fixed cloud sessions (Claude Code on the web, desktop and mobile apps) sometimes showing the previous permission mode when you switch modes right after sending a message\n- Fixed cloud sessions going silent when the session's container restarts between turns while a background agent, shell, or monitor is still running — the resumed session now reports the lost work\n- Improved plugin marketplace hardening: names containing control or invisible characters are rejected, and marketplace-supplied text in `/plugin` and `claude plugin` output is escape-safe\n- Improved Bedrock, Vertex, and Foundry sessions (and any with telemetry disabled): Claude is now told when a configured MCP server failed to connect, instead of concluding its tools don't exist\n- Changed Sonnet 5's default auto-compact window to its full 1M context, so sessions on the 1M window now auto-compact at about 967K tokens instead of about 934K\n- Changed cross-session peer messages to collapse by default to a one-line `Message from @<sender>: <first line>` preview; Ctrl+O expands the full body\n- Changed terminal hyperlinks in rendered markdown: link targets that point at a network or automounter path, contain a control character, or lead with an invisible character now render as plain text\n- Changed the prompt-footer PR badge to skip its GitHub re-check on terminal refocus when the last check is under a minute old\n- Changed analytics to stay off from startup, not only after login, when managed settings force gateway login or a custom OAuth deployment is configured\n- Changed Claude apps gateway sign-in requests to identify Claude Code (a `surface=claude_code` device-authorization parameter and a `claude-code/<version>` User-Agent)\n- Changed organization sign-in enforcement to exit at start when the administrator's managed settings cannot be read, even if host-supplied or per-user Windows registry settings exist\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "added": 4,
+        "improved": 10,
+        "fixed": 19
+      }
+    },
     {
       "version": "2.1.246",
       "published_at": "2026-08-25T22:31:52Z",
@@ -13010,7 +13195,7 @@
     },
     {
       "version": "2.1.128",
-      "published_at": "2026-05-04T23:01:47Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Bare `/color` (no args) now picks a random session color",
@@ -13200,11 +13385,10 @@
       ],
       "sources": [
         "changelog",
-        "github_releases",
         "whats_new"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.128",
-      "github_body": "## What's changed\n\n- Bare `/color` (no args) now picks a random session color\n- `/mcp` now shows the tool count for connected servers and flags servers that connected with 0 tools\n- `--plugin-dir` now accepts `.zip` plugin archives in addition to directories\n- `--channels` now works with console (API key) authentication — console orgs with managed settings must set `channelsEnabled: true` to enable\n- Updated `/model` picker: collapsed duplicate Opus 4.7 entries, and current Opus now shows as \"Opus\" instead of \"Opus 4.7\"\n- Subprocesses (Bash, hooks, MCP, LSP) no longer inherit `OTEL_*` environment variables, so OTEL-instrumented apps run via the Bash tool no longer pick up the CLI's own OTLP endpoint\n- MCP: `workspace` is now a reserved server name — existing servers with that name will be skipped with a warning\n- Reconnecting MCP servers no longer flood the conversation with full tool-name lists on every reconnect — re-announced tools are summarized by server prefix\n- SDK hosts now receive a persistent `localSettings` suggestion for Bash permission prompts, so \"Always allow\" writes to `.claude/settings.local.json`\n- `EnterWorktree` now creates the new branch from local HEAD as documented, instead of `origin/<default-branch>` — unpushed commits are no longer dropped\n- Auto mode: when the classifier can't evaluate an action, the error now includes a hint (retry, `/compact`, or run with `--debug`)\n- Fixed focus mode briefly dimming the previous response when submitting a new prompt\n- Fixed stray \"4;0;\" desktop notification on every `/exit` in Kitty and other terminals that interpret OSC 9 as a notification\n- Fixed Remote Control showing an empty \"Opening your options…\" message on rate limit instead of actionable upsell options\n- Fixed drag-and-drop image upload hanging on \"Pasting text…\" when the image read fails\n- Fixed crash loop when piping very large input (>10 MB) to `claude -p` via stdin\n- Fixed long URLs not being individually clickable on every wrapped row in fullscreen mode\n- Fixed `/plugin` Components panel showing \"Marketplace 'inline' not found\" for plugins loaded via `--plugin-dir`\n- Fixed MCP tool results dropping images when the server returns both structured content and content blocks\n- Fixed fenced code blocks inside list items carrying leading whitespace into the clipboard on copy-paste\n- Fixed tab navigation in `/config` stranding focus — the tab header now stays focused so arrows and Esc keep working\n- Fixed markdown link labels being lost on terminals without OSC 8 hyperlink support — links now render as `label (url)` instead of just the URL\n- Fixed sessions on 1M-context models with a smaller autocompact window being falsely blocked with \"Prompt is too long\" before reaching the actual API limit\n- Fixed parallel shell tool calls: a failing read-only command (grep, git diff, ls) no longer cancels sibling calls\n- Fixed banner showing \"with X effort\" on models that don't support effort\n- Fixed `/fast` on 3P providers fuzzy-matching to an unrelated skill instead of showing \"not available\"\n- Fixed Bedrock default model resolving to `global.*` instead of the region-appropriate prefix\n- Fixed vim mode: `Space` in NORMAL mode now moves the cursor right, matching standard vi/vim behavior\n- Fixed terminal progress indicator (OSC 9;4) flickering off between tool calls — stays visible across the full turn\n- Fixed `/rename` without args failing on resumed sessions whose last entry is a compact boundary\n- Fixed stale \"remote-control is active\" status lines from prior sessions appearing after `--resume`/`--continue`\n- Fixed stale `installed_plugins.json` entries pointing at deleted cache directories polluting PATH\n- Fixed MCP stdio servers receiving corrupted arguments when `CLAUDE_CODE_SHELL_PREFIX` is set and an argument contains spaces or shell metacharacters\n- Fixed sub-agent progress summaries missing the prompt cache (~3× `cache_creation` reduction)\n- Fixed `/plugin update` never detecting new versions of npm-sourced plugins\n- Fixed sub-agent summaries firing repeatedly while a sub-agent's transcript is static, capping worst-case token cost on idle sub-agents\n- Headless `--output-format stream-json`: `init.plugin_errors` now includes `--plugin-dir` load failures in addition to dependency demotions\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": "Week 19 · May 4–8, 2026 - Claude Code Docs Documentation Index Fetch the complete documentation index at: /docs/llms.txt Use this file to discover all available pages before exploring further. Skip to main content Claude Code Docs home page English Search... ⌘ K Ask Assistant Claude Developer Platform Claude Code on the Web Claude Code on the Web Search... Navigation What&#x27;s New Week 19 · May 4–8, 2026 Getting started Build with Claude Code Administration Configuration Reference Agent SDK What&#x27;s New Resources What&#x27;s New What&#x27;s new Week 34 · August 17–21 Week 33 · August 10–14 Week 32 · August 3–7 Week 30 · July 20–24 Week 29 · July 13–17 Week 28 · July 6–10 Week 27 · June 29 – July 3 Week 26 · June 22–26 Week 25 · June 15–19 Week 24 · June 8–12 Week 23 · June 1–5 Week 22 · May 25–29 Week 21 · May 18–22 Week 20 · May 11–15 Week 19 · May 4–8 Week 18 · Apr 27 – May 1 Week 17 · Apr 20–24 Week 16 · Apr 13–17 Week 15 · Apr 6–10 Week 14 · Mar 30 – Apr 3 Week 13 · Mar 23–27 What&#x27;s New Week 19 · May 4–8, 2026 Copy page Copy page Load plugins from .zip archives and URLs, search command history across every project with Ctrl+R, branch new worktrees from local HEAD or t",
       "digest_url": "https://code.claude.com/docs/en/whats-new/2026-w19",
       "is_prerelease": false,
