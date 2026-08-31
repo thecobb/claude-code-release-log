@@ -1,9 +1,47 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-31T13:01:30.720399+00:00",
+  "generated_at": "2026-08-31T22:37:06.704810+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 404,
+  "release_count": 405,
   "releases": [
+    {
+      "version": "2.1.252",
+      "published_at": "2026-08-31T19:46:55Z",
+      "bullets": [
+        {
+          "text": "Fixed Bash commands failing with \"task output swap refused (tasks dir moved or linked)\" on some Macs",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed \"always allow\" not saving in a project that has no .claude/settings.local.json yet",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Remote Control sessions hosted by Claude Desktop or VS Code stalling for minutes after a tool finished when the connection to claude.ai was degraded",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background task notifications with very large failure output (for example git errors on a full disk) making the conversation exceed the API request size limit",
+          "category": "fixed",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.252",
+      "github_body": "## What's changed\n\n- Fixed Bash commands failing with \"task output swap refused (tasks dir moved or linked)\" on some Macs\n- Fixed \"always allow\" not saving in a project that has no .claude/settings.local.json yet\n- Fixed Remote Control sessions hosted by Claude Desktop or VS Code stalling for minutes after a tool finished when the connection to claude.ai was degraded\n- Fixed background task notifications with very large failure output (for example git errors on a full disk) making the conversation exceed the API request size limit\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "fixed": 4
+      }
+    },
     {
       "version": "2.1.251",
       "published_at": "2026-08-28T18:19:32Z",
@@ -13394,7 +13432,7 @@
     },
     {
       "version": "2.1.133",
-      "published_at": "2026-05-07T23:49:04Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Added `worktree.baseRef` setting (`fresh` | `head`) to choose whether `--worktree`, `EnterWorktree`, and agent-isolation worktrees branch from `origin/<default>` or local `HEAD`. **Note:** the default `fresh` changes `EnterWorktree`'s base back to `origin/<default>` (it has been local `HEAD` since 2.1.128) — set `worktree.baseRef: \"head\"` to keep unpushed commits in new worktrees",
@@ -13484,11 +13522,10 @@
       ],
       "sources": [
         "changelog",
-        "github_releases",
         "whats_new"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.133",
-      "github_body": "## What's changed\n\n- Added `worktree.baseRef` setting (`fresh` | `head`) to choose whether `--worktree`, `EnterWorktree`, and agent-isolation worktrees branch from `origin/<default>` or local `HEAD`. **Note:** the default `fresh` changes `EnterWorktree`'s base back to `origin/<default>` (it has been local `HEAD` since 2.1.128) — set `worktree.baseRef: \"head\"` to keep unpushed commits in new worktrees\n- Added `sandbox.bwrapPath` and `sandbox.socatPath` managed settings (Linux/WSL) to specify custom bubblewrap and socat binary locations\n- Added `parentSettingsBehavior` admin-tier key (`'first-wins' | 'merge'`) to let admins opt SDK `managedSettings` (parent tier) into the policy merge\n- Hooks now receive the active effort level via the `effort.level` JSON input field and the `$CLAUDE_EFFORT` environment variable, and Bash tool commands can read `$CLAUDE_EFFORT`\n- Improved focus mode behavior\n- Improved memory usage by releasing warm-spare background workers under memory pressure\n- Fixed parallel sessions all dead-ending at 401 after a refresh-token race wiped shared credentials\n- Fixed `Edit`/`Write` allow rules scoped to a drive root (`C:\\`) or POSIX `/` matching incorrectly and always prompting\n- Fixed an unhandled rejection (`ECOMPROMISED`) when a history or session-log file lock is compromised by clock skew or slow disk\n- Fixed pressing Esc during conversation compaction showing a spurious \"Error compacting conversation\" notification\n- Fixed `HTTP(S)_PROXY` / `NO_PROXY` / mTLS not being respected for the full MCP OAuth flow including discovery, dynamic client registration, token exchange, and token refresh\n- Fixed Read/Write/Edit being denied on mapped network drives passed via `--add-dir` / SDK `additionalDirectories`\n- Fixed Remote Control stop/interrupt from claude.ai not fully canceling the CLI session the same way local Esc does, causing queued messages to never advance after interrupting a stuck tool or prompt\n- Fixed `/effort` in one session unexpectedly changing the effort level of other concurrent sessions, and a related issue where an IDE effort change could be silently dropped\n- Fixed subagents not discovering project, user, or plugin skills via the Skill tool\n- `claude --help` now lists `--remote-control` alongside `--remote-control-session-name-prefix`\n- [VSCode] Fixed `claudeCode.claudeProcessWrapper` failing with \"Unsupported platform\" when the extension build doesn't bundle a Claude binary\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": "Week 19 · May 4–8, 2026 - Claude Code Docs Documentation Index Fetch the complete documentation index at: /docs/llms.txt Use this file to discover all available pages before exploring further. Skip to main content Claude Code Docs home page English Search... ⌘ K Ask Assistant ⌘ I Claude Developer Platform Claude Code on the Web Claude Code on the Web Search... Navigation What&#x27;s New Week 19 · May 4–8, 2026 Getting started Build with Claude Code Administration Configuration Reference Agent SDK What&#x27;s New Resources What&#x27;s New What&#x27;s new Week 34 · August 17–21 Week 33 · August 10–14 Week 32 · August 3–7 Week 30 · July 20–24 Week 29 · July 13–17 Week 28 · July 6–10 Week 27 · June 29 – July 3 Week 26 · June 22–26 Week 25 · June 15–19 Week 24 · June 8–12 Week 23 · June 1–5 Week 22 · May 25–29 Week 21 · May 18–22 Week 20 · May 11–15 Week 19 · May 4–8 Week 18 · Apr 27 – May 1 Week 17 · Apr 20–24 Week 16 · Apr 13–17 Week 15 · Apr 6–10 Week 14 · Mar 30 – Apr 3 Week 13 · Mar 23–27 What&#x27;s New Week 19 · May 4–8, 2026 Copy page Copy page Load plugins from .zip archives and URLs, search command history across every project with Ctrl+R, branch new worktrees from local HEAD ",
       "digest_url": "https://code.claude.com/docs/en/whats-new/2026-w19",
       "is_prerelease": false,
