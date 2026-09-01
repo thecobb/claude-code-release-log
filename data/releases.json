@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-31T22:37:06.704810+00:00",
+  "generated_at": "2026-09-01T04:09:12.400876+00:00",
   "default_repo": "anthropics/claude-code",
   "release_count": 405,
   "releases": [
