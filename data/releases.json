@@ -1,9 +1,37 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-01T20:43:57.214549+00:00",
+  "generated_at": "2026-09-02T03:31:36.318907+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 406,
+  "release_count": 407,
   "releases": [
+    {
+      "version": "2.1.258",
+      "published_at": "2026-09-01T22:33:20Z",
+      "bullets": [
+        {
+          "text": "Fixed Claude Code failing to launch on macOS 12 (Monterey), a regression introduced in 2.1.255",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed remote and scheduled sessions failing with \"user messages must have non-empty content\" after a re-sent permission approval could not be applied",
+          "category": "fixed",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.258",
+      "github_body": "## What's changed\n\n- Fixed Claude Code failing to launch on macOS 12 (Monterey), a regression introduced in 2.1.255\n- Fixed remote and scheduled sessions failing with \"user messages must have non-empty content\" after a re-sent permission approval could not be applied\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "fixed": 2
+      }
+    },
     {
       "version": "2.1.257",
       "published_at": "2026-09-01T17:53:52Z",
@@ -13640,7 +13668,7 @@
     },
     {
       "version": "2.1.137",
-      "published_at": "2026-05-09T00:11:04Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "[VSCode] Fixed extension failing to activate on Windows",
@@ -13649,11 +13677,10 @@
         }
       ],
       "sources": [
-        "changelog",
-        "github_releases"
+        "changelog"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.137",
-      "github_body": "## What's changed\n\n- [VSCode] Fixed extension failing to activate on Windows\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": null,
       "digest_url": null,
       "is_prerelease": false,
