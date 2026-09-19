@@ -1,9 +1,38 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-18T20:35:10.845159+00:00",
+  "generated_at": "2026-09-19T03:44:11.252282+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 432,
+  "release_count": 433,
   "releases": [
+    {
+      "version": "2.1.278",
+      "published_at": "2026-09-19T03:10:40Z",
+      "bullets": [
+        {
+          "text": "Changed auto mode for Claude API and Enterprise users, and on Bedrock, Vertex, Foundry and gateways, to default to the server-side classifier, which does not charge for classifier overhead (`CLAUDE_CODE_AUTO_MODE_SERVER=0` opts out on Bedrock, Vertex, Foundry and gateways); warns on billed fallback. See https://code.claude.com/docs/en/auto-mode-classifier-billing",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Added an `Auto mode server` row to `/status` showing whether this session's auto mode classifier runs on the server",
+          "category": "added",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.278",
+      "github_body": "## What's changed\n\n- Changed auto mode for Claude API and Enterprise users, and on Bedrock, Vertex, Foundry and gateways, to default to the server-side classifier, which does not charge for classifier overhead (`CLAUDE_CODE_AUTO_MODE_SERVER=0` opts out on Bedrock, Vertex, Foundry and gateways); warns on billed fallback. See https://code.claude.com/docs/en/auto-mode-classifier-billing\n- Added an `Auto mode server` row to `/status` showing whether this session's auto mode classifier runs on the server\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "improved": 1,
+        "added": 1
+      }
+    },
     {
       "version": "2.1.277",
       "published_at": "2026-09-18T18:06:32Z",
@@ -16057,7 +16086,7 @@
     },
     {
       "version": "2.1.157",
-      "published_at": "2026-05-29T20:20:38Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Plugins in `.claude/skills` directories are now automatically loaded, no marketplace required",
@@ -16227,11 +16256,10 @@
       ],
       "sources": [
         "changelog",
-        "github_releases",
         "whats_new"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.157",
-      "github_body": "## What's changed\n\n- Plugins in `.claude/skills` directories are now automatically loaded, no marketplace required\n- Added `claude plugin init <name>` to scaffold a new plugin in `.claude/skills`\n- Added autocomplete for `/plugin` arguments: subcommands, installed plugin names, and plugins from known marketplaces\n- `claude agents`: the `agent` field in `settings.json` is now honored for dispatched sessions, with `--agent <name>` to override it\n- `EnterWorktree` can now switch between Claude-managed worktrees mid-session\n- `tool_decision` telemetry events now include `tool_parameters` (bash commands, MCP/skill names) when `OTEL_LOG_TOOL_DETAILS=1`\n- Worktrees managed by Claude are now left unlocked when the agent finishes, so `git worktree remove`/`prune` can clean them up\n- Fixed unprocessable images (zero-byte, corrupt) attached via paste, MCP, or dialog crashing the request instead of becoming a text placeholder\n- Fixed sandbox network permission prompts appearing in auto and bypass-permissions mode when using the desktop app, IDE extensions, or SDK\n- Fixed `claude agents` completed sessions not retiring when an idle subagent was still parked or had leaked a backgrounded shell\n- Fixed `claude agents` pressing Esc not cancelling a slow \"opening…\", leaving the list unresponsive\n- Fixed background agent worktrees under `.claude/worktrees/` being orphaned after the 30-day job retention sweep\n- Fixed background sessions re-attached after a sleep/wake not telling the model the correct date\n- Fixed copy-on-select in `claude agents` not reaching the system clipboard inside tmux with `set-clipboard on` (regression in 2.1.153)\n- Fixed `--resume` not reporting background subagents that were running when the previous Claude Code process exited\n- Fixed the `--resume` session picker leaving its contents on the terminal after exiting in fullscreen mode\n- Fixed `--worktree` and `--worktree --tmux` returning to the canonical repo root instead of the current linked worktree\n- Fixed the `/model` picker showing an incorrect \"Newer version available\" hint when the selected model is already the newest in its family; the pinned-model row now shows the model's description instead of its raw ID\n- Fixed literal markdown markers (backticks, asterisks) appearing in the in-progress message text in fullscreen mode\n- Fixed the terminal freezing after approving the managed-settings security dialog at startup\n- Fixed a rare duplicate line appearing in scrollback after the terminal UI redraws\n- Fixed right-click paste duplicating the clipboard in the VS Code, Cursor, and Windsurf integrated terminals\n- WSL: fixed image paste (`alt+v` keybinding), screenshot paste on Windows 11, and added support for dragging images from Windows Explorer\n- Improved performance of long and resumed conversations by eliminating redundant message-rendering recomputations\n- `/terminal-setup` now disables GPU acceleration in VS Code/Cursor/Windsurf integrated terminals to prevent garbled-text rendering\n- The Feature of the Week credit-claim status now appears as a notification in the status area instead of a line above the prompt\n- `claude agents`: slash-command autocomplete in the dispatch input now matches substrings\n- Removed the \"bash commands will be sandboxed\" startup banner — sandbox status still shows in `/status` and when a command is blocked\n- Removed the \"/ide for …\" startup hint toast\n- [IDE] Fixed clicking Stop while a background subagent is running not actually stopping it\n- [VSCode] Fixed the fast mode indicator not appearing on Opus 4.8\n- Pressing backspace right after a workflow trigger keyword now dismisses the workflow request (same as alt+w) instead of deleting a character\n- Added a \"Workflow keyword trigger\" setting in /config to stop the word \"workflow\" in a prompt from triggering a dynamic workflow\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": "Week 22 · May 25–29, 2026 - Claude Code Docs Documentation Index Fetch the complete documentation index at: /docs/llms.txt Use this file to discover all available pages before exploring further. Skip to main content Claude Code Docs home page English Search... ⌘ K Ask Assistant ⌘ I Claude Developer Platform Open Claude Code Open Claude Code Search... Navigation What&#x27;s New Week 22 · May 25–29, 2026 Getting started Build with Claude Code Administration Configuration Reference Agent SDK What&#x27;s New Resources What&#x27;s New What&#x27;s new Week 37 · September 7–11 Week 36 · Aug 31 – Sep 4 Week 35 · August 24–28 Week 34 · August 17–21 Week 33 · August 10–14 Week 32 · August 3–7 Week 30 · July 20–24 Week 29 · July 13–17 Week 28 · July 6–10 Week 27 · June 29 – July 3 Week 26 · June 22–26 Week 25 · June 15–19 Week 24 · June 8–12 Week 23 · June 1–5 Week 22 · May 25–29 Week 21 · May 18–22 Week 20 · May 11–15 Week 19 · May 4–8 Week 18 · Apr 27 – May 1 Week 17 · Apr 20–24 Week 16 · Apr 13–17 Week 15 · Apr 6–10 Week 14 · Mar 30 – Apr 3 Week 13 · Mar 23–27 What&#x27;s New Week 22 · May 25–29, 2026 Copy page Copy page Run Claude Code on Claude Opus 4.8, orchestrate large tasks with dyna",
       "digest_url": "https://code.claude.com/docs/en/whats-new/2026-w22",
       "is_prerelease": false,
