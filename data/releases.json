@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-21T03:57:50.595440+00:00",
+  "generated_at": "2026-09-21T12:17:51.293376+00:00",
   "default_repo": "anthropics/claude-code",
   "release_count": 433,
   "releases": [
@@ -872,11 +872,6 @@
           "scope": "VSCode"
         },
         {
-          "text": "[VSCode] Fixed some claude.ai/code sessions opening in VS Code as an empty conversation with no messages",
-          "category": "fixed",
-          "scope": "VSCode"
-        },
-        {
           "text": "[VSCode] Fixed slash commands typed while Claude is responding being sent to the model as text instead of running once the response finishes",
           "category": "fixed",
           "scope": "VSCode"
@@ -1008,7 +1003,7 @@
       "is_prerelease": false,
       "category_counts": {
         "added": 13,
-        "fixed": 61,
+        "fixed": 60,
         "improved": 21,
         "breaking": 1
       }
