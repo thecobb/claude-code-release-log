@@ -1,9 +1,476 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-02T12:05:10.233071+00:00",
+  "generated_at": "2026-10-02T21:56:32.031766+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 441,
+  "release_count": 442,
   "releases": [
+    {
+      "version": "2.1.288",
+      "published_at": "2026-10-02T20:19:57Z",
+      "bullets": [
+        {
+          "text": "Added `$.ui.selection()` for mods: returns the text you last selected in fullscreen mode and, when the selection lies within one transcript row, that row",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added a built-in `gh api` to cloud sessions whose image has no GitHub CLI, and fixed the built-in sending control characters from file names, jq filters or GitHub errors to the terminal",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added recovery for a prompt cleared with Ctrl+C: pressing Up on the empty prompt brings the draft back, including pasted text and images",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added a re-authenticate prompt when an MCP server asks for more OAuth scope during a tool call",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added `--max-findings <n>|all` to /code-review to report more or fewer findings than the usual limit; the choice is reused until you pass `--max-findings default`",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added Ctrl+F to find a session by name and Alt+↑/↓ to jump between groups in the agents view; both, and rename, can be rebound in keybindings.json",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added a screen reader mode announcement of the new permission mode when you approve a plan, including with Shift+Tab",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Fixed mid-response API timeouts failing the turn: non-interactive sessions and subagents now continue from the partial response, and thinking-only responses are retried",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed long conversations failing with \"Prompt is too long\" instead of auto-compacting when the last reply reported zero token usage",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `--resume` sometimes dropping files and other context that a compaction had just restored",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a resumed session sometimes not saving the last response of a turn, so that the next `--resume` showed the prompt unanswered",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed resume occasionally loading a transcript cut short when the same session rewrote the file during the load",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed resuming a conversation started on 2.1.286 or earlier dropping the model's earlier thinking",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed session titles, memory recall and prompt hooks failing on Mantle or behind gateways that reject structured outputs; added `CLAUDE_CODE_DISABLE_STRUCTURED_OUTPUTS` to turn structured outputs off",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed auto mode denials pointing Claude at a Bash permission rule when the blocked tool was not Bash",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed auto mode on Bedrock and Mantle switching to the local classifier for the rest of the session after a request to an older model, such as a WebFetch summary or a `sonnet` subagent",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed cloud sessions that restarted on a newly picked model replying with that model after the server refused it",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Cowork cloud sessions staying marked as waiting for input after a WebFetch permission prompt for an unapproved URL went unanswered for five minutes",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed prompt suggestions not appearing on a phone that joins a Cowork cloud session started on another device",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a mod's button sometimes running a different button's action when pressed on a view drawn before Claude Code restarted",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a plugin's pane showing nothing when one `Code` element held a diff that does not parse; it now draws as plain code",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed plugin LSP servers receiving literal `${user_config.*}` and `${CLAUDE_PLUGIN_ROOT}` placeholders in `initializationOptions` and `settings` instead of substituted values or manifest defaults",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a plugin's `tool.call` hook making Bash fail and file searches read the wrong folder in subagents that run in a worktree",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `git-subdir` plugin installs failing, or caching an incomplete plugin, on older git (before 2.39, e.g. Ubuntu 22.04's 2.34)",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed plugins loaded with `--plugin-dir` not showing \"Configure options\" in `/plugin`",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed background sessions ending when a plugin was reloaded or disabled while one of its timers or reads was still running",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed sandboxed heredocs with an unquoted delimiter (`python3 <<EOF`) asking for approval on every run under sandbox auto-allow when the body holds only plain text and simple `$VAR` references",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Bash tool permission check to prompt before a `BASHPID` assignment whose value the shell would evaluate as arithmetic, instead of allowing it silently",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed fullscreen sessions exiting with \"unrecoverable interface error\" when opening the background tasks dialog while a plugin or mod showed rows above the prompt",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Claude reporting a message to another session as delivered when that session held it: the notice now says it wasn't delivered and names the session, and in SDK sessions Claude can now learn of it mid-turn",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed OpenTelemetry `claude_code.tool.blocked_on_user` spans reporting `unknown` source or decision in `-p` and SDK sessions and for PreToolUse hook approvals",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed permission asks that ended unanswered, in `-p` or on an interrupted turn, emitting no `tool_decision` event",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Edit and Retry in Cowork cloud sessions refusing a message sent before `/compact` even though its history was still saved",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed unattended sessions (`CLAUDE_CODE_RETRY_WATCHDOG`) retrying for hours after a very long response stream failed; Claude Code now streams again, and gives up after three timeouts",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/login` reporting \"Login successful\" when credentials could not be saved to secure storage; it now shows the failure, and offers a retry when the new login didn't take effect (anthropics/claude-code#73861)",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a Stop during Bedrock credential lookup sometimes moving the session to a fallback model instead of ending the request",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a second `gcpAuthRefresh`/`awsAuthRefresh` browser sign-in opening when a laptop wakes from sleep while another Claude Code process is signing in",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed agent teams: a plugin-defined agent spawned by name now runs with its own prompt, tools, disallowedTools and effort instead of the defaults",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed headless (`-p` / SDK) sessions occasionally ignoring SIGTERM when a supervisor such as `timeout` or systemd sends SIGCONT alongside it",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed restarted cloud sessions restoring a model that the organization's enforced model list refuses",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed MCP tool calls sometimes running twice when a remote server's result was over 16 MB or could not be parsed",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed subagents in Claude Desktop's Code tab getting none of the tools of a user-configured MCP server named `memory`",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Claude in Chrome asking before every screenshot and page read on a site you allowed when auto mode is unavailable (such as with `disableAutoMode` or an older model); typing, navigation and JavaScript still ask",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `claude plugin install` failing for GitHub-source plugins on macOS and Linux machines with no GitHub SSH key: the clone now falls back to HTTPS and prints a notice",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `sandbox.credentials.files` entries on git config files not taking effect while `permissions.blockReadsOutsideWorkingDirectories` is on",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Claude leaving out your organization's design systems when starting slides or a design with the Artifact tool on Team and Enterprise plans or machines with managed settings",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the keyboard not working on Windows after Claude Code restarts itself (first sign-in to a Claude apps gateway, provider setup, `/tui`)",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a stall when launching an agent whose `tools:` lists very many `Agent(...)` entries",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed sessions on Claude 3 Opus and Claude 3 Sonnet failing on every turn after a whole PDF entered the conversation",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the npm auto-updater reporting success when the platform-native binary failed to download and only the placeholder `claude` stub was installed",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Remote Control cleanup archiving a session that is still connected or was just re-attached by another Claude Code process",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `owner/repo` plugin marketplaces showing only the second attempt's error when both the SSH and HTTPS fetch fail; both errors are now shown, with the transport tried first on top",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed path-scoped `.claude/rules` and nested CLAUDE.md files not loading when Write or Edit creates or changes a file in their scope (previously only Read loaded them)",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a dangerous `rm` (such as one on `/` or the home directory) inside a `bash -c` or `sh -c` script running without a prompt in bypassPermissions mode or under a shell allow rule (anthropics/claude-code#96300)",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed LSP tool calls hanging indefinitely when a language server uses dynamic capability registration or stops responding; requests now time out after 60s (per-server `requestTimeout`)",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `idle_prompt` notification hooks firing while background agents are still running (anthropics/claude-code#93672)",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed PreToolUse and PermissionRequest hooks being skipped when matching them failed or the tool's input could not be serialized to JSON; the call is now blocked",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the first request in a fresh environment or after a model switch using the built-in output limit and auto-compact window, not the server's; that request may now wait up to 1.5 seconds",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the \"What should Claude do instead?\" hint showing on the Interrupted row after sending queued messages with ctrl+enter",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/login` in a `--bare` session running a sign-in the session never reads, which could replace your saved login; it now says which credentials work",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the InstructionsLoaded hook omitting agent_id and agent_type when a subagent's file access loads a rule or nested CLAUDE.md; rules and nested CLAUDE.md files loaded on file access now also report effort",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the Agent tool in `claude mcp serve` always reporting no available agents and rejecting every subagent_type",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the terminal cursor not following the typed text in the fullscreen transcript viewer's search and in `/theme`'s custom color search",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/permissions` in screen reader mode: typing a rule's number now picks it instead of opening the search box",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Improved auto mode: when a conversation grows too long for the client-side safety classifier to review, it is now compacted instead of prompting for, or failing, every tool call",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved screen reader mode: short announcements, such as a deleted word, now stay on screen until your next key press or until something above them on screen changes",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved screen reader mode: answered questions in question dialogs now say \"answered\" beside their box",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved the `/usage-credits` message shown to Team and Enterprise members whose organization has turned off usage credit requests",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved cloud sessions: a new conversation's first turn no longer waits for a stdio MCP server whose config sets `alwaysLoad: false`",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved \"You should know\" notes to say \"we\", \"the main agent\" or \"you\" depending on who was responsible for a decision",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved the error for an artifact database write refused at the database's size limit: it now states the limit and what frees space",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved Bash permission prompts to give a shorter reason when part of a command can't be checked before it runs",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Self-hosted runner: Improved the built-in `gh api`: a refused gh command now prints its `gh api` equivalent, `--paginate` follows every page of a repository's lists, and a nested `claude` no longer removes it",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Improved Remote Control's recovery from an expired server credential: sessions stay connected during renewal and are kept if it gives up after a server outage",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed the background command time limit to apply only in unattended sessions (`-p`, Agent SDK, CI, cloud); terminal, desktop app and VS Code sessions have no limit",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed the client-side auto mode classifier to ignore an `ANTHROPIC_DEFAULT_SONNET_MODEL` pin that names Claude Sonnet 5.5 or Opus 5.5 and use Claude Sonnet 5 instead",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed `claude project purge` to `claude purge`; the old name still works and prints a notice",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed the agents view `n:` filter (and Ctrl+F search) so Enter opens the session whose name matches best instead of the top row",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed `/autocompact` to save the auto-compact window per model, so each model keeps its own setting when you switch",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed MCP URL prompts from servers that can't report when you're done to wait for \"I'm done, continue\" before the tool call continues, so you can finish in the browser first",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "[VSCode] Fixed a claude.ai connector staying on \"Needs authentication\" after you authorize it: the MCP servers dialog now offers Check connection",
+          "category": "fixed",
+          "scope": "VSCode"
+        },
+        {
+          "text": "[VSCode] Fixed the opt-in New Conversation shortcut (Cmd/Ctrl+N) starting a conversation in every visible Claude view instead of only the one you are in",
+          "category": "fixed",
+          "scope": "VSCode"
+        },
+        {
+          "text": "[VSCode] Fixed the chat view resuming the next saved session after you archive the one it shows; it now starts a new conversation instead",
+          "category": "fixed",
+          "scope": "VSCode"
+        },
+        {
+          "text": "[Cloud sessions] Fixed the Cloud sessions switch in Claude Code admin settings staying locked off while an unrelated security setting was loading or had failed to load",
+          "category": "security",
+          "scope": "Cloud sessions"
+        },
+        {
+          "text": "[Cloud sessions] Fixed pressing Stop while a self-hosted runner was still starting not cancelling the queued message, which could then run once the runner was up",
+          "category": "fixed",
+          "scope": "Cloud sessions"
+        },
+        {
+          "text": "[Claude Tag] Fixed Claude Tag admin settings offering a \"Remove this scope\" option, which always failed, on channels whose settings were created automatically",
+          "category": "fixed",
+          "scope": "Claude Tag"
+        },
+        {
+          "text": "[Claude Tag] Improved Claude to also follow a related Slack thread in another channel that it only read, so updates there reach the conversation that depends on them",
+          "category": "improved",
+          "scope": "Claude Tag"
+        },
+        {
+          "text": "[Claude Tag] Improved save errors on a channel's Configure page: too-long channel instructions now say to shorten them, and a save refused for lost access no longer says to try again",
+          "category": "improved",
+          "scope": "Claude Tag"
+        },
+        {
+          "text": "Fixed `claude plugin test` reporting mods as turned off remotely when it had only read an out-of-date saved setting",
+          "category": "fixed",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.288",
+      "github_body": "## What's changed\n\n- Added `$.ui.selection()` for mods: returns the text you last selected in fullscreen mode and, when the selection lies within one transcript row, that row\n- Added a built-in `gh api` to cloud sessions whose image has no GitHub CLI, and fixed the built-in sending control characters from file names, jq filters or GitHub errors to the terminal\n- Added recovery for a prompt cleared with Ctrl+C: pressing Up on the empty prompt brings the draft back, including pasted text and images\n- Added a re-authenticate prompt when an MCP server asks for more OAuth scope during a tool call\n- Added `--max-findings <n>|all` to /code-review to report more or fewer findings than the usual limit; the choice is reused until you pass `--max-findings default`\n- Added Ctrl+F to find a session by name and Alt+↑/↓ to jump between groups in the agents view; both, and rename, can be rebound in keybindings.json\n- Added a screen reader mode announcement of the new permission mode when you approve a plan, including with Shift+Tab\n- Fixed mid-response API timeouts failing the turn: non-interactive sessions and subagents now continue from the partial response, and thinking-only responses are retried\n- Fixed long conversations failing with \"Prompt is too long\" instead of auto-compacting when the last reply reported zero token usage\n- Fixed `--resume` sometimes dropping files and other context that a compaction had just restored\n- Fixed a resumed session sometimes not saving the last response of a turn, so that the next `--resume` showed the prompt unanswered\n- Fixed resume occasionally loading a transcript cut short when the same session rewrote the file during the load\n- Fixed resuming a conversation started on 2.1.286 or earlier dropping the model's earlier thinking\n- Fixed session titles, memory recall and prompt hooks failing on Mantle or behind gateways that reject structured outputs; added `CLAUDE_CODE_DISABLE_STRUCTURED_OUTPUTS` to turn structured outputs off\n- Fixed auto mode denials pointing Claude at a Bash permission rule when the blocked tool was not Bash\n- Fixed auto mode on Bedrock and Mantle switching to the local classifier for the rest of the session after a request to an older model, such as a WebFetch summary or a `sonnet` subagent\n- Fixed cloud sessions that restarted on a newly picked model replying with that model after the server refused it\n- Fixed Cowork cloud sessions staying marked as waiting for input after a WebFetch permission prompt for an unapproved URL went unanswered for five minutes\n- Fixed prompt suggestions not appearing on a phone that joins a Cowork cloud session started on another device\n- Fixed a mod's button sometimes running a different button's action when pressed on a view drawn before Claude Code restarted\n- Fixed a plugin's pane showing nothing when one `Code` element held a diff that does not parse; it now draws as plain code\n- Fixed plugin LSP servers receiving literal `${user_config.*}` and `${CLAUDE_PLUGIN_ROOT}` placeholders in `initializationOptions` and `settings` instead of substituted values or manifest defaults\n- Fixed a plugin's `tool.call` hook making Bash fail and file searches read the wrong folder in subagents that run in a worktree\n- Fixed `git-subdir` plugin installs failing, or caching an incomplete plugin, on older git (before 2.39, e.g. Ubuntu 22.04's 2.34)\n- Fixed plugins loaded with `--plugin-dir` not showing \"Configure options\" in `/plugin`\n- Fixed background sessions ending when a plugin was reloaded or disabled while one of its timers or reads was still running\n- Fixed sandboxed heredocs with an unquoted delimiter (`python3 <<EOF`) asking for approval on every run under sandbox auto-allow when the body holds only plain text and simple `$VAR` references\n- Fixed Bash tool permission check to prompt before a `BASHPID` assignment whose value the shell would evaluate as arithmetic, instead of allowing it silently\n- Fixed fullscreen sessions exiting with \"unrecoverable interface error\" when opening the background tasks dialog while a plugin or mod showed rows above the prompt\n- Fixed Claude reporting a message to another session as delivered when that session held it: the notice now says it wasn't delivered and names the session, and in SDK sessions Claude can now learn of it mid-turn\n- Fixed OpenTelemetry `claude_code.tool.blocked_on_user` spans reporting `unknown` source or decision in `-p` and SDK sessions and for PreToolUse hook approvals\n- Fixed permission asks that ended unanswered, in `-p` or on an interrupted turn, emitting no `tool_decision` event\n- Fixed Edit and Retry in Cowork cloud sessions refusing a message sent before `/compact` even though its history was still saved\n- Fixed unattended sessions (`CLAUDE_CODE_RETRY_WATCHDOG`) retrying for hours after a very long response stream failed; Claude Code now streams again, and gives up after three timeouts\n- Fixed `/login` reporting \"Login successful\" when credentials could not be saved to secure storage; it now shows the failure, and offers a retry when the new login didn't take effect (anthropics/claude-code#73861)\n- Fixed a Stop during Bedrock credential lookup sometimes moving the session to a fallback model instead of ending the request\n- Fixed a second `gcpAuthRefresh`/`awsAuthRefresh` browser sign-in opening when a laptop wakes from sleep while another Claude Code process is signing in\n- Fixed agent teams: a plugin-defined agent spawned by name now runs with its own prompt, tools, disallowedTools and effort instead of the defaults\n- Fixed headless (`-p` / SDK) sessions occasionally ignoring SIGTERM when a supervisor such as `timeout` or systemd sends SIGCONT alongside it\n- Fixed restarted cloud sessions restoring a model that the organization's enforced model list refuses\n- Fixed MCP tool calls sometimes running twice when a remote server's result was over 16 MB or could not be parsed\n- Fixed subagents in Claude Desktop's Code tab getting none of the tools of a user-configured MCP server named `memory`\n- Fixed Claude in Chrome asking before every screenshot and page read on a site you allowed when auto mode is unavailable (such as with `disableAutoMode` or an older model); typing, navigation and JavaScript still ask\n- Fixed `claude plugin install` failing for GitHub-source plugins on macOS and Linux machines with no GitHub SSH key: the clone now falls back to HTTPS and prints a notice\n- Fixed `sandbox.credentials.files` entries on git config files not taking effect while `permissions.blockReadsOutsideWorkingDirectories` is on\n- Fixed Claude leaving out your organization's design systems when starting slides or a design with the Artifact tool on Team and Enterprise plans or machines with managed settings\n- Fixed the keyboard not working on Windows after Claude Code restarts itself (first sign-in to a Claude apps gateway, provider setup, `/tui`)\n- Fixed a stall when launching an agent whose `tools:` lists very many `Agent(...)` entries\n- Fixed sessions on Claude 3 Opus and Claude 3 Sonnet failing on every turn after a whole PDF entered the conversation\n- Fixed the npm auto-updater reporting success when the platform-native binary failed to download and only the placeholder `claude` stub was installed\n- Fixed Remote Control cleanup archiving a session that is still connected or was just re-attached by another Claude Code process\n- Fixed `owner/repo` plugin marketplaces showing only the second attempt's error when both the SSH and HTTPS fetch fail; both errors are now shown, with the transport tried first on top\n- Fixed path-scoped `.claude/rules` and nested CLAUDE.md files not loading when Write or Edit creates or changes a file in their scope (previously only Read loaded them)\n- Fixed a dangerous `rm` (such as one on `/` or the home directory) inside a `bash -c` or `sh -c` script running without a prompt in bypassPermissions mode or under a shell allow rule (anthropics/claude-code#96300)\n- Fixed LSP tool calls hanging indefinitely when a language server uses dynamic capability registration or stops responding; requests now time out after 60s (per-server `requestTimeout`)\n- Fixed `idle_prompt` notification hooks firing while background agents are still running (anthropics/claude-code#93672)\n- Fixed PreToolUse and PermissionRequest hooks being skipped when matching them failed or the tool's input could not be serialized to JSON; the call is now blocked\n- Fixed the first request in a fresh environment or after a model switch using the built-in output limit and auto-compact window, not the server's; that request may now wait up to 1.5 seconds\n- Fixed the \"What should Claude do instead?\" hint showing on the Interrupted row after sending queued messages with ctrl+enter\n- Fixed `/login` in a `--bare` session running a sign-in the session never reads, which could replace your saved login; it now says which credentials work\n- Fixed the InstructionsLoaded hook omitting agent_id and agent_type when a subagent's file access loads a rule or nested CLAUDE.md; rules and nested CLAUDE.md files loaded on file access now also report effort\n- Fixed the Agent tool in `claude mcp serve` always reporting no available agents and rejecting every subagent_type\n- Fixed the terminal cursor not following the typed text in the fullscreen transcript viewer's search and in `/theme`'s custom color search\n- Fixed `/permissions` in screen reader mode: typing a rule's number now picks it instead of opening the search box\n- Improved auto mode: when a conversation grows too long for the client-side safety classifier to review, it is now compacted instead of prompting for, or failing, every tool call\n- Improved screen reader mode: short announcements, such as a deleted word, now stay on screen until your next key press or until something above them on screen changes\n- Improved screen reader mode: answered questions in question dialogs now say \"answered\" beside their box\n- Improved the `/usage-credits` message shown to Team and Enterprise members whose organization has turned off usage credit requests\n- Improved cloud sessions: a new conversation's first turn no longer waits for a stdio MCP server whose config sets `alwaysLoad: false`\n- Improved \"You should know\" notes to say \"we\", \"the main agent\" or \"you\" depending on who was responsible for a decision\n- Improved the error for an artifact database write refused at the database's size limit: it now states the limit and what frees space\n- Improved Bash permission prompts to give a shorter reason when part of a command can't be checked before it runs\n- Self-hosted runner: Improved the built-in `gh api`: a refused gh command now prints its `gh api` equivalent, `--paginate` follows every page of a repository's lists, and a nested `claude` no longer removes it\n- Improved Remote Control's recovery from an expired server credential: sessions stay connected during renewal and are kept if it gives up after a server outage\n- Changed the background command time limit to apply only in unattended sessions (`-p`, Agent SDK, CI, cloud); terminal, desktop app and VS Code sessions have no limit\n- Changed the client-side auto mode classifier to ignore an `ANTHROPIC_DEFAULT_SONNET_MODEL` pin that names Claude Sonnet 5.5 or Opus 5.5 and use Claude Sonnet 5 instead\n- Changed `claude project purge` to `claude purge`; the old name still works and prints a notice\n- Changed the agents view `n:` filter (and Ctrl+F search) so Enter opens the session whose name matches best instead of the top row\n- Changed `/autocompact` to save the auto-compact window per model, so each model keeps its own setting when you switch\n- Changed MCP URL prompts from servers that can't report when you're done to wait for \"I'm done, continue\" before the tool call continues, so you can finish in the browser first\n- [VSCode] Fixed a claude.ai connector staying on \"Needs authentication\" after you authorize it: the MCP servers dialog now offers Check connection\n- [VSCode] Fixed the opt-in New Conversation shortcut (Cmd/Ctrl+N) starting a conversation in every visible Claude view instead of only the one you are in\n- [VSCode] Fixed the chat view resuming the next saved session after you archive the one it shows; it now starts a new conversation instead\n- [Cloud sessions] Fixed the Cloud sessions switch in Claude Code admin settings staying locked off while an unrelated security setting was loading or had failed to load\n- [Cloud sessions] Fixed pressing Stop while a self-hosted runner was still starting not cancelling the queued message, which could then run once the runner was up\n- [Claude Tag] Fixed Claude Tag admin settings offering a \"Remove this scope\" option, which always failed, on channels whose settings were created automatically\n- [Claude Tag] Improved Claude to also follow a related Slack thread in another channel that it only read, so updates there reach the conversation that depends on them\n- [Claude Tag] Improved save errors on a channel's Configure page: too-long channel instructions now say to shorten them, and a save refused for lost access no longer says to try again\n- Fixed `claude plugin test` reporting mods as turned off remotely when it had only read an out-of-date saved setting\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "added": 7,
+        "fixed": 63,
+        "improved": 17,
+        "other": 1,
+        "security": 1
+      }
+    },
     {
       "version": "2.1.287",
       "published_at": "2026-10-01T18:00:22Z",
@@ -19937,7 +20404,7 @@
     },
     {
       "version": "2.1.167",
-      "published_at": "2026-06-06T01:33:35Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Bug fixes and reliability improvements",
@@ -19947,11 +20414,10 @@
       ],
       "sources": [
         "changelog",
-        "github_releases",
         "whats_new"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.167",
-      "github_body": "## What's changed\n\n- Bug fixes and reliability improvements\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": "Week 24 · June 8–12, 2026 - Claude Code Docs Documentation Index Fetch the complete documentation index at: /docs/llms.txt Use this file to discover all available pages before exploring further. Skip to main content Claude Code Docs home page English Search... ⌘ K Ask Assistant ⌘ I Claude Developer Platform Open Claude Code Open Claude Code Search... Navigation What&#x27;s New Week 24 · June 8–12, 2026 Getting started Build with Claude Code Plugins Administration Configuration Reference Agent SDK What&#x27;s New Resources What&#x27;s New What&#x27;s new Week 37 · September 7–11 Week 36 · Aug 31 – Sep 4 Week 35 · August 24–28 Week 34 · August 17–21 Week 33 · August 10–14 Week 32 · August 3–7 Week 30 · July 20–24 Week 29 · July 13–17 Week 28 · July 6–10 Week 27 · June 29 – July 3 Week 26 · June 22–26 Week 25 · June 15–19 Week 24 · June 8–12 Week 23 · June 1–5 Week 22 · May 25–29 Week 21 · May 18–22 Week 20 · May 11–15 Week 19 · May 4–8 Week 18 · Apr 27 – May 1 Week 17 · Apr 20–24 Week 16 · Apr 13–17 Week 15 · Apr 6–10 Week 14 · Mar 30 – Apr 3 Week 13 · Mar 23–27 What&#x27;s New Week 24 · June 8–12, 2026 Copy page Copy page Move a session to a new directory with /cd, let subagents spa",
       "digest_url": "https://code.claude.com/docs/en/whats-new/2026-w24",
       "is_prerelease": false,
