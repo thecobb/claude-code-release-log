@@ -1,9 +1,165 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-03T20:44:21.507184+00:00",
+  "generated_at": "2026-10-04T04:53:52.571534+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 442,
+  "release_count": 443,
   "releases": [
+    {
+      "version": "2.1.289",
+      "published_at": "2026-10-03T23:07:17Z",
+      "bullets": [
+        {
+          "text": "Fixed a deny or ask rule on a nested part of a compound shell command not holding over a user-installed mod's approval on managed machines",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the terminal freezing on short code blocks with many unclosed `<script>` tags or deeply nested `${` substitutions",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `Read` deny rules not applying to files @-mentioned, changed, or selected in the IDE through a symlink",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "[VSCode] Reverted a 2.1.288 change to `claude auth status` that may have made sign-outs more frequent",
+          "category": "other",
+          "scope": "VSCode"
+        },
+        {
+          "text": "Improved how quickly large files open in a plugin code pane by laying the highlighted view out once at its final width",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Fixed `plugin list`, `plugin eval` and `plugin update` showing a stale copy of a plugin installed from a local folder marketplace, and hot reload for a symlinked `--plugin-dir`",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed installed mods not loading in the first session after an upgrade",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a plugin's rows above the prompt showing a stale row while the Background tasks dialog was open in fullscreen",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed plugin panes drawing nothing when a link used a localhost address, an `@` in its path, an uppercase host or a `file:` path",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a user-installed plugin being able to rewrite the descriptions of an organization-managed MCP server's sign-in tools",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a freeze or forced quit at launch when a plugin drew a Box with a border style the terminal does not know",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed supervised and background sessions ending when a plugin's on-screen handler threw asynchronously",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed sessions ending with an interface error when a plugin region with no height kept growing",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Bash deny and ask rules missing a command behind an environment variable prefix with an expanded value (e.g. `TZ=\"$HOME\" rm -rf build`) when the sandbox auto-allows commands",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a Bash deny or ask rule being skipped under sandbox auto-allow when a bare variable assignment came before the command",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `claude plugin validate` skipping the plugin when the folder also holds a marketplace manifest",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Added `agent.spawn` for teammates, one agent id across plugin hook events, and idle and waiting states in `$.agent.list()`",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Fixed sessions ending with \"unrecoverable interface error\" when a value a mod's `ui.render` hook wrote made a row throw while drawn; the engine now draws its own row instead",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed text with a tab, a stray escape and a C1 control, or a short text with a tab and CRLF line endings, drawing over the rows below it",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed right-aligned content in a mod's pane or band drawing under the close mark or `[-]`, which now also keep one column in from the terminal's edge",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a mod's `Client` that fails while drawn taking down everything the mod drew around it; it now fails alone and raises `ui.fault`",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `claude plugin validate` failing an Anthropic marketplace's own plugin and listing a clean `plugin.json` in `--json`",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a mod's band that fails to draw briefly telling the cards under it to step aside",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a failed plugin component showing `Error` or nothing as its reason when the failure carried no message",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Improved the line a mod's author sees when its band or pane fails to draw: it names the mod and says nothing was drawn",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Fixed published artifact pages freezing or crashing the reader's browser tab on short code blocks with many unclosed `<script>` tags",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a mod's Client region staying failed for the whole session after the terminal threw while drawing it",
+          "category": "fixed",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.289",
+      "github_body": "## What's changed\n\n- Fixed a deny or ask rule on a nested part of a compound shell command not holding over a user-installed mod's approval on managed machines\n- Fixed the terminal freezing on short code blocks with many unclosed `<script>` tags or deeply nested `${` substitutions\n- Fixed `Read` deny rules not applying to files @-mentioned, changed, or selected in the IDE through a symlink\n- [VSCode] Reverted a 2.1.288 change to `claude auth status` that may have made sign-outs more frequent\n- Improved how quickly large files open in a plugin code pane by laying the highlighted view out once at its final width\n- Fixed `plugin list`, `plugin eval` and `plugin update` showing a stale copy of a plugin installed from a local folder marketplace, and hot reload for a symlinked `--plugin-dir`\n- Fixed installed mods not loading in the first session after an upgrade\n- Fixed a plugin's rows above the prompt showing a stale row while the Background tasks dialog was open in fullscreen\n- Fixed plugin panes drawing nothing when a link used a localhost address, an `@` in its path, an uppercase host or a `file:` path\n- Fixed a user-installed plugin being able to rewrite the descriptions of an organization-managed MCP server's sign-in tools\n- Fixed a freeze or forced quit at launch when a plugin drew a Box with a border style the terminal does not know\n- Fixed supervised and background sessions ending when a plugin's on-screen handler threw asynchronously\n- Fixed sessions ending with an interface error when a plugin region with no height kept growing\n- Fixed Bash deny and ask rules missing a command behind an environment variable prefix with an expanded value (e.g. `TZ=\"$HOME\" rm -rf build`) when the sandbox auto-allows commands\n- Fixed a Bash deny or ask rule being skipped under sandbox auto-allow when a bare variable assignment came before the command\n- Fixed `claude plugin validate` skipping the plugin when the folder also holds a marketplace manifest\n- Added `agent.spawn` for teammates, one agent id across plugin hook events, and idle and waiting states in `$.agent.list()`\n- Fixed sessions ending with \"unrecoverable interface error\" when a value a mod's `ui.render` hook wrote made a row throw while drawn; the engine now draws its own row instead\n- Fixed text with a tab, a stray escape and a C1 control, or a short text with a tab and CRLF line endings, drawing over the rows below it\n- Fixed right-aligned content in a mod's pane or band drawing under the close mark or `[-]`, which now also keep one column in from the terminal's edge\n- Fixed a mod's `Client` that fails while drawn taking down everything the mod drew around it; it now fails alone and raises `ui.fault`\n- Fixed `claude plugin validate` failing an Anthropic marketplace's own plugin and listing a clean `plugin.json` in `--json`\n- Fixed a mod's band that fails to draw briefly telling the cards under it to step aside\n- Fixed a failed plugin component showing `Error` or nothing as its reason when the failure carried no message\n- Improved the line a mod's author sees when its band or pane fails to draw: it names the mod and says nothing was drawn\n- Fixed published artifact pages freezing or crashing the reader's browser tab on short code blocks with many unclosed `<script>` tags\n- Fixed a mod's Client region staying failed for the whole session after the terminal threw while drawing it\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "fixed": 23,
+        "other": 1,
+        "improved": 2,
+        "added": 1
+      }
+    },
     {
       "version": "2.1.288",
       "published_at": "2026-10-02T20:19:57Z",
@@ -20380,7 +20536,7 @@
     },
     {
       "version": "2.1.168",
-      "published_at": "2026-06-06T23:41:53Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Bug fixes and reliability improvements",
@@ -20390,11 +20546,10 @@
       ],
       "sources": [
         "changelog",
-        "github_releases",
         "whats_new"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.168",
-      "github_body": "## What's changed\n\n- Bug fixes and reliability improvements\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": "Week 24 · June 8–12, 2026 - Claude Code Docs Documentation Index Fetch the complete documentation index at: /docs/llms.txt Use this file to discover all available pages before exploring further. Skip to main content Claude Code Docs home page English Search... ⌘ K Ask Assistant ⌘ I Claude Developer Platform Open Claude Code Open Claude Code Search... Navigation What&#x27;s New Week 24 · June 8–12, 2026 Getting started Build with Claude Code Plugins Administration Configuration Reference Agent SDK What&#x27;s New Resources What&#x27;s New What&#x27;s new Week 37 · September 7–11 Week 36 · Aug 31 – Sep 4 Week 35 · August 24–28 Week 34 · August 17–21 Week 33 · August 10–14 Week 32 · August 3–7 Week 30 · July 20–24 Week 29 · July 13–17 Week 28 · July 6–10 Week 27 · June 29 – July 3 Week 26 · June 22–26 Week 25 · June 15–19 Week 24 · June 8–12 Week 23 · June 1–5 Week 22 · May 25–29 Week 21 · May 18–22 Week 20 · May 11–15 Week 19 · May 4–8 Week 18 · Apr 27 – May 1 Week 17 · Apr 20–24 Week 16 · Apr 13–17 Week 15 · Apr 6–10 Week 14 · Mar 30 – Apr 3 Week 13 · Mar 23–27 What&#x27;s New Week 24 · June 8–12, 2026 Copy page Copy page Move a session to a new directory with /cd, let subagents spa",
       "digest_url": "https://code.claude.com/docs/en/whats-new/2026-w24",
       "is_prerelease": false,
