@@ -1,9 +1,425 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-09T12:47:35.897095+00:00",
+  "generated_at": "2026-10-09T22:24:19.065837+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 449,
+  "release_count": 450,
   "releases": [
+    {
+      "version": "2.1.296",
+      "published_at": "2026-10-09T19:28:59Z",
+      "bullets": [
+        {
+          "text": "Added a `code` key to the Claude apps gateway's `managed.policies[]`: the same settings as `cli`, also applied in Claude Desktop's Code tab; beside `desktop`, it turns on Claude Desktop's gateway mode",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added `autoCompactWindow` to subagent frontmatter and `--agents` definitions, so a subagent can auto-compact earlier than the main conversation's window",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added `CLAUDE_CODE_WORKFLOW_SUBAGENT_MODEL` to run every workflow agent on one model while other subagents keep theirs",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added `CLAUDE_CODE_OVERLOADED_RETRY_MAX_DELAY_MS` environment variable to set a longer maximum delay for the backoff when retrying an overloaded (529) request",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added a note in `/plugin` on a plugin whose hooks are left out because another enabled plugin has the same name",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added an `allow_large` option to the Read tool so Claude can read a text file past the usual size limits in one call when it needs the whole file and the context has room",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Fixed managed-settings `PreToolUse` hooks that deny a tool call with `\"continue\": false`, and managed `prompt` hooks that block one, refusing the call but not ending the turn",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed PostToolUse hooks in managed settings not applying `updatedMCPToolOutput` in some sessions",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed headless sessions starting a folder's `.mcp.json` or plugin MCP server that was switched off for that folder, after changing directory or reloading plugins",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a Claude apps gateway that serves `allowedProviders` with `\"gateway\"` locking out laptops that name that gateway in user settings",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a saved Claude apps gateway sign-in being ignored on machines whose managed settings set `forceLoginMethod` to `gateway` with no `forceLoginGatewayUrl` (regression in 2.1.295)",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `--teleport` opening an empty conversation when the session's history could not be read",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed token counts for Haiku 5.5 and other models that take only adaptive thinking, which failed behind some gateways and were counted with budget thinking elsewhere",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed resumed subagents being told that the user rejected a tool call that a session shutdown had interrupted",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed hook output being altered when it contained text resembling a plugin hint tag",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed secret redaction in shared transcripts and debug logs missing some values that follow a key with no value, including in JSON written inside a shell string",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a stray `52;c;…` escape sequence printed on screen after copying in older VTE-based terminals such as MATE Terminal",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed toasts and notifications waiting unseen for as long as the `/diff` panel or dialog was open",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Esc or an interrupt during a `UserPromptSubmit` hook or a mod's `prompt.submit` hook ending headless sessions, clearing the typed prompt, or letting the unchecked prompt through",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed SessionStart hooks of a plugin loaded after a headless session starts being skipped when a different plugin with the same name, or another spelling of it, had already run",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `claude self-hosted-runner` printing misleading errors when registration is refused: it now names the org admin setting, or says a restarted on-demand runner needs a fresh work order",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a self-hosted runner session's git fetch, pull and push failing while another session of the same repository starts on a runner with `--capacity` above 1",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed workflow scripts silently truncating results, agent options and other values nested deeper than about 20,000 levels, and deeply nested results writing huge task output files",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a plugin's served `$` methods running in the main session's working directory instead of the calling agent's, and ignoring the turn their calling hook holds",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `$.agent.register` succeeding from a mod's hook that was still running after the mod was reloaded or removed; the call is now refused",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `$.http.fetch` in mods refusing a `HEAD` request when the response declares a `Content-Length` over the 4 MiB body limit",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `claude plugin marketplace add`, `marketplace update` and `plugin install` failing with an internal error for a marketplace named like `constructor`; `add` now refuses such names clearly",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a plugin secret named `constructor` or `prototype` being deleted by the next save of that plugin's options",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed cloud sessions skipping auto mode's checks on Claude in Chrome actions that a saved permission allows when their feature flags had not loaded",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `CLAUDE_CODE_RESUME_INTERRUPTED_TURN` re-running a finished turn after a restart when an MCP tool result had ended that turn",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Bash permission checks auto-approving some commands that assign the `BASH_ARGV0` shell variable and then use it; these now prompt for approval",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Edit and NotebookEdit replacing every non-ASCII character in files that are not valid UTF-8 (Windows-1252, Shift-JIS, GBK); such edits are now refused",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a prompt sent just after `←` being run twice, once unseen in the foreground, when the background service was slow to answer",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a prompt sent while SessionStart hooks were still running vanishing when `←` moved the session to the background; it is still not sent, but `↑` now brings it back",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a late-loading plugin's SessionStart hook output reaching the new conversation after `/clear` in headless sessions",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed PowerShell commands not seeing variables that hooks write to CLAUDE_ENV_FILE (when the file holds only plain assignments)",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Claude calling cloud sessions non-interactive and suggesting `/mcp` or `claude mcp` when an MCP server needs authentication",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/code-review` ending on a raw JSON array in cloud sessions, the Agent SDK and IDE integrations; the findings now print as a numbered list",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed auto mode occasionally refusing one update to your own artifact, saying its sharing had changed when it had not",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed skills synced from claude.ai never finishing their install, and being downloaded again at every sync, when several sessions share a config directory",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a plugin synced from claude.ai being disabled when the marketplace dependency it declares was also synced from claude.ai",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a startup hang on macOS when plugin paths copied from a Linux machine pointed under /home",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the Workflow tool refusing script files with CRLF line endings, such as files checked out on Windows",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed OpenTelemetry `tool_result` events missing `git_commit_id` after `git commit -q` or `git -C <dir> commit`",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `CLAUDE_CODE_TRANSCRIPT_LOCAL_GC` dropping a message from the saved transcript when its text held a Unicode line or paragraph separator (U+2028, U+2029)",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `claude purge` leaving a prompt in the history file when its text held a Unicode line or paragraph separator (U+2028, U+2029)",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Windows: Fixed PowerShell commands longer than about 1 KB always asking for permission, so allow rules and read-only detection now apply up to 32 KB",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Windows: Fixed stdio MCP servers being force-killed at shutdown; stdin now closes first and the process tree is killed only if the server is still running after 300 ms",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Windows: Fixed `claude plugin install` failing for GitHub `owner/repo` plugin sources on machines with no GitHub SSH key; the clone is now retried over HTTPS",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Windows: Fixed `rm -rf /c/Users/<name>` in Git Bash not asking in bypass permissions mode",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Improved fullscreen mode: the link under the mouse pointer is now underlined to show it can be opened",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved transcript toggle (ctrl+o) responsiveness in code-heavy conversations by caching syntax-highlighted code blocks",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved Claude Desktop's Code tab behind a Claude apps gateway: when a session can't start, including on a machine not set up for the gateway's `code` settings, the reason shows as a reply",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved the errors for a refused cloud session: they now say why your organization's policy couldn't be loaded, and name an API key or auth token that overrides your claude.ai login",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved `--debug` output to name unrecognized frontmatter fields in custom agent files, with a hint for likely typos",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved auto mode: a tool call that wasn't run because auto mode's check had no usable answer now shows as a dim \"Not run\" row instead of a red error",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved `--debug` output for hooks: command hooks on tool calls, prompts, SessionStart and Stop now log their command, plugin, outcome and duration when they finish, so a slow hook is identifiable",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved `CLAUDE_CODE_TRANSCRIPT_LOCAL_GC`: a large transcript file is no longer rewritten when that would free under 10% of it",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Updated `/cost`, the status line, `--max-budget-usd` and the SDK's cost figures to price Sonnet 5.5 cache reads at $0.10 per million tokens (was $0.20)",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Updated the bundled dataviz skill: lighter violet for the seventh series in light mode, softer primary text in dark mode, and compact y-axis labels like 1K",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed the default limit on MCP tool descriptions sent up front and on MCP server instructions from 2,048 to 4,096 characters",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed `←`: a turn or `!` command started while the session moves to the background is now stopped instead of finishing out of sight",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "[VSCode] Fixed `claudeCode.spinnerVerbs` missing from the extension's settings, so settings.json now completes and validates it; a malformed value no longer breaks the chat panel",
+          "category": "fixed",
+          "scope": "VSCode"
+        },
+        {
+          "text": "[VSCode] Changed Claude in Chrome to ask before browser actions in every session, including one connected with `@browser`, as the terminal does; allowing a site for the session stops repeat asks",
+          "category": "improved",
+          "scope": "VSCode"
+        },
+        {
+          "text": "[VSCode] Fixed chat links written as a full Windows path, such as C:\\repo\\file.ts or file:///C:/repo/file.ts, not opening the file on Windows",
+          "category": "fixed",
+          "scope": "VSCode"
+        },
+        {
+          "text": "[VSCode] Fixed the working indicator still animating when reduced motion is turned on in your OS, in VS Code, or with the `prefersReducedMotion` setting",
+          "category": "fixed",
+          "scope": "VSCode"
+        },
+        {
+          "text": "[VSCode] Fixed the prompt cache clock reading warm after the panel caught up on messages late, such as after the display was off or a remote window reconnected",
+          "category": "fixed",
+          "scope": "VSCode"
+        },
+        {
+          "text": "[Cloud sessions] Added a status filter to the Sessions and Runners lists on a self-hosted environment's Activity tab in admin settings; you can pick several statuses at once",
+          "category": "added",
+          "scope": "Cloud sessions"
+        },
+        {
+          "text": "[Cloud sessions] Fixed every cloud session waiting for a self-hosted runner showing the same queue position; each now shows how many sessions are ahead of it",
+          "category": "fixed",
+          "scope": "Cloud sessions"
+        },
+        {
+          "text": "[Cloud sessions] Fixed a message you send while Claude is still replying in a cloud session jumping above that reply when it finishes; it now stays below it, including after a reload",
+          "category": "fixed",
+          "scope": "Cloud sessions"
+        },
+        {
+          "text": "[Claude Tag] Changed Claude in Slack to show the footer with the session link, model and cost only on its newest reply in a thread; the reply before it drops the footer",
+          "category": "improved",
+          "scope": "Claude Tag"
+        },
+        {
+          "text": "[Claude Tag] Fixed links to URLs that contain parentheses breaking in some of Claude's Slack replies and task checklists, which showed stray bracket text and opened the wrong page",
+          "category": "fixed",
+          "scope": "Claude Tag"
+        },
+        {
+          "text": "[Claude Tag] Fixed Claude's Slack replies drawing color swatches beside codes that only look like hex colors, such as six-digit pull request numbers",
+          "category": "fixed",
+          "scope": "Claude Tag"
+        },
+        {
+          "text": "[Claude Tag] Added creating, editing and deleting workspace and channel memory files on the Activity page's Memory tab for members with the Claude Tag Admin permission",
+          "category": "added",
+          "scope": "Claude Tag"
+        },
+        {
+          "text": "[Claude Tag] Fixed the plugin confirmation card Claude posts in a Slack channel showing a plugin's ID instead of its name",
+          "category": "fixed",
+          "scope": "Claude Tag"
+        },
+        {
+          "text": "[Claude Tag] Fixed Claude in Slack posting a card to remove a plugin the channel's own settings don't include; it now explains where the plugin comes from instead",
+          "category": "fixed",
+          "scope": "Claude Tag"
+        },
+        {
+          "text": "[Claude Tag] Fixed Claude in Slack sometimes losing its reply when a session in a self-hosted environment moved to a new runner partway through a task",
+          "category": "fixed",
+          "scope": "Claude Tag"
+        },
+        {
+          "text": "[Code Review] Fixed the Code Review check sometimes staying \"in progress\" on a pull request after the review finished; it now shows the review's result",
+          "category": "fixed",
+          "scope": "Code Review"
+        },
+        {
+          "text": "[Code Review] Improved Code Review admin settings to say why a setting couldn't be saved, such as a policy restriction, instead of a generic failure message",
+          "category": "improved",
+          "scope": "Code Review"
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.296",
+      "github_body": "## What's changed\n\n- Added a `code` key to the Claude apps gateway's `managed.policies[]`: the same settings as `cli`, also applied in Claude Desktop's Code tab; beside `desktop`, it turns on Claude Desktop's gateway mode\n- Added `autoCompactWindow` to subagent frontmatter and `--agents` definitions, so a subagent can auto-compact earlier than the main conversation's window\n- Added `CLAUDE_CODE_WORKFLOW_SUBAGENT_MODEL` to run every workflow agent on one model while other subagents keep theirs\n- Added `CLAUDE_CODE_OVERLOADED_RETRY_MAX_DELAY_MS` environment variable to set a longer maximum delay for the backoff when retrying an overloaded (529) request\n- Added a note in `/plugin` on a plugin whose hooks are left out because another enabled plugin has the same name\n- Added an `allow_large` option to the Read tool so Claude can read a text file past the usual size limits in one call when it needs the whole file and the context has room\n- Fixed managed-settings `PreToolUse` hooks that deny a tool call with `\"continue\": false`, and managed `prompt` hooks that block one, refusing the call but not ending the turn\n- Fixed PostToolUse hooks in managed settings not applying `updatedMCPToolOutput` in some sessions\n- Fixed headless sessions starting a folder's `.mcp.json` or plugin MCP server that was switched off for that folder, after changing directory or reloading plugins\n- Fixed a Claude apps gateway that serves `allowedProviders` with `\"gateway\"` locking out laptops that name that gateway in user settings\n- Fixed a saved Claude apps gateway sign-in being ignored on machines whose managed settings set `forceLoginMethod` to `gateway` with no `forceLoginGatewayUrl` (regression in 2.1.295)\n- Fixed `--teleport` opening an empty conversation when the session's history could not be read\n- Fixed token counts for Haiku 5.5 and other models that take only adaptive thinking, which failed behind some gateways and were counted with budget thinking elsewhere\n- Fixed resumed subagents being told that the user rejected a tool call that a session shutdown had interrupted\n- Fixed hook output being altered when it contained text resembling a plugin hint tag\n- Fixed secret redaction in shared transcripts and debug logs missing some values that follow a key with no value, including in JSON written inside a shell string\n- Fixed a stray `52;c;…` escape sequence printed on screen after copying in older VTE-based terminals such as MATE Terminal\n- Fixed toasts and notifications waiting unseen for as long as the `/diff` panel or dialog was open\n- Fixed Esc or an interrupt during a `UserPromptSubmit` hook or a mod's `prompt.submit` hook ending headless sessions, clearing the typed prompt, or letting the unchecked prompt through\n- Fixed SessionStart hooks of a plugin loaded after a headless session starts being skipped when a different plugin with the same name, or another spelling of it, had already run\n- Fixed `claude self-hosted-runner` printing misleading errors when registration is refused: it now names the org admin setting, or says a restarted on-demand runner needs a fresh work order\n- Fixed a self-hosted runner session's git fetch, pull and push failing while another session of the same repository starts on a runner with `--capacity` above 1\n- Fixed workflow scripts silently truncating results, agent options and other values nested deeper than about 20,000 levels, and deeply nested results writing huge task output files\n- Fixed a plugin's served `$` methods running in the main session's working directory instead of the calling agent's, and ignoring the turn their calling hook holds\n- Fixed `$.agent.register` succeeding from a mod's hook that was still running after the mod was reloaded or removed; the call is now refused\n- Fixed `$.http.fetch` in mods refusing a `HEAD` request when the response declares a `Content-Length` over the 4 MiB body limit\n- Fixed `claude plugin marketplace add`, `marketplace update` and `plugin install` failing with an internal error for a marketplace named like `constructor`; `add` now refuses such names clearly\n- Fixed a plugin secret named `constructor` or `prototype` being deleted by the next save of that plugin's options\n- Fixed cloud sessions skipping auto mode's checks on Claude in Chrome actions that a saved permission allows when their feature flags had not loaded\n- Fixed `CLAUDE_CODE_RESUME_INTERRUPTED_TURN` re-running a finished turn after a restart when an MCP tool result had ended that turn\n- Fixed Bash permission checks auto-approving some commands that assign the `BASH_ARGV0` shell variable and then use it; these now prompt for approval\n- Fixed Edit and NotebookEdit replacing every non-ASCII character in files that are not valid UTF-8 (Windows-1252, Shift-JIS, GBK); such edits are now refused\n- Fixed a prompt sent just after `←` being run twice, once unseen in the foreground, when the background service was slow to answer\n- Fixed a prompt sent while SessionStart hooks were still running vanishing when `←` moved the session to the background; it is still not sent, but `↑` now brings it back\n- Fixed a late-loading plugin's SessionStart hook output reaching the new conversation after `/clear` in headless sessions\n- Fixed PowerShell commands not seeing variables that hooks write to CLAUDE_ENV_FILE (when the file holds only plain assignments)\n- Fixed Claude calling cloud sessions non-interactive and suggesting `/mcp` or `claude mcp` when an MCP server needs authentication\n- Fixed `/code-review` ending on a raw JSON array in cloud sessions, the Agent SDK and IDE integrations; the findings now print as a numbered list\n- Fixed auto mode occasionally refusing one update to your own artifact, saying its sharing had changed when it had not\n- Fixed skills synced from claude.ai never finishing their install, and being downloaded again at every sync, when several sessions share a config directory\n- Fixed a plugin synced from claude.ai being disabled when the marketplace dependency it declares was also synced from claude.ai\n- Fixed a startup hang on macOS when plugin paths copied from a Linux machine pointed under /home\n- Fixed the Workflow tool refusing script files with CRLF line endings, such as files checked out on Windows\n- Fixed OpenTelemetry `tool_result` events missing `git_commit_id` after `git commit -q` or `git -C <dir> commit`\n- Fixed `CLAUDE_CODE_TRANSCRIPT_LOCAL_GC` dropping a message from the saved transcript when its text held a Unicode line or paragraph separator (U+2028, U+2029)\n- Fixed `claude purge` leaving a prompt in the history file when its text held a Unicode line or paragraph separator (U+2028, U+2029)\n- Windows: Fixed PowerShell commands longer than about 1 KB always asking for permission, so allow rules and read-only detection now apply up to 32 KB\n- Windows: Fixed stdio MCP servers being force-killed at shutdown; stdin now closes first and the process tree is killed only if the server is still running after 300 ms\n- Windows: Fixed `claude plugin install` failing for GitHub `owner/repo` plugin sources on machines with no GitHub SSH key; the clone is now retried over HTTPS\n- Windows: Fixed `rm -rf /c/Users/<name>` in Git Bash not asking in bypass permissions mode\n- Improved fullscreen mode: the link under the mouse pointer is now underlined to show it can be opened\n- Improved transcript toggle (ctrl+o) responsiveness in code-heavy conversations by caching syntax-highlighted code blocks\n- Improved Claude Desktop's Code tab behind a Claude apps gateway: when a session can't start, including on a machine not set up for the gateway's `code` settings, the reason shows as a reply\n- Improved the errors for a refused cloud session: they now say why your organization's policy couldn't be loaded, and name an API key or auth token that overrides your claude.ai login\n- Improved `--debug` output to name unrecognized frontmatter fields in custom agent files, with a hint for likely typos\n- Improved auto mode: a tool call that wasn't run because auto mode's check had no usable answer now shows as a dim \"Not run\" row instead of a red error\n- Improved `--debug` output for hooks: command hooks on tool calls, prompts, SessionStart and Stop now log their command, plugin, outcome and duration when they finish, so a slow hook is identifiable\n- Improved `CLAUDE_CODE_TRANSCRIPT_LOCAL_GC`: a large transcript file is no longer rewritten when that would free under 10% of it\n- Updated `/cost`, the status line, `--max-budget-usd` and the SDK's cost figures to price Sonnet 5.5 cache reads at $0.10 per million tokens (was $0.20)\n- Updated the bundled dataviz skill: lighter violet for the seventh series in light mode, softer primary text in dark mode, and compact y-axis labels like 1K\n- Changed the default limit on MCP tool descriptions sent up front and on MCP server instructions from 2,048 to 4,096 characters\n- Changed `←`: a turn or `!` command started while the session moves to the background is now stopped instead of finishing out of sight\n- [VSCode] Fixed `claudeCode.spinnerVerbs` missing from the extension's settings, so settings.json now completes and validates it; a malformed value no longer breaks the chat panel\n- [VSCode] Changed Claude in Chrome to ask before browser actions in every session, including one connected with `@browser`, as the terminal does; allowing a site for the session stops repeat asks\n- [VSCode] Fixed chat links written as a full Windows path, such as C:\\repo\\file.ts or file:///C:/repo/file.ts, not opening the file on Windows\n- [VSCode] Fixed the working indicator still animating when reduced motion is turned on in your OS, in VS Code, or with the `prefersReducedMotion` setting\n- [VSCode] Fixed the prompt cache clock reading warm after the panel caught up on messages late, such as after the display was off or a remote window reconnected\n- [Cloud sessions] Added a status filter to the Sessions and Runners lists on a self-hosted environment's Activity tab in admin settings; you can pick several statuses at once\n- [Cloud sessions] Fixed every cloud session waiting for a self-hosted runner showing the same queue position; each now shows how many sessions are ahead of it\n- [Cloud sessions] Fixed a message you send while Claude is still replying in a cloud session jumping above that reply when it finishes; it now stays below it, including after a reload\n- [Claude Tag] Changed Claude in Slack to show the footer with the session link, model and cost only on its newest reply in a thread; the reply before it drops the footer\n- [Claude Tag] Fixed links to URLs that contain parentheses breaking in some of Claude's Slack replies and task checklists, which showed stray bracket text and opened the wrong page\n- [Claude Tag] Fixed Claude's Slack replies drawing color swatches beside codes that only look like hex colors, such as six-digit pull request numbers\n- [Claude Tag] Added creating, editing and deleting workspace and channel memory files on the Activity page's Memory tab for members with the Claude Tag Admin permission\n- [Claude Tag] Fixed the plugin confirmation card Claude posts in a Slack channel showing a plugin's ID instead of its name\n- [Claude Tag] Fixed Claude in Slack posting a card to remove a plugin the channel's own settings don't include; it now explains where the plugin comes from instead\n- [Claude Tag] Fixed Claude in Slack sometimes losing its reply when a session in a self-hosted environment moved to a new runner partway through a task\n- [Code Review] Fixed the Code Review check sometimes staying \"in progress\" on a pull request after the review finished; it now shows the review's result\n- [Code Review] Improved Code Review admin settings to say why a setting couldn't be saved, such as a policy restriction, instead of a generic failure message\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "added": 8,
+        "fixed": 52,
+        "other": 4,
+        "improved": 15
+      }
+    },
     {
       "version": "2.1.295",
       "published_at": "2026-10-08T19:48:38Z",
@@ -22424,7 +22840,7 @@
     },
     {
       "version": "2.1.176",
-      "published_at": "2026-06-12T21:53:27Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Session titles are now generated in the language of your conversation (set the `language` setting to pin a specific language)",
@@ -22539,11 +22955,10 @@
       ],
       "sources": [
         "changelog",
-        "github_releases",
         "whats_new"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.176",
-      "github_body": "## What's changed\n\n- Session titles are now generated in the language of your conversation (set the `language` setting to pin a specific language)\n- Added `footerLinksRegexes` setting for regex-matched link badges in the footer row, configurable via user or managed settings\n- Improved Bedrock credential caching: credentials from `awsCredentialExport` are now cached until their `Expiration` instead of a fixed 1 hour\n- Fixed `availableModels` enforcement: alias model picks can no longer be redirected to a blocked model via `ANTHROPIC_DEFAULT_*_MODEL` environment variables, and `/fast` now refuses to toggle when it would switch to a model outside the allowlist\n- Fixed auto mode failing on Fable 5 for organizations without Opus 4.8 enabled — the classifier now falls back to the best available Opus model\n- Fixed hook `if` conditions for Read/Edit/Write tool paths: documented patterns like `Edit(src/**)`, `Read(~/.ssh/**)`, and `Read(.env)` now match correctly\n- Fixed Linux sandbox failing to start when `.claude/settings.json` is a symlink with an absolute target\n- Fixed `/copy` and mouse-selection copy not reaching the system clipboard inside tmux over SSH, and tmux paste buffer not loading on versions older than 3.2\n- Fixed Remote Control connecting from web/mobile silently switching the session's model\n- Fixed Remote Control disconnect notifications showing a bare numeric code instead of a human-readable reason, and connection failures adding a duplicate line to the conversation transcript\n- Fixed Remote Control sessions not disconnecting when you sign in to a different account\n- Fixed `/cd` and worktree moves leaving the session reporting the previous directory's git branch\n- Fixed `claude agents`: pressing back in one window no longer detaches other windows attached to the same session\n- Fixed backgrounded sessions showing \"Working\" forever when `/bg` mid-turn had nothing left to continue\n- Fixed background agent search by PR URL: PRs opened during scheduled wakeups or while a job was blocked now appear in `claude agents` search\n- Fixed the agents view input showing no text cursor on Windows\n- Fixed `claude --bg -cn <name>` not seeding the session name\n- Fixed background sessions to neutralize Windows network paths in persisted state before respawn\n- Fixed background-session respawn rejecting malformed resume IDs from corrupted state files\n- Fixed the Windows background-service daemon not starting when `~/.claude/daemon` has the ReadOnly attribute set\n- Fixed cloud sessions failing with \"Could not resolve authentication method\" when idle for too long before being claimed\n- Background sessions now show clearer guidance when a window left open across an auto-update can't submit a reply, and `claude daemon status` explains version-skew behavior\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": "Week 24 · June 8–12, 2026 - Claude Code Docs Documentation Index Fetch the complete documentation index at: /docs/llms.txt Use this file to discover all available pages before exploring further. Skip to main content Claude Code Docs home page English Search... ⌘ K Ask Assistant ⌘ I Claude Developer Platform Open Claude Code Open Claude Code Search... Navigation What&#x27;s New Week 24 · June 8–12, 2026 Getting started Build with Claude Code Plugins Administration Configuration Reference Agent SDK What&#x27;s New Resources What&#x27;s New What&#x27;s new Week 37 · September 7–11 Week 36 · Aug 31 – Sep 4 Week 35 · August 24–28 Week 34 · August 17–21 Week 33 · August 10–14 Week 32 · August 3–7 Week 30 · July 20–24 Week 29 · July 13–17 Week 28 · July 6–10 Week 27 · June 29 – July 3 Week 26 · June 22–26 Week 25 · June 15–19 Week 24 · June 8–12 Week 23 · June 1–5 Week 22 · May 25–29 Week 21 · May 18–22 Week 20 · May 11–15 Week 19 · May 4–8 Week 18 · Apr 27 – May 1 Week 17 · Apr 20–24 Week 16 · Apr 13–17 Week 15 · Apr 6–10 Week 14 · Mar 30 – Apr 3 Week 13 · Mar 23–27 What&#x27;s New Week 24 · June 8–12, 2026 Copy page Copy page Move a session to a new directory with /cd, let subagents spa",
       "digest_url": "https://code.claude.com/docs/en/whats-new/2026-w24",
       "is_prerelease": false,
