@@ -1,9 +1,32 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-18T20:16:27.172609+00:00",
+  "generated_at": "2026-10-19T03:47:30.549529+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 453,
+  "release_count": 454,
   "releases": [
+    {
+      "version": "2.1.303",
+      "published_at": "2026-10-18T22:26:54Z",
+      "bullets": [
+        {
+          "text": "Bug fixes and reliability improvements",
+          "category": "other",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.303",
+      "github_body": "## What's changed\n\n- Bug fixes and reliability improvements\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "other": 1
+      }
+    },
     {
       "version": "2.1.302",
       "published_at": "2026-10-16T20:53:06Z",
@@ -24312,7 +24335,7 @@
     },
     {
       "version": "2.1.183",
-      "published_at": "2026-06-19T01:20:50Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Improved auto mode safety: destructive git commands (`git reset --hard`, `git checkout -- .`, `git clean -fd`, `git stash drop`) are now blocked when you didn't ask to discard local work, `git commit --amend` is blocked when the commit wasn't made by the agent this session, and `terraform destroy`/`pulumi destroy`/`cdk destroy` are blocked unless you asked for the specific stack",
@@ -24402,11 +24425,10 @@
       ],
       "sources": [
         "changelog",
-        "github_releases",
         "whats_new"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.183",
-      "github_body": "## What's changed\n\n- Improved auto mode safety: destructive git commands (`git reset --hard`, `git checkout -- .`, `git clean -fd`, `git stash drop`) are now blocked when you didn't ask to discard local work, `git commit --amend` is blocked when the commit wasn't made by the agent this session, and `terraform destroy`/`pulumi destroy`/`cdk destroy` are blocked unless you asked for the specific stack\n- Added a warning when the requested model is deprecated or automatically updated to a newer model, shown on stderr in print mode (`-p`) and now also covering models set in agent frontmatter\n- Added `attribution.sessionUrl` setting to omit the claude.ai session link from commits and PRs in web and Remote Control sessions\n- Added `/config --help` to list all available shorthand keys for `/config key=value`\n- Changed `/config` toggle behavior: Enter and Space both change the selected setting, and Esc now saves and closes instead of reverting\n- Removed the startup \"setup issues\" line under the logo — run `/doctor` to see configuration issues or use `--debug`\n- Fixed `thinking.disabled.display: Extra inputs are not permitted` 400 errors on subagent spawns and session-title generation for affected configurations\n- Fixed WebSearch returning empty results in subagents\n- Fixed the terminal cursor being stranded above the prompt after navigating history in vim mode with the native cursor enabled\n- Fixed fullscreen TUI corruption (statusline mid-screen, duplicated spinner rows, merged text) in Windows Terminal under heavy nested-subagent load\n- Fixed turns silently completing with no visible output when the model returned only a thinking block; Claude now re-prompts once\n- Fixed user-level skills appearing multiple times in slash-command autocomplete when multiple plugins are enabled\n- Fixed MCP servers requiring authentication exposing auth-stub tools to the model in headless/SDK mode\n- Fixed tmux teammate panes failing to launch when the shell has slow rc-file initialization, and keystrokes typed during agent spawn leaking into the new tmux pane instead of the leader prompt\n- Fixed background tasks started by a teammate being killed when the teammate finishes a turn\n- Fixed scheduled task and webhook trigger deliveries being treated as keyboard input; they now classify as task notifications and can no longer approve a pending action or set the session title in auto mode\n- Fixed focus mode showing \"Ran N PostToolUse hooks\" timing lines under each response\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": "Week 25 · June 15–19, 2026 - Claude Code Docs Documentation Index Fetch the complete documentation index at: /docs/llms.txt Use this file to discover all available pages before exploring further. Skip to main content Claude Code Docs home page English Search... ⌘ K Ask Assistant ⌘ I Claude Developer Platform Open Claude Code Open Claude Code Search... Navigation What&#x27;s New Week 25 · June 15–19, 2026 Getting started Build with Claude Code Plugins Administration Configuration Reference Agent SDK What&#x27;s New Resources What&#x27;s New What&#x27;s new Week 37 · September 7–11 Week 36 · Aug 31 – Sep 4 Week 35 · August 24–28 Week 34 · August 17–21 Week 33 · August 10–14 Week 32 · August 3–7 Week 30 · July 20–24 Week 29 · July 13–17 Week 28 · July 6–10 Week 27 · June 29 – July 3 Week 26 · June 22–26 Week 25 · June 15–19 Week 24 · June 8–12 Week 23 · June 1–5 Week 22 · May 25–29 Week 21 · May 18–22 Week 20 · May 11–15 Week 19 · May 4–8 Week 18 · Apr 27 – May 1 Week 17 · Apr 20–24 Week 16 · Apr 13–17 Week 15 · Apr 6–10 Week 14 · Mar 30 – Apr 3 Week 13 · Mar 23–27 What&#x27;s New Week 25 · June 15–19, 2026 Copy page Copy page Publish a live, shareable page from your session with Arti",
       "digest_url": "https://code.claude.com/docs/en/whats-new/2026-w25",
       "is_prerelease": false,
