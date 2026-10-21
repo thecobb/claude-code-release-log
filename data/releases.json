@@ -1,9 +1,37 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-20T21:21:59.421667+00:00",
+  "generated_at": "2026-10-21T03:48:03.229875+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 456,
+  "release_count": 457,
   "releases": [
+    {
+      "version": "2.1.306",
+      "published_at": "2026-10-21T03:16:31Z",
+      "bullets": [
+        {
+          "text": "Fixed `claude -p` inside cloud sessions reporting \"Not logged in\" when started without the session's environment variables",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed an API error being replaced by \"prompt is too long\", and an unneeded compaction, in sessions with many MCP tools",
+          "category": "fixed",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.306",
+      "github_body": "## What's changed\n\n- Fixed `claude -p` inside cloud sessions reporting \"Not logged in\" when started without the session's environment variables\n- Fixed an API error being replaced by \"prompt is too long\", and an unneeded compaction, in sessions with many MCP tools\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "fixed": 2
+      }
+    },
     {
       "version": "2.1.305",
       "published_at": "2026-10-20T20:46:50Z",
@@ -24612,7 +24640,7 @@
     },
     {
       "version": "2.1.187",
-      "published_at": "2026-06-23T21:03:48Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Added `sandbox.credentials` setting to block sandboxed commands from reading credential files and secret environment variables",
@@ -24722,11 +24750,10 @@
       ],
       "sources": [
         "changelog",
-        "github_releases",
         "whats_new"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.187",
-      "github_body": "## What's changed\n\n- Added `sandbox.credentials` setting to block sandboxed commands from reading credential files and secret environment variables\n- Added org-configured model restrictions to the model picker, `--model`, `/model`, and `ANTHROPIC_MODEL`, with a \"restricted by your organization's settings\" message when a restricted model is selected\n- Added mouse click support to select menus (permission prompts, `/model`, `/config`, etc.) in fullscreen mode\n- Fixed `--resume` failing with \"No conversation found\" when the original `-p` run produced no model turns\n- Fixed `--json-schema` and workflow `agent({schema})` structured output: the model can no longer re-call `StructuredOutput` indefinitely after a successful call, and follow-up turns now reliably return structured output\n- Fixed remote MCP tool calls that hang with no response for 5 minutes — they now abort with an error instead of blocking indefinitely (override with `CLAUDE_CODE_MCP_TOOL_IDLE_TIMEOUT`)\n- Fixed Claude Code Remote sessions taking ~2.7s longer to start after the agent proxy CA system-trust install was added\n- Fixed pasted Korean/CJK text turning into mojibake in terminals that deliver paste as per-byte extended-key events\n- Fixed `/update` over Remote Control hanging when a startup trust dialog would have shown\n- Fixed background jobs in the agents view getting stuck in \"working\" indefinitely when the agent ended a turn without producing structured output\n- Fixed channel connections dropping after navigating to the agents view and back, and after `/bg`, `/tui`, or `/update`\n- Fixed agent stop notifications not correctly attributing who stopped the agent, and improved wording (\"finished\"/\"stopped\" instead of \"came to rest\")\n- Fixed subagent depth tracking: resumed subagents now restore their original spawn depth, and forked subagents now count toward the depth cap\n- Fixed leaked agent worktree registrations: locked `.git/worktrees/` entries from killed agents are now cleaned up automatically\n- Fixed Cmd+click not opening URLs in fullscreen mode in Ghostty on macOS\n- Fixed `claude --help` not listing the `--bg`/`--background` flag\n- Fixed Esc, Ctrl-C, and Ctrl-D not working while `/share` is uploading\n- Improved `/install-github-app`: GitHub Actions workflow setup is now optional — you can install just the GitHub App and skip the workflow/secret steps\n- Improved `/btw` with ←/→ arrow navigation to step through earlier answers\n- Improved `/plugin` to surface plugins you haven't used recently so you can clean them up\n- [VSCode] Fixed extension becoming unresponsive when resuming a large session\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": "Week 26 · June 22–26, 2026 - Claude Code Docs Documentation Index Fetch the complete documentation index at: /docs/llms.txt Use this file to discover all available pages before exploring further. Skip to main content Claude Code Docs home page English Search... ⌘ K Ask Assistant ⌘ I Claude Developer Platform Open Claude Code Open Claude Code Search... Navigation What&#x27;s New Week 26 · June 22–26, 2026 Getting started Build with Claude Code Plugins Administration Configuration Reference Agent SDK What&#x27;s New Resources What&#x27;s New What&#x27;s new Week 37 · September 7–11 Week 36 · Aug 31 – Sep 4 Week 35 · August 24–28 Week 34 · August 17–21 Week 33 · August 10–14 Week 32 · August 3–7 Week 30 · July 20–24 Week 29 · July 13–17 Week 28 · July 6–10 Week 27 · June 29 – July 3 Week 26 · June 22–26 Week 25 · June 15–19 Week 24 · June 8–12 Week 23 · June 1–5 Week 22 · May 25–29 Week 21 · May 18–22 Week 20 · May 11–15 Week 19 · May 4–8 Week 18 · Apr 27 – May 1 Week 17 · Apr 20–24 Week 16 · Apr 13–17 Week 15 · Apr 6–10 Week 14 · Mar 30 – Apr 3 Week 13 · Mar 23–27 What&#x27;s New Week 26 · June 22–26, 2026 Copy page Copy page Authenticate MCP servers from your shell with claude mcp l",
       "digest_url": "https://code.claude.com/docs/en/whats-new/2026-w26",
       "is_prerelease": false,
