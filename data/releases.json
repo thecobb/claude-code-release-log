@@ -1,9 +1,245 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-21T21:23:26.036233+00:00",
+  "generated_at": "2026-10-22T03:47:56.887575+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 457,
+  "release_count": 458,
   "releases": [
+    {
+      "version": "2.1.307",
+      "published_at": "2026-10-21T22:17:02Z",
+      "bullets": [
+        {
+          "text": "Added `/claude-api api-version` to move Claude API code to API version `2026-10-21`",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Added the `claude_code.safety_event` OpenTelemetry event for each tool call a permission rule, auto mode, a safety check, a hook or the sandbox stopped, prompted or sent back",
+          "category": "added",
+          "scope": null
+        },
+        {
+          "text": "Fixed requests failing with a model-not-found error when `CLAUDE_CODE_DISABLE_1M_CONTEXT` is set and the model is an alias with the `[1m]` suffix, such as `opus[1m]`",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed the `prompt-caching-scope` beta header being sent behind custom `ANTHROPIC_BASE_URL` gateways and on Foundry, where it has no effect",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed MCP servers showing \"needs authentication\" in `claude -p` on macOS while the login keychain was locked; they now say why, and the next run after an unlock connects without a new sign-in",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed MCP servers being reported as timed out, and staying failed in headless runs, when a macOS or Linux computer went to sleep while they were connecting",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed HTTP MCP tool calls being sent twice when the connection closed mid-call; only read-only or idempotent tools are now retried",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a turn sometimes starting without an SDK MCP server's latest tools when a background task was running",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed some \"Autocompact is thrashing\" errors in turns that read many PDF pages, images or other large tool results",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/autocompact` in cloud sessions going back to the default window after the session restarted",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a conversation cleared with `/clear` sometimes coming back when a cloud or self-hosted runner session restarted",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `CLAUDE_STREAM_FIRST_BYTE_TIMEOUT_MS` being ignored in Claude apps gateway sessions",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed telemetry from Claude Desktop sessions behind a Claude apps gateway being rejected when `OTEL_EXPORTER_OTLP_HEADERS` is set",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/permissions` > Recently denied not showing the denied shell command, and auto mode's local classifier ignoring an approval from there when it checks a retried command; approving a row now names the command, not its description",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed `/help` and the `/` command menu showing long model-facing descriptions for bundled skills such as `/claude-api` instead of their short descriptions",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed subagent transcripts recording placeholder token usage and an empty stop reason for streamed responses",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed model switches through the Agent SDK's `setModel()`, and apps built on it, being refused when the API took more than 5 seconds to confirm the model; Claude Code now waits up to 15 seconds",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed a background command stopped through a connected app (such as the desktop app archiving an idle session) being reported to Claude as stopped by the user; the notice now names its output file",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed WebFetch in Cowork cloud sessions reporting a tool error when a site answered with a 4xx status or a robots.txt refusal; it is now a normal result, as in local sessions",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed write tools on a directly configured GitHub MCP server showing a form that closed without creating anything in the desktop app's Code tab",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Fixed Artifact tool reads failing with a connection reset when the server had closed a reused connection",
+          "category": "fixed",
+          "scope": null
+        },
+        {
+          "text": "Self-hosted runner: Fixed sessions with `--use-anthropic-git-proxy` committing a `.claude/settings.local.json` left in the clone by an earlier session",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Self-hosted runner: Fixed archiving or requeueing a session, or stopping the runner, during its checkout hook leaving the hook's processes running and the runner's slot held",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Improved recovery from unparseable tool calls: Claude Code now retries the call up to twice before ending the turn with an error",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved fork subagents launched together: each is now told which launch is its own, so forks are much less likely to try to start each other's work",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved browser sign-in: the success page now appears as soon as sign-in completes, without waiting for your account profile to load",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved web search errors in cloud and self-hosted runner sessions: a search refused with a 403 that gives a reason now shows that reason instead of a generic \"Authentication error\"",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved the time to the first reply in cloud sessions when one of the desktop app's MCP servers can't connect",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Improved Remote Control connect time for sessions whose transcript contains large pasted images or PDF reads",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed the notice Claude gets when the WebSearch budget is used up to also tell it not to query search engines in a browser or through computer use",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Changed the `axScreenReader` setting and `CLAUDE_AX_SCREEN_READER` in a settings `env` block to apply only from user, managed or `--settings` settings (since 2.1.305)",
+          "category": "improved",
+          "scope": null
+        },
+        {
+          "text": "Self-hosted runner: Changed checkout hooks to be stopped after 30 minutes by default, failing the session's setup; if yours needs longer, raise `--checkout-hook-timeout-min` or set it to `0`",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "Self-hosted runner: Changed the certificate file built for Anthropic-managed git to filter its trusted certificates as the CLI does; a `[runner:warn]` line gives the number left out",
+          "category": "other",
+          "scope": null
+        },
+        {
+          "text": "[VSCode] Added a notice on the microphone button when voice dictation stops by itself (15 seconds without recognized speech, or the 2-minute limit), saying why and that the text so far is kept",
+          "category": "added",
+          "scope": "VSCode"
+        },
+        {
+          "text": "[VSCode] Fixed a long prompt expanded with Show more covering the whole chat panel: a pinned prompt is now capped at 40% of the panel and scrolls",
+          "category": "fixed",
+          "scope": "VSCode"
+        },
+        {
+          "text": "[VSCode] Fixed part of a list item or table cell with LaTeX math pasting as a new list or table in rich text editors",
+          "category": "fixed",
+          "scope": "VSCode"
+        },
+        {
+          "text": "[VSCode] Fixed dictation failing behind a TLS-inspecting proxy when `NODE_EXTRA_CA_CERTS` is set only in `~/.claude/settings.json`; it now also follows `CLAUDE_CODE_CERT_STORE`",
+          "category": "fixed",
+          "scope": "VSCode"
+        },
+        {
+          "text": "[VSCode] Changed the \"still open somewhere else\" notice to also cover a Claude process left over from an extension restart, which usually ends on its own within about 10 minutes",
+          "category": "improved",
+          "scope": "VSCode"
+        },
+        {
+          "text": "[VSCode] Changed voice dictation to filter its trusted certificates as the CLI does",
+          "category": "improved",
+          "scope": "VSCode"
+        },
+        {
+          "text": "[VSCode] Changed the extension's own requests to filter their trusted certificates as the CLI does, and to trust the `NODE_EXTRA_CA_CERTS` file named in the environment or in user settings",
+          "category": "improved",
+          "scope": "VSCode"
+        },
+        {
+          "text": "[Cloud sessions] Fixed the repository picker saying \"No repositories match\" while a search was still running; it now shows \"Searching…\" until the results arrive",
+          "category": "fixed",
+          "scope": "Cloud sessions"
+        },
+        {
+          "text": "[Cloud sessions] Fixed the \"Waiting for a runner\" status on self-hosted environments being cut off; with on-demand runners it now counts up from your last message and shows failed attempts",
+          "category": "fixed",
+          "scope": "Cloud sessions"
+        },
+        {
+          "text": "[Code Review] Added `@claude review stop` (also `off` and `pause`) to Code Review, ending an `@claude review always` subscription on a pull request without starting a new review",
+          "category": "added",
+          "scope": "Code Review"
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.307",
+      "github_body": "## What's changed\n\n- Added `/claude-api api-version` to move Claude API code to API version `2026-10-21`\n- Added the `claude_code.safety_event` OpenTelemetry event for each tool call a permission rule, auto mode, a safety check, a hook or the sandbox stopped, prompted or sent back\n- Fixed requests failing with a model-not-found error when `CLAUDE_CODE_DISABLE_1M_CONTEXT` is set and the model is an alias with the `[1m]` suffix, such as `opus[1m]`\n- Fixed the `prompt-caching-scope` beta header being sent behind custom `ANTHROPIC_BASE_URL` gateways and on Foundry, where it has no effect\n- Fixed MCP servers showing \"needs authentication\" in `claude -p` on macOS while the login keychain was locked; they now say why, and the next run after an unlock connects without a new sign-in\n- Fixed MCP servers being reported as timed out, and staying failed in headless runs, when a macOS or Linux computer went to sleep while they were connecting\n- Fixed HTTP MCP tool calls being sent twice when the connection closed mid-call; only read-only or idempotent tools are now retried\n- Fixed a turn sometimes starting without an SDK MCP server's latest tools when a background task was running\n- Fixed some \"Autocompact is thrashing\" errors in turns that read many PDF pages, images or other large tool results\n- Fixed `/autocompact` in cloud sessions going back to the default window after the session restarted\n- Fixed a conversation cleared with `/clear` sometimes coming back when a cloud or self-hosted runner session restarted\n- Fixed `CLAUDE_STREAM_FIRST_BYTE_TIMEOUT_MS` being ignored in Claude apps gateway sessions\n- Fixed telemetry from Claude Desktop sessions behind a Claude apps gateway being rejected when `OTEL_EXPORTER_OTLP_HEADERS` is set\n- Fixed `/permissions` > Recently denied not showing the denied shell command, and auto mode's local classifier ignoring an approval from there when it checks a retried command; approving a row now names the command, not its description\n- Fixed `/help` and the `/` command menu showing long model-facing descriptions for bundled skills such as `/claude-api` instead of their short descriptions\n- Fixed subagent transcripts recording placeholder token usage and an empty stop reason for streamed responses\n- Fixed model switches through the Agent SDK's `setModel()`, and apps built on it, being refused when the API took more than 5 seconds to confirm the model; Claude Code now waits up to 15 seconds\n- Fixed a background command stopped through a connected app (such as the desktop app archiving an idle session) being reported to Claude as stopped by the user; the notice now names its output file\n- Fixed WebFetch in Cowork cloud sessions reporting a tool error when a site answered with a 4xx status or a robots.txt refusal; it is now a normal result, as in local sessions\n- Fixed write tools on a directly configured GitHub MCP server showing a form that closed without creating anything in the desktop app's Code tab\n- Fixed Artifact tool reads failing with a connection reset when the server had closed a reused connection\n- Self-hosted runner: Fixed sessions with `--use-anthropic-git-proxy` committing a `.claude/settings.local.json` left in the clone by an earlier session\n- Self-hosted runner: Fixed archiving or requeueing a session, or stopping the runner, during its checkout hook leaving the hook's processes running and the runner's slot held\n- Improved recovery from unparseable tool calls: Claude Code now retries the call up to twice before ending the turn with an error\n- Improved fork subagents launched together: each is now told which launch is its own, so forks are much less likely to try to start each other's work\n- Improved browser sign-in: the success page now appears as soon as sign-in completes, without waiting for your account profile to load\n- Improved web search errors in cloud and self-hosted runner sessions: a search refused with a 403 that gives a reason now shows that reason instead of a generic \"Authentication error\"\n- Improved the time to the first reply in cloud sessions when one of the desktop app's MCP servers can't connect\n- Improved Remote Control connect time for sessions whose transcript contains large pasted images or PDF reads\n- Changed the notice Claude gets when the WebSearch budget is used up to also tell it not to query search engines in a browser or through computer use\n- Changed the `axScreenReader` setting and `CLAUDE_AX_SCREEN_READER` in a settings `env` block to apply only from user, managed or `--settings` settings (since 2.1.305)\n- Self-hosted runner: Changed checkout hooks to be stopped after 30 minutes by default, failing the session's setup; if yours needs longer, raise `--checkout-hook-timeout-min` or set it to `0`\n- Self-hosted runner: Changed the certificate file built for Anthropic-managed git to filter its trusted certificates as the CLI does; a `[runner:warn]` line gives the number left out\n- [VSCode] Added a notice on the microphone button when voice dictation stops by itself (15 seconds without recognized speech, or the 2-minute limit), saying why and that the text so far is kept\n- [VSCode] Fixed a long prompt expanded with Show more covering the whole chat panel: a pinned prompt is now capped at 40% of the panel and scrolls\n- [VSCode] Fixed part of a list item or table cell with LaTeX math pasting as a new list or table in rich text editors\n- [VSCode] Fixed dictation failing behind a TLS-inspecting proxy when `NODE_EXTRA_CA_CERTS` is set only in `~/.claude/settings.json`; it now also follows `CLAUDE_CODE_CERT_STORE`\n- [VSCode] Changed the \"still open somewhere else\" notice to also cover a Claude process left over from an extension restart, which usually ends on its own within about 10 minutes\n- [VSCode] Changed voice dictation to filter its trusted certificates as the CLI does\n- [VSCode] Changed the extension's own requests to filter their trusted certificates as the CLI does, and to trust the `NODE_EXTRA_CA_CERTS` file named in the environment or in user settings\n- [Cloud sessions] Fixed the repository picker saying \"No repositories match\" while a search was still running; it now shows \"Searching…\" until the results arrive\n- [Cloud sessions] Fixed the \"Waiting for a runner\" status on self-hosted environments being cut off; with on-demand runners it now counts up from your last message and shows failed attempts\n- [Code Review] Added `@claude review stop` (also `off` and `pause`) to Code Review, ending an `@claude review always` subscription on a pull request without starting a new review\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "added": 4,
+        "fixed": 24,
+        "other": 4,
+        "improved": 11
+      }
+    },
     {
       "version": "2.1.306",
       "published_at": "2026-10-21T03:16:31Z",
@@ -24588,7 +24824,7 @@
     },
     {
       "version": "2.1.190",
-      "published_at": "2026-06-24T15:53:56Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Bug fixes and reliability improvements",
@@ -24598,11 +24834,10 @@
       ],
       "sources": [
         "changelog",
-        "github_releases",
         "whats_new"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.190",
-      "github_body": "## What's changed\n\n- Bug fixes and reliability improvements\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": "Week 26 · June 22–26, 2026 - Claude Code Docs Documentation Index Fetch the complete documentation index at: /docs/llms.txt Use this file to discover all available pages before exploring further. Skip to main content Claude Code Docs home page English Search... ⌘ K Ask Assistant ⌘ I Claude Developer Platform Open Claude Code Open Claude Code Search... Navigation What&#x27;s New Week 26 · June 22–26, 2026 Getting started Build with Claude Code Plugins Administration Configuration Reference Agent SDK What&#x27;s New Resources What&#x27;s New What&#x27;s new Week 37 · September 7–11 Week 36 · Aug 31 – Sep 4 Week 35 · August 24–28 Week 34 · August 17–21 Week 33 · August 10–14 Week 32 · August 3–7 Week 30 · July 20–24 Week 29 · July 13–17 Week 28 · July 6–10 Week 27 · June 29 – July 3 Week 26 · June 22–26 Week 25 · June 15–19 Week 24 · June 8–12 Week 23 · June 1–5 Week 22 · May 25–29 Week 21 · May 18–22 Week 20 · May 11–15 Week 19 · May 4–8 Week 18 · Apr 27 – May 1 Week 17 · Apr 20–24 Week 16 · Apr 13–17 Week 15 · Apr 6–10 Week 14 · Mar 30 – Apr 3 Week 13 · Mar 23–27 What&#x27;s New Week 26 · June 22–26, 2026 Copy page Copy page Authenticate MCP servers from your shell with claude mcp l",
       "digest_url": "https://code.claude.com/docs/en/whats-new/2026-w26",
       "is_prerelease": false,
