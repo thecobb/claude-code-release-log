@@ -1,9 +1,32 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-22T03:47:56.887575+00:00",
+  "generated_at": "2026-10-22T11:22:10.345644+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 458,
+  "release_count": 459,
   "releases": [
+    {
+      "version": "2.1.308",
+      "published_at": "2026-10-22T04:34:55Z",
+      "bullets": [
+        {
+          "text": "Bug fixes and reliability improvements",
+          "category": "other",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.308",
+      "github_body": "## What's changed\n\n- Bug fixes and reliability improvements\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "other": 1
+      }
+    },
     {
       "version": "2.1.307",
       "published_at": "2026-10-21T22:17:02Z",
@@ -24702,7 +24725,7 @@
     },
     {
       "version": "2.1.191",
-      "published_at": "2026-06-24T21:58:12Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Added `/rewind` support for resuming a conversation from before `/clear` was run",
@@ -24807,11 +24830,10 @@
       ],
       "sources": [
         "changelog",
-        "github_releases",
         "whats_new"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.191",
-      "github_body": "## What's changed\n\n- Added `/rewind` support for resuming a conversation from before `/clear` was run\n- Fixed scroll position jumping to the bottom while reading earlier output during a streaming response\n- Fixed background agents resurrecting after being stopped — stopping an agent from the tasks panel is now permanent\n- Fixed `/voice` showing a generic \"not available\" message when disabled by an organization's policy — it now explains the restriction\n- Fixed `/login` URL opening truncated in Windows Terminal when it wraps across lines\n- Fixed Cmd+click on links in fullscreen mode for Ghostty over ssh/tmux\n- Fixed `claude agents` sending builtin slash commands like `/usage` to background sessions as prompt text instead of showing a hint\n- Fixed `claude agents` job rows showing full filesystem paths for pasted images instead of the `[Image #N]` placeholder\n- Fixed hooks with comma-separated matchers (e.g. `\"Bash,PowerShell\"`) silently never firing\n- Fixed `/permissions` Recently-denied tab: approving a denial now persists on close instead of being silently discarded\n- Fixed the agent panel jumping by one row when scrolling the roster past the overflow cap\n- Fixed the welcome splash art overflowing the default 80×24 macOS Terminal window\n- Fixed managed settings: `forceRemoteSettingsRefresh` now takes effect when set via MDM or file policy, and the fetch sends `Cache-Control: no-cache` to prevent proxies from serving stale responses\n- Improved sandbox network permission dialog: hosts you allow with \"Yes\" are now remembered for the rest of the session instead of re-prompting on every connection\n- Improved MCP server reliability: capability discovery (`tools/list`, `prompts/list`, `resources/list`) now retries transient network errors with short backoff\n- Improved MCP OAuth: discovery and token requests now retry once after transient network errors, and headless environments skip the browser popup and go straight to the paste-the-URL prompt\n- Improved MCP error messages: HTTP 404 errors now show the URL and point to your MCP config\n- Improved vim mode prompt-history search (NORMAL `/`) to hint how to reach slash commands\n- Reduced CPU usage during streaming responses by ~37% by coalescing text updates to 100ms\n- Reduced long-session memory growth from terminal output cache\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": "Week 26 · June 22–26, 2026 - Claude Code Docs Documentation Index Fetch the complete documentation index at: /docs/llms.txt Use this file to discover all available pages before exploring further. Skip to main content Claude Code Docs home page English Search... ⌘ K Ask Assistant ⌘ I Claude Developer Platform Open Claude Code Open Claude Code Search... Navigation What&#x27;s New Week 26 · June 22–26, 2026 Getting started Build with Claude Code Plugins Administration Configuration Reference Agent SDK What&#x27;s New Resources What&#x27;s New What&#x27;s new Week 37 · September 7–11 Week 36 · Aug 31 – Sep 4 Week 35 · August 24–28 Week 34 · August 17–21 Week 33 · August 10–14 Week 32 · August 3–7 Week 30 · July 20–24 Week 29 · July 13–17 Week 28 · July 6–10 Week 27 · June 29 – July 3 Week 26 · June 22–26 Week 25 · June 15–19 Week 24 · June 8–12 Week 23 · June 1–5 Week 22 · May 25–29 Week 21 · May 18–22 Week 20 · May 11–15 Week 19 · May 4–8 Week 18 · Apr 27 – May 1 Week 17 · Apr 20–24 Week 16 · Apr 13–17 Week 15 · Apr 6–10 Week 14 · Mar 30 – Apr 3 Week 13 · Mar 23–27 What&#x27;s New Week 26 · June 22–26, 2026 Copy page Copy page Authenticate MCP servers from your shell with claude mcp l",
       "digest_url": "https://code.claude.com/docs/en/whats-new/2026-w26",
       "is_prerelease": false,
