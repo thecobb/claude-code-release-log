@@ -1,9 +1,32 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-10T01:16:51.582801+00:00",
+  "generated_at": "2026-11-10T14:30:42.363329+00:00",
   "default_repo": "anthropics/claude-code",
-  "release_count": 469,
+  "release_count": 470,
   "releases": [
+    {
+      "version": "2.1.322",
+      "published_at": "2026-11-10T02:29:43Z",
+      "bullets": [
+        {
+          "text": "Added fast mode on Vertex in the global, us and eu regions, falling back to standard speed if Vertex refuses it",
+          "category": "added",
+          "scope": null
+        }
+      ],
+      "sources": [
+        "changelog",
+        "github_releases"
+      ],
+      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.322",
+      "github_body": "## What's changed\n\n- Added fast mode on Vertex in the global, us and eu regions, falling back to standard speed if Vertex refuses it\n",
+      "digest_summary": null,
+      "digest_url": null,
+      "is_prerelease": false,
+      "category_counts": {
+        "added": 1
+      }
+    },
     {
       "version": "2.1.321",
       "published_at": "2026-11-09T19:22:30Z",
@@ -27992,7 +28015,7 @@
     },
     {
       "version": "2.1.204",
-      "published_at": "2026-07-08T00:27:50Z",
+      "published_at": null,
       "bullets": [
         {
           "text": "Fixed hook events not streaming during SessionStart hooks in headless sessions, which could cause remote workers to be idle-reaped mid-hook",
@@ -28002,11 +28025,10 @@
       ],
       "sources": [
         "changelog",
-        "github_releases",
         "whats_new"
       ],
-      "github_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.204",
-      "github_body": "## What's changed\n\n- Fixed hook events not streaming during SessionStart hooks in headless sessions, which could cause remote workers to be idle-reaped mid-hook\n",
+      "github_url": null,
+      "github_body": null,
       "digest_summary": "Week 28 · July 6–10, 2026 - Claude Code Docs Documentation Index Fetch the complete documentation index at: /docs/llms.txt Use this file to discover all available pages before exploring further. Skip to main content Assistant Responses are generated using AI and may contain mistakes. Claude Code Docs home page English Search... ⌘ K Ask Assistant ⌘ I Claude Developer Platform Open Claude Code Open Claude Code Search... Navigation What&#x27;s New Week 28 · July 6–10, 2026 Getting started Build with Claude Code Plugins Administration Configuration Reference Agent SDK What&#x27;s New Resources What&#x27;s New What&#x27;s new Week 37 · September 7–11 Week 36 · Aug 31 – Sep 4 Week 35 · August 24–28 Week 34 · August 17–21 Week 33 · August 10–14 Week 32 · August 3–7 Week 30 · July 20–24 Week 29 · July 13–17 Week 28 · July 6–10 Week 27 · June 29 – July 3 Week 26 · June 22–26 Week 25 · June 15–19 Week 24 · June 8–12 Week 23 · June 1–5 Week 22 · May 25–29 Week 21 · May 18–22 Week 20 · May 11–15 Week 19 · May 4–8 Week 18 · Apr 27 – May 1 Week 17 · Apr 20–24 Week 16 · Apr 13–17 Week 15 · Apr 6–10 Week 14 · Mar 30 – Apr 3 Week 13 · Mar 23–27 What&#x27;s New Week 28 · July 6–10, 2026 Copy page Co",
       "digest_url": "https://code.claude.com/docs/en/whats-new/2026-w28",
       "is_prerelease": false,
