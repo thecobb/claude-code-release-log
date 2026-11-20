@@ -529,9 +529,31 @@ function renderInlineMarkdown(s) {
   s = s.replace(/`([^`]+)`/g, (_, c) => `<code>${c}</code>`);
   s = s.replace(/\*\*([^*]+)\*\*/g, (_, c) => `<strong>${c}</strong>`);
   s = s.replace(/(^|[\s(])\*([^*]+)\*/g, (_, lead, c) => `${lead}<em>${c}</em>`);
-  s = s.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, t, u) =>
-    `<a href="${esc(u)}" target="_blank" rel="noopener noreferrer">${t}</a>`);
+  s = s.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, t, u) => {
+    // `u` is already HTML-escaped (esc ran over the whole string). Release
+    // text comes from third parties (upstream CHANGELOG, custom sources,
+    // imported state), so only http(s) targets become live links; anything
+    // else (javascript:, data:, vbscript:, ...) renders as plain text.
+    const href = safeLinkHref(unesc(u));
+    return href === null
+      ? t
+      : `<a href="${esc(href)}" target="_blank" rel="noopener noreferrer">${t}</a>`;
+  });
   return s;
+}
+
+/** Returns the resolved URL if it is http: or https:, else null. */
+function safeLinkHref(raw) {
+  let url;
+  try { url = new URL(raw, location.href); } catch { return null; }
+  return url.protocol === "http:" || url.protocol === "https:" ? url.href : null;
+}
+
+/** Inverse of esc(). */
+function unesc(s) {
+  return String(s)
+    .replaceAll("&#39;", "'").replaceAll("&quot;", '"')
+    .replaceAll("&gt;", ">").replaceAll("&lt;", "<").replaceAll("&amp;", "&");
 }
 
 function highlight(html, q) {
